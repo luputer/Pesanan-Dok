@@ -1,12 +1,15 @@
 /*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
  */
 package src;
 
+import javax.swing.ImageIcon;
+
 /**
  *
- * @author Saidi
+ * @author USER
  */
 public class SplashScreen extends javax.swing.JFrame {
 
@@ -26,41 +29,80 @@ public class SplashScreen extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        bgPanel = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
-        Loading = new javax.swing.JProgressBar();
+        jPanel1 = new javax.swing.JPanel();
+        jProgressBar1 = new javax.swing.JProgressBar();
+        jLabel4 = new javax.swing.JLabel();
+        loading = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Splash Screen");
         setUndecorated(true);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowActivated(java.awt.event.WindowEvent evt) {
+                formWindowActivated(evt);
+            }
+        });
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        bgPanel.setBackground(new java.awt.Color(255, 255, 255));
-        bgPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/asset/Elegant_and_Minimalist_Medical_Logo__1_-removebg-preview 1 (1).png"))); // NOI18N
-        bgPanel.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 20, 580, 330));
+        jProgressBar1.setBackground(new java.awt.Color(255, 255, 255));
+        jProgressBar1.setForeground(new java.awt.Color(25, 131, 237));
+        jProgressBar1.setBorderPainted(false);
+        jPanel1.add(jProgressBar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 380, 220, 23));
 
-        Loading.setBackground(new java.awt.Color(153, 255, 255));
-        Loading.setForeground(new java.awt.Color(102, 102, 255));
-        Loading.setBorder(new javax.swing.border.MatteBorder(null));
-        Loading.setCursor(new java.awt.Cursor(java.awt.Cursor.WAIT_CURSOR));
-        bgPanel.add(Loading, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 400, 770, 30));
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/asset/ezgif.com-resize (1).gif"))); // NOI18N
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 320, -1, 55));
+
+        loading.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
+        loading.setText("99 %");
+        jPanel1.add(loading, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 420, -1, 11));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/asset/Group 4.png"))); // NOI18N
         jLabel3.setText("jLabel3");
-        bgPanel.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, 810, 480));
+        jLabel3.setPreferredSize(new java.awt.Dimension(400, 480));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 840, 480));
 
-        getContentPane().add(bgPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(-30, 0, 830, 480));
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/asset/Elegant_and_Minimalist_Medical_Logo__1_-removebg-preview 1 (1).png"))); // NOI18N
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 20, 580, 330));
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
+        // TODO add your handling code here:
+        ImageIcon icon = new ImageIcon("logo.png");
+        setIconImage(icon.getImage());
+    }//GEN-LAST:event_formWindowActivated
+
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
+        
+        SplashScreen Splash = new SplashScreen();
+        Splash.setVisible(true);
+        try{
+            for (int i=0; i <=100; i++){
+                Thread.sleep(80);
+                Splash.loading.setText(""+i+" %");
+                Splash.jProgressBar1.setValue(i);
+                if ( i == 100){
+                    Login login = new Login();
+                    //Dashboard login = new Dashboard();
+                    Splash.setVisible(false);
+                    login.setVisible(true);
+                }
+            }
+        }catch(Exception e){
+            
+        }
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -84,32 +126,21 @@ public class SplashScreen extends javax.swing.JFrame {
         }
         //</editor-fold>
 
-        /* Create and display the form */
-       SplashScreen val = new SplashScreen();
-    val.setVisible(true);
-       
-       Login login = new Login();
-       try {
-        for (int i = 0; i <= 100; i++) {
-            Thread.sleep(40);
-            val.Loading.setValue(i);
-        }
-    } catch (Exception e) {
-        e.printStackTrace();
-    }
+        //</editor-fold>
 
-        
-       val.setVisible(false);
-    login.setVisible(true);
-    
-    val.dispose();
-       
+        //</editor-fold>
+
+        //</editor-fold>
+
+        /* Create and display the form */
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JProgressBar Loading;
-    private javax.swing.JPanel bgPanel;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JPanel jPanel1;
+    private transient javax.swing.JProgressBar jProgressBar1;
+    private javax.swing.JLabel loading;
     // End of variables declaration//GEN-END:variables
 }

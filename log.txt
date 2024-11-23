@@ -1,1 +1,9 @@
 2024-11-23 11:18:49 - Koneksi berhasil ke database.
+2024-11-23 13:39:38 - Koneksi gagal: Unknown database 'db_healink'
+2024-11-23 13:39:40 - Koneksi gagal: Unknown database 'db_healink'
+2024-11-23 13:41:59 - Koneksi gagal: Unknown database 'db_healink'
+2024-11-23 13:42:00 - Koneksi gagal: Unknown database 'db_healink'
+2024-11-23 13:42:00 - Koneksi gagal: Unknown database 'db_healink'
+2024-11-23 13:42:00 - Koneksi gagal: Unknown database 'db_healink'
+2024-11-23 13:44:28 - Koneksi gagal: Unknown database 'db_healink'
+2024-11-23 14:25:51 - Koneksi gagal: Unknown database 'db_healink'
