@@ -28,8 +28,8 @@ public class SplashScreen extends javax.swing.JFrame {
 
         bgPanel = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
         Loading = new javax.swing.JProgressBar();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -38,17 +38,18 @@ public class SplashScreen extends javax.swing.JFrame {
         bgPanel.setBackground(new java.awt.Color(255, 255, 255));
         bgPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/asset/undraw_medicine_b1ol 1 (2).png"))); // NOI18N
-        bgPanel.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 82, 450, 320));
-
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/asset/Pesan DOK.png"))); // NOI18N
-        bgPanel.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 10, 390, 70));
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/asset/Elegant_and_Minimalist_Medical_Logo__1_-removebg-preview 1 (1).png"))); // NOI18N
+        bgPanel.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 20, 580, 330));
 
         Loading.setBackground(new java.awt.Color(153, 255, 255));
         Loading.setForeground(new java.awt.Color(102, 102, 255));
         Loading.setBorder(new javax.swing.border.MatteBorder(null));
         Loading.setCursor(new java.awt.Cursor(java.awt.Cursor.WAIT_CURSOR));
-        bgPanel.add(Loading, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 420, 770, 30));
+        bgPanel.add(Loading, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 400, 770, 30));
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/asset/Group 4.png"))); // NOI18N
+        jLabel3.setText("jLabel3");
+        bgPanel.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, 810, 480));
 
         getContentPane().add(bgPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(-30, 0, 830, 480));
 
@@ -85,29 +86,30 @@ public class SplashScreen extends javax.swing.JFrame {
 
         /* Create and display the form */
        SplashScreen val = new SplashScreen();
-       val.setVisible(true);
+    val.setVisible(true);
        
-//       Login login = new Login();
-        try {
-            for (int i = 0; i < 100; i++ ){
-                Thread.sleep(40);
-                val.Loading.setValue(i);
-                
-            }
-        } catch (Exception e) {
+       Login login = new Login();
+       try {
+        for (int i = 0; i <= 100; i++) {
+            Thread.sleep(40);
+            val.Loading.setValue(i);
         }
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
+
         
-        val.setVisible(false);
-//        login.setVisible(true);
-        
-        val.dispose();
+       val.setVisible(false);
+    login.setVisible(true);
+    
+    val.dispose();
        
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JProgressBar Loading;
     private javax.swing.JPanel bgPanel;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     // End of variables declaration//GEN-END:variables
 }
