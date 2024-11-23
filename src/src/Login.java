@@ -4,6 +4,11 @@
  */
 package src;
 
+import javax.swing.JOptionPane;
+import model.Config;
+import static model.Config.writeLog;
+import src.Component.MenuUtama;
+
 /**
  *
  * @author Saidi
@@ -30,8 +35,8 @@ public class Login extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jTextField5 = new javax.swing.JTextField();
-        jTextField1 = new javax.swing.JTextField();
+        txtPassword = new javax.swing.JTextField();
+        txtUsername = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
@@ -56,27 +61,27 @@ public class Login extends javax.swing.JFrame {
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/asset/padlock 1.png"))); // NOI18N
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 370, 40, 40));
 
-        jTextField5.setBackground(new java.awt.Color(195, 224, 253));
-        jTextField5.setFont(new java.awt.Font("Lucida Sans Unicode", 1, 16)); // NOI18N
-        jTextField5.setText("Password");
-        jTextField5.setBorder(null);
-        jTextField5.addActionListener(new java.awt.event.ActionListener() {
+        txtPassword.setBackground(new java.awt.Color(195, 224, 253));
+        txtPassword.setFont(new java.awt.Font("Lucida Sans Unicode", 1, 16)); // NOI18N
+        txtPassword.setText("Password");
+        txtPassword.setBorder(null);
+        txtPassword.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField5ActionPerformed(evt);
+                txtPasswordActionPerformed(evt);
             }
         });
-        jPanel1.add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 370, 260, 40));
+        jPanel1.add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 370, 260, 40));
 
-        jTextField1.setBackground(new java.awt.Color(195, 224, 253));
-        jTextField1.setFont(new java.awt.Font("Lucida Sans Unicode", 1, 16)); // NOI18N
-        jTextField1.setText("UserName");
-        jTextField1.setBorder(null);
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        txtUsername.setBackground(new java.awt.Color(195, 224, 253));
+        txtUsername.setFont(new java.awt.Font("Lucida Sans Unicode", 1, 16)); // NOI18N
+        txtUsername.setText("UserName");
+        txtUsername.setBorder(null);
+        txtUsername.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                txtUsernameActionPerformed(evt);
             }
         });
-        jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 280, 260, 40));
+        jPanel1.add(txtUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 280, 260, 40));
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/asset/user 1 (1).png"))); // NOI18N
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 280, -1, -1));
@@ -116,16 +121,43 @@ public class Login extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void txtUsernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUsernameActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_txtUsernameActionPerformed
 
-    private void jTextField5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField5ActionPerformed
+    private void txtPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPasswordActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField5ActionPerformed
+    }//GEN-LAST:event_txtPasswordActionPerformed
 
     private void btn_loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_loginActionPerformed
         // TODO add your handling code here:
+        String username = txtUsername.getText();
+        String password = txtPassword.getText();
+        String sql = "SELECT COUNT(*) AS apakahAda FROM t_user WHERE username = ? AND password = ?";
+        try {
+            // Menginisialisasi koneksi menggunakan konfigurasi di Config
+            java.sql.Connection conn = (java.sql.Connection) Config.configDB();
+            java.sql.PreparedStatement pst = conn.prepareStatement(sql);
+            pst.setString(1, username);   // Mengatur parameter pertama untuk email
+            pst.setString(2, password); // Mengatur parameter kedua untuk password
+            java.sql.ResultSet rs = pst.executeQuery();
+            if (rs.next()) {
+                int apakahAda = rs.getInt("apakahAda");
+                if (apakahAda > 0) {
+                    // Tindakan jika pengguna ditemukan
+                    JOptionPane.showMessageDialog(null, "Selamat datang");
+                    MenuUtama menuUtama = new MenuUtama();
+                    menuUtama.setVisible(true);
+                    dispose();
+                } else {
+                    // Tindakan jika pengguna tidak ditemukan
+                    JOptionPane.showMessageDialog(null, "Silahkan masukkan kembali username dan password Anda");
+                }
+            }
+        } catch (java.sql.SQLException e) {
+            JOptionPane.showMessageDialog(null, "Terjadi Kegagalan : " + e.getMessage());
+            writeLog("Koneksi Gagal: " + e.getMessage()); //Jika Koneksi gagal
+        }
     }//GEN-LAST:event_btn_loginActionPerformed
 
     private void jLabel7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel7MouseClicked
@@ -180,7 +212,7 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField5;
+    private javax.swing.JTextField txtPassword;
+    private javax.swing.JTextField txtUsername;
     // End of variables declaration//GEN-END:variables
 }
