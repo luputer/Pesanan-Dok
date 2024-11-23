@@ -111,17 +111,25 @@ public class MenuItem extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void formMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMousePressed
+           // Jalankan aksi yang terkait dengan menu jika ada
+    if (act != null) {
+        act.actionPerformed(null);
+    }
+    
+    resetOtherMenus();
 
-        // TODO add your handling code here: 
-        setBackground(new java.awt.Color(255,255,255));
-     if (showing) {
-            hidenMenu();
-        } else {
-            showMenu();
-        }
-        if (act != null) {
-            act.actionPerformed(null);
-        }
+    // Tampilkan atau sembunyikan submenu berdasarkan status 'showing'
+    if (showing) {
+        hidenMenu();
+    } else {
+        showMenu();
+    }
+
+   
+    this.setBackground(new java.awt.Color(102, 102, 102)); // Warna gelap untuk menu yang aktif
+
+     this.setBackground(new java.awt.Color(102, 102, 102));
+    
     }//GEN-LAST:event_formMousePressed
 
 
@@ -132,28 +140,28 @@ public class MenuItem extends javax.swing.JPanel {
     // End of variables declaration//GEN-END:variables
 
     private void hidenMenu() {
-        new Thread(() -> {
-            for (int i = subMenu.size() - 1; i >= 0; i--) {
-                sleep();
-                subMenu.get(i).setVisible(false);
-                subMenu.get(i).hidenMenu();
-            }
-            getParent().repaint();
-            getParent().revalidate();
-            showing = false;
-        }).start();
+       new Thread(() -> {
+        for (int i = subMenu.size() - 1; i >= 0; i--) {
+            sleep();
+            subMenu.get(i).setVisible(false);
+            subMenu.get(i).hidenMenu(); // Rekursif untuk menyembunyikan submenu anak
+        }
+        showing = false;
+        getParent().repaint();
+        getParent().revalidate();
+    }).start();
     }
 
      private void showMenu() {
-        new Thread(() -> {
-            for (int i = 0; i < subMenu.size(); i++) {
-                sleep();
-                subMenu.get(i).setVisible(true);
-            }
-            showing = true;
-            getParent().repaint();
-            getParent().revalidate();
-        }).start();
+       new Thread(() -> {
+        for (MenuItem item : subMenu) {
+            sleep();
+            item.setVisible(true);
+        }
+        showing = true;
+        getParent().repaint();
+        getParent().revalidate();
+    }).start();
     }
     
      private void sleep() {
@@ -162,6 +170,16 @@ public class MenuItem extends javax.swing.JPanel {
         } catch (InterruptedException e) {
             Thread.currentThread().interrupt();
         }
+    }
+
+    private void resetOtherMenus() {
+        if (this.getParent() instanceof javax.swing.JPanel parent) {
+        for (java.awt.Component comp : parent.getComponents()) {
+            if (comp instanceof MenuItem menuItem && menuItem != this) {
+                menuItem.setBackground(new java.awt.Color(255, 255, 255));
+            }
+        }
+    }
     }
     
     

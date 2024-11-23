@@ -1,8 +1,9 @@
 package src.Component;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
-import src.Component.MenuItem;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -43,6 +44,11 @@ public class MenuUtama extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
 
         fNavbar.setBackground(new java.awt.Color(0, 153, 153));
         fNavbar.setPreferredSize(new java.awt.Dimension(1405, 70));
@@ -105,6 +111,14 @@ public class MenuUtama extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        // TODO add your handling code here:
+        f_Utama.add(new Content_bg());
+        f_Utama.repaint();
+        f_Utama.revalidate();
+        
+    }//GEN-LAST:event_formWindowOpened
+
     /**
      * @param args the command line arguments
      */
@@ -153,18 +167,38 @@ public class MenuUtama extends javax.swing.JFrame {
    private void execute() {
     ImageIcon iconUser = new ImageIcon(getClass().getResource("/asset/user.png"));
    
-    MenuItem masBarang1 = new MenuItem(null, true, iconUser, "barang1", e -> System.out.println("Barang1 clicked"));
+    //nav children
+    MenuItem masBarang1 = new MenuItem(null, true, iconUser, "barang1", new ActionListener() {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            f_Utama.removeAll();
+            f_Utama.add(new Form_User());
+            f_Utama.repaint();
+            f_Utama.revalidate();
+        }
+    });
     MenuItem masBarang2 = new MenuItem(null, true, iconUser, "barang2", null);
     MenuItem masBarang3 = new MenuItem(null, true, iconUser, "barang3", null);
 
     MenuItem trasaksi1 = new MenuItem(null, true, iconUser, "Transaksi1", null);
     MenuItem trasaksi2 = new MenuItem(null, true, iconUser, "Transaksi2", null);
     MenuItem trasaksi3 = new MenuItem(null, true, iconUser, "Transaksi3", null);
-
-    MenuItem menuMaster = new MenuItem(iconUser, false, null, "Master", null, masBarang1, masBarang2, masBarang3);
+    
+    
+    //nav utama
+     MenuItem menuHome = new MenuItem(iconUser, false, null, "Home", new ActionListener() {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            f_Utama.removeAll();
+            f_Utama.add(new Content_bg());
+            f_Utama.repaint();
+            f_Utama.revalidate();
+        }
+    });
+    MenuItem menuMaster = new MenuItem(iconUser, false, null, "User", null, masBarang1, masBarang2, masBarang3);
     MenuItem menuTransaksi = new MenuItem(iconUser, false, null, "Transaksi", null, trasaksi1, trasaksi2, trasaksi3);
 
-    addMenu(menuMaster, menuTransaksi);
+    addMenu(menuHome, menuMaster, menuTransaksi);
 }
 
 
