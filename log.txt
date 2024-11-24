@@ -168,3 +168,276 @@ The last packet sent successfully to the server was 0 milliseconds ago. The driv
 2024-11-24 19:19:46 - Data Berhasil Dihapus dengan Nama Pasien resin
 2024-11-24 19:19:46 - Koneksi berhasil ke database.
 2024-11-24 19:19:46 - Tampilkan data ke Frame Form_DataPasient
+2024-11-24 22:22:54 - Koneksi gagal: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+2024-11-24 22:22:54 - Data tidak dapat ditampilkan : Cannot invoke "java.sql.Connection.createStatement()" because "conn" is null
+2024-11-24 22:22:59 - Koneksi gagal: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+2024-11-24 22:22:59 - Data tidak dapat ditampilkan : Cannot invoke "java.sql.Connection.createStatement()" because "conn" is null
+2024-11-24 22:23:44 - Koneksi gagal: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+2024-11-24 22:23:44 - Data tidak dapat ditampilkan : Cannot invoke "java.sql.Connection.createStatement()" because "conn" is null
+2024-11-24 22:23:51 - Koneksi gagal: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+2024-11-24 22:23:51 - Data tidak dapat ditampilkan : Cannot invoke "java.sql.Connection.createStatement()" because "conn" is null
+2024-11-24 22:25:08 - Koneksi gagal: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+2024-11-24 22:25:08 - Data tidak dapat ditampilkan : Cannot invoke "java.sql.Connection.createStatement()" because "conn" is null
+2024-11-24 22:25:12 - Koneksi gagal: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+2024-11-24 22:25:12 - Data tidak dapat ditampilkan : Cannot invoke "java.sql.Connection.createStatement()" because "conn" is null
+2024-11-24 22:29:39 - Koneksi gagal: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+2024-11-24 22:29:39 - Data tidak dapat ditampilkan : Cannot invoke "java.sql.Connection.createStatement()" because "conn" is null
+2024-11-24 22:32:09 - Koneksi gagal: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+2024-11-24 22:32:09 - Data tidak dapat ditampilkan : Cannot invoke "java.sql.Connection.createStatement()" because "conn" is null
+2024-11-24 22:35:16 - Koneksi gagal: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+2024-11-24 22:35:16 - Data tidak dapat ditampilkan : Cannot invoke "java.sql.Connection.createStatement()" because "conn" is null
+2024-11-24 22:39:41 - Koneksi gagal: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+2024-11-24 22:39:41 - Data tidak dapat ditampilkan : Cannot invoke "java.sql.Connection.createStatement()" because "conn" is null
+2024-11-24 22:42:06 - Koneksi gagal: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+2024-11-24 22:42:06 - Data tidak dapat ditampilkan : Cannot invoke "java.sql.Connection.createStatement()" because "conn" is null
+2024-11-24 22:42:08 - Koneksi gagal: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+2024-11-24 22:42:08 - Data tidak dapat ditampilkan : Cannot invoke "java.sql.Connection.createStatement()" because "conn" is null
+2024-11-24 22:43:14 - Koneksi gagal: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+2024-11-24 22:43:14 - Data tidak dapat ditampilkan : Cannot invoke "java.sql.Connection.createStatement()" because "conn" is null
+2024-11-24 22:44:40 - Koneksi gagal: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+2024-11-24 22:44:40 - Data tidak dapat ditampilkan : Cannot invoke "java.sql.Connection.createStatement()" because "conn" is null
+2024-11-24 22:45:33 - Koneksi gagal: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+2024-11-24 22:45:33 - Data tidak dapat ditampilkan : Cannot invoke "java.sql.Connection.createStatement()" because "conn" is null
+2024-11-24 22:46:50 - Koneksi gagal: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+2024-11-24 22:46:50 - Data tidak dapat ditampilkan : Cannot invoke "java.sql.Connection.createStatement()" because "conn" is null
+2024-11-24 22:59:32 - Koneksi gagal: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+2024-11-24 22:59:32 - Data tidak dapat ditampilkan : Cannot invoke "java.sql.Connection.createStatement()" because "conn" is null
+2024-11-24 22:59:39 - Koneksi gagal: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+2024-11-24 22:59:39 - Data tidak dapat ditampilkan : Cannot invoke "java.sql.Connection.createStatement()" because "conn" is null
+2024-11-24 23:01:02 - Koneksi gagal: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+2024-11-24 23:01:02 - Data tidak dapat ditampilkan : Cannot invoke "java.sql.Connection.createStatement()" because "conn" is null
+2024-11-24 23:01:05 - Koneksi gagal: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+2024-11-24 23:01:05 - Data tidak dapat ditampilkan : Cannot invoke "java.sql.Connection.createStatement()" because "conn" is null
+2024-11-24 23:01:13 - Koneksi gagal: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+2024-11-24 23:01:13 - Data tidak dapat ditampilkan : Cannot invoke "java.sql.Connection.createStatement()" because "conn" is null
+2024-11-24 23:01:18 - Koneksi gagal: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+2024-11-24 23:01:18 - Data tidak dapat ditampilkan : Cannot invoke "java.sql.Connection.createStatement()" because "conn" is null
+2024-11-24 23:01:21 - Koneksi gagal: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+2024-11-24 23:01:21 - Data tidak dapat ditampilkan : Cannot invoke "java.sql.Connection.createStatement()" because "conn" is null
+2024-11-24 23:01:23 - Koneksi gagal: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+2024-11-24 23:01:23 - Data tidak dapat ditampilkan : Cannot invoke "java.sql.Connection.createStatement()" because "conn" is null
+2024-11-24 23:01:26 - Koneksi gagal: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+2024-11-24 23:01:26 - Data tidak dapat ditampilkan : Cannot invoke "java.sql.Connection.createStatement()" because "conn" is null
+2024-11-24 23:01:27 - Koneksi gagal: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+2024-11-24 23:01:27 - Data tidak dapat ditampilkan : Cannot invoke "java.sql.Connection.createStatement()" because "conn" is null
+2024-11-24 23:01:30 - Koneksi gagal: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+2024-11-24 23:01:30 - Data tidak dapat ditampilkan : Cannot invoke "java.sql.Connection.createStatement()" because "conn" is null
+2024-11-24 23:02:11 - Koneksi gagal: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+2024-11-24 23:02:11 - Data tidak dapat ditampilkan : Cannot invoke "java.sql.Connection.createStatement()" because "conn" is null
+2024-11-24 23:02:19 - Koneksi gagal: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+2024-11-24 23:02:19 - Data tidak dapat ditampilkan : Cannot invoke "java.sql.Connection.createStatement()" because "conn" is null
+2024-11-24 23:02:48 - Koneksi gagal: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+2024-11-24 23:02:48 - Data tidak dapat ditampilkan : Cannot invoke "java.sql.Connection.createStatement()" because "conn" is null
+2024-11-24 23:02:49 - Koneksi gagal: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+2024-11-24 23:02:49 - Data tidak dapat ditampilkan : Cannot invoke "java.sql.Connection.createStatement()" because "conn" is null
+2024-11-24 23:02:51 - Koneksi gagal: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+2024-11-24 23:02:51 - Data tidak dapat ditampilkan : Cannot invoke "java.sql.Connection.createStatement()" because "conn" is null
+2024-11-24 23:03:04 - Koneksi gagal: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+2024-11-24 23:03:04 - Data tidak dapat ditampilkan : Cannot invoke "java.sql.Connection.createStatement()" because "conn" is null
+2024-11-24 23:03:08 - Koneksi gagal: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+2024-11-24 23:03:08 - Data tidak dapat ditampilkan : Cannot invoke "java.sql.Connection.createStatement()" because "conn" is null
+2024-11-24 23:21:30 - Koneksi gagal: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+2024-11-24 23:21:30 - Data tidak dapat ditampilkan : Cannot invoke "java.sql.Connection.createStatement()" because "conn" is null
+2024-11-24 23:21:31 - Koneksi gagal: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+2024-11-24 23:21:31 - Data tidak dapat ditampilkan : Cannot invoke "java.sql.Connection.createStatement()" because "conn" is null
+2024-11-24 23:21:32 - Koneksi gagal: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+2024-11-24 23:21:32 - Data tidak dapat ditampilkan : Cannot invoke "java.sql.Connection.createStatement()" because "conn" is null
+2024-11-24 23:21:35 - Koneksi gagal: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+2024-11-24 23:21:35 - Data tidak dapat ditampilkan : Cannot invoke "java.sql.Connection.createStatement()" because "conn" is null
+2024-11-24 23:22:17 - Koneksi gagal: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+2024-11-24 23:22:17 - Data tidak dapat ditampilkan : Cannot invoke "java.sql.Connection.createStatement()" because "conn" is null
+2024-11-24 23:22:18 - Koneksi gagal: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+2024-11-24 23:22:18 - Data tidak dapat ditampilkan : Cannot invoke "java.sql.Connection.createStatement()" because "conn" is null
+2024-11-24 23:22:19 - Koneksi gagal: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+2024-11-24 23:22:19 - Data tidak dapat ditampilkan : Cannot invoke "java.sql.Connection.createStatement()" because "conn" is null
+2024-11-24 23:23:53 - Koneksi gagal: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+2024-11-24 23:23:53 - Data tidak dapat ditampilkan : Cannot invoke "java.sql.Connection.createStatement()" because "conn" is null
+2024-11-24 23:23:54 - Koneksi gagal: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+2024-11-24 23:23:54 - Data tidak dapat ditampilkan : Cannot invoke "java.sql.Connection.createStatement()" because "conn" is null
+2024-11-24 23:24:25 - Koneksi gagal: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+2024-11-24 23:24:25 - Data tidak dapat ditampilkan : Cannot invoke "java.sql.Connection.createStatement()" because "conn" is null
+2024-11-24 23:27:07 - Koneksi gagal: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+2024-11-24 23:27:07 - Data tidak dapat ditampilkan : Cannot invoke "java.sql.Connection.createStatement()" because "conn" is null
+2024-11-24 23:27:10 - Koneksi gagal: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+2024-11-24 23:27:10 - Data tidak dapat ditampilkan : Cannot invoke "java.sql.Connection.createStatement()" because "conn" is null
+2024-11-24 23:27:13 - Koneksi gagal: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+2024-11-24 23:27:13 - Data tidak dapat ditampilkan : Cannot invoke "java.sql.Connection.createStatement()" because "conn" is null
+2024-11-24 23:27:16 - Koneksi gagal: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+2024-11-24 23:27:16 - Data tidak dapat ditampilkan : Cannot invoke "java.sql.Connection.createStatement()" because "conn" is null
+2024-11-24 23:27:48 - Koneksi gagal: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+2024-11-24 23:27:48 - Data tidak dapat ditampilkan : Cannot invoke "java.sql.Connection.createStatement()" because "conn" is null
+2024-11-24 23:45:04 - Koneksi gagal: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+2024-11-24 23:45:04 - Data tidak dapat ditampilkan : Cannot invoke "java.sql.Connection.createStatement()" because "conn" is null
+2024-11-24 23:45:43 - Koneksi gagal: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+2024-11-24 23:45:43 - Data tidak dapat ditampilkan : Cannot invoke "java.sql.Connection.createStatement()" because "conn" is null
+2024-11-24 23:47:13 - Koneksi gagal: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+2024-11-24 23:47:13 - Data tidak dapat ditampilkan : Cannot invoke "java.sql.Connection.createStatement()" because "conn" is null
+2024-11-24 23:47:17 - Koneksi gagal: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+2024-11-24 23:47:17 - Data tidak dapat ditampilkan : Cannot invoke "java.sql.Connection.createStatement()" because "conn" is null
+2024-11-24 23:47:18 - Koneksi gagal: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+2024-11-24 23:47:18 - Data tidak dapat ditampilkan : Cannot invoke "java.sql.Connection.createStatement()" because "conn" is null
+2024-11-24 23:55:54 - Koneksi gagal: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+2024-11-25 00:02:12 - Koneksi berhasil ke database.
+2024-11-25 00:02:17 - Koneksi berhasil ke database.
+2024-11-25 00:02:17 - Tampilkan data ke Frame Form_User
+2024-11-25 00:02:33 - Koneksi berhasil ke database.
+2024-11-25 00:02:33 - Tampilkan data ke Frame Form_User
+2024-11-25 00:02:38 - Koneksi berhasil ke database.
+2024-11-25 00:02:38 - Tampilkan data ke Frame Form_DataPasient
+2024-11-25 00:02:47 - Koneksi berhasil ke database.
+2024-11-25 00:02:49 - Penyimpanan Data Berhasil dengan Nama Pasien saidi
+2024-11-25 00:02:49 - Koneksi berhasil ke database.
+2024-11-25 00:02:49 - Tampilkan data ke Frame Form_DataPasient
+2024-11-25 02:37:16 - Koneksi berhasil ke database.
+2024-11-25 02:38:30 - Koneksi berhasil ke database.
+2024-11-25 02:43:43 - Koneksi berhasil ke database.
+2024-11-25 02:43:56 - Koneksi berhasil ke database.
+2024-11-25 02:43:56 - Tampilkan data ke Frame Form_User
+2024-11-25 02:44:24 - Koneksi berhasil ke database.
+2024-11-25 02:44:26 - Penyimpanan Data Berhasil dengan Username bambang
+2024-11-25 02:44:26 - Koneksi berhasil ke database.
+2024-11-25 02:44:26 - Tampilkan data ke Frame Form_User
+2024-11-25 02:45:23 - Koneksi berhasil ke database.
+2024-11-25 02:48:01 - Koneksi berhasil ke database.
+2024-11-25 02:49:08 - Koneksi berhasil ke database.
+2024-11-25 02:49:08 - Tampilkan data ke Frame Form_User
+2024-11-25 02:52:52 - Koneksi berhasil ke database.
+2024-11-25 02:56:37 - Koneksi berhasil ke database.
+2024-11-25 02:57:51 - Koneksi berhasil ke database.
+2024-11-25 02:59:01 - Koneksi berhasil ke database.
+2024-11-25 03:00:38 - Koneksi berhasil ke database.
+2024-11-25 03:00:43 - Koneksi berhasil ke database.
+2024-11-25 03:00:43 - Tampilkan data ke Frame Form_User
+2024-11-25 03:01:08 - Koneksi berhasil ke database.
+2024-11-25 03:01:14 - Koneksi berhasil ke database.
+2024-11-25 03:01:14 - Tampilkan data ke Frame Form_User
+2024-11-25 03:01:18 - Koneksi berhasil ke database.
+2024-11-25 03:01:18 - Tampilkan data ke Frame Form_User
+2024-11-25 03:01:43 - Koneksi berhasil ke database.
+2024-11-25 03:01:43 - Tampilkan data ke Frame Form_DataPasient
+2024-11-25 03:03:32 - Koneksi berhasil ke database.
+2024-11-25 03:03:38 - Koneksi berhasil ke database.
+2024-11-25 03:03:38 - Tampilkan data ke Frame Form_User
+2024-11-25 03:03:40 - Koneksi berhasil ke database.
+2024-11-25 03:03:40 - Tampilkan data ke Frame Form_User
+2024-11-25 03:17:25 - Koneksi berhasil ke database.
+2024-11-25 03:19:25 - Koneksi berhasil ke database.
+2024-11-25 03:22:54 - Koneksi berhasil ke database.
+2024-11-25 03:23:12 - Koneksi berhasil ke database.
+2024-11-25 03:23:12 - Tampilkan data ke Frame Form_User
+2024-11-25 03:23:13 - Koneksi berhasil ke database.
+2024-11-25 03:23:13 - Tampilkan data ke Frame Form_User
+2024-11-25 03:23:16 - Koneksi berhasil ke database.
+2024-11-25 03:23:16 - Tampilkan data ke Frame Form_DataPasient
+2024-11-25 03:23:19 - Koneksi berhasil ke database.
+2024-11-25 03:23:19 - Tampilkan data ke Frame Form_User

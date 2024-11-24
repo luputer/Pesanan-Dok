@@ -148,32 +148,40 @@ public class Login extends javax.swing.JFrame {
     private void btn_loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_loginActionPerformed
         // TODO add your handling code here:
         String username = txtUsername.getText();
-        String password = txtPassword.getText();
-        String sql = "SELECT COUNT(*) AS apakahAda FROM t_user WHERE username = ? AND password = ?";
-        try {
-            // Menginisialisasi koneksi menggunakan konfigurasi di Config
-            java.sql.Connection conn = (java.sql.Connection) Config.configDB();
-            java.sql.PreparedStatement pst = conn.prepareStatement(sql);
-            pst.setString(1, username);   // Mengatur parameter pertama untuk email
-            pst.setString(2, password); // Mengatur parameter kedua untuk password
-            java.sql.ResultSet rs = pst.executeQuery();
-            if (rs.next()) {
-                int apakahAda = rs.getInt("apakahAda");
-                if (apakahAda > 0) {
-                    // Tindakan jika pengguna ditemukan
-                    JOptionPane.showMessageDialog(null, "Selamat datang");
-                    MenuUtama menuUtama = new MenuUtama();
-                    menuUtama.setVisible(true);
-                    dispose();
-                } else {
-                    // Tindakan jika pengguna tidak ditemukan
-                    JOptionPane.showMessageDialog(null, "Silahkan masukkan kembali username dan password Anda");
-                }
-            }
-        } catch (java.sql.SQLException e) {
-            JOptionPane.showMessageDialog(null, "Terjadi Kegagalan : " + e.getMessage());
-            writeLog("Koneksi Gagal: " + e.getMessage()); //Jika Koneksi gagal
+    String password = txtPassword.getText();
+    
+    if (username.equals("username") || password.equals("Password")) {
+        JOptionPane.showMessageDialog(null, "Silahkan masukkan username dan password!");
+        return;
+    }
+    
+    String sql = "SELECT username, level FROM t_user WHERE username = ? AND password = ?";
+    try {
+        java.sql.Connection conn = (java.sql.Connection) Config.configDB();
+        java.sql.PreparedStatement pst = conn.prepareStatement(sql);
+        pst.setString(1, username);
+        pst.setString(2, password);
+        java.sql.ResultSet rs = pst.executeQuery();
+        
+        if (rs.next()) {
+            String level = rs.getString("level");
+            JOptionPane.showMessageDialog(null, "Selamat datang " + username);
+            
+            // Create MenuUtama with username and level
+            MenuUtama menuUtama = new MenuUtama(username, level);
+            menuUtama.setVisible(true);
+            this.dispose(); // Close login form
+        } else {
+            JOptionPane.showMessageDialog(null, "Username atau password salah!");
+            txtUsername.setText("username");
+            txtPassword.setText("Password");
+            txtUsername.requestFocus();
         }
+    } catch (java.sql.SQLException e) {
+        JOptionPane.showMessageDialog(null, "Error: " + e.getMessage());
+        writeLog("Login Error: " + e.getMessage());
+    }
+    
     }//GEN-LAST:event_btn_loginActionPerformed
 
     private void jLabel7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel7MouseClicked

@@ -2,8 +2,12 @@ package src.Component;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import static java.text.MessageFormat.format;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
+import javax.swing.Timer;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -15,15 +19,57 @@ import javax.swing.JFrame;
  * @author Saidi
  */
 public class MenuUtama extends javax.swing.JFrame {
+    private String userLevel;
+    private String userName;
+    
 
     /**
      * Creates new form MenuUtama
      */
-    public MenuUtama() {
-        initComponents();
-        this.setExtendedState(JFrame.MAXIMIZED_BOTH);
+    public MenuUtama(String username, String level) {
         
-        execute();
+    initComponents();  
+    this.setExtendedState(JFrame.MAXIMIZED_BOTH);  
+    this.userName = username;  
+    this.userLevel = level;  
+
+    // Set user info in sidebar  
+    jLabel3.setText(username);  
+    jLabel2.setText(level); // No need to convert level to String since it's already a String  
+
+    // Convert level to integer for comparison  
+    int userLevel = Integer.parseInt(level); // Assuming level is a String representation of an integer  
+
+    // Set text based on the user level  
+    if (userLevel == 1) {  
+        jLabel2.setText("user"); // Assuming jLabel1 is declared  
+    } else if (userLevel == 2) {  
+        jLabel2.setText("pegawai"); // Set text for level 2  
+    } else if (userLevel == 3) {  
+        jLabel2.setText("admin"); // Set text for level 3  
+    } else {  
+        jLabel2.setText("unknown"); // Handle unexpected levels  
+    }  
+
+    // Execute any additional necessary functions  
+    execute();  
+    date();
+    startClock();
+        
+     
+    }
+    
+     private void startClock() {
+          Timer timer = new Timer(1000, e -> date());  
+          timer.start(); // Start the timer  
+    }
+    
+     //methot tanggal
+     private void date() {
+         Date tanggalSekarang = new Date();
+         SimpleDateFormat TanggalWaktu = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");  
+          String tanggal = TanggalWaktu.format(tanggalSekarang);
+         lb_tanggal.setText(tanggal);
     }
 
     /**
@@ -35,39 +81,22 @@ public class MenuUtama extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        fNavbar = new javax.swing.JPanel();
-        fSidebar = new javax.swing.JPanel();
+        pn_sidebar = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         pn_menu = new javax.swing.JPanel();
-        Fcontent = new javax.swing.JPanel();
-        f_Utama = new javax.swing.JPanel();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        pn_navbar = new javax.swing.JPanel();
+        lb_tanggal = new javax.swing.JLabel();
+        pn_conten = new javax.swing.JPanel();
+        pn_utama = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
-        addWindowListener(new java.awt.event.WindowAdapter() {
-            public void windowOpened(java.awt.event.WindowEvent evt) {
-                formWindowOpened(evt);
-            }
-        });
 
-        fNavbar.setBackground(new java.awt.Color(0, 153, 153));
-        fNavbar.setPreferredSize(new java.awt.Dimension(1405, 70));
-
-        javax.swing.GroupLayout fNavbarLayout = new javax.swing.GroupLayout(fNavbar);
-        fNavbar.setLayout(fNavbarLayout);
-        fNavbarLayout.setHorizontalGroup(
-            fNavbarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 834, Short.MAX_VALUE)
-        );
-        fNavbarLayout.setVerticalGroup(
-            fNavbarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 70, Short.MAX_VALUE)
-        );
-
-        getContentPane().add(fNavbar, java.awt.BorderLayout.PAGE_START);
-
-        fSidebar.setBackground(new java.awt.Color(255, 255, 255));
-        fSidebar.setPreferredSize(new java.awt.Dimension(250, 495));
+        pn_sidebar.setBackground(new java.awt.Color(255, 255, 255));
+        pn_sidebar.setPreferredSize(new java.awt.Dimension(250, 495));
 
         jScrollPane1.setBackground(new java.awt.Color(255, 255, 255));
         jScrollPane1.setBorder(null);
@@ -76,46 +105,103 @@ public class MenuUtama extends javax.swing.JFrame {
         pn_menu.setLayout(new javax.swing.BoxLayout(pn_menu, javax.swing.BoxLayout.Y_AXIS));
         jScrollPane1.setViewportView(pn_menu);
 
-        javax.swing.GroupLayout fSidebarLayout = new javax.swing.GroupLayout(fSidebar);
-        fSidebar.setLayout(fSidebarLayout);
-        fSidebarLayout.setHorizontalGroup(
-            fSidebarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE)
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+
+        jLabel2.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 18)); // NOI18N
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setText("Level");
+
+        jLabel3.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 18)); // NOI18N
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel3.setText("Nama");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(21, Short.MAX_VALUE))
         );
-        fSidebarLayout.setVerticalGroup(
-            fSidebarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 495, Short.MAX_VALUE)
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel2)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        getContentPane().add(fSidebar, java.awt.BorderLayout.LINE_START);
-
-        Fcontent.setBackground(new java.awt.Color(255, 255, 255));
-
-        f_Utama.setBackground(new java.awt.Color(255, 255, 255));
-        f_Utama.setLayout(new java.awt.BorderLayout());
-
-        javax.swing.GroupLayout FcontentLayout = new javax.swing.GroupLayout(Fcontent);
-        Fcontent.setLayout(FcontentLayout);
-        FcontentLayout.setHorizontalGroup(
-            FcontentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(f_Utama, javax.swing.GroupLayout.DEFAULT_SIZE, 584, Short.MAX_VALUE)
+        javax.swing.GroupLayout pn_sidebarLayout = new javax.swing.GroupLayout(pn_sidebar);
+        pn_sidebar.setLayout(pn_sidebarLayout);
+        pn_sidebarLayout.setHorizontalGroup(
+            pn_sidebarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane1)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
-        FcontentLayout.setVerticalGroup(
-            FcontentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(f_Utama, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        pn_sidebarLayout.setVerticalGroup(
+            pn_sidebarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pn_sidebarLayout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 598, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        getContentPane().add(Fcontent, java.awt.BorderLayout.CENTER);
+        getContentPane().add(pn_sidebar, java.awt.BorderLayout.LINE_START);
+
+        pn_navbar.setBackground(new java.awt.Color(0, 153, 153));
+
+        lb_tanggal.setBackground(new java.awt.Color(255, 255, 255));
+        lb_tanggal.setFont(new java.awt.Font("Yu Gothic UI", 1, 14)); // NOI18N
+        lb_tanggal.setForeground(new java.awt.Color(255, 255, 255));
+        lb_tanggal.setText("Tanggal dan waktu");
+
+        javax.swing.GroupLayout pn_navbarLayout = new javax.swing.GroupLayout(pn_navbar);
+        pn_navbar.setLayout(pn_navbarLayout);
+        pn_navbarLayout.setHorizontalGroup(
+            pn_navbarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pn_navbarLayout.createSequentialGroup()
+                .addGap(231, 231, 231)
+                .addComponent(lb_tanggal, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(667, Short.MAX_VALUE))
+        );
+        pn_navbarLayout.setVerticalGroup(
+            pn_navbarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pn_navbarLayout.createSequentialGroup()
+                .addContainerGap(59, Short.MAX_VALUE)
+                .addComponent(lb_tanggal)
+                .addGap(25, 25, 25))
+        );
+
+        getContentPane().add(pn_navbar, java.awt.BorderLayout.PAGE_START);
+
+        pn_utama.setLayout(new javax.swing.BoxLayout(pn_utama, javax.swing.BoxLayout.LINE_AXIS));
+
+        javax.swing.GroupLayout pn_contenLayout = new javax.swing.GroupLayout(pn_conten);
+        pn_conten.setLayout(pn_contenLayout);
+        pn_contenLayout.setHorizontalGroup(
+            pn_contenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(pn_utama, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        pn_contenLayout.setVerticalGroup(
+            pn_contenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(pn_utama, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
+        getContentPane().add(pn_conten, java.awt.BorderLayout.CENTER);
 
         pack();
-        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         // TODO add your handling code here:
-        f_Utama.add(new Content_bg());
-        f_Utama.repaint();
-        f_Utama.revalidate();
+        pn_utama.add(new Content_bg());
+        pn_utama.repaint();
+        pn_utama.revalidate();
         
     }//GEN-LAST:event_formWindowOpened
 
@@ -148,20 +234,24 @@ public class MenuUtama extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new MenuUtama().setVisible(true);
-            }
-        });
+//        java.awt.EventQueue.invokeLater(new Runnable() {
+//            public void run() {
+//                new MenuUtama().setVisible(true);
+//            }
+//        });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel Fcontent;
-    private javax.swing.JPanel fNavbar;
-    private javax.swing.JPanel fSidebar;
-    private javax.swing.JPanel f_Utama;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lb_tanggal;
+    private javax.swing.JPanel pn_conten;
     private javax.swing.JPanel pn_menu;
+    private javax.swing.JPanel pn_navbar;
+    private javax.swing.JPanel pn_sidebar;
+    private javax.swing.JPanel pn_utama;
     // End of variables declaration//GEN-END:variables
 
    private void execute() {
@@ -177,10 +267,10 @@ public class MenuUtama extends javax.swing.JFrame {
      MenuItem menuHome = new MenuItem(iconUser, false, null, "Home", new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent e) {
-            f_Utama.removeAll();
-            f_Utama.add(new Content_bg());
-            f_Utama.repaint();
-            f_Utama.revalidate();
+            pn_utama.removeAll();
+            pn_utama.add(new Content_bg());
+            pn_utama.repaint();
+            pn_utama.revalidate();
         }
     });
      
@@ -189,10 +279,10 @@ public class MenuUtama extends javax.swing.JFrame {
     new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent e) {
-            f_Utama.removeAll();
-            f_Utama.add(new Form_User());
-            f_Utama.repaint();
-            f_Utama.revalidate();
+            pn_utama.removeAll();
+            pn_utama.add(new Form_User());
+            pn_utama.repaint();
+            pn_utama.revalidate();
         }
     });
     
@@ -200,10 +290,10 @@ public class MenuUtama extends javax.swing.JFrame {
     MenuItem menuDokter = new MenuItem(iconUser, false, null, "Dokter",new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent e) {
-            f_Utama.removeAll();
-            f_Utama.add(new Form_Dokter());
-            f_Utama.repaint();
-            f_Utama.revalidate();
+            pn_utama.removeAll();
+            pn_utama.add(new Form_Dokter());
+            pn_utama.repaint();
+            pn_utama.revalidate();
         }
     });
     
@@ -212,10 +302,10 @@ public class MenuUtama extends javax.swing.JFrame {
      MenuItem dataPasient = new MenuItem(null, true, iconUser, "Biodata", new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent e) {
-            f_Utama.removeAll();
-            f_Utama.add(new Form_DataPasient());
-            f_Utama.repaint();
-            f_Utama.revalidate();
+            pn_utama.removeAll();
+            pn_utama.add(new Form_DataPasient());
+            pn_utama.repaint();
+            pn_utama.revalidate();
             
         }
      });
@@ -223,10 +313,10 @@ public class MenuUtama extends javax.swing.JFrame {
      MenuItem DataKonsul = new MenuItem(null, true, iconUser, "konsul", new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent e) {
-             f_Utama.removeAll();
-            f_Utama.add(new Form_DataKonsul());
-            f_Utama.repaint();
-            f_Utama.revalidate();
+            pn_utama.removeAll();
+            pn_utama.add(new Form_DataKonsul());
+            pn_utama.repaint();
+            pn_utama.revalidate();
         }
      });
     
@@ -237,10 +327,10 @@ public class MenuUtama extends javax.swing.JFrame {
     MenuItem MenuAbout = new MenuItem(iconUser, false, null, "About",new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent e) {
-            f_Utama.removeAll();
-            f_Utama.add(new About());
-            f_Utama.repaint();
-            f_Utama.revalidate();
+            pn_utama.removeAll();
+            pn_utama.add(new About());
+            pn_utama.repaint();
+            pn_utama.revalidate();
         }
     });
     
@@ -268,4 +358,8 @@ public class MenuUtama extends javax.swing.JFrame {
     pn_menu.revalidate();
     pn_menu.repaint();
 }
+
+  
+
+   
 }
