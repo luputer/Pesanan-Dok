@@ -96,3 +96,56 @@ The last packet sent successfully to the server was 0 milliseconds ago. The driv
 2024-11-24 15:17:36 - Tampilkan data ke Frame Form_User
 2024-11-24 15:17:48 - Koneksi berhasil ke database.
 2024-11-24 15:17:48 - Tampilkan data ke Frame Form_User
+2024-11-24 15:49:17 - Koneksi berhasil ke database.
+2024-11-24 15:49:40 - Koneksi berhasil ke database.
+2024-11-24 15:49:48 - Koneksi berhasil ke database.
+2024-11-24 15:49:53 - Koneksi berhasil ke database.
+2024-11-24 15:49:53 - Tampilkan data ke Frame Form_User
+2024-11-24 15:50:43 - Koneksi berhasil ke database.
+2024-11-24 15:50:43 - Tampilkan data ke Frame Form_User
+2024-11-24 15:50:56 - Koneksi berhasil ke database.
+2024-11-24 15:50:58 - Penyimpanan Data Berhasil dengan Username saidi
+2024-11-24 15:50:58 - Koneksi berhasil ke database.
+2024-11-24 15:50:58 - Tampilkan data ke Frame Form_User
+2024-11-24 15:51:38 - Koneksi berhasil ke database.
+2024-11-24 15:51:38 - Tampilkan data ke Frame Form_User
+2024-11-24 15:51:44 - Koneksi berhasil ke database.
+2024-11-24 15:51:44 - Tampilkan data ke Frame Form_User
+2024-11-24 15:59:57 - Koneksi berhasil ke database.
+2024-11-24 16:00:02 - Data Berhasil Diperbaharui dengan NIM saidi
+2024-11-24 16:00:02 - Koneksi berhasil ke database.
+2024-11-24 16:00:02 - Tampilkan data ke Frame Form_User
+2024-11-24 16:00:58 - Koneksi berhasil ke database.
+2024-11-24 16:01:01 - Koneksi berhasil ke database.
+2024-11-24 16:01:01 - Tampilkan data ke Frame Form_User
+2024-11-24 16:01:22 - Koneksi berhasil ke database.
+2024-11-24 16:01:22 - Tampilkan data ke Frame Form_User
+2024-11-24 16:01:32 - Koneksi berhasil ke database.
+2024-11-24 16:01:32 - Tampilkan data ke Frame Form_User
+2024-11-24 16:01:40 - Koneksi berhasil ke database.
+2024-11-24 16:01:42 - Data Berhasil Diperbaharui dengan NIM IlhamGG
+2024-11-24 16:01:42 - Koneksi berhasil ke database.
+2024-11-24 16:01:42 - Tampilkan data ke Frame Form_User
+2024-11-24 16:01:50 - Koneksi berhasil ke database.
+2024-11-24 16:01:50 - Tampilkan data ke Frame Form_User
+2024-11-24 16:02:07 - Koneksi berhasil ke database.
+2024-11-24 16:02:09 - Penyimpanan Data Berhasil dengan Username makan
+2024-11-24 16:02:09 - Koneksi berhasil ke database.
+2024-11-24 16:02:09 - Tampilkan data ke Frame Form_User
+2024-11-24 16:02:17 - Koneksi berhasil ke database.
+2024-11-24 16:02:17 - Tampilkan data ke Frame Form_User
+2024-11-24 16:02:21 - Koneksi berhasil ke database.
+2024-11-24 16:02:23 - Data Berhasil Dihapus dengan Username saidi
+2024-11-24 16:02:23 - Koneksi berhasil ke database.
+2024-11-24 16:02:23 - Tampilkan data ke Frame Form_User
+2024-11-24 16:02:28 - Koneksi berhasil ke database.
+2024-11-24 16:02:30 - Data Berhasil Dihapus dengan Username saidi
+2024-11-24 16:02:30 - Koneksi berhasil ke database.
+2024-11-24 16:02:30 - Tampilkan data ke Frame Form_User
+2024-11-24 16:02:36 - Koneksi berhasil ke database.
+2024-11-24 16:02:36 - Tampilkan data ke Frame Form_User
+2024-11-24 16:02:40 - Koneksi berhasil ke database.
+2024-11-24 16:02:40 - Tampilkan data ke Frame Form_User
+2024-11-24 16:39:48 - Koneksi gagal: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.

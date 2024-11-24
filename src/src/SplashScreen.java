@@ -57,7 +57,7 @@ public class SplashScreen extends javax.swing.JFrame {
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/asset/ezgif.com-resize (1).gif"))); // NOI18N
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 320, -1, 55));
 
-        loading.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
+        loading.setFont(new java.awt.Font("Segoe UI", 1, 10)); // NOI18N
         loading.setText("99 %");
         jPanel1.add(loading, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 420, -1, 11));
 
