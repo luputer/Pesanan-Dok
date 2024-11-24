@@ -168,17 +168,17 @@ public class MenuUtama extends javax.swing.JFrame {
     ImageIcon iconUser = new ImageIcon(getClass().getResource("/asset/user.png"));
    
     //nav children
-    MenuItem masBarang1 = new MenuItem(null, true, iconUser, "barang1", new ActionListener() {
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            f_Utama.removeAll();
-            f_Utama.add(new Form_User());
-            f_Utama.repaint();
-            f_Utama.revalidate();
-        }
-    });
-    MenuItem masBarang2 = new MenuItem(null, true, iconUser, "barang2", null);
-    MenuItem masBarang3 = new MenuItem(null, true, iconUser, "barang3", null);
+//    MenuItem masBarang1 = new MenuItem(null, true, iconUser, "barang1", new ActionListener() {
+//        @Override
+//        public void actionPerformed(ActionEvent e) {
+//            f_Utama.removeAll();
+//            f_Utama.add(new Form_User());
+//            f_Utama.repaint();
+//            f_Utama.revalidate();
+//        }
+//    });
+//    MenuItem masBarang2 = new MenuItem(null, true, iconUser, "barang2", null);
+//    MenuItem masBarang3 = new MenuItem(null, true, iconUser, "barang3", null);
 
     MenuItem trasaksi1 = new MenuItem(null, true, iconUser, "Transaksi1", null);
     MenuItem trasaksi2 = new MenuItem(null, true, iconUser, "Transaksi2", null);
@@ -195,10 +195,19 @@ public class MenuUtama extends javax.swing.JFrame {
             f_Utama.revalidate();
         }
     });
-    MenuItem menuMaster = new MenuItem(iconUser, false, null, "User", null, masBarang1, masBarang2, masBarang3);
+    MenuItem menuUser = new MenuItem(iconUser, false, null, "User",
+    new ActionListener() {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            f_Utama.removeAll();
+            f_Utama.add(new Form_User());
+            f_Utama.repaint();
+            f_Utama.revalidate();
+        }
+    });
     MenuItem menuTransaksi = new MenuItem(iconUser, false, null, "Transaksi", null, trasaksi1, trasaksi2, trasaksi3);
 
-    addMenu(menuHome, menuMaster, menuTransaksi);
+    addMenu(menuHome, menuUser, menuTransaksi);
 }
 
 
