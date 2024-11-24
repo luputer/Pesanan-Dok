@@ -4,17 +4,56 @@
  */
 package src.Component;
 
+import java.sql.Connection;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+import model.Config;
+import static model.Config.writeLog;
+
 /**
  *
  * @author Saidi
  */
 public class Form_User extends javax.swing.JPanel {
 
+    private void load_table() {
+        // membuat tampilan model tabel
+        DefaultTableModel model = new DefaultTableModel();
+        model.addColumn("No");
+        model.addColumn("Username");
+        model.addColumn("Password");
+        model.addColumn("Level");
+        //menampilkan data database kedalam tabel
+        try {
+            int no = 1;
+            String sql = "select * from t_user";
+            java.sql.Connection conn = (Connection) Config.configDB();
+            java.sql.Statement stm = conn.createStatement();
+            java.sql.ResultSet res = stm.executeQuery(sql);
+            while (res.next()) {
+                model.addRow(new Object[]{no++, res.getString(1), res.getString(2),
+                    res.getString(3)});
+            }
+            tblUser.setModel(model);
+            writeLog("Tampilkan data ke Frame " + getClass().getSimpleName());
+        } catch (Exception e) {
+            writeLog("Data tidak dapat ditampilkan : " + e.getMessage());
+        }
+    }
+
+    private void bersihkan() {
+        txtUsername.setText(null);
+        txtPassword.setText(null);
+        cbLevel.setSelectedIndex(0);
+    }
+
     /**
      * Creates new form Form_User
      */
     public Form_User() {
         initComponents();
+        load_table();
+        txtHiddenUsername.setVisible(false); // Menyembunyikan JTextField
     }
 
     /**
@@ -29,22 +68,23 @@ public class Form_User extends javax.swing.JPanel {
         mainPanel = new javax.swing.JPanel();
         dataUser = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tblUser = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
         btTambah = new javax.swing.JButton();
         bt_edit = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        btHapus = new javax.swing.JButton();
         editUSer = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
-        btSimpan1 = new javax.swing.JButton();
+        btEditSimpan = new javax.swing.JButton();
         btBatal1 = new javax.swing.JButton();
-        cbLevel2 = new javax.swing.JComboBox<>();
+        cbEditLevel = new javax.swing.JComboBox<>();
         jPanel2 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        txtEditUsername = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
+        txtEditPassword = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
+        txtHiddenUsername = new javax.swing.JTextField();
         cbLevel3 = new javax.swing.JComboBox<>();
         TambahUser = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
@@ -53,9 +93,9 @@ public class Form_User extends javax.swing.JPanel {
         cbLevel = new javax.swing.JComboBox<>();
         jPanel1 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        txtUsername = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
+        txtPassword = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         cbLevel1 = new javax.swing.JComboBox<>();
 
@@ -65,7 +105,7 @@ public class Form_User extends javax.swing.JPanel {
 
         dataUser.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tblUser.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -76,12 +116,12 @@ public class Form_User extends javax.swing.JPanel {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
+        tblUser.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jTable1MouseClicked(evt);
+                tblUserMouseClicked(evt);
             }
         });
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tblUser);
 
         dataUser.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 110, 1470, 360));
 
@@ -105,8 +145,13 @@ public class Form_User extends javax.swing.JPanel {
         });
         dataUser.add(bt_edit, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 80, 94, -1));
 
-        jButton3.setText("Hapus");
-        dataUser.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 80, 94, -1));
+        btHapus.setText("Hapus");
+        btHapus.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btHapusActionPerformed(evt);
+            }
+        });
+        dataUser.add(btHapus, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 80, 94, -1));
 
         mainPanel.add(dataUser, "card2");
 
@@ -116,13 +161,13 @@ public class Form_User extends javax.swing.JPanel {
         jLabel4.setText("Edit User");
         editUSer.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 240, -1));
 
-        btSimpan1.setText("Simpan");
-        btSimpan1.addActionListener(new java.awt.event.ActionListener() {
+        btEditSimpan.setText("Simpan");
+        btEditSimpan.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btSimpan1ActionPerformed(evt);
+                btEditSimpanActionPerformed(evt);
             }
         });
-        editUSer.add(btSimpan1, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 73, 100, 30));
+        editUSer.add(btEditSimpan, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 73, 100, 30));
 
         btBatal1.setText("Batal");
         btBatal1.addActionListener(new java.awt.event.ActionListener() {
@@ -132,13 +177,13 @@ public class Form_User extends javax.swing.JPanel {
         });
         editUSer.add(btBatal1, new org.netbeans.lib.awtextra.AbsoluteConstraints(106, 73, 100, 30));
 
-        cbLevel2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Level 1 (User)", "Level 2 (Pegawai)", "Level 3 (Admin)" }));
-        cbLevel2.addActionListener(new java.awt.event.ActionListener() {
+        cbEditLevel.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Level 1 (User)", "Level 2 (Pegawai)", "Level 3 (Admin)" }));
+        cbEditLevel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cbLevel2ActionPerformed(evt);
+                cbEditLevelActionPerformed(evt);
             }
         });
-        editUSer.add(cbLevel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 340, 460, 40));
+        editUSer.add(cbEditLevel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 340, 460, 40));
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel6.setText("Password");
@@ -160,15 +205,18 @@ public class Form_User extends javax.swing.JPanel {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(128, 128, 128)
+                                .addComponent(txtHiddenUsername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jTextField4)
+                        .addComponent(txtEditPassword)
                         .addContainerGap())))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 1447, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtEditUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 1447, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
@@ -177,13 +225,16 @@ public class Form_User extends javax.swing.JPanel {
                 .addGap(26, 26, 26)
                 .addComponent(jLabel8)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtEditUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jLabel6)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel9)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jLabel6)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtEditPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel9))
+                    .addComponent(txtHiddenUsername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -245,8 +296,8 @@ public class Form_User extends javax.swing.JPanel {
                         .addContainerGap(1314, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField3))
+                            .addComponent(txtUsername, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtPassword))
                         .addGap(25, 25, 25))))
         );
         jPanel1Layout.setVerticalGroup(
@@ -255,11 +306,11 @@ public class Form_User extends javax.swing.JPanel {
                 .addGap(26, 26, 26)
                 .addComponent(jLabel5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel7)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -278,85 +329,163 @@ public class Form_User extends javax.swing.JPanel {
 
     private void btSimpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSimpanActionPerformed
         // TODO add your handling code here:
-          mainPanel.removeAll();
-          mainPanel.add(dataUser);
-          mainPanel.repaint();
-          mainPanel.revalidate();
+        mainPanel.removeAll();
+        mainPanel.add(dataUser);
+        mainPanel.repaint();
+        mainPanel.revalidate();
+        try {
+            String sql = "INSERT INTO t_user VALUES ('" + txtUsername.getText()
+                    + "','" + txtPassword.getText()
+                    + "','" + (cbLevel.getSelectedIndex() + 1) + "')";
+            java.sql.Connection conn = (Connection) Config.configDB();
+            java.sql.PreparedStatement pst = conn.prepareStatement(sql);
+            pst.execute();
+            JOptionPane.showMessageDialog(null, "Penyimpanan Data Berhasil");
+            writeLog("Penyimpanan Data Berhasil dengan Username " + txtUsername.getText());
+            load_table();
+            bersihkan();
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, e.getMessage());
+            writeLog("Data gagal disimpan : " + e.getMessage());
+        }
     }//GEN-LAST:event_btSimpanActionPerformed
 
     private void btTambahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btTambahActionPerformed
         // TODO add your handling code here:
-          mainPanel.removeAll();
-          mainPanel.repaint();
-          mainPanel.revalidate();
-          
-          mainPanel.add(TambahUser);
-          mainPanel.repaint();
-          mainPanel.revalidate();
-          
-        
+        mainPanel.removeAll();
+        mainPanel.repaint();
+        mainPanel.revalidate();
+
+        mainPanel.add(TambahUser);
+        mainPanel.repaint();
+        mainPanel.revalidate();
+
+
     }//GEN-LAST:event_btTambahActionPerformed
 
     private void btBatalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btBatalActionPerformed
         // TODO add your handling code here:
-       
-          mainPanel.removeAll();
-          mainPanel.add(dataUser);
-          mainPanel.repaint();
-          mainPanel.revalidate();
-          
+
+        mainPanel.removeAll();
+        mainPanel.add(dataUser);
+        mainPanel.repaint();
+        mainPanel.revalidate();
+
     }//GEN-LAST:event_btBatalActionPerformed
 
-    private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
+    private void tblUserMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblUserMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTable1MouseClicked
+        int baris = tblUser.rowAtPoint(evt.getPoint());
+        String username = tblUser.getValueAt(baris, 1).toString();
+        String password = tblUser.getValueAt(baris, 2).toString();
+        String level = tblUser.getValueAt(baris, 3).toString().trim(); // Ambil nilai level (1, 2, atau 3)
+        // Konversi nilai level (angka) ke indeks untuk JComboBox
+        int levelIndex = Integer.parseInt(level) - 1; // Karena indeks JComboBox dimulai dari 0
+        txtEditUsername.setText(username);
+        txtHiddenUsername.setText(username);
+        txtEditPassword.setText(password);
+        // Set JComboBox ke indeks yang sesuai
+        cbEditLevel.setSelectedIndex(levelIndex);
 
-    private void btSimpan1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSimpan1ActionPerformed
+    }//GEN-LAST:event_tblUserMouseClicked
+
+    private void btEditSimpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btEditSimpanActionPerformed
         // TODO add your handling code here:
-          mainPanel.removeAll();
-          mainPanel.add(dataUser);
-          mainPanel.repaint();
-          mainPanel.revalidate();
-        
-        
-    }//GEN-LAST:event_btSimpan1ActionPerformed
+        mainPanel.removeAll();
+        mainPanel.add(dataUser);
+        mainPanel.repaint();
+        mainPanel.revalidate();
+
+        try {
+            if ("".equals(txtEditUsername.getText())) {
+                JOptionPane.showMessageDialog(this, "Isikan Username terlebih dahulu");
+            } else {
+                String sql = "UPDATE t_user SET username = '" + txtEditUsername.getText()
+                        + "', password= '" + txtEditPassword.getText()
+                        + "', level = '" + (cbEditLevel.getSelectedIndex() + 1)
+                        + "' WHERE t_user.username = '" + txtHiddenUsername.getText() + "'";
+                java.sql.Connection conn = (Connection) Config.configDB();
+                java.sql.PreparedStatement pst = conn.prepareStatement(sql);
+                pst.execute();
+                JOptionPane.showMessageDialog(null, "Data Berhasil Diperbaharui dengan Username" + txtEditUsername.getText());
+                writeLog("Data Berhasil Diperbaharui dengan NIM " + txtEditUsername.getText());
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Perubahan Data Gagal" + e.getMessage());
+            writeLog("Perubahan Data Gagal : " + e.getMessage());
+        }
+        load_table();
+    }//GEN-LAST:event_btEditSimpanActionPerformed
 
     private void btBatal1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btBatal1ActionPerformed
         // TODO add your handling code here:
-          mainPanel.removeAll();
-          mainPanel.add(dataUser);
-          mainPanel.repaint();
-          mainPanel.revalidate();
+        mainPanel.removeAll();
+        mainPanel.add(dataUser);
+        mainPanel.repaint();
+        mainPanel.revalidate();
     }//GEN-LAST:event_btBatal1ActionPerformed
 
     private void bt_editActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_editActionPerformed
         // TODO add your handling code here:
-          mainPanel.removeAll();
-          mainPanel.add(editUSer);
-          mainPanel.repaint();
-          mainPanel.revalidate();
+        mainPanel.removeAll();
+        mainPanel.add(editUSer);
+        mainPanel.repaint();
+        mainPanel.revalidate();
+
+
     }//GEN-LAST:event_bt_editActionPerformed
 
-    private void cbLevel2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbLevel2ActionPerformed
+    private void cbEditLevelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbEditLevelActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_cbLevel2ActionPerformed
+    }//GEN-LAST:event_cbEditLevelActionPerformed
+
+    private void btHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btHapusActionPerformed
+        // TODO add your handling code here:
+        try {
+            if ("".equals(txtEditUsername.getText())) {
+                JOptionPane.showMessageDialog(this, "Pilih Data Yang ingin dihapus terlebih dahulu");
+            } else {
+                // Menampilkan konfirmasi sebelum menghapus data
+                int confirm = JOptionPane.showConfirmDialog(this, "Apakah Anda yakin ingin menghapus data dengan Username: " + txtEditUsername.getText(),
+                        "Konfirmasi Hapus", JOptionPane.YES_NO_OPTION);
+
+                // Jika pengguna memilih YES, lanjutkan menghapus
+                if (confirm == JOptionPane.YES_OPTION) {
+                    String sql = "DELETE FROM t_user WHERE username='" + txtEditUsername.getText() + "'";
+                    java.sql.Connection conn = (Connection) Config.configDB();
+                    java.sql.PreparedStatement pst = conn.prepareStatement(sql);
+                    pst.execute();
+                    JOptionPane.showMessageDialog(this, "Data Berhasil Dihapus dengan Username " + txtEditUsername.getText());
+                    writeLog("Data Berhasil Dihapus dengan Username " + txtEditUsername.getText());
+                } else {
+                    // Jika pengguna memilih NO, tidak melakukan apa-apa
+//                    JOptionPane.showMessageDialog(this, "Data Tidak Dihapus");
+                }
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, e.getMessage());
+            writeLog("Data gagal dihapus : " + e.getMessage());
+        }
+        load_table();
+
+    }//GEN-LAST:event_btHapusActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel TambahUser;
     private javax.swing.JButton btBatal;
     private javax.swing.JButton btBatal1;
+    private javax.swing.JButton btEditSimpan;
+    private javax.swing.JButton btHapus;
     private javax.swing.JButton btSimpan;
-    private javax.swing.JButton btSimpan1;
     private javax.swing.JButton btTambah;
     private javax.swing.JButton bt_edit;
+    private javax.swing.JComboBox<String> cbEditLevel;
     private javax.swing.JComboBox<String> cbLevel;
     private javax.swing.JComboBox<String> cbLevel1;
-    private javax.swing.JComboBox<String> cbLevel2;
     private javax.swing.JComboBox<String> cbLevel3;
     private javax.swing.JPanel dataUser;
     private javax.swing.JPanel editUSer;
-    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -369,11 +498,12 @@ public class Form_User extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
     private javax.swing.JPanel mainPanel;
+    private javax.swing.JTable tblUser;
+    private javax.swing.JTextField txtEditPassword;
+    private javax.swing.JTextField txtEditUsername;
+    private javax.swing.JTextField txtHiddenUsername;
+    private javax.swing.JTextField txtPassword;
+    private javax.swing.JTextField txtUsername;
     // End of variables declaration//GEN-END:variables
 }
