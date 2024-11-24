@@ -149,3 +149,22 @@ The last packet sent successfully to the server was 0 milliseconds ago. The driv
 2024-11-24 16:39:48 - Koneksi gagal: Communications link failure
 
 The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+2024-11-24 19:18:56 - Koneksi berhasil ke database.
+2024-11-24 19:19:03 - Koneksi berhasil ke database.
+2024-11-24 19:19:03 - Tampilkan data ke Frame Form_DataPasient
+2024-11-24 19:19:13 - Koneksi berhasil ke database.
+2024-11-24 19:19:15 - Penyimpanan Data Berhasil dengan Nama Pasien re
+2024-11-24 19:19:15 - Koneksi berhasil ke database.
+2024-11-24 19:19:15 - Tampilkan data ke Frame Form_DataPasient
+2024-11-24 19:19:22 - Koneksi berhasil ke database.
+2024-11-24 19:19:24 - Data Berhasil Diperbaharui dengan Nama Pasien resin
+2024-11-24 19:19:24 - Koneksi berhasil ke database.
+2024-11-24 19:19:24 - Tampilkan data ke Frame Form_DataPasient
+2024-11-24 19:19:30 - Koneksi berhasil ke database.
+2024-11-24 19:19:35 - Data Berhasil Diperbaharui dengan Nama Pasien resin
+2024-11-24 19:19:35 - Koneksi berhasil ke database.
+2024-11-24 19:19:35 - Tampilkan data ke Frame Form_DataPasient
+2024-11-24 19:19:44 - Koneksi berhasil ke database.
+2024-11-24 19:19:46 - Data Berhasil Dihapus dengan Nama Pasien resin
+2024-11-24 19:19:46 - Koneksi berhasil ke database.
+2024-11-24 19:19:46 - Tampilkan data ke Frame Form_DataPasient
