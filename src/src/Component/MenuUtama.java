@@ -39,17 +39,13 @@ public class MenuUtama extends javax.swing.JFrame {
 
     // Convert level to integer for comparison  
     int userLevel = Integer.parseInt(level); // Assuming level is a String representation of an integer  
-
-    // Set text based on the user level  
-    if (userLevel == 1) {  
-        jLabel2.setText("user"); // Assuming jLabel1 is declared  
-    } else if (userLevel == 2) {  
-        jLabel2.setText("pegawai"); // Set text for level 2  
-    } else if (userLevel == 3) {  
-        jLabel2.setText("admin"); // Set text for level 3  
-    } else {  
-        jLabel2.setText("unknown"); // Handle unexpected levels  
-    }  
+        // Set text based on the user level
+        switch (userLevel) {
+            case 1 -> jLabel2.setText("admin"); // Assuming jLabel1 is declared
+            case 2 -> jLabel2.setText("dokter"); // Set text for level 2
+            case 3 -> jLabel2.setText("user"); // Set text for level 3
+            default -> jLabel2.setText("unknown"); // Handle unexpected levels
+        }
 
     // Execute any additional necessary functions  
     execute();  
@@ -338,6 +334,8 @@ public class MenuUtama extends javax.swing.JFrame {
             pn_utama.revalidate();
         }
     });
+        
+        
         MenuItem menuDokterKonsul = new MenuItem(iconUser, false, null, "konsultasi",new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent e) {
@@ -347,6 +345,28 @@ public class MenuUtama extends javax.swing.JFrame {
             pn_utama.revalidate();
         }
     });
+        
+        
+       MenuItem menuProfilPasien = new MenuItem(iconUser, false, null, "profil",new ActionListener() {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            pn_utama.removeAll();
+            pn_utama.add(new Form_profilPasien() );
+            pn_utama.repaint();
+            pn_utama.revalidate();
+        }
+    });
+       
+       MenuItem menuKonsulPasien = new MenuItem(iconUser, false, null, "konsultasi",new ActionListener() {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            pn_utama.removeAll();
+            pn_utama.add(new Form_PasienKonsul() );
+            pn_utama.repaint();
+            pn_utama.revalidate();
+        }
+    });
+    
     
     
     
@@ -371,8 +391,24 @@ public class MenuUtama extends javax.swing.JFrame {
     });
     
     
-
-    addMenu(menuHome, menuUser, menuDokter, MenuPasient, menuProfilDokter, menuDokterKonsul,  MenuAbout, MenuExit);
+       //menu multi user
+//    addMenu(menuHome, menuUser, menuDokter, MenuPasient, menuProfilDokter, menuDokterKonsul,menuProfilPasien, menuKonsulPasien,   MenuAbout, MenuExit);
+         switch(userLevel) {
+            case "1": //  Admin
+                addMenu(menuHome, menuUser, menuDokter, MenuPasient, MenuAbout, MenuExit);
+                break;
+                
+            case "2": // dokter
+                addMenu(menuHome,  menuProfilDokter, menuDokterKonsul, MenuAbout, MenuExit);
+                break;
+                
+            case "3": // User
+                addMenu(menuHome, menuProfilPasien, menuKonsulPasien, MenuAbout, MenuExit);
+                break;
+                
+        }
+    
+    
 }
 
 
