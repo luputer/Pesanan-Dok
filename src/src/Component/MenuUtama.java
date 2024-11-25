@@ -13,59 +13,69 @@ import javax.swing.Timer;
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-
 /**
  *
  * @author Saidi
  */
 public class MenuUtama extends javax.swing.JFrame {
+
     private String userLevel;
     private String userName;
-    
+    private int idPasien;
+    private String namaPasien;
+    private String jenisKelamin;
+    private String alamat;
 
     /**
      * Creates new form MenuUtama
      */
-    public MenuUtama(String username, String level) {
-        
-    initComponents();  
-    this.setExtendedState(JFrame.MAXIMIZED_BOTH);  
-    this.userName = username;  
-    this.userLevel = level;  
+    public MenuUtama(String username, String level, int idPasien, String namaPasien, String jenisKelamin, String alamat) {
 
-    // Set user info in sidebar  
-    jLabel3.setText(username);  
-    jLabel2.setText(level); // No need to convert level to String since it's already a String  
+        initComponents();
+        this.setExtendedState(JFrame.MAXIMIZED_BOTH);
+        this.userName = username;
+        this.userLevel = level;
+        this.idPasien = idPasien;
+        this.namaPasien = namaPasien;
+        this.jenisKelamin = jenisKelamin;
+        this.alamat = alamat;
 
-    // Convert level to integer for comparison  
-    int userLevel = Integer.parseInt(level); // Assuming level is a String representation of an integer  
+        // Set user info in sidebar  
+        jLabel3.setText(username);
+        jLabel2.setText(level); // No need to convert level to String since it's already a String  
+
+        // Convert level to integer for comparison  
+        int userLevel = Integer.parseInt(level); // Assuming level is a String representation of an integer  
         // Set text based on the user level
         switch (userLevel) {
-            case 1 -> jLabel2.setText("admin"); // Assuming jLabel1 is declared
-            case 2 -> jLabel2.setText("dokter"); // Set text for level 2
-            case 3 -> jLabel2.setText("user"); // Set text for level 3
-            default -> jLabel2.setText("unknown"); // Handle unexpected levels
+            case 3 ->
+                jLabel2.setText("admin"); // Assuming jLabel1 is declared
+            case 2 ->
+                jLabel2.setText("dokter"); // Set text for level 2
+            case 1 ->
+                jLabel2.setText("user"); // Set text for level 3
+            default ->
+                jLabel2.setText("unknown"); // Handle unexpected levels
         }
 
-    // Execute any additional necessary functions  
-    execute();  
-    date();
-    startClock();
-        
-     
+        // Execute any additional necessary functions  
+        execute();
+        date();
+        startClock();
+
     }
-    
-     private void startClock() {
-          Timer timer = new Timer(1000, e -> date());  
-          timer.start(); // Start the timer  
+
+    private void startClock() {
+        Timer timer = new Timer(1000, e -> date());
+        timer.start(); // Start the timer  
     }
-    
-     //methot tanggal
-     private void date() {
-         Date tanggalSekarang = new Date();
-         SimpleDateFormat TanggalWaktu = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");  
-          String tanggal = TanggalWaktu.format(tanggalSekarang);
-         lb_tanggal.setText(tanggal);
+
+    //methot tanggal
+    private void date() {
+        Date tanggalSekarang = new Date();
+        SimpleDateFormat TanggalWaktu = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        String tanggal = TanggalWaktu.format(tanggalSekarang);
+        lb_tanggal.setText(tanggal);
     }
 
     /**
@@ -198,7 +208,7 @@ public class MenuUtama extends javax.swing.JFrame {
         pn_utama.add(new Content_bg());
         pn_utama.repaint();
         pn_utama.revalidate();
-        
+
     }//GEN-LAST:event_formWindowOpened
 
     /**
@@ -250,180 +260,156 @@ public class MenuUtama extends javax.swing.JFrame {
     private javax.swing.JPanel pn_utama;
     // End of variables declaration//GEN-END:variables
 
-   private void execute() {
-       
-    //tempat naro icon
-    ImageIcon iconUser = new ImageIcon(getClass().getResource("/asset/user.png"));
-   
-    //nav children
+    private void execute() {
 
+        //tempat naro icon
+        ImageIcon iconUser = new ImageIcon(getClass().getResource("/asset/user.png"));
 
-    
-    //nav utamahalaman Home
-     MenuItem menuHome = new MenuItem(iconUser, false, null, "Home", new ActionListener() {
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            pn_utama.removeAll();
-            pn_utama.add(new Content_bg());
-            pn_utama.repaint();
-            pn_utama.revalidate();
-        }
-    });
-     
-    //halaman ke menuUser
-    MenuItem menuUser = new MenuItem(iconUser, false, null, "User",
-    new ActionListener() {
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            pn_utama.removeAll();
-            pn_utama.add(new Form_User());
-            pn_utama.repaint();
-            pn_utama.revalidate();
-        }
-    });
-    
-    //halaman ke menudokter
-    MenuItem menuDokter = new MenuItem(iconUser, false, null, "Dokter",new ActionListener() {
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            pn_utama.removeAll();
-            pn_utama.add(new Form_Dokter());
-            pn_utama.repaint();
-            pn_utama.revalidate();
-        }
-    });
-    
-    //halaman pasient
-    
-     MenuItem dataPasient = new MenuItem(null, true, iconUser, "Biodata", new ActionListener() {
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            pn_utama.removeAll();
-            pn_utama.add(new Form_DataPasient());
-            pn_utama.repaint();
-            pn_utama.revalidate();
-            
-        }
-     });
-     
-     MenuItem DataKonsul = new MenuItem(null, true, iconUser, "konsul", new ActionListener() {
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            pn_utama.removeAll();
-            pn_utama.add(new Form_DataKonsul());
-            pn_utama.repaint();
-            pn_utama.revalidate();
-        }
-     });
-     
-  
-    
-     
-     
-    
-    
-    MenuItem MenuPasient = new MenuItem(iconUser, false, null, "Pasient", null, dataPasient, DataKonsul);
-    
-    
-        MenuItem menuProfilDokter = new MenuItem(iconUser, false, null, "profil",new ActionListener() {
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            pn_utama.removeAll();
-            pn_utama.add(new Form_profilDokters());
-            pn_utama.repaint();
-            pn_utama.revalidate();
-        }
-    });
-        
-        
-        MenuItem menuDokterKonsul = new MenuItem(iconUser, false, null, "konsultasi",new ActionListener() {
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            pn_utama.removeAll();
-            pn_utama.add(new Form_DokterKonsul() );
-            pn_utama.repaint();
-            pn_utama.revalidate();
-        }
-    });
-        
-        
-       MenuItem menuProfilPasien = new MenuItem(iconUser, false, null, "profil",new ActionListener() {
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            pn_utama.removeAll();
-            pn_utama.add(new Form_profilPasien() );
-            pn_utama.repaint();
-            pn_utama.revalidate();
-        }
-    });
-       
-       MenuItem menuKonsulPasien = new MenuItem(iconUser, false, null, "konsultasi",new ActionListener() {
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            pn_utama.removeAll();
-            pn_utama.add(new Form_PasienKonsul() );
-            pn_utama.repaint();
-            pn_utama.revalidate();
-        }
-    });
-    
-    
-    
-    
-    
-    //halaman about
-    MenuItem MenuAbout = new MenuItem(iconUser, false, null, "About",new ActionListener() {
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            pn_utama.removeAll();
-            pn_utama.add(new About());
-            pn_utama.repaint();
-            pn_utama.revalidate();
-        }
-    });
-    
-    
-    MenuItem MenuExit = new MenuItem(iconUser, false, null, "Exit",new ActionListener() {
-        @Override
-        public void actionPerformed(ActionEvent e) {
-           dispose();
-        }
-    });
-    
-    
-       //menu multi user
+        //nav children
+        //nav utamahalaman Home
+        MenuItem menuHome = new MenuItem(iconUser, false, null, "Home", new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                pn_utama.removeAll();
+                pn_utama.add(new Content_bg());
+                pn_utama.repaint();
+                pn_utama.revalidate();
+            }
+        });
+
+        //halaman ke menuUser
+        MenuItem menuUser = new MenuItem(iconUser, false, null, "User",
+                new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                pn_utama.removeAll();
+                pn_utama.add(new Form_User());
+                pn_utama.repaint();
+                pn_utama.revalidate();
+            }
+        });
+
+        //halaman ke menudokter
+        MenuItem menuDokter = new MenuItem(iconUser, false, null, "Dokter", new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                pn_utama.removeAll();
+                pn_utama.add(new Form_Dokter());
+                pn_utama.repaint();
+                pn_utama.revalidate();
+            }
+        });
+
+        //halaman pasient
+        MenuItem dataPasient = new MenuItem(null, true, iconUser, "Biodata", new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                pn_utama.removeAll();
+                pn_utama.add(new Form_DataPasient());
+                pn_utama.repaint();
+                pn_utama.revalidate();
+
+            }
+        });
+
+        MenuItem DataKonsul = new MenuItem(null, true, iconUser, "konsul", new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                pn_utama.removeAll();
+                pn_utama.add(new Form_DataKonsul());
+                pn_utama.repaint();
+                pn_utama.revalidate();
+            }
+        });
+
+        MenuItem MenuPasient = new MenuItem(iconUser, false, null, "Pasient", null, dataPasient, DataKonsul);
+
+        MenuItem menuProfilDokter = new MenuItem(iconUser, false, null, "profil", new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                pn_utama.removeAll();
+                pn_utama.add(new Form_profilDokters());
+                pn_utama.repaint();
+                pn_utama.revalidate();
+            }
+        });
+
+        MenuItem menuDokterKonsul = new MenuItem(iconUser, false, null, "konsultasi", new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                pn_utama.removeAll();
+                pn_utama.add(new Form_DokterKonsul());
+                pn_utama.repaint();
+                pn_utama.revalidate();
+            }
+        });
+
+        MenuItem menuProfilPasien = new MenuItem(iconUser, false, null, "profil", new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                pn_utama.removeAll();
+                pn_utama.add(new Form_profilPasien(idPasien, namaPasien, jenisKelamin, alamat));
+                pn_utama.repaint();
+                pn_utama.revalidate();
+            }
+        });
+
+        MenuItem menuKonsulPasien = new MenuItem(iconUser, false, null, "konsultasi", new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                pn_utama.removeAll();
+                pn_utama.add(new Form_PasienKonsul());
+                pn_utama.repaint();
+                pn_utama.revalidate();
+            }
+        });
+
+        //halaman about
+        MenuItem MenuAbout = new MenuItem(iconUser, false, null, "About", new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                pn_utama.removeAll();
+                pn_utama.add(new About());
+                pn_utama.repaint();
+                pn_utama.revalidate();
+            }
+        });
+
+        MenuItem MenuExit = new MenuItem(iconUser, false, null, "Exit", new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                dispose();
+            }
+        });
+
+        //menu multi user
 //    addMenu(menuHome, menuUser, menuDokter, MenuPasient, menuProfilDokter, menuDokterKonsul,menuProfilPasien, menuKonsulPasien,   MenuAbout, MenuExit);
-         switch(userLevel) {
-            case "1": //  Admin
+        switch (userLevel) {
+            case "3": //  Admin
                 addMenu(menuHome, menuUser, menuDokter, MenuPasient, MenuAbout, MenuExit);
                 break;
-                
+
             case "2": // dokter
-                addMenu(menuHome,  menuProfilDokter, menuDokterKonsul, MenuAbout, MenuExit);
+                addMenu(menuHome, menuProfilDokter, menuDokterKonsul, MenuAbout, MenuExit);
                 break;
-                
-            case "3": // User
+
+            case "1": // User
                 addMenu(menuHome, menuProfilPasien, menuKonsulPasien, MenuAbout, MenuExit);
                 break;
-                
-        }
-    
-    
-}
 
+        }
+
+    }
 
     private void addMenu(MenuItem... menus) {
-    for (MenuItem menu : menus) {
-        pn_menu.add(menu);
-        for (MenuItem sub : menu.getSubMenu()) {
-            addMenu(sub);
+        for (MenuItem menu : menus) {
+            pn_menu.add(menu);
+            for (MenuItem sub : menu.getSubMenu()) {
+                addMenu(sub);
+            }
         }
+        pn_menu.revalidate();
+        pn_menu.repaint();
     }
-    pn_menu.revalidate();
-    pn_menu.repaint();
-}
 
-  
-
-   
 }

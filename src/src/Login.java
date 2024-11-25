@@ -6,6 +6,8 @@ package src;
 
 import javax.swing.JOptionPane;
 import model.Config;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import static model.Config.writeLog;
 import src.Component.MenuUtama;
 
@@ -167,7 +169,7 @@ public class Login extends javax.swing.JFrame {
 
         String sql = "SELECT username, level FROM t_user WHERE username = ? AND password = ?";
         try {
-            java.sql.Connection conn = (java.sql.Connection) Config.configDB();
+            java.sql.Connection conn = Config.configDB();
             java.sql.PreparedStatement pst = conn.prepareStatement(sql);
             pst.setString(1, username);
             pst.setString(2, password);
@@ -177,10 +179,27 @@ public class Login extends javax.swing.JFrame {
                 String level = rs.getString("level");
                 JOptionPane.showMessageDialog(null, "Selamat datang " + username);
 
-                // Create MenuUtama with username and level
-                MenuUtama menuUtama = new MenuUtama(username, level);
-                menuUtama.setVisible(true);
-                this.dispose(); // Close login form
+                // Ambil data pasien berdasarkan username yang login
+                String sqlPasien = "SELECT * FROM t_pasien WHERE username = ?";
+                PreparedStatement pstPasien = conn.prepareStatement(sqlPasien);
+                pstPasien.setString(1, username);
+                ResultSet rsPasien = pstPasien.executeQuery();
+
+                if (rsPasien.next()) {
+                    // Ambil data pasien dari hasil query
+                    int idPasien = rsPasien.getInt("idPasien");
+                    String namaPasien = rsPasien.getString("namaPasien");
+                    String jenisKelamin = rsPasien.getString("jenisKelamin");
+                    String alamat = rsPasien.getString("alamat");
+
+                    // Kirim data pasien ke frame MenuUtama
+                    MenuUtama menuUtama = new MenuUtama(username, level, idPasien, namaPasien, jenisKelamin, alamat);
+                    menuUtama.setVisible(true);
+                    this.dispose(); // Close login form
+                } else {
+                    JOptionPane.showMessageDialog(null, "Data pasien tidak ditemukan!");
+                }
+
             } else {
                 JOptionPane.showMessageDialog(null, "Username atau password salah!");
                 txtUsername.setText("username");
@@ -191,6 +210,7 @@ public class Login extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Error: " + e.getMessage());
             writeLog("Login Error: " + e.getMessage());
         }
+
 
     }//GEN-LAST:event_btn_loginActionPerformed
 
@@ -233,9 +253,9 @@ public class Login extends javax.swing.JFrame {
 
     private void lblDaftarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblDaftarMouseClicked
         // TODO add your handling code here:
-        
-//        FRegister fRegister = new FRegister();
-//        fRegister.setVisible(true);
+
+        FRegister fRegister = new FRegister();
+        fRegister.setVisible(true);
     }//GEN-LAST:event_lblDaftarMouseClicked
 
     /**

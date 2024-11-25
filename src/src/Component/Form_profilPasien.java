@@ -16,39 +16,40 @@ import static model.Config.writeLog;
  */
 public class Form_profilPasien extends javax.swing.JPanel {
 
-//    private void load_table() {
-//        // membuat tampilan model tabel
-//        DefaultTableModel model = new DefaultTableModel();
-//        model.addColumn("No");
-//        model.addColumn("Username");
-//        model.addColumn("Password");
-//        model.addColumn("Level");
-//        //menampilkan data database kedalam tabel
-//        try {
-//            int no = 1;
-//            String sql = "select * from t_user";
-//            java.sql.Connection conn = (Connection) Config.configDB();
-//            java.sql.Statement stm = conn.createStatement();
-//            java.sql.ResultSet res = stm.executeQuery(sql);
-//            while (res.next()) {
-//                model.addRow(new Object[]{no++, res.getString(1), res.getString(2),
-//                    res.getString(3)});
-//            }
-//            tblUser.setModel(model);
-//            writeLog("Tampilkan data ke Frame " + getClass().getSimpleName());
-//        } catch (Exception e) {
-//            writeLog("Data tidak dapat ditampilkan : " + e.getMessage());
-//        }
-//    }
+    private void loadData(int idPasien) {
+        try {
+            // Query untuk mendapatkan data pasien berdasarkan idPasien
+            String sqlSelect = "SELECT * FROM t_pasien WHERE idPasien = ?";
+            java.sql.Connection conn = (Connection) Config.configDB();
+            java.sql.PreparedStatement pstSelect = conn.prepareStatement(sqlSelect);
+            pstSelect.setInt(1, idPasien); // Menggunakan idPasien untuk filter
+            java.sql.ResultSet rs = pstSelect.executeQuery();
 
- 
+            if (rs.next()) {
+                // Set text field dengan data pasien yang diambil
+                txtNamaProfilePasien.setText(rs.getString("namaPasien"));
+                cbJenisKelaminProfilePasien.setSelectedItem(rs.getString("jenisKelamin"));
+                txtAlamatPasien.setText(rs.getString("alamat"));
+                txtHiddenProfile.setText(String.valueOf(idPasien)); // Set idPasien di hidden field
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Gagal memuat data pasien: " + e.getMessage());
+        }
+    }
+
     /**
      * Creates new form Form_User
      */
-    public Form_profilPasien() {
+    public Form_profilPasien(int idPasien, String namaPasien, String jenisKelamin, String alamat) {
         initComponents();
 //        load_table();
-       
+        txtHiddenProfile.setVisible(false);
+        txtHiddenProfile.setText(String.valueOf(idPasien));
+        loadData(idPasien);
+//        txtAlamatPasien.setText(alamat);
+//        txtNamaProfilePasien.setText(namaPasien);
+//        cbJenisKelaminProfilePasien.setSelectedItem(jenisKelamin);
+
     }
 
     /**
@@ -65,12 +66,12 @@ public class Form_profilPasien extends javax.swing.JPanel {
         jLabel4 = new javax.swing.JLabel();
         btEditSimpan = new javax.swing.JButton();
         btBatal1 = new javax.swing.JButton();
-        cbEditLevel = new javax.swing.JComboBox<>();
+        cbJenisKelaminProfilePasien = new javax.swing.JComboBox<>();
         jPanel2 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
-        txtEditUsername = new javax.swing.JTextField();
+        txtNamaProfilePasien = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
-        txtEditPassword = new javax.swing.JTextField();
+        txtAlamatPasien = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
         txtHiddenProfile = new javax.swing.JTextField();
         cbLevel3 = new javax.swing.JComboBox<>();
@@ -82,7 +83,7 @@ public class Form_profilPasien extends javax.swing.JPanel {
         editUSer.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
-        jLabel4.setText("Edit Profile");
+        jLabel4.setText("Edit Biodata");
         editUSer.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 240, -1));
 
         btEditSimpan.setText("Simpan");
@@ -101,25 +102,23 @@ public class Form_profilPasien extends javax.swing.JPanel {
         });
         editUSer.add(btBatal1, new org.netbeans.lib.awtextra.AbsoluteConstraints(106, 73, 100, 30));
 
-        cbEditLevel.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Level 1 (User)", "Level 2 (Pegawai)", "Level 3 (Admin)" }));
-        cbEditLevel.addActionListener(new java.awt.event.ActionListener() {
+        cbJenisKelaminProfilePasien.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Laki-laki", "Perempuan" }));
+        cbJenisKelaminProfilePasien.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cbEditLevelActionPerformed(evt);
+                cbJenisKelaminProfilePasienActionPerformed(evt);
             }
         });
-        editUSer.add(cbEditLevel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 340, 460, 40));
+        editUSer.add(cbJenisKelaminProfilePasien, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 340, 460, 40));
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        jLabel6.setText("Password");
+        jLabel6.setText("Alamat");
 
         jLabel8.setBackground(new java.awt.Color(255, 255, 255));
         jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        jLabel8.setText("Username");
+        jLabel8.setText("Nama");
 
         jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel9.setText("Level");
-
-        txtHiddenProfile.setText("jTextField1");
+        jLabel9.setText("Jenis Kelamin");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -135,14 +134,14 @@ public class Form_profilPasien extends javax.swing.JPanel {
                                 .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(224, 224, 224)
                                 .addComponent(txtHiddenProfile, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(txtEditPassword)
+                        .addComponent(txtAlamatPasien)
                         .addContainerGap())))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(txtEditUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 1447, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtNamaProfilePasien, javax.swing.GroupLayout.PREFERRED_SIZE, 1447, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
@@ -151,16 +150,16 @@ public class Form_profilPasien extends javax.swing.JPanel {
                 .addGap(26, 26, 26)
                 .addComponent(jLabel8)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtEditUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtNamaProfilePasien, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel6)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtEditPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel9))
+                        .addComponent(txtAlamatPasien, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(txtHiddenProfile, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel9)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -183,24 +182,45 @@ public class Form_profilPasien extends javax.swing.JPanel {
         mainPanel.revalidate();
 
         try {
-            if ("".equals(txtEditUsername.getText())) {
-                JOptionPane.showMessageDialog(this, "Isikan Username terlebih dahulu");
+            // Memeriksa apakah Nama Pasien kosong
+            if ("".equals(txtNamaProfilePasien.getText())) {
+                JOptionPane.showMessageDialog(this, "Isikan Nama Pasien terlebih dahulu");
             } else {
-                String sql = "UPDATE t_user SET username = '" + txtEditUsername.getText()
-                        + "', password= '" + txtEditPassword.getText()
-                        + "', level = '" + (cbEditLevel.getSelectedIndex() + 1)
-                        + "' WHERE t_user.username = '" + txtHiddenProfile.getText() + "'";
+                // Menyusun query untuk update data pasien berdasarkan idPasien
+                String sqlUpdate = "UPDATE t_pasien SET namaPasien = '" + txtNamaProfilePasien.getText()
+                        + "', jenisKelamin = '" + cbJenisKelaminProfilePasien.getSelectedItem().toString()
+                        + "', alamat = '" + txtAlamatPasien.getText()
+                        + "' WHERE idPasien = '" + txtHiddenProfile.getText() + "'";
+
+                // Membuka koneksi ke database
                 java.sql.Connection conn = (Connection) Config.configDB();
-                java.sql.PreparedStatement pst = conn.prepareStatement(sql);
-                pst.execute();
-                JOptionPane.showMessageDialog(null, "Data Berhasil Diperbaharui dengan Username" + txtEditUsername.getText());
-                writeLog("Data Berhasil Diperbaharui dengan NIM " + txtEditUsername.getText());
+
+                // Menyiapkan statement dan mengeksekusi query update
+                java.sql.PreparedStatement pstUpdate = conn.prepareStatement(sqlUpdate);
+                pstUpdate.execute();
+
+                // Menampilkan pesan sukses
+                JOptionPane.showMessageDialog(null, "Data Pasien Berhasil Diperbaharui dengan Nama " + txtNamaProfilePasien.getText());
+                writeLog("Data Pasien Berhasil Diperbaharui dengan ID Pasien " + txtHiddenProfile.getText());
+
+                // Setelah data diperbarui, ambil data terbaru
+                String sqlSelect = "SELECT * FROM t_pasien WHERE idPasien = ?";
+                java.sql.PreparedStatement pstSelect = conn.prepareStatement(sqlSelect);
+                pstSelect.setInt(1, Integer.parseInt(txtHiddenProfile.getText())); // ID pasien yang disembunyikan
+
+                java.sql.ResultSet rs = pstSelect.executeQuery();
+                if (rs.next()) {
+                    // Update text field dengan data terbaru
+                    txtNamaProfilePasien.setText(rs.getString("namaPasien"));
+                    cbJenisKelaminProfilePasien.setSelectedItem(rs.getString("jenisKelamin"));
+                    txtAlamatPasien.setText(rs.getString("alamat"));
+                }
             }
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Perubahan Data Gagal" + e.getMessage());
+            // Menampilkan pesan error jika terjadi kegagalan
+            JOptionPane.showMessageDialog(null, "Perubahan Data Gagal: " + e.getMessage());
             writeLog("Perubahan Data Gagal : " + e.getMessage());
         }
-//        load_table();
     }//GEN-LAST:event_btEditSimpanActionPerformed
 
     private void btBatal1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btBatal1ActionPerformed
@@ -211,15 +231,15 @@ public class Form_profilPasien extends javax.swing.JPanel {
         mainPanel.revalidate();
     }//GEN-LAST:event_btBatal1ActionPerformed
 
-    private void cbEditLevelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbEditLevelActionPerformed
+    private void cbJenisKelaminProfilePasienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbJenisKelaminProfilePasienActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_cbEditLevelActionPerformed
+    }//GEN-LAST:event_cbJenisKelaminProfilePasienActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btBatal1;
     private javax.swing.JButton btEditSimpan;
-    private javax.swing.JComboBox<String> cbEditLevel;
+    private javax.swing.JComboBox<String> cbJenisKelaminProfilePasien;
     private javax.swing.JComboBox<String> cbLevel3;
     private javax.swing.JPanel editUSer;
     private javax.swing.JLabel jLabel4;
@@ -228,8 +248,8 @@ public class Form_profilPasien extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel mainPanel;
-    private javax.swing.JTextField txtEditPassword;
-    private javax.swing.JTextField txtEditUsername;
+    private javax.swing.JTextField txtAlamatPasien;
     private javax.swing.JTextField txtHiddenProfile;
+    private javax.swing.JTextField txtNamaProfilePasien;
     // End of variables declaration//GEN-END:variables
 }

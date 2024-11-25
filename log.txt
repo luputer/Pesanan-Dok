@@ -724,3 +724,47 @@ The last packet sent successfully to the server was 0 milliseconds ago. The driv
 2024-11-25 17:28:47 - Tampilkan data ke Frame Form_profilDokters
 2024-11-25 17:28:51 - Koneksi berhasil ke database.
 2024-11-25 17:28:51 - Tampilkan data ke Frame Form_profilDokters
+2024-11-25 19:22:43 - Koneksi gagal: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+2024-11-25 19:33:32 - Koneksi berhasil ke database.
+2024-11-25 19:33:35 - Data gagal disimpan : Field 'level' doesn't have a default value
+2024-11-25 19:39:19 - Koneksi berhasil ke database.
+2024-11-25 19:39:21 - Penyimpanan Data User Berhasil dengan Username Ret
+2024-11-25 19:39:23 - Penyimpanan Data Pasien Berhasil untuk Nama aiz
+2024-11-25 19:39:24 - idPasien Berhasil Diperbarui di t_user untuk Username Ret
+2024-11-25 19:40:48 - Koneksi berhasil ke database.
+2024-11-25 19:41:06 - Koneksi berhasil ke database.
+2024-11-25 19:41:06 - Tampilkan data ke Frame Form_Dokter
+2024-11-25 19:41:07 - Koneksi berhasil ke database.
+2024-11-25 19:41:07 - Tampilkan data ke Frame Form_User
+2024-11-25 19:43:16 - Koneksi berhasil ke database.
+2024-11-25 20:46:47 - Koneksi berhasil ke database.
+2024-11-25 20:56:05 - Koneksi berhasil ke database.
+2024-11-25 20:56:24 - Koneksi berhasil ke database.
+2024-11-25 20:56:27 - Data Pasien Berhasil Diperbaharui dengan ID Pasien 1
+2024-11-25 21:06:09 - Koneksi berhasil ke database.
+2024-11-25 21:06:29 - Koneksi berhasil ke database.
+2024-11-25 21:06:32 - Data Pasien Berhasil Diperbaharui dengan ID Pasien 1
+2024-11-25 21:11:45 - Koneksi berhasil ke database.
+2024-11-25 21:11:55 - Koneksi berhasil ke database.
+2024-11-25 21:11:56 - Data Pasien Berhasil Diperbaharui dengan ID Pasien 1
+2024-11-25 21:11:59 - Koneksi berhasil ke database.
+2024-11-25 21:12:09 - Koneksi berhasil ke database.
+2024-11-25 21:12:11 - Data Pasien Berhasil Diperbaharui dengan ID Pasien 1
+2024-11-25 21:12:15 - Koneksi berhasil ke database.
+2024-11-25 21:29:38 - Koneksi berhasil ke database.
+2024-11-25 21:29:54 - Koneksi berhasil ke database.
+2024-11-25 21:29:57 - Data Pasien Berhasil Diperbaharui dengan ID Pasien 1
+2024-11-25 21:30:02 - Koneksi berhasil ke database.
+2024-11-25 21:36:36 - Koneksi berhasil ke database.
+2024-11-25 21:36:47 - Koneksi berhasil ke database.
+2024-11-25 21:36:58 - Koneksi berhasil ke database.
+2024-11-25 21:37:00 - Data Pasien Berhasil Diperbaharui dengan ID Pasien 1
+2024-11-25 21:37:01 - Koneksi berhasil ke database.
+2024-11-25 21:37:06 - Koneksi berhasil ke database.
+2024-11-25 21:37:09 - Data Pasien Berhasil Diperbaharui dengan ID Pasien 1
+2024-11-25 21:37:10 - Koneksi berhasil ke database.
+2024-11-25 21:37:18 - Koneksi berhasil ke database.
+2024-11-25 21:37:19 - Data Pasien Berhasil Diperbaharui dengan ID Pasien 1
+2024-11-25 21:37:21 - Koneksi berhasil ke database.
