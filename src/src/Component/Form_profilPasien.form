@@ -113,7 +113,11 @@
                               <Group type="102" alignment="0" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Component id="jLabel8" alignment="0" min="-2" pref="139" max="-2" attributes="0"/>
-                                      <Component id="jLabel6" alignment="0" min="-2" pref="139" max="-2" attributes="0"/>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Component id="jLabel6" min="-2" pref="139" max="-2" attributes="0"/>
+                                          <EmptySpace min="-2" pref="224" max="-2" attributes="0"/>
+                                          <Component id="txtHiddenProfile" min="-2" max="-2" attributes="0"/>
+                                      </Group>
                                       <Component id="jLabel9" alignment="0" min="-2" pref="56" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace min="1504" max="32767" attributes="0"/>
@@ -139,11 +143,16 @@
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="txtEditUsername" min="-2" pref="32" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="txtEditPassword" min="-2" pref="35" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="txtEditPassword" min="-2" pref="35" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <Component id="txtHiddenProfile" min="-2" max="-2" attributes="0"/>
+                          </Group>
                           <EmptySpace max="32767" attributes="0"/>
                       </Group>
                   </Group>
@@ -179,6 +188,11 @@
                       <Font name="Segoe UI" size="18" style="1"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="Level"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JTextField" name="txtHiddenProfile">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="jTextField1"/>
                   </Properties>
                 </Component>
               </SubComponents>

@@ -30,7 +30,7 @@ public class Form_DataKonsul extends javax.swing.JPanel {
         mainPanel = new javax.swing.JPanel();
         dataKonsul = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tblKonsultasi = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
         btTambah = new javax.swing.JButton();
         bt_edit = new javax.swing.JButton();
@@ -72,7 +72,7 @@ public class Form_DataKonsul extends javax.swing.JPanel {
 
         dataKonsul.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tblKonsultasi.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -83,12 +83,12 @@ public class Form_DataKonsul extends javax.swing.JPanel {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
+        tblKonsultasi.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jTable1MouseClicked(evt);
+                tblKonsultasiMouseClicked(evt);
             }
         });
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tblKonsultasi);
 
         dataKonsul.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 110, 1470, 360));
 
@@ -343,9 +343,9 @@ public class Form_DataKonsul extends javax.swing.JPanel {
           
     }//GEN-LAST:event_btBatalActionPerformed
 
-    private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
+    private void tblKonsultasiMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblKonsultasiMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTable1MouseClicked
+    }//GEN-LAST:event_tblKonsultasiMouseClicked
 
     private void bt_editActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_editActionPerformed
         // TODO add your handling code here:
@@ -404,7 +404,6 @@ public class Form_DataKonsul extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JTable jTable1;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextArea jTextArea2;
     private javax.swing.JTextField jTextField3;
@@ -412,5 +411,6 @@ public class Form_DataKonsul extends javax.swing.JPanel {
     private javax.swing.JTextField jTextField9;
     private javax.swing.JPanel mainPanel;
     private javax.swing.JPanel tambahKonsul;
+    private javax.swing.JTable tblKonsultasi;
     // End of variables declaration//GEN-END:variables
 }

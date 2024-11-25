@@ -16,30 +16,30 @@ import static model.Config.writeLog;
  */
 public class Form_profilPasien extends javax.swing.JPanel {
 
-    private void load_table() {
-        // membuat tampilan model tabel
-        DefaultTableModel model = new DefaultTableModel();
-        model.addColumn("No");
-        model.addColumn("Username");
-        model.addColumn("Password");
-        model.addColumn("Level");
-        //menampilkan data database kedalam tabel
-        try {
-            int no = 1;
-            String sql = "select * from t_user";
-            java.sql.Connection conn = (Connection) Config.configDB();
-            java.sql.Statement stm = conn.createStatement();
-            java.sql.ResultSet res = stm.executeQuery(sql);
-            while (res.next()) {
-                model.addRow(new Object[]{no++, res.getString(1), res.getString(2),
-                    res.getString(3)});
-            }
-            tblUser.setModel(model);
-            writeLog("Tampilkan data ke Frame " + getClass().getSimpleName());
-        } catch (Exception e) {
-            writeLog("Data tidak dapat ditampilkan : " + e.getMessage());
-        }
-    }
+//    private void load_table() {
+//        // membuat tampilan model tabel
+//        DefaultTableModel model = new DefaultTableModel();
+//        model.addColumn("No");
+//        model.addColumn("Username");
+//        model.addColumn("Password");
+//        model.addColumn("Level");
+//        //menampilkan data database kedalam tabel
+//        try {
+//            int no = 1;
+//            String sql = "select * from t_user";
+//            java.sql.Connection conn = (Connection) Config.configDB();
+//            java.sql.Statement stm = conn.createStatement();
+//            java.sql.ResultSet res = stm.executeQuery(sql);
+//            while (res.next()) {
+//                model.addRow(new Object[]{no++, res.getString(1), res.getString(2),
+//                    res.getString(3)});
+//            }
+//            tblUser.setModel(model);
+//            writeLog("Tampilkan data ke Frame " + getClass().getSimpleName());
+//        } catch (Exception e) {
+//            writeLog("Data tidak dapat ditampilkan : " + e.getMessage());
+//        }
+//    }
 
  
     /**
@@ -47,7 +47,7 @@ public class Form_profilPasien extends javax.swing.JPanel {
      */
     public Form_profilPasien() {
         initComponents();
-        load_table();
+//        load_table();
        
     }
 
@@ -72,6 +72,7 @@ public class Form_profilPasien extends javax.swing.JPanel {
         jLabel8 = new javax.swing.JLabel();
         txtEditPassword = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
+        txtHiddenProfile = new javax.swing.JTextField();
         cbLevel3 = new javax.swing.JComboBox<>();
 
         setLayout(new java.awt.CardLayout());
@@ -118,6 +119,8 @@ public class Form_profilPasien extends javax.swing.JPanel {
         jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel9.setText("Level");
 
+        txtHiddenProfile.setText("jTextField1");
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -128,7 +131,10 @@ public class Form_profilPasien extends javax.swing.JPanel {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(224, 224, 224)
+                                .addComponent(txtHiddenProfile, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
@@ -147,11 +153,14 @@ public class Form_profilPasien extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtEditUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jLabel6)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtEditPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel9)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jLabel6)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtEditPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel9))
+                    .addComponent(txtHiddenProfile, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -169,7 +178,7 @@ public class Form_profilPasien extends javax.swing.JPanel {
     private void btEditSimpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btEditSimpanActionPerformed
         // TODO add your handling code here:
         mainPanel.removeAll();
-        mainPanel.add(dataUser);
+//        mainPanel.add(dataUser);
         mainPanel.repaint();
         mainPanel.revalidate();
 
@@ -180,7 +189,7 @@ public class Form_profilPasien extends javax.swing.JPanel {
                 String sql = "UPDATE t_user SET username = '" + txtEditUsername.getText()
                         + "', password= '" + txtEditPassword.getText()
                         + "', level = '" + (cbEditLevel.getSelectedIndex() + 1)
-                        + "' WHERE t_user.username = '" + txtHiddenUsername.getText() + "'";
+                        + "' WHERE t_user.username = '" + txtHiddenProfile.getText() + "'";
                 java.sql.Connection conn = (Connection) Config.configDB();
                 java.sql.PreparedStatement pst = conn.prepareStatement(sql);
                 pst.execute();
@@ -191,13 +200,13 @@ public class Form_profilPasien extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null, "Perubahan Data Gagal" + e.getMessage());
             writeLog("Perubahan Data Gagal : " + e.getMessage());
         }
-        load_table();
+//        load_table();
     }//GEN-LAST:event_btEditSimpanActionPerformed
 
     private void btBatal1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btBatal1ActionPerformed
         // TODO add your handling code here:
         mainPanel.removeAll();
-        mainPanel.add(dataUser);
+//        mainPanel.add(dataUser);
         mainPanel.repaint();
         mainPanel.revalidate();
     }//GEN-LAST:event_btBatal1ActionPerformed
@@ -221,5 +230,6 @@ public class Form_profilPasien extends javax.swing.JPanel {
     private javax.swing.JPanel mainPanel;
     private javax.swing.JTextField txtEditPassword;
     private javax.swing.JTextField txtEditUsername;
+    private javax.swing.JTextField txtHiddenProfile;
     // End of variables declaration//GEN-END:variables
 }

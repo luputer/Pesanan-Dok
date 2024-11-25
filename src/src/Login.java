@@ -43,6 +43,7 @@ public class Login extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         btn_login = new javax.swing.JButton();
+        lblDaftar = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -131,6 +132,15 @@ public class Login extends javax.swing.JFrame {
         });
         jPanel1.add(btn_login, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 460, 130, 50));
 
+        lblDaftar.setForeground(new java.awt.Color(0, 0, 0));
+        lblDaftar.setText("Tidak Punya Akun? Silahkan Daftar dulu");
+        lblDaftar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblDaftarMouseClicked(evt);
+            }
+        });
+        jPanel1.add(lblDaftar, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 520, -1, -1));
+
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1010, 550));
 
         pack();
@@ -148,40 +158,40 @@ public class Login extends javax.swing.JFrame {
     private void btn_loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_loginActionPerformed
         // TODO add your handling code here:
         String username = txtUsername.getText();
-    String password = txtPassword.getText();
-    
-    if (username.equals("username") || password.equals("Password")) {
-        JOptionPane.showMessageDialog(null, "Silahkan masukkan username dan password!");
-        return;
-    }
-    
-    String sql = "SELECT username, level FROM t_user WHERE username = ? AND password = ?";
-    try {
-        java.sql.Connection conn = (java.sql.Connection) Config.configDB();
-        java.sql.PreparedStatement pst = conn.prepareStatement(sql);
-        pst.setString(1, username);
-        pst.setString(2, password);
-        java.sql.ResultSet rs = pst.executeQuery();
-        
-        if (rs.next()) {
-            String level = rs.getString("level");
-            JOptionPane.showMessageDialog(null, "Selamat datang " + username);
-            
-            // Create MenuUtama with username and level
-            MenuUtama menuUtama = new MenuUtama(username, level);
-            menuUtama.setVisible(true);
-            this.dispose(); // Close login form
-        } else {
-            JOptionPane.showMessageDialog(null, "Username atau password salah!");
-            txtUsername.setText("username");
-            txtPassword.setText("Password");
-            txtUsername.requestFocus();
+        String password = txtPassword.getText();
+
+        if (username.equals("username") || password.equals("Password")) {
+            JOptionPane.showMessageDialog(null, "Silahkan masukkan username dan password!");
+            return;
         }
-    } catch (java.sql.SQLException e) {
-        JOptionPane.showMessageDialog(null, "Error: " + e.getMessage());
-        writeLog("Login Error: " + e.getMessage());
-    }
-    
+
+        String sql = "SELECT username, level FROM t_user WHERE username = ? AND password = ?";
+        try {
+            java.sql.Connection conn = (java.sql.Connection) Config.configDB();
+            java.sql.PreparedStatement pst = conn.prepareStatement(sql);
+            pst.setString(1, username);
+            pst.setString(2, password);
+            java.sql.ResultSet rs = pst.executeQuery();
+
+            if (rs.next()) {
+                String level = rs.getString("level");
+                JOptionPane.showMessageDialog(null, "Selamat datang " + username);
+
+                // Create MenuUtama with username and level
+                MenuUtama menuUtama = new MenuUtama(username, level);
+                menuUtama.setVisible(true);
+                this.dispose(); // Close login form
+            } else {
+                JOptionPane.showMessageDialog(null, "Username atau password salah!");
+                txtUsername.setText("username");
+                txtPassword.setText("Password");
+                txtUsername.requestFocus();
+            }
+        } catch (java.sql.SQLException e) {
+            JOptionPane.showMessageDialog(null, "Error: " + e.getMessage());
+            writeLog("Login Error: " + e.getMessage());
+        }
+
     }//GEN-LAST:event_btn_loginActionPerformed
 
     private void jLabel7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel7MouseClicked
@@ -192,34 +202,41 @@ public class Login extends javax.swing.JFrame {
     private void txtUsernameFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtUsernameFocusGained
         // TODO add your handling code here:
         String user = txtUsername.getText();
-        if(user.equals("username")){
+        if (user.equals("username")) {
             txtUsername.setText("");
         }
     }//GEN-LAST:event_txtUsernameFocusGained
 
     private void txtPasswordFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtPasswordFocusGained
         // TODO add your handling code here:
-         String pass = txtPassword.getText();
-        if(pass.equals("Password")){
+        String pass = txtPassword.getText();
+        if (pass.equals("Password")) {
             txtPassword.setText("");
         }
     }//GEN-LAST:event_txtPasswordFocusGained
 
     private void txtUsernameFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtUsernameFocusLost
         // TODO add your handling code here:
-         String user = txtUsername.getText();
-        if(user.equals("")||user.equals("username")){
+        String user = txtUsername.getText();
+        if (user.equals("") || user.equals("username")) {
             txtUsername.setText("username");
         }
     }//GEN-LAST:event_txtUsernameFocusLost
 
     private void txtPasswordFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtPasswordFocusLost
         // TODO add your handling code here:
-         String pass = txtPassword.getText();
-        if(pass.equals("")||pass.equals("Password")){
+        String pass = txtPassword.getText();
+        if (pass.equals("") || pass.equals("Password")) {
             txtPassword.setText("Password");
         }
     }//GEN-LAST:event_txtPasswordFocusLost
+
+    private void lblDaftarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblDaftarMouseClicked
+        // TODO add your handling code here:
+        
+//        FRegister fRegister = new FRegister();
+//        fRegister.setVisible(true);
+    }//GEN-LAST:event_lblDaftarMouseClicked
 
     /**
      * @param args the command line arguments
@@ -267,6 +284,7 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel lblDaftar;
     private javax.swing.JTextField txtPassword;
     private javax.swing.JTextField txtUsername;
     // End of variables declaration//GEN-END:variables
