@@ -319,9 +319,37 @@ public class MenuUtama extends javax.swing.JFrame {
             pn_utama.revalidate();
         }
      });
+     
+  
+    
+     
+     
     
     
     MenuItem MenuPasient = new MenuItem(iconUser, false, null, "Pasient", null, dataPasient, DataKonsul);
+    
+    
+        MenuItem menuProfilDokter = new MenuItem(iconUser, false, null, "profil",new ActionListener() {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            pn_utama.removeAll();
+            pn_utama.add(new Form_profilDokters());
+            pn_utama.repaint();
+            pn_utama.revalidate();
+        }
+    });
+        MenuItem menuDokterKonsul = new MenuItem(iconUser, false, null, "konsultasi",new ActionListener() {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            pn_utama.removeAll();
+            pn_utama.add(new Form_DokterKonsul() );
+            pn_utama.repaint();
+            pn_utama.revalidate();
+        }
+    });
+    
+    
+    
     
     //halaman about
     MenuItem MenuAbout = new MenuItem(iconUser, false, null, "About",new ActionListener() {
@@ -344,7 +372,7 @@ public class MenuUtama extends javax.swing.JFrame {
     
     
 
-    addMenu(menuHome, menuUser, menuDokter, MenuPasient,  MenuAbout, MenuExit);
+    addMenu(menuHome, menuUser, menuDokter, MenuPasient, menuProfilDokter, menuDokterKonsul,  MenuAbout, MenuExit);
 }
 
 
