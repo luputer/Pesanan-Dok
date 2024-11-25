@@ -4,17 +4,73 @@
  */
 package src.Component;
 
+import java.sql.Connection;
+import javax.swing.JOptionPane;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
+import model.Config;
+import static model.Config.writeLog;
+
 /**
  *
  * @author Saidi
  */
 public class Form_Dokter extends javax.swing.JPanel {
 
+    private void load_table() {
+        // membuat tampilan model tabel
+        DefaultTableModel model = new DefaultTableModel();
+        model.addColumn("No");
+        model.addColumn("Nama Dokter");
+        model.addColumn("Spesialis");
+        model.addColumn("Jenis Kelamin");
+        model.addColumn("Ruangan");
+        model.addColumn("ID Pasien");
+
+        //menampilkan data database kedalam tabel
+        try {
+            int no = 1;
+            String sql = "SELECT idDokter, namaDokter, spesialis, jenisKelamin, ruangan FROM t_dokter";
+            java.sql.Connection conn = (Connection) Config.configDB();
+            java.sql.Statement stm = conn.createStatement();
+            java.sql.ResultSet res = stm.executeQuery(sql);
+            while (res.next()) {
+                model.addRow(new Object[]{
+                    no++,
+                    res.getString("namaDokter"),
+                    res.getString("spesialis"),
+                    res.getString("jenisKelamin"),
+                    res.getString("ruangan"),
+                    res.getString("idDokter") // ID Dokter tetap ada tapi akan disembunyikan
+                });
+            }
+            // Sembunyikan kolom `idDokter`
+            tblDokter.setModel(model);
+            tblDokter.getColumnModel().getColumn(5).setMinWidth(0);
+            tblDokter.getColumnModel().getColumn(5).setMaxWidth(0);
+            tblDokter.getColumnModel().getColumn(5).setWidth(0);
+            writeLog("Tampilkan data ke Frame " + getClass().getSimpleName());
+        } catch (Exception e) {
+            writeLog("Data tidak dapat ditampilkan : " + e.getMessage());
+        }
+
+    }
+
+    private void bersihkan() {
+        txtTambahNamaDokter.setText(null);
+        txtTambahSpesialis.setText(null);
+        txtTambahRuangan.setText(null);
+        cbTambahJenisKelamin.setSelectedIndex(0);
+    }
+
     /**
      * Creates new form Form_Dokter
      */
     public Form_Dokter() {
         initComponents();
+        load_table();
+        // Mengatur lebar kolom tabel
+        txtHiddenIdDokter.setVisible(false); // Menyembunyikan JTextField
     }
 
     /**
@@ -30,7 +86,7 @@ public class Form_Dokter extends javax.swing.JPanel {
         mainPanel = new javax.swing.JPanel();
         dataDokter = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tblDokter = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
         btTambah = new javax.swing.JButton();
         bt_edit = new javax.swing.JButton();
@@ -40,28 +96,29 @@ public class Form_Dokter extends javax.swing.JPanel {
         btBatal = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        txtTambahSpesialis = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        cbLevel = new javax.swing.JComboBox<>();
-        jTextField5 = new javax.swing.JTextField();
+        cbTambahJenisKelamin = new javax.swing.JComboBox<>();
+        txtTambahNamaDokter = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
-        jTextField6 = new javax.swing.JTextField();
+        txtTambahRuangan = new javax.swing.JTextField();
         cbLevel1 = new javax.swing.JComboBox<>();
         jLabel16 = new javax.swing.JLabel();
         editDokter = new javax.swing.JPanel();
         jLabel11 = new javax.swing.JLabel();
-        btSimpan2 = new javax.swing.JButton();
+        btEditSimpan = new javax.swing.JButton();
         btBatal2 = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jLabel12 = new javax.swing.JLabel();
-        jTextField7 = new javax.swing.JTextField();
+        txtEditSpesialis = new javax.swing.JTextField();
         jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
-        cbLevel4 = new javax.swing.JComboBox<>();
-        jTextField8 = new javax.swing.JTextField();
+        cbEditJenisKelamin = new javax.swing.JComboBox<>();
+        txtEditNamaDokter = new javax.swing.JTextField();
         jLabel15 = new javax.swing.JLabel();
-        jTextField9 = new javax.swing.JTextField();
+        txtEditRuangan = new javax.swing.JTextField();
+        txtHiddenIdDokter = new javax.swing.JTextField();
         cbLevel5 = new javax.swing.JComboBox<>();
 
         setLayout(new java.awt.CardLayout());
@@ -70,7 +127,7 @@ public class Form_Dokter extends javax.swing.JPanel {
 
         dataDokter.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tblDokter.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -81,12 +138,12 @@ public class Form_Dokter extends javax.swing.JPanel {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
+        tblDokter.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jTable1MouseClicked(evt);
+                tblDokterMouseClicked(evt);
             }
         });
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tblDokter);
 
         dataDokter.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 110, 1470, 360));
 
@@ -111,6 +168,11 @@ public class Form_Dokter extends javax.swing.JPanel {
         dataDokter.add(bt_edit, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 80, 94, -1));
 
         jButton3.setText("Hapus");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
         dataDokter.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 80, 94, -1));
 
         mainPanel.add(dataDokter, "card2");
@@ -143,7 +205,7 @@ public class Form_Dokter extends javax.swing.JPanel {
         jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel7.setText("Ruangan");
 
-        cbLevel.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "laki-laki", "Perempuan" }));
+        cbTambahJenisKelamin.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "laki-laki", "Perempuan" }));
 
         jLabel10.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel10.setText("Spesialis");
@@ -160,13 +222,13 @@ public class Form_Dokter extends javax.swing.JPanel {
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(0, 1322, Short.MAX_VALUE))
-                            .addComponent(jTextField1, javax.swing.GroupLayout.Alignment.TRAILING))
+                            .addComponent(txtTambahSpesialis, javax.swing.GroupLayout.Alignment.TRAILING))
                         .addContainerGap())
-                    .addComponent(jTextField5)
+                    .addComponent(txtTambahNamaDokter)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(cbLevel, javax.swing.GroupLayout.PREFERRED_SIZE, 390, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cbTambahJenisKelamin, javax.swing.GroupLayout.PREFERRED_SIZE, 390, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -175,7 +237,7 @@ public class Form_Dokter extends javax.swing.JPanel {
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(0, 0, Short.MAX_VALUE))
-                            .addComponent(jTextField6)))))
+                            .addComponent(txtTambahRuangan)))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -183,19 +245,19 @@ public class Form_Dokter extends javax.swing.JPanel {
                 .addGap(26, 26, 26)
                 .addComponent(jLabel5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtTambahNamaDokter, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(12, 12, 12)
                 .addComponent(jLabel10)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtTambahSpesialis, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(cbLevel, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(cbTambahJenisKelamin, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel7)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtTambahRuangan, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(12, Short.MAX_VALUE))
         );
 
@@ -217,13 +279,13 @@ public class Form_Dokter extends javax.swing.JPanel {
         jLabel11.setText("Edit Dokter");
         editDokter.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 370, -1));
 
-        btSimpan2.setText("Simpan");
-        btSimpan2.addActionListener(new java.awt.event.ActionListener() {
+        btEditSimpan.setText("Simpan");
+        btEditSimpan.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btSimpan2ActionPerformed(evt);
+                btEditSimpanActionPerformed(evt);
             }
         });
-        editDokter.add(btSimpan2, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 73, 100, 30));
+        editDokter.add(btEditSimpan, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 73, 100, 30));
 
         btBatal2.setText("Batal");
         btBatal2.addActionListener(new java.awt.event.ActionListener() {
@@ -243,7 +305,7 @@ public class Form_Dokter extends javax.swing.JPanel {
         jLabel14.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel14.setText("Ruangan");
 
-        cbLevel4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "laki-laki", "Perempuan" }));
+        cbEditJenisKelamin.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "laki-laki", "Perempuan" }));
 
         jLabel15.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel15.setText("Spesialis");
@@ -260,22 +322,25 @@ public class Form_Dokter extends javax.swing.JPanel {
                             .addGroup(jPanel3Layout.createSequentialGroup()
                                 .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(0, 1322, Short.MAX_VALUE))
-                            .addComponent(jTextField7, javax.swing.GroupLayout.Alignment.TRAILING))
+                            .addComponent(txtEditSpesialis, javax.swing.GroupLayout.Alignment.TRAILING))
                         .addContainerGap())
-                    .addComponent(jTextField8)
+                    .addComponent(txtEditNamaDokter)
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(cbLevel4, javax.swing.GroupLayout.PREFERRED_SIZE, 390, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE))
+                            .addComponent(cbEditJenisKelamin, javax.swing.GroupLayout.PREFERRED_SIZE, 390, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(234, 234, 234)
+                                .addComponent(txtHiddenIdDokter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 989, Short.MAX_VALUE))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(6, 6, 6)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel3Layout.createSequentialGroup()
                                 .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(0, 0, Short.MAX_VALUE))
-                            .addComponent(jTextField9)))))
+                            .addComponent(txtEditRuangan)))))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -283,19 +348,22 @@ public class Form_Dokter extends javax.swing.JPanel {
                 .addGap(26, 26, 26)
                 .addComponent(jLabel13)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtEditNamaDokter, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(12, 12, 12)
-                .addComponent(jLabel15)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel12)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(cbLevel4, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel14)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(jLabel15)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtEditSpesialis, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel12)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(cbEditJenisKelamin, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel14)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtEditRuangan, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtHiddenIdDokter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(12, Short.MAX_VALUE))
         );
 
@@ -312,76 +380,174 @@ public class Form_Dokter extends javax.swing.JPanel {
 
     private void btSimpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSimpanActionPerformed
         // TODO add your handling code here:
-          mainPanel.removeAll();
-          mainPanel.add(dataDokter);
-          mainPanel.repaint();
-          mainPanel.revalidate();
+        mainPanel.removeAll();
+        mainPanel.add(dataDokter);
+        mainPanel.repaint();
+        mainPanel.revalidate();
+
+        try {
+            String sql = "INSERT INTO t_dokter (namaDokter, spesialis, jenisKelamin, ruangan) VALUES ('"
+                    + txtTambahNamaDokter.getText() + "', '"
+                    + txtTambahSpesialis.getText() + "', '"
+                    + cbTambahJenisKelamin.getSelectedItem() + "', '"
+                    + txtTambahRuangan.getText() + "')";
+            java.sql.Connection conn = (Connection) Config.configDB();
+            java.sql.PreparedStatement pst = conn.prepareStatement(sql);
+            pst.execute();
+            JOptionPane.showMessageDialog(null, "Penyimpanan Data Berhasil");
+            writeLog("Penyimpanan Data Berhasil dengan Nama Dokter " + txtTambahNamaDokter.getText());
+            load_table();
+            bersihkan();
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, e.getMessage());
+            writeLog("Data gagal disimpan : " + e.getMessage());
+        }
+
     }//GEN-LAST:event_btSimpanActionPerformed
 
     private void btTambahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btTambahActionPerformed
         // TODO add your handling code here:
-          mainPanel.removeAll();
-          mainPanel.repaint();
-          mainPanel.revalidate();
-          
-          mainPanel.add(tambahDokter);
-          mainPanel.repaint();
-          mainPanel.revalidate();
-          
-        
+        mainPanel.removeAll();
+        mainPanel.repaint();
+        mainPanel.revalidate();
+
+        mainPanel.add(tambahDokter);
+        mainPanel.repaint();
+        mainPanel.revalidate();
+
+
     }//GEN-LAST:event_btTambahActionPerformed
 
     private void btBatalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btBatalActionPerformed
         // TODO add your handling code here:
-       
-          mainPanel.removeAll();
-          mainPanel.add(dataDokter);
-          mainPanel.repaint();
-          mainPanel.revalidate();
-          
+
+        mainPanel.removeAll();
+        mainPanel.add(dataDokter);
+        mainPanel.repaint();
+        mainPanel.revalidate();
+
     }//GEN-LAST:event_btBatalActionPerformed
 
-    private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
+    private void tblDokterMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblDokterMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTable1MouseClicked
+        int baris = tblDokter.rowAtPoint(evt.getPoint());
+        String namaDokter = tblDokter.getValueAt(baris, 1).toString(); // Kolom 1: namaDokter
+        String spesialis = tblDokter.getValueAt(baris, 2).toString(); // Kolom 2: spesialis
+        String jenisKelamin = tblDokter.getValueAt(baris, 3).toString(); // Kolom 3: jenisKelamin
+        String ruangan = tblDokter.getValueAt(baris, 4).toString(); // Kolom 4: ruangan
+        String idDokter = tblDokter.getValueAt(baris, 5).toString(); // Kolom 5: idDokter (tersembunyi)
+
+        // Set data ke form edit
+        txtEditNamaDokter.setText(namaDokter);
+        txtEditSpesialis.setText(spesialis);
+        txtEditRuangan.setText(ruangan);
+        txtHiddenIdDokter.setText(idDokter); // ID Dokter disimpan di komponen hidden
+        cbEditJenisKelamin.setSelectedItem(jenisKelamin); // Pilih jenis kelamin pada ComboBox
+    }//GEN-LAST:event_tblDokterMouseClicked
 
     private void bt_editActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_editActionPerformed
         // TODO add your handling code here:
-          mainPanel.removeAll();
-          mainPanel.add(editDokter);
-          mainPanel.repaint();
-          mainPanel.revalidate();
+        mainPanel.removeAll();
+        mainPanel.add(editDokter);
+        mainPanel.repaint();
+        mainPanel.revalidate();
     }//GEN-LAST:event_bt_editActionPerformed
 
-    private void btSimpan2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSimpan2ActionPerformed
+    private void btEditSimpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btEditSimpanActionPerformed
         // TODO add your handling code here:
-          mainPanel.removeAll();
-          mainPanel.add(dataDokter);
-          mainPanel.repaint();
-          mainPanel.revalidate();
-        
-    }//GEN-LAST:event_btSimpan2ActionPerformed
+        mainPanel.removeAll();
+        mainPanel.add(dataDokter);
+        mainPanel.repaint();
+        mainPanel.revalidate();
+
+        try {
+            // Validasi input
+            if ("".equals(txtEditNamaDokter.getText())) {
+                JOptionPane.showMessageDialog(this, "Isikan Nama Dokter terlebih dahulu");
+            } else if ("".equals(txtHiddenIdDokter.getText())) {
+                JOptionPane.showMessageDialog(this, "ID Dokter tidak ditemukan");
+            } else {
+                // Query dengan parameter
+                String sql = "UPDATE t_dokter SET namaDokter = ?, spesialis = ?, jenisKelamin = ?, ruangan = ? WHERE idDokter = ?";
+                java.sql.Connection conn = (Connection) Config.configDB();
+                java.sql.PreparedStatement pst = conn.prepareStatement(sql);
+
+                // Set nilai parameter
+                pst.setString(1, txtEditNamaDokter.getText());
+                pst.setString(2, txtEditSpesialis.getText());
+                pst.setString(3, cbEditJenisKelamin.getSelectedItem().toString());
+                pst.setString(4, txtEditRuangan.getText());
+                pst.setString(5, txtHiddenIdDokter.getText());
+
+                // Eksekusi query
+                int rowsAffected = pst.executeUpdate();
+                if (rowsAffected > 0) {
+                    JOptionPane.showMessageDialog(null, "Data Berhasil Diperbaharui dengan Nama Dokter: " + txtEditNamaDokter.getText());
+                    writeLog("Data Berhasil Diperbaharui dengan Nama Dokter " + txtEditNamaDokter.getText());
+                } else {
+
+                }
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Perubahan Data Gagal: " + e.getMessage());
+            writeLog("Perubahan Data Gagal: " + e.getMessage());
+        }
+
+// Muat ulang tabel
+        load_table();
+
+    }//GEN-LAST:event_btEditSimpanActionPerformed
 
     private void btBatal2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btBatal2ActionPerformed
         // TODO add your handling code here:
-          mainPanel.removeAll();
-          mainPanel.add(dataDokter);
-          mainPanel.repaint();
-          mainPanel.revalidate();
+        mainPanel.removeAll();
+        mainPanel.add(dataDokter);
+        mainPanel.repaint();
+        mainPanel.revalidate();
     }//GEN-LAST:event_btBatal2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+        try {
+            if ("".equals(txtHiddenIdDokter.getText())) {
+                JOptionPane.showMessageDialog(this, "Pilih Data Yang ingin dihapus terlebih dahulu");
+            } else {
+                // Menampilkan konfirmasi sebelum menghapus data
+                int confirm = JOptionPane.showConfirmDialog(this, "Apakah Anda yakin ingin menghapus data dengan Nama Dokter: " + txtEditNamaDokter.getText(),
+                        "Konfirmasi Hapus", JOptionPane.YES_NO_OPTION);
+
+                // Jika pengguna memilih YES, lanjutkan menghapus
+                if (confirm == JOptionPane.YES_OPTION) {
+                    String sql = "DELETE FROM t_dokter WHERE idDokter='" + txtHiddenIdDokter.getText() + "'";
+                    java.sql.Connection conn = (Connection) Config.configDB();
+                    java.sql.PreparedStatement pst = conn.prepareStatement(sql);
+                    pst.execute();
+                    JOptionPane.showMessageDialog(this, "Data Berhasil Dihapus dengan Nama Dokter " + txtEditNamaDokter.getText());
+                    writeLog("Data Berhasil Dihapus dengan Nama Dokter " + txtEditNamaDokter.getText());
+                } else {
+                    // Jika pengguna memilih NO, tidak melakukan apa-apa
+//                    JOptionPane.showMessageDialog(this, "Data Tidak Dihapus");
+                }
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, e.getMessage());
+            writeLog("Data gagal dihapus : " + e.getMessage());
+        }
+        load_table();
+    }//GEN-LAST:event_jButton3ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btBatal;
     private javax.swing.JButton btBatal2;
+    private javax.swing.JButton btEditSimpan;
     private javax.swing.JButton btSimpan;
-    private javax.swing.JButton btSimpan2;
     private javax.swing.JButton btTambah;
     private javax.swing.JButton bt_edit;
-    private javax.swing.JComboBox<String> cbLevel;
+    private javax.swing.JComboBox<String> cbEditJenisKelamin;
     private javax.swing.JComboBox<String> cbLevel1;
-    private javax.swing.JComboBox<String> cbLevel4;
     private javax.swing.JComboBox<String> cbLevel5;
+    private javax.swing.JComboBox<String> cbTambahJenisKelamin;
     private javax.swing.JPanel dataDokter;
     private javax.swing.JPanel editDokter;
     private javax.swing.JButton jButton3;
@@ -399,15 +565,16 @@ public class Form_Dokter extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField7;
-    private javax.swing.JTextField jTextField8;
-    private javax.swing.JTextField jTextField9;
     private javax.swing.JPanel mainPanel;
     private javax.swing.JPanel tambahDokter;
+    private javax.swing.JTable tblDokter;
+    private javax.swing.JTextField txtEditNamaDokter;
+    private javax.swing.JTextField txtEditRuangan;
+    private javax.swing.JTextField txtEditSpesialis;
+    private javax.swing.JTextField txtHiddenIdDokter;
+    private javax.swing.JTextField txtTambahNamaDokter;
+    private javax.swing.JTextField txtTambahRuangan;
+    private javax.swing.JTextField txtTambahSpesialis;
     // End of variables declaration//GEN-END:variables
 }

@@ -52,7 +52,7 @@
 
               <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
               <SubComponents>
-                <Component class="javax.swing.JTable" name="jTable1">
+                <Component class="javax.swing.JTable" name="tblDokter">
                   <Properties>
                     <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                       <Table columnCount="4" rowCount="4">
@@ -64,7 +64,7 @@
                     </Property>
                   </Properties>
                   <Events>
-                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jTable1MouseClicked"/>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="tblDokterMouseClicked"/>
                   </Events>
                 </Component>
               </SubComponents>
@@ -112,6 +112,9 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Hapus"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton3ActionPerformed"/>
+              </Events>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                   <AbsoluteConstraints x="210" y="80" width="94" height="-1"/>
@@ -176,15 +179,15 @@
                                           <Component id="jLabel5" min="-2" pref="139" max="-2" attributes="0"/>
                                           <EmptySpace min="0" pref="1322" max="32767" attributes="0"/>
                                       </Group>
-                                      <Component id="jTextField1" alignment="1" max="32767" attributes="0"/>
+                                      <Component id="txtTambahSpesialis" alignment="1" max="32767" attributes="0"/>
                                   </Group>
                                   <EmptySpace max="-2" attributes="0"/>
                               </Group>
-                              <Component id="jTextField5" alignment="0" max="32767" attributes="0"/>
+                              <Component id="txtTambahNamaDokter" alignment="0" max="32767" attributes="0"/>
                               <Group type="102" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Component id="jLabel3" alignment="0" min="-2" pref="176" max="-2" attributes="0"/>
-                                      <Component id="cbLevel" alignment="0" min="-2" pref="390" max="-2" attributes="0"/>
+                                      <Component id="cbTambahJenisKelamin" alignment="0" min="-2" pref="390" max="-2" attributes="0"/>
                                       <Component id="jLabel10" alignment="0" min="-2" pref="176" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
@@ -196,7 +199,7 @@
                                           <Component id="jLabel7" min="-2" pref="176" max="-2" attributes="0"/>
                                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                       </Group>
-                                      <Component id="jTextField6" max="32767" attributes="0"/>
+                                      <Component id="txtTambahRuangan" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
@@ -209,19 +212,19 @@
                           <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
                           <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="jTextField5" min="-2" pref="32" max="-2" attributes="0"/>
+                          <Component id="txtTambahNamaDokter" min="-2" pref="32" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                           <Component id="jLabel10" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jTextField1" min="-2" pref="32" max="-2" attributes="0"/>
+                          <Component id="txtTambahSpesialis" min="-2" pref="32" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="cbLevel" min="-2" pref="40" max="-2" attributes="0"/>
+                          <Component id="cbTambahJenisKelamin" min="-2" pref="40" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jTextField6" min="-2" pref="32" max="-2" attributes="0"/>
+                          <Component id="txtTambahRuangan" min="-2" pref="32" max="-2" attributes="0"/>
                           <EmptySpace pref="12" max="32767" attributes="0"/>
                       </Group>
                   </Group>
@@ -236,7 +239,7 @@
                     <Property name="text" type="java.lang.String" value="jenis kelamin"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="jTextField1">
+                <Component class="javax.swing.JTextField" name="txtTambahSpesialis">
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel5">
                   <Properties>
@@ -257,7 +260,7 @@
                     <Property name="text" type="java.lang.String" value="Ruangan"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JComboBox" name="cbLevel">
+                <Component class="javax.swing.JComboBox" name="cbTambahJenisKelamin">
                   <Properties>
                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                       <StringArray count="2">
@@ -270,7 +273,7 @@
                     <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
                   </AuxValues>
                 </Component>
-                <Component class="javax.swing.JTextField" name="jTextField5">
+                <Component class="javax.swing.JTextField" name="txtTambahNamaDokter">
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel10">
                   <Properties>
@@ -280,7 +283,7 @@
                     <Property name="text" type="java.lang.String" value="Spesialis"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="jTextField6">
+                <Component class="javax.swing.JTextField" name="txtTambahRuangan">
                 </Component>
               </SubComponents>
             </Container>
@@ -345,12 +348,12 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="javax.swing.JButton" name="btSimpan2">
+            <Component class="javax.swing.JButton" name="btEditSimpan">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Simpan"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btSimpan2ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btEditSimpanActionPerformed"/>
               </Events>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -390,18 +393,22 @@
                                           <Component id="jLabel13" min="-2" pref="139" max="-2" attributes="0"/>
                                           <EmptySpace min="0" pref="1322" max="32767" attributes="0"/>
                                       </Group>
-                                      <Component id="jTextField7" alignment="1" max="32767" attributes="0"/>
+                                      <Component id="txtEditSpesialis" alignment="1" max="32767" attributes="0"/>
                                   </Group>
                                   <EmptySpace max="-2" attributes="0"/>
                               </Group>
-                              <Component id="jTextField8" alignment="0" max="32767" attributes="0"/>
+                              <Component id="txtEditNamaDokter" alignment="0" max="32767" attributes="0"/>
                               <Group type="102" alignment="0" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Component id="jLabel12" alignment="0" min="-2" pref="176" max="-2" attributes="0"/>
-                                      <Component id="cbLevel4" alignment="0" min="-2" pref="390" max="-2" attributes="0"/>
-                                      <Component id="jLabel15" alignment="0" min="-2" pref="176" max="-2" attributes="0"/>
+                                      <Component id="cbEditJenisKelamin" alignment="0" min="-2" pref="390" max="-2" attributes="0"/>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Component id="jLabel15" min="-2" pref="176" max="-2" attributes="0"/>
+                                          <EmptySpace min="-2" pref="234" max="-2" attributes="0"/>
+                                          <Component id="txtHiddenIdDokter" min="-2" max="-2" attributes="0"/>
+                                      </Group>
                                   </Group>
-                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                  <EmptySpace min="0" pref="989" max="32767" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
@@ -410,7 +417,7 @@
                                           <Component id="jLabel14" min="-2" pref="176" max="-2" attributes="0"/>
                                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                       </Group>
-                                      <Component id="jTextField9" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="txtEditRuangan" alignment="0" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
@@ -423,19 +430,24 @@
                           <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
                           <Component id="jLabel13" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="jTextField8" min="-2" pref="32" max="-2" attributes="0"/>
+                          <Component id="txtEditNamaDokter" min="-2" pref="32" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
-                          <Component id="jLabel15" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jTextField7" min="-2" pref="32" max="-2" attributes="0"/>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="jLabel12" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="cbLevel4" min="-2" pref="40" max="-2" attributes="0"/>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="jLabel14" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jTextField9" min="-2" pref="32" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <Component id="jLabel15" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="txtEditSpesialis" min="-2" pref="32" max="-2" attributes="0"/>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Component id="jLabel12" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="cbEditJenisKelamin" min="-2" pref="40" max="-2" attributes="0"/>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Component id="jLabel14" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="txtEditRuangan" min="-2" pref="32" max="-2" attributes="0"/>
+                              </Group>
+                              <Component id="txtHiddenIdDokter" min="-2" max="-2" attributes="0"/>
+                          </Group>
                           <EmptySpace pref="12" max="32767" attributes="0"/>
                       </Group>
                   </Group>
@@ -450,7 +462,7 @@
                     <Property name="text" type="java.lang.String" value="jenis kelamin"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="jTextField7">
+                <Component class="javax.swing.JTextField" name="txtEditSpesialis">
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel13">
                   <Properties>
@@ -471,7 +483,7 @@
                     <Property name="text" type="java.lang.String" value="Ruangan"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JComboBox" name="cbLevel4">
+                <Component class="javax.swing.JComboBox" name="cbEditJenisKelamin">
                   <Properties>
                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                       <StringArray count="2">
@@ -484,7 +496,7 @@
                     <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
                   </AuxValues>
                 </Component>
-                <Component class="javax.swing.JTextField" name="jTextField8">
+                <Component class="javax.swing.JTextField" name="txtEditNamaDokter">
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel15">
                   <Properties>
@@ -494,7 +506,9 @@
                     <Property name="text" type="java.lang.String" value="Spesialis"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="jTextField9">
+                <Component class="javax.swing.JTextField" name="txtEditRuangan">
+                </Component>
+                <Component class="javax.swing.JTextField" name="txtHiddenIdDokter">
                 </Component>
               </SubComponents>
             </Container>

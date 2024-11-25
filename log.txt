@@ -454,3 +454,47 @@ The last packet sent successfully to the server was 0 milliseconds ago. The driv
 2024-11-25 03:26:29 - Tampilkan data ke Frame Form_User
 2024-11-25 03:26:32 - Koneksi berhasil ke database.
 2024-11-25 03:26:32 - Tampilkan data ke Frame Form_User
+2024-11-25 05:47:39 - Koneksi berhasil ke database.
+2024-11-25 05:47:54 - Koneksi berhasil ke database.
+2024-11-25 05:47:54 - Tampilkan data ke Frame Form_User
+2024-11-25 08:05:43 - Koneksi berhasil ke database.
+2024-11-25 08:07:45 - Koneksi berhasil ke database.
+2024-11-25 08:07:58 - Koneksi berhasil ke database.
+2024-11-25 08:07:59 - Tampilkan data ke Frame Form_Dokter
+2024-11-25 08:08:27 - Koneksi berhasil ke database.
+2024-11-25 08:08:29 - Penyimpanan Data Berhasil dengan Nama Dokter Saber
+2024-11-25 08:08:29 - Koneksi berhasil ke database.
+2024-11-25 08:08:29 - Tampilkan data ke Frame Form_Dokter
+2024-11-25 08:18:27 - Koneksi berhasil ke database.
+2024-11-25 08:20:56 - Koneksi berhasil ke database.
+2024-11-25 08:20:56 - Tampilkan data ke Frame Form_Dokter
+2024-11-25 08:21:09 - Koneksi berhasil ke database.
+2024-11-25 08:21:11 - Penyimpanan Data Berhasil dengan Nama Dokter tes edit
+2024-11-25 08:21:12 - Koneksi berhasil ke database.
+2024-11-25 08:21:12 - Tampilkan data ke Frame Form_Dokter
+2024-11-25 08:21:28 - Koneksi berhasil ke database.
+2024-11-25 08:21:32 - Data Berhasil Diperbaharui dengan Nama Dokter Ini Di edit
+2024-11-25 08:21:32 - Koneksi berhasil ke database.
+2024-11-25 08:21:32 - Tampilkan data ke Frame Form_Dokter
+2024-11-25 08:24:00 - Koneksi berhasil ke database.
+2024-11-25 08:24:13 - Koneksi berhasil ke database.
+2024-11-25 08:24:13 - Tampilkan data ke Frame Form_Dokter
+2024-11-25 08:28:18 - Koneksi berhasil ke database.
+2024-11-25 08:30:54 - Koneksi berhasil ke database.
+2024-11-25 08:30:54 - Tampilkan data ke Frame Form_Dokter
+2024-11-25 08:30:59 - Koneksi berhasil ke database.
+2024-11-25 08:31:00 - Data Berhasil Dihapus dengan Nama Dokter Ini Di edit
+2024-11-25 08:31:00 - Koneksi berhasil ke database.
+2024-11-25 08:31:00 - Tampilkan data ke Frame Form_Dokter
+2024-11-25 08:31:11 - Koneksi berhasil ke database.
+2024-11-25 08:31:12 - Penyimpanan Data Berhasil dengan Nama Dokter nsd
+2024-11-25 08:31:12 - Koneksi berhasil ke database.
+2024-11-25 08:31:12 - Tampilkan data ke Frame Form_Dokter
+2024-11-25 08:31:19 - Koneksi berhasil ke database.
+2024-11-25 08:31:22 - Data Berhasil Diperbaharui dengan Nama Dokter ini ea
+2024-11-25 08:31:22 - Koneksi berhasil ke database.
+2024-11-25 08:31:22 - Tampilkan data ke Frame Form_Dokter
+2024-11-25 08:31:25 - Koneksi berhasil ke database.
+2024-11-25 08:31:27 - Data Berhasil Dihapus dengan Nama Dokter ini ea
+2024-11-25 08:31:27 - Koneksi berhasil ke database.
+2024-11-25 08:31:27 - Tampilkan data ke Frame Form_Dokter
