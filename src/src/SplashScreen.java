@@ -52,14 +52,14 @@ public class SplashScreen extends javax.swing.JFrame {
         jProgressBar1.setBackground(new java.awt.Color(255, 255, 255));
         jProgressBar1.setForeground(new java.awt.Color(25, 131, 237));
         jProgressBar1.setBorderPainted(false);
-        jPanel1.add(jProgressBar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 380, 220, 23));
+        jPanel1.add(jProgressBar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 380, 220, 23));
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/asset/ezgif.com-resize (1).gif"))); // NOI18N
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 320, -1, 55));
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 310, -1, 55));
 
         loading.setFont(new java.awt.Font("Segoe UI", 1, 10)); // NOI18N
         loading.setText("99 %");
-        jPanel1.add(loading, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 420, -1, 11));
+        jPanel1.add(loading, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 420, -1, 11));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/asset/Group 4.png"))); // NOI18N
         jLabel3.setText("jLabel3");

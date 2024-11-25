@@ -768,3 +768,11 @@ The last packet sent successfully to the server was 0 milliseconds ago. The driv
 2024-11-25 21:37:18 - Koneksi berhasil ke database.
 2024-11-25 21:37:19 - Data Pasien Berhasil Diperbaharui dengan ID Pasien 1
 2024-11-25 21:37:21 - Koneksi berhasil ke database.
+2024-11-25 22:45:59 - Koneksi berhasil ke database.
+2024-11-25 22:49:56 - Koneksi berhasil ke database.
+2024-11-25 22:50:05 - Koneksi berhasil ke database.
+2024-11-25 22:50:26 - Login Error: Unknown column 'username' in 'where clause'
+2024-11-25 22:50:30 - Koneksi berhasil ke database.
+2024-11-25 22:50:42 - Login Error: Unknown column 'username' in 'where clause'
+2024-11-25 22:51:34 - Koneksi berhasil ke database.
+2024-11-25 22:52:49 - Login Error: Unknown column 'username' in 'where clause'
