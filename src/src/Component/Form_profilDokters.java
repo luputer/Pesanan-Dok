@@ -16,51 +16,39 @@ import static model.Config.writeLog;
  * @author Saidi
  */
 public class Form_profilDokters extends javax.swing.JPanel {
+        
 
-    private void load_table() {
-        // membuat tampilan model tabel
-        DefaultTableModel model = new DefaultTableModel();
-        model.addColumn("No");
-        model.addColumn("Nama Dokter");
-        model.addColumn("Spesialis");
-        model.addColumn("Jenis Kelamin");
-        model.addColumn("Ruangan");
-        model.addColumn("ID Pasien");
 
-        //menampilkan data database kedalam tabel
+    private void loadData(int idDokter) {
         try {
-            int no = 1;
-            String sql = "SELECT idDokter, namaDokter, spesialis, jenisKelamin, ruangan FROM t_dokter";
+            // Query untuk mendapatkan data pasien berdasarkan idPasien
+            String sqlSelect = "SELECT * FROM t_dokter WHERE idDokter = ?";
             java.sql.Connection conn = (Connection) Config.configDB();
-            java.sql.Statement stm = conn.createStatement();
-            java.sql.ResultSet res = stm.executeQuery(sql);
-            while (res.next()) {
-                model.addRow(new Object[]{
-                    no++,
-                    res.getString("namaDokter"),
-                    res.getString("spesialis"),
-                    res.getString("jenisKelamin"),
-                    res.getString("ruangan"),
-                    res.getString("idDokter") // ID Dokter tetap ada tapi akan disembunyikan
-                });
-            }
-            // Sembunyikan kolom `idDokter`
-            writeLog("Tampilkan data ke Frame " + getClass().getSimpleName());
-        } catch (Exception e) {
-            writeLog("Data tidak dapat ditampilkan : " + e.getMessage());
-        }
+            java.sql.PreparedStatement pstSelect = conn.prepareStatement(sqlSelect);
+            pstSelect.setInt(1, idDokter); // Menggunakan idPasien untuk filter
+            java.sql.ResultSet rs = pstSelect.executeQuery();
 
+            if (rs.next()) {
+                // Set text field dengan data pasien yang diambil
+                txtEditNamaDokter.setText(rs.getString("namaDokter"));
+                txtEditSpesialis.setText(rs.getString("spesialis"));
+                cbEditJenisKelamin.setSelectedItem(rs.getString("jenisKelamin"));
+                txtEditRuangan.setText(rs.getString("ruangan"));
+                txtHiddeIdDokter.setText(String.valueOf(idDokter)); // Set idPasien di hidden field
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Gagal memuat data pasien: " + e.getMessage());
+        }
     }
 
-  
     /**
      * Creates new form Form_dokterKonsul
      */
-    public Form_profilDokters() {
+    public Form_profilDokters(int idDokter) {
         initComponents();
-        load_table();
+        loadData(idDokter);
         // Mengatur lebar kolom tabel
-        jTextField3.setVisible(false); // Menyembunyikan JTextField
+        txtHiddeIdDokter.setVisible(false); // Menyembunyikan JTextField
     }
 
     /**
@@ -87,6 +75,7 @@ public class Form_profilDokters extends javax.swing.JPanel {
         txtEditNamaDokter = new javax.swing.JTextField();
         jLabel15 = new javax.swing.JLabel();
         txtEditRuangan = new javax.swing.JTextField();
+        txtHiddeIdDokter = new javax.swing.JTextField();
         cbLevel5 = new javax.swing.JComboBox<>();
 
         setLayout(new java.awt.CardLayout());
@@ -96,7 +85,7 @@ public class Form_profilDokters extends javax.swing.JPanel {
         editProfileDokter.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel11.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
-        jLabel11.setText("Edit profile");
+        jLabel11.setText("Edit Biodata Dokter");
         editProfileDokter.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 370, -1));
 
         btEditSimpan.setText("Simpan");
@@ -131,7 +120,7 @@ public class Form_profilDokters extends javax.swing.JPanel {
         jLabel14.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel14.setText("Ruangan");
 
-        cbEditJenisKelamin.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "laki-laki", "Perempuan" }));
+        cbEditJenisKelamin.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Laki-laki", "Perempuan" }));
 
         jLabel15.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel15.setText("Spesialis");
@@ -154,9 +143,12 @@ public class Form_profilDokters extends javax.swing.JPanel {
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(cbEditJenisKelamin, javax.swing.GroupLayout.PREFERRED_SIZE, 390, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addComponent(cbEditJenisKelamin, javax.swing.GroupLayout.PREFERRED_SIZE, 390, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(160, 160, 160)
+                                .addComponent(txtHiddeIdDokter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 1077, Short.MAX_VALUE))
+                        .addGap(0, 849, Short.MAX_VALUE))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(6, 6, 6)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -179,7 +171,9 @@ public class Form_profilDokters extends javax.swing.JPanel {
                 .addGap(18, 18, 18)
                 .addComponent(jLabel12)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(cbEditJenisKelamin, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cbEditJenisKelamin, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtHiddeIdDokter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jLabel14)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -205,40 +199,48 @@ public class Form_profilDokters extends javax.swing.JPanel {
         mainPanel.revalidate();
 
         try {
-            // Validasi input
+            // Memeriksa apakah Nama Dokter kosong
             if ("".equals(txtEditNamaDokter.getText())) {
                 JOptionPane.showMessageDialog(this, "Isikan Nama Dokter terlebih dahulu");
-            } else if ("".equals(jTextField3.getText())) {
-                JOptionPane.showMessageDialog(this, "ID Dokter tidak ditemukan");
             } else {
-                // Query dengan parameter
-                String sql = "UPDATE t_dokter SET namaDokter = ?, spesialis = ?, jenisKelamin = ?, ruangan = ? WHERE idDokter = ?";
+                // Menyusun query untuk update data dokter berdasarkan idDokter
+                String sqlUpdate = "UPDATE t_dokter SET namaDokter = '" + txtEditNamaDokter.getText()
+                        + "', spesialis = '" + txtEditSpesialis.getText()
+                        + "', jenisKelamin = '" + cbEditJenisKelamin.getSelectedItem().toString()
+                        + "', ruangan = '" + txtEditRuangan.getText()
+                        + "' WHERE idDokter = '" + txtHiddeIdDokter.getText() + "'";
+
+                // Membuka koneksi ke database
                 java.sql.Connection conn = (Connection) Config.configDB();
-                java.sql.PreparedStatement pst = conn.prepareStatement(sql);
 
-                // Set nilai parameter
-                pst.setString(1, txtEditNamaDokter.getText());
-                pst.setString(2, txtEditSpesialis.getText());
-                pst.setString(3, cbEditJenisKelamin.getSelectedItem().toString());
-                pst.setString(4, txtEditRuangan.getText());
-                pst.setString(5, jTextField3.getText());
+                // Menyiapkan statement dan mengeksekusi query update
+                java.sql.PreparedStatement pstUpdate = conn.prepareStatement(sqlUpdate);
+                pstUpdate.execute();
 
-                // Eksekusi query
-                int rowsAffected = pst.executeUpdate();
-                if (rowsAffected > 0) {
-                    JOptionPane.showMessageDialog(null, "Data Berhasil Diperbaharui dengan Nama Dokter: " + txtEditNamaDokter.getText());
-                    writeLog("Data Berhasil Diperbaharui dengan Nama Dokter " + txtEditNamaDokter.getText());
-                } else {
+                // Menampilkan pesan sukses
+                JOptionPane.showMessageDialog(null, "Data Dokter Berhasil Diperbaharui dengan Nama " + txtEditNamaDokter.getText());
+                writeLog("Data Dokter Berhasil Diperbaharui dengan ID Dokter " + txtHiddeIdDokter.getText());
 
+                // Setelah data diperbarui, ambil data terbaru
+                String sqlSelect = "SELECT * FROM t_dokter WHERE idDokter = ?";
+                java.sql.PreparedStatement pstSelect = conn.prepareStatement(sqlSelect);
+                pstSelect.setInt(1, Integer.parseInt(txtHiddeIdDokter.getText())); // ID dokter yang disembunyikan
+
+                java.sql.ResultSet rs = pstSelect.executeQuery();
+                if (rs.next()) {
+                    // Update text field dengan data terbaru
+                    txtEditNamaDokter.setText(rs.getString("namaDokter"));
+                    txtEditSpesialis.setText(rs.getString("spesialis"));
+                    cbEditJenisKelamin.setSelectedItem(rs.getString("jenisKelamin"));
+                    txtEditRuangan.setText(rs.getString("ruangan"));
+                    txtHiddeIdDokter.setText(String.valueOf(rs.getInt("idDokter"))); // Set ID dokter
                 }
             }
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, "Perubahan Data Gagal: " + e.getMessage());
-            writeLog("Perubahan Data Gagal: " + e.getMessage());
+            // Menampilkan pesan error jika terjadi kegagalan
+            JOptionPane.showMessageDialog(null, "Perubahan Data Gagal: " + e.getMessage());
+            writeLog("Perubahan Data Gagal : " + e.getMessage());
         }
-
-// Muat ulang tabel
-        load_table();
 
     }//GEN-LAST:event_btEditSimpanActionPerformed
 
@@ -271,5 +273,6 @@ public class Form_profilDokters extends javax.swing.JPanel {
     private javax.swing.JTextField txtEditNamaDokter;
     private javax.swing.JTextField txtEditRuangan;
     private javax.swing.JTextField txtEditSpesialis;
+    private javax.swing.JTextField txtHiddeIdDokter;
     // End of variables declaration//GEN-END:variables
 }

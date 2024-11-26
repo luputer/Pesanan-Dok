@@ -176,28 +176,64 @@ public class Login extends javax.swing.JFrame {
             java.sql.ResultSet rs = pst.executeQuery();
 
             if (rs.next()) {
-                String level = rs.getString("level");
+                int level = rs.getInt("level"); // Ambil level sebagai angka
                 JOptionPane.showMessageDialog(null, "Selamat datang " + username);
 
-                // Ambil data pasien berdasarkan username yang login
-                String sqlPasien = "SELECT * FROM t_pasien WHERE username = ?";
-                PreparedStatement pstPasien = conn.prepareStatement(sqlPasien);
-                pstPasien.setString(1, username);
-                ResultSet rsPasien = pstPasien.executeQuery();
+                // Mengonversi level yang berupa angka ke string
+                String levelString = String.valueOf(level);  // Mengubah angka menjadi string
 
-                if (rsPasien.next()) {
-                    // Ambil data pasien dari hasil query
-                    int idPasien = rsPasien.getInt("idPasien");
-                    String namaPasien = rsPasien.getString("namaPasien");
-                    String jenisKelamin = rsPasien.getString("jenisKelamin");
-                    String alamat = rsPasien.getString("alamat");
+                switch (level) {
+                    case 1: // Pasien
+                        String sqlPasien = "SELECT * FROM t_pasien WHERE username = ?";
+                        PreparedStatement pstPasien = conn.prepareStatement(sqlPasien);
+                        pstPasien.setString(1, username);
+                        ResultSet rsPasien = pstPasien.executeQuery();
 
-                    // Kirim data pasien ke frame MenuUtama
-                    MenuUtama menuUtama = new MenuUtama(username, level, idPasien, namaPasien, jenisKelamin, alamat);
-                    menuUtama.setVisible(true);
-                    this.dispose(); // Close login form
-                } else {
-                    JOptionPane.showMessageDialog(null, "Data pasien tidak ditemukan!");
+                        if (rsPasien.next()) {
+                            // Ambil data pasien dari hasil query
+                            int idPasien = rsPasien.getInt("idPasien");
+                            String namaPasien = rsPasien.getString("namaPasien");
+                            String jenisKelamin = rsPasien.getString("jenisKelamin");
+                            String alamat = rsPasien.getString("alamat");
+
+                            // Kirim data pasien ke frame MenuUtama
+                            MenuUtama menuPasien = new MenuUtama(username, levelString, idPasien, -1, namaPasien, jenisKelamin, alamat);
+                            menuPasien.setVisible(true);
+                            this.dispose(); // Close login form
+                        } else {
+                            JOptionPane.showMessageDialog(null, "Akun Anda belum terdaftar sebagai pasien. Harap daftar terlebih dahulu.");
+                        }
+                        break;
+
+                    case 2: // Dokter
+                        // Query untuk mendapatkan ID Dokter berdasarkan username
+                        String sqlDokter = "SELECT idDokter FROM t_dokter WHERE username = ?";
+                        PreparedStatement pstDokter = conn.prepareStatement(sqlDokter);
+                        pstDokter.setString(1, username);
+                        ResultSet rsDokter = pstDokter.executeQuery();
+
+                        if (rsDokter.next()) {
+                            int idDokter = rsDokter.getInt("idDokter");
+
+                            // Kirim data dokter ke frame MenuUtama (hanya idDokter)
+                            MenuUtama menuDokter = new MenuUtama(username, levelString, -1, idDokter, "", "", "");
+                            menuDokter.setVisible(true);
+                            this.dispose(); // Close login form
+                        } else {
+                            JOptionPane.showMessageDialog(null, "Data dokter tidak ditemukan!");
+                        }
+                        break;
+
+                    case 3: // Admin
+                        // Admin tidak memerlukan validasi data pasien atau dokter
+                        MenuUtama menuAdmin = new MenuUtama(username, levelString, -1, -1, "", "", "");
+                        menuAdmin.setVisible(true);
+                        this.dispose();
+                        break;
+
+                    default: // Jika level tidak dikenali
+                        JOptionPane.showMessageDialog(null, "Level pengguna tidak dikenali! Hubungi administrator.");
+                        break;
                 }
 
             } else {
@@ -210,7 +246,6 @@ public class Login extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Error: " + e.getMessage());
             writeLog("Login Error: " + e.getMessage());
         }
-
 
     }//GEN-LAST:event_btn_loginActionPerformed
 

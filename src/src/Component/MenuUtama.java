@@ -22,6 +22,7 @@ public class MenuUtama extends javax.swing.JFrame {
     private String userLevel;
     private String userName;
     private int idPasien;
+    private int idDokter;
     private String namaPasien;
     private String jenisKelamin;
     private String alamat;
@@ -29,13 +30,14 @@ public class MenuUtama extends javax.swing.JFrame {
     /**
      * Creates new form MenuUtama
      */
-    public MenuUtama(String username, String level, int idPasien, String namaPasien, String jenisKelamin, String alamat) {
+    public MenuUtama(String username, String level, int idPasien, int idDokter, String namaPasien, String jenisKelamin, String alamat) {
 
         initComponents();
         this.setExtendedState(JFrame.MAXIMIZED_BOTH);
         this.userName = username;
         this.userLevel = level;
         this.idPasien = idPasien;
+        this.idDokter = idDokter;
         this.namaPasien = namaPasien;
         this.jenisKelamin = jenisKelamin;
         this.alamat = alamat;
@@ -328,7 +330,7 @@ public class MenuUtama extends javax.swing.JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 pn_utama.removeAll();
-                pn_utama.add(new Form_profilDokters());
+                pn_utama.add(new Form_profilDokters(idDokter));
                 pn_utama.repaint();
                 pn_utama.revalidate();
             }

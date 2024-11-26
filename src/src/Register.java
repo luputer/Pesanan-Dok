@@ -4,6 +4,7 @@
  */
 package src;
 
+import java.sql.Connection;
 import javax.swing.JOptionPane;
 import model.Config;
 import java.sql.PreparedStatement;
@@ -34,22 +35,22 @@ public class Register extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        cbJenisKelamin = new javax.swing.JComboBox<>();
         jLabel8 = new javax.swing.JLabel();
-        txtPassword1 = new javax.swing.JTextField();
+        txtAlamat = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         txtPassword = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
-        txtUsername2 = new javax.swing.JTextField();
-        txtUsername1 = new javax.swing.JTextField();
+        txtConfirmPassword = new javax.swing.JTextField();
+        txtNamaPasien = new javax.swing.JTextField();
         txtUsername = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        btn_login = new javax.swing.JButton();
+        btDaftar = new javax.swing.JButton();
         lblDaftar = new javax.swing.JLabel();
         jLabel63 = new javax.swing.JLabel();
 
@@ -60,32 +61,32 @@ public class Register extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jComboBox1.setBackground(new java.awt.Color(195, 224, 253));
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Laki-laki", "perempuan" }));
-        jPanel1.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 240, 430, 40));
+        cbJenisKelamin.setBackground(new java.awt.Color(195, 224, 253));
+        cbJenisKelamin.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Laki-laki", "Perempuan" }));
+        jPanel1.add(cbJenisKelamin, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 240, 430, 40));
 
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/asset/user 1 (1).png"))); // NOI18N
         jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 110, -1, -1));
 
-        txtPassword1.setBackground(new java.awt.Color(153, 153, 153));
-        txtPassword1.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
-        txtPassword1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txtPassword1.setText("Alamat");
-        txtPassword1.setBorder(null);
-        txtPassword1.addFocusListener(new java.awt.event.FocusAdapter() {
+        txtAlamat.setBackground(new java.awt.Color(153, 153, 153));
+        txtAlamat.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        txtAlamat.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtAlamat.setText("Alamat");
+        txtAlamat.setBorder(null);
+        txtAlamat.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
-                txtPassword1FocusGained(evt);
+                txtAlamatFocusGained(evt);
             }
             public void focusLost(java.awt.event.FocusEvent evt) {
-                txtPassword1FocusLost(evt);
+                txtAlamatFocusLost(evt);
             }
         });
-        txtPassword1.addActionListener(new java.awt.event.ActionListener() {
+        txtAlamat.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtPassword1ActionPerformed(evt);
+                txtAlamatActionPerformed(evt);
             }
         });
-        jPanel1.add(txtPassword1, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 300, 440, 40));
+        jPanel1.add(txtAlamat, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 300, 440, 40));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/asset/padlock 1.png"))); // NOI18N
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 170, 40, 40));
@@ -122,45 +123,45 @@ public class Register extends javax.swing.JFrame {
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/asset/Back.png"))); // NOI18N
         jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 400, -1, 30));
 
-        txtUsername2.setBackground(new java.awt.Color(153, 153, 153));
-        txtUsername2.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
-        txtUsername2.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txtUsername2.setText("Confirm Password");
-        txtUsername2.setBorder(null);
-        txtUsername2.addFocusListener(new java.awt.event.FocusAdapter() {
+        txtConfirmPassword.setBackground(new java.awt.Color(153, 153, 153));
+        txtConfirmPassword.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        txtConfirmPassword.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtConfirmPassword.setText("Confirm Password");
+        txtConfirmPassword.setBorder(null);
+        txtConfirmPassword.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
-                txtUsername2FocusGained(evt);
+                txtConfirmPasswordFocusGained(evt);
             }
             public void focusLost(java.awt.event.FocusEvent evt) {
-                txtUsername2FocusLost(evt);
+                txtConfirmPasswordFocusLost(evt);
             }
         });
-        txtUsername2.addActionListener(new java.awt.event.ActionListener() {
+        txtConfirmPassword.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtUsername2ActionPerformed(evt);
+                txtConfirmPasswordActionPerformed(evt);
             }
         });
-        jPanel1.add(txtUsername2, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 170, 210, 40));
+        jPanel1.add(txtConfirmPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 170, 210, 40));
 
-        txtUsername1.setBackground(new java.awt.Color(195, 224, 253));
-        txtUsername1.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
-        txtUsername1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txtUsername1.setText("Your Name");
-        txtUsername1.setBorder(null);
-        txtUsername1.addFocusListener(new java.awt.event.FocusAdapter() {
+        txtNamaPasien.setBackground(new java.awt.Color(195, 224, 253));
+        txtNamaPasien.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        txtNamaPasien.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtNamaPasien.setText("Your Name");
+        txtNamaPasien.setBorder(null);
+        txtNamaPasien.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
-                txtUsername1FocusGained(evt);
+                txtNamaPasienFocusGained(evt);
             }
             public void focusLost(java.awt.event.FocusEvent evt) {
-                txtUsername1FocusLost(evt);
+                txtNamaPasienFocusLost(evt);
             }
         });
-        txtUsername1.addActionListener(new java.awt.event.ActionListener() {
+        txtNamaPasien.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtUsername1ActionPerformed(evt);
+                txtNamaPasienActionPerformed(evt);
             }
         });
-        jPanel1.add(txtUsername1, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 100, 210, 40));
+        jPanel1.add(txtNamaPasien, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 100, 210, 40));
 
         txtUsername.setBackground(new java.awt.Color(195, 224, 253));
         txtUsername.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
@@ -196,16 +197,16 @@ public class Register extends javax.swing.JFrame {
         });
         jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 390, -1, -1));
 
-        btn_login.setBackground(new java.awt.Color(129, 179, 251));
-        btn_login.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btn_login.setForeground(new java.awt.Color(0, 0, 0));
-        btn_login.setText("Register");
-        btn_login.addActionListener(new java.awt.event.ActionListener() {
+        btDaftar.setBackground(new java.awt.Color(129, 179, 251));
+        btDaftar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btDaftar.setForeground(new java.awt.Color(0, 0, 0));
+        btDaftar.setText("Register");
+        btDaftar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_loginActionPerformed(evt);
+                btDaftarActionPerformed(evt);
             }
         });
-        jPanel1.add(btn_login, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 390, 130, 50));
+        jPanel1.add(btDaftar, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 390, 130, 50));
 
         lblDaftar.setForeground(new java.awt.Color(0, 0, 0));
         lblDaftar.setText("Sudah Punya Akun? Silahkan login");
@@ -232,62 +233,34 @@ public class Register extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtUsernameActionPerformed
 
-    private void btn_loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_loginActionPerformed
+    private void btDaftarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btDaftarActionPerformed
         // TODO add your handling code here:
-        String username = txtUsername.getText();
-        String password = txtPassword.getText();
-
-        if (username.equals("username") || password.equals("Password")) {
-            JOptionPane.showMessageDialog(null, "Silahkan masukkan username dan password!");
-            return;
-        }
-
-        String sql = "SELECT username, level FROM t_user WHERE username = ? AND password = ?";
         try {
-            java.sql.Connection conn = Config.configDB();
-            java.sql.PreparedStatement pst = conn.prepareStatement(sql);
-            pst.setString(1, username);
-            pst.setString(2, password);
-            java.sql.ResultSet rs = pst.executeQuery();
+            // 1. Simpan data ke tabel t_user
+            String sqlUser = "INSERT INTO t_user (username, password) VALUES ('" + txtUsername.getText()
+                    + "','" + txtPassword.getText() + "')";
+            java.sql.Connection conn = (Connection) Config.configDB();
+            java.sql.PreparedStatement pstUser = conn.prepareStatement(sqlUser);
+            pstUser.execute();
+            JOptionPane.showMessageDialog(null, "Penyimpanan Data User Berhasil");
+            writeLog("Penyimpanan Data User Berhasil dengan Username " + txtUsername.getText());
 
-            if (rs.next()) {
-                String level = rs.getString("level");
-                JOptionPane.showMessageDialog(null, "Selamat datang " + username);
+            // 2. Simpan data ke tabel t_pasien
+            String sqlPasien = "INSERT INTO t_pasien (namaPasien, jenisKelamin, alamat, username) VALUES ('"
+                    + txtNamaPasien.getText() + "','" + cbJenisKelamin.getSelectedItem().toString()
+                    + "','" + txtAlamat.getText() + "','" + txtUsername.getText() + "')";
+            java.sql.PreparedStatement pstPasien = conn.prepareStatement(sqlPasien);
+            pstPasien.execute();
 
-                // Ambil data pasien berdasarkan username yang login
-                String sqlPasien = "SELECT * FROM t_pasien WHERE username = ?";
-                PreparedStatement pstPasien = conn.prepareStatement(sqlPasien);
-                pstPasien.setString(1, username);
-                ResultSet rsPasien = pstPasien.executeQuery();
+            writeLog("Penyimpanan Data Pasien Berhasil untuk Nama " + txtNamaPasien.getText());
 
-                if (rsPasien.next()) {
-                    // Ambil data pasien dari hasil query
-                    int idPasien = rsPasien.getInt("idPasien");
-                    String namaPasien = rsPasien.getString("namaPasien");
-                    String jenisKelamin = rsPasien.getString("jenisKelamin");
-                    String alamat = rsPasien.getString("alamat");
-
-                    // Kirim data pasien ke frame MenuUtama
-                    MenuUtama menuUtama = new MenuUtama(username, level, idPasien, namaPasien, jenisKelamin, alamat);
-                    menuUtama.setVisible(true);
-                    this.dispose(); // Close login form
-                } else {
-                    JOptionPane.showMessageDialog(null, "Data pasien tidak ditemukan!");
-                }
-
-            } else {
-                JOptionPane.showMessageDialog(null, "Username atau password salah!");
-                txtUsername.setText("username");
-                txtPassword.setText("Password");
-                txtUsername.requestFocus();
-            }
-        } catch (java.sql.SQLException e) {
-            JOptionPane.showMessageDialog(null, "Error: " + e.getMessage());
-            writeLog("Login Error: " + e.getMessage());
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, e.getMessage());
+            writeLog("Data gagal disimpan : " + e.getMessage());
         }
 
 
-    }//GEN-LAST:event_btn_loginActionPerformed
+    }//GEN-LAST:event_btDaftarActionPerformed
 
     private void jLabel7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel7MouseClicked
         // TODO add your handling code here:
@@ -317,29 +290,29 @@ public class Register extends javax.swing.JFrame {
         login.setVisible(true);
     }//GEN-LAST:event_lblDaftarMouseClicked
 
-    private void txtUsername1FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtUsername1FocusGained
+    private void txtNamaPasienFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtNamaPasienFocusGained
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtUsername1FocusGained
+    }//GEN-LAST:event_txtNamaPasienFocusGained
 
-    private void txtUsername1FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtUsername1FocusLost
+    private void txtNamaPasienFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtNamaPasienFocusLost
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtUsername1FocusLost
+    }//GEN-LAST:event_txtNamaPasienFocusLost
 
-    private void txtUsername1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUsername1ActionPerformed
+    private void txtNamaPasienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNamaPasienActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtUsername1ActionPerformed
+    }//GEN-LAST:event_txtNamaPasienActionPerformed
 
-    private void txtUsername2FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtUsername2FocusGained
+    private void txtConfirmPasswordFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtConfirmPasswordFocusGained
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtUsername2FocusGained
+    }//GEN-LAST:event_txtConfirmPasswordFocusGained
 
-    private void txtUsername2FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtUsername2FocusLost
+    private void txtConfirmPasswordFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtConfirmPasswordFocusLost
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtUsername2FocusLost
+    }//GEN-LAST:event_txtConfirmPasswordFocusLost
 
-    private void txtUsername2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUsername2ActionPerformed
+    private void txtConfirmPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtConfirmPasswordActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtUsername2ActionPerformed
+    }//GEN-LAST:event_txtConfirmPasswordActionPerformed
 
     private void txtPasswordFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtPasswordFocusGained
         // TODO add your handling code here:
@@ -353,17 +326,17 @@ public class Register extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtPasswordActionPerformed
 
-    private void txtPassword1FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtPassword1FocusGained
+    private void txtAlamatFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtAlamatFocusGained
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtPassword1FocusGained
+    }//GEN-LAST:event_txtAlamatFocusGained
 
-    private void txtPassword1FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtPassword1FocusLost
+    private void txtAlamatFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtAlamatFocusLost
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtPassword1FocusLost
+    }//GEN-LAST:event_txtAlamatFocusLost
 
-    private void txtPassword1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPassword1ActionPerformed
+    private void txtAlamatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAlamatActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtPassword1ActionPerformed
+    }//GEN-LAST:event_txtAlamatActionPerformed
 
     /**
      * @param args the command line arguments
@@ -402,8 +375,8 @@ public class Register extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btn_login;
-    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JButton btDaftar;
+    private javax.swing.JComboBox<String> cbJenisKelamin;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -416,10 +389,10 @@ public class Register extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblDaftar;
+    private javax.swing.JTextField txtAlamat;
+    private javax.swing.JTextField txtConfirmPassword;
+    private javax.swing.JTextField txtNamaPasien;
     private javax.swing.JTextField txtPassword;
-    private javax.swing.JTextField txtPassword1;
     private javax.swing.JTextField txtUsername;
-    private javax.swing.JTextField txtUsername1;
-    private javax.swing.JTextField txtUsername2;
     // End of variables declaration//GEN-END:variables
 }

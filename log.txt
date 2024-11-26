@@ -776,3 +776,27 @@ The last packet sent successfully to the server was 0 milliseconds ago. The driv
 2024-11-25 22:50:42 - Login Error: Unknown column 'username' in 'where clause'
 2024-11-25 22:51:34 - Koneksi berhasil ke database.
 2024-11-25 22:52:49 - Login Error: Unknown column 'username' in 'where clause'
+2024-11-26 08:22:34 - Koneksi berhasil ke database.
+2024-11-26 08:55:51 - Koneksi berhasil ke database.
+2024-11-26 09:00:02 - Koneksi berhasil ke database.
+2024-11-26 09:10:31 - Koneksi berhasil ke database.
+2024-11-26 09:11:23 - Koneksi berhasil ke database.
+2024-11-26 09:12:16 - Koneksi berhasil ke database.
+2024-11-26 09:46:12 - Koneksi berhasil ke database.
+2024-11-26 09:50:20 - Koneksi berhasil ke database.
+2024-11-26 09:50:26 - Koneksi berhasil ke database.
+2024-11-26 09:50:45 - Koneksi berhasil ke database.
+2024-11-26 09:50:47 - Data Dokter Berhasil Diperbaharui dengan ID Dokter 1
+2024-11-26 09:50:48 - Koneksi berhasil ke database.
+2024-11-26 09:50:54 - Koneksi berhasil ke database.
+2024-11-26 09:50:55 - Data Dokter Berhasil Diperbaharui dengan ID Dokter 1
+2024-11-26 09:50:56 - Koneksi berhasil ke database.
+2024-11-26 09:51:38 - Koneksi berhasil ke database.
+2024-11-26 09:51:43 - Koneksi berhasil ke database.
+2024-11-26 09:51:43 - Tampilkan data ke Frame Form_Dokter
+2024-11-26 09:51:46 - Koneksi berhasil ke database.
+2024-11-26 09:51:46 - Tampilkan data ke Frame Form_DataPasient
+2024-11-26 09:51:52 - Koneksi berhasil ke database.
+2024-11-26 09:51:52 - Tampilkan data ke Frame Form_Dokter
+2024-11-26 09:51:54 - Koneksi berhasil ke database.
+2024-11-26 09:51:54 - Tampilkan data ke Frame Form_User

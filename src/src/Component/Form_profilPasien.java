@@ -6,7 +6,6 @@ package src.Component;
 
 import java.sql.Connection;
 import javax.swing.JOptionPane;
-import javax.swing.table.DefaultTableModel;
 import model.Config;
 import static model.Config.writeLog;
 
