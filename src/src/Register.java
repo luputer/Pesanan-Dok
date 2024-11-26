@@ -35,6 +35,7 @@ public class Register extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
+        jLabel6 = new javax.swing.JLabel();
         cbJenisKelamin = new javax.swing.JComboBox<>();
         jLabel8 = new javax.swing.JLabel();
         txtAlamat = new javax.swing.JTextField();
@@ -42,17 +43,16 @@ public class Register extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         txtPassword = new javax.swing.JTextField();
-        jLabel6 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         txtConfirmPassword = new javax.swing.JTextField();
         txtNamaPasien = new javax.swing.JTextField();
-        txtUsername = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         btDaftar = new javax.swing.JButton();
         lblDaftar = new javax.swing.JLabel();
         jLabel63 = new javax.swing.JLabel();
+        txtUsername = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -61,8 +61,12 @@ public class Register extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/asset/user 1 (1).png"))); // NOI18N
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 110, -1, -1));
+
         cbJenisKelamin.setBackground(new java.awt.Color(195, 224, 253));
         cbJenisKelamin.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Laki-laki", "Perempuan" }));
+        cbJenisKelamin.setOpaque(true);
         jPanel1.add(cbJenisKelamin, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 240, 430, 40));
 
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/asset/user 1 (1).png"))); // NOI18N
@@ -89,7 +93,7 @@ public class Register extends javax.swing.JFrame {
         jPanel1.add(txtAlamat, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 300, 440, 40));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/asset/padlock 1.png"))); // NOI18N
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 170, 40, 40));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 170, 40, 40));
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/asset/padlock 1.png"))); // NOI18N
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 170, 40, 40));
@@ -116,9 +120,6 @@ public class Register extends javax.swing.JFrame {
             }
         });
         jPanel1.add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 170, 210, 40));
-
-        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/asset/user 1 (1).png"))); // NOI18N
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 110, -1, -1));
 
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/asset/Back.png"))); // NOI18N
         jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 400, -1, 30));
@@ -163,26 +164,6 @@ public class Register extends javax.swing.JFrame {
         });
         jPanel1.add(txtNamaPasien, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 100, 210, 40));
 
-        txtUsername.setBackground(new java.awt.Color(195, 224, 253));
-        txtUsername.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
-        txtUsername.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txtUsername.setText("User Name");
-        txtUsername.setBorder(null);
-        txtUsername.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                txtUsernameFocusGained(evt);
-            }
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                txtUsernameFocusLost(evt);
-            }
-        });
-        txtUsername.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtUsernameActionPerformed(evt);
-            }
-        });
-        jPanel1.add(txtUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 100, 210, 40));
-
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/asset/Splash Screen (1).png"))); // NOI18N
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(-150, 110, 740, 380));
 
@@ -223,36 +204,59 @@ public class Register extends javax.swing.JFrame {
         jLabel63.setText("Sign up");
         jPanel1.add(jLabel63, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 50, 120, -1));
 
+        txtUsername.setBackground(new java.awt.Color(195, 224, 253));
+        txtUsername.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        txtUsername.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtUsername.setText("User Name");
+        txtUsername.setBorder(null);
+        txtUsername.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtUsernameFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtUsernameFocusLost(evt);
+            }
+        });
+        txtUsername.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtUsernameActionPerformed(evt);
+            }
+        });
+        jPanel1.add(txtUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 100, 210, 40));
+
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1010, 550));
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtUsernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUsernameActionPerformed
+    private void txtNamaPasienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNamaPasienActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtUsernameActionPerformed
+    }//GEN-LAST:event_txtNamaPasienActionPerformed
 
     private void btDaftarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btDaftarActionPerformed
         // TODO add your handling code here:
         try {
             // 1. Simpan data ke tabel t_user
-            String sqlUser = "INSERT INTO t_user (username, password) VALUES ('" + txtUsername.getText()
+            String sqlUser = "INSERT INTO t_user (username, password) VALUES ('" + txtNamaPasien.getText()
                     + "','" + txtPassword.getText() + "')";
             java.sql.Connection conn = (Connection) Config.configDB();
             java.sql.PreparedStatement pstUser = conn.prepareStatement(sqlUser);
             pstUser.execute();
             JOptionPane.showMessageDialog(null, "Penyimpanan Data User Berhasil");
-            writeLog("Penyimpanan Data User Berhasil dengan Username " + txtUsername.getText());
+            writeLog("Penyimpanan Data User Berhasil dengan Username " + txtNamaPasien.getText());
 
             // 2. Simpan data ke tabel t_pasien
             String sqlPasien = "INSERT INTO t_pasien (namaPasien, jenisKelamin, alamat, username) VALUES ('"
                     + txtNamaPasien.getText() + "','" + cbJenisKelamin.getSelectedItem().toString()
-                    + "','" + txtAlamat.getText() + "','" + txtUsername.getText() + "')";
+                    + "','" + txtAlamat.getText() + "','" + txtNamaPasien.getText() + "')";
             java.sql.PreparedStatement pstPasien = conn.prepareStatement(sqlPasien);
             pstPasien.execute();
 
             writeLog("Penyimpanan Data Pasien Berhasil untuk Nama " + txtNamaPasien.getText());
+            Login login = new Login();
+            login.setVisible(true);
+            
 
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, e.getMessage());
@@ -267,21 +271,21 @@ public class Register extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_jLabel7MouseClicked
 
-    private void txtUsernameFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtUsernameFocusGained
+    private void txtNamaPasienFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtNamaPasienFocusGained
         // TODO add your handling code here:
-        String user = txtUsername.getText();
-        if (user.equals("username")) {
-            txtUsername.setText("");
+        String user = txtNamaPasien.getText();
+        if (user.equals("Your Name")) {
+            txtNamaPasien.setText("");
         }
-    }//GEN-LAST:event_txtUsernameFocusGained
+    }//GEN-LAST:event_txtNamaPasienFocusGained
 
-    private void txtUsernameFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtUsernameFocusLost
+    private void txtNamaPasienFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtNamaPasienFocusLost
         // TODO add your handling code here:
-        String user = txtUsername.getText();
-        if (user.equals("") || user.equals("username")) {
-            txtUsername.setText("username");
+        String user = txtNamaPasien.getText();
+        if (user.equals("") || user.equals("Your Name")) {
+            txtNamaPasien.setText("Your Name");
         }
-    }//GEN-LAST:event_txtUsernameFocusLost
+    }//GEN-LAST:event_txtNamaPasienFocusLost
 
     private void lblDaftarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblDaftarMouseClicked
         // TODO add your handling code here:
@@ -290,24 +294,21 @@ public class Register extends javax.swing.JFrame {
         login.setVisible(true);
     }//GEN-LAST:event_lblDaftarMouseClicked
 
-    private void txtNamaPasienFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtNamaPasienFocusGained
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtNamaPasienFocusGained
-
-    private void txtNamaPasienFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtNamaPasienFocusLost
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtNamaPasienFocusLost
-
-    private void txtNamaPasienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNamaPasienActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtNamaPasienActionPerformed
-
     private void txtConfirmPasswordFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtConfirmPasswordFocusGained
         // TODO add your handling code here:
+             String confim = txtConfirmPassword.getText();
+        if (confim.equals("Confirm Password")) {
+            txtConfirmPassword.setText("");
+        }
     }//GEN-LAST:event_txtConfirmPasswordFocusGained
 
     private void txtConfirmPasswordFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtConfirmPasswordFocusLost
         // TODO add your handling code here:
+          String confirm = txtConfirmPassword.getText();
+        if (confirm.equals("") || confirm.equals("Confirm Password")) {
+            txtConfirmPassword.setText("Confirm Password");
+        }
+        
     }//GEN-LAST:event_txtConfirmPasswordFocusLost
 
     private void txtConfirmPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtConfirmPasswordActionPerformed
@@ -316,27 +317,66 @@ public class Register extends javax.swing.JFrame {
 
     private void txtPasswordFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtPasswordFocusGained
         // TODO add your handling code here:
+          String password = txtPassword.getText();
+        if (password.equals("Your Password")) {
+            txtPassword.setText("");
+        }
     }//GEN-LAST:event_txtPasswordFocusGained
 
     private void txtPasswordFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtPasswordFocusLost
         // TODO add your handling code here:
+        
+        String password = txtPassword.getText();
+        if (password.equals("") || password.equals("Your Password")) {
+            txtPassword.setText("Your Password");
+        }
     }//GEN-LAST:event_txtPasswordFocusLost
 
     private void txtPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPasswordActionPerformed
         // TODO add your handling code here:
+        
     }//GEN-LAST:event_txtPasswordActionPerformed
 
     private void txtAlamatFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtAlamatFocusGained
         // TODO add your handling code here:
+         String alamat = txtAlamat.getText();
+        if (alamat.equals("Alamat")) {
+            txtAlamat.setText("");
+        }
     }//GEN-LAST:event_txtAlamatFocusGained
 
     private void txtAlamatFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtAlamatFocusLost
         // TODO add your handling code here:
+         String alamat = txtAlamat.getText();
+        if (alamat.equals("") || alamat.equals("Alamat")) {
+            txtAlamat.setText("Alamat");
+        }
     }//GEN-LAST:event_txtAlamatFocusLost
 
     private void txtAlamatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAlamatActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtAlamatActionPerformed
+
+    private void txtUsernameFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtUsernameFocusGained
+        // TODO add your handling code here:
+        String username = txtUsername.getText();
+        if (username.equals("User Name")) {
+            txtUsername.setText("");
+        }
+        
+    }//GEN-LAST:event_txtUsernameFocusGained
+
+    private void txtUsernameFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtUsernameFocusLost
+        // TODO add your handling code here:
+         String username = txtUsername.getText();
+        if (username.equals("") || username.equals("User Name")) {
+            txtUsername.setText("User Name");
+        }
+    }//GEN-LAST:event_txtUsernameFocusLost
+
+    private void txtUsernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUsernameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtUsernameActionPerformed
 
     /**
      * @param args the command line arguments

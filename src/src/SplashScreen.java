@@ -90,7 +90,7 @@ public class SplashScreen extends javax.swing.JFrame {
         Splash.setVisible(true);
         try{
             for (int i=0; i <=100; i++){
-                Thread.sleep(80);
+                Thread.sleep(40);
                 Splash.loading.setText(""+i+" %");
                 Splash.jProgressBar1.setValue(i);
                 if ( i == 100){
