@@ -92,7 +92,7 @@ public class Form_DokterKonsul extends javax.swing.JPanel {
         dataKonsul.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 110, 1470, 360));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
-        jLabel1.setText("Konsulatasi");
+        jLabel1.setText("Konsulatasi DOk");
         dataKonsul.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 6, 400, -1));
 
         btTambah.setText("Tambah");

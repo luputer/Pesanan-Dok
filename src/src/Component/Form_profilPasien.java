@@ -5,7 +5,7 @@
 package src.Component;
 
 import java.sql.Connection;
-import javaaplikasi_v1.pkg0.Dashboard;
+//import javaaplikasi_v1.pkg0.Dashboard;
 import javax.swing.JOptionPane;
 import model.Config;
 import static model.Config.writeLog;

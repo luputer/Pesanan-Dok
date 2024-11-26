@@ -1007,3 +1007,79 @@ The last packet sent successfully to the server was 0 milliseconds ago. The driv
 2024-11-26 19:23:43 - Tampilkan data ke Frame Form_User
 2024-11-26 19:24:45 - Koneksi berhasil ke database.
 2024-11-26 19:24:45 - Tampilkan data ke Frame Form_User
+2024-11-26 20:07:34 - Koneksi berhasil ke database.
+2024-11-26 20:07:40 - Koneksi berhasil ke database.
+2024-11-26 20:07:40 - Koneksi berhasil ke database.
+2024-11-26 20:08:03 - Koneksi berhasil ke database.
+2024-11-26 20:08:07 - Data gagal disimpan: Unknown column 'keluhan' in 'field list'
+2024-11-26 20:10:52 - Koneksi berhasil ke database.
+2024-11-26 20:10:57 - Koneksi berhasil ke database.
+2024-11-26 20:10:58 - Koneksi berhasil ke database.
+2024-11-26 20:11:12 - Koneksi berhasil ke database.
+2024-11-26 20:11:14 - Data gagal disimpan: Unknown column 'keluhanPasien' in 'field list'
+2024-11-26 20:12:48 - Koneksi berhasil ke database.
+2024-11-26 20:12:52 - Koneksi berhasil ke database.
+2024-11-26 20:12:53 - Koneksi berhasil ke database.
+2024-11-26 20:13:10 - Koneksi berhasil ke database.
+2024-11-26 20:13:13 - Data gagal disimpan: Unknown column 'tanggalKonsultasi' in 'field list'
+2024-11-26 20:18:46 - Koneksi berhasil ke database.
+2024-11-26 20:18:52 - Koneksi berhasil ke database.
+2024-11-26 20:18:52 - Koneksi berhasil ke database.
+2024-11-26 20:19:07 - Koneksi berhasil ke database.
+2024-11-26 20:19:10 - Data gagal disimpan: Field 'catatan' doesn't have a default value
+2024-11-26 20:32:18 - Koneksi berhasil ke database.
+2024-11-26 20:32:22 - Koneksi berhasil ke database.
+2024-11-26 20:32:22 - Koneksi berhasil ke database.
+2024-11-26 20:32:33 - Koneksi berhasil ke database.
+2024-11-26 20:32:36 - Data konsultasi berhasil disimpan
+2024-11-26 21:21:38 - Koneksi berhasil ke database.
+2024-11-26 21:21:44 - Koneksi berhasil ke database.
+2024-11-26 21:21:44 - Koneksi berhasil ke database.
+2024-11-26 21:45:14 - Koneksi berhasil ke database.
+2024-11-26 21:45:17 - Koneksi berhasil ke database.
+2024-11-26 21:45:18 - Koneksi berhasil ke database.
+2024-11-26 21:45:33 - Koneksi berhasil ke database.
+2024-11-26 21:49:08 - Koneksi berhasil ke database.
+2024-11-26 21:49:13 - Koneksi berhasil ke database.
+2024-11-26 21:49:13 - Koneksi berhasil ke database.
+2024-11-26 21:49:24 - Koneksi berhasil ke database.
+2024-11-26 21:56:34 - Koneksi berhasil ke database.
+2024-11-26 21:56:42 - Koneksi berhasil ke database.
+2024-11-26 21:57:04 - Koneksi berhasil ke database.
+2024-11-26 22:08:39 - Koneksi berhasil ke database.
+2024-11-26 22:08:46 - Koneksi berhasil ke database.
+2024-11-26 22:08:46 - Koneksi berhasil ke database.
+2024-11-26 22:08:47 - Koneksi berhasil ke database.
+2024-11-26 22:08:47 - Tampilkan data konsultasi ke Frame Form_PasienKonsul
+2024-11-26 22:21:54 - Koneksi berhasil ke database.
+2024-11-26 22:21:59 - Koneksi berhasil ke database.
+2024-11-26 22:21:59 - Koneksi berhasil ke database.
+2024-11-26 22:21:59 - Koneksi berhasil ke database.
+2024-11-26 22:21:59 - Tampilkan data konsultasi ke Frame Form_PasienKonsul
+2024-11-26 22:22:08 - Koneksi berhasil ke database.
+2024-11-26 22:22:08 - Koneksi berhasil ke database.
+2024-11-26 22:22:08 - Koneksi berhasil ke database.
+2024-11-26 22:22:08 - Tampilkan data konsultasi ke Frame Form_PasienKonsul
+2024-11-26 22:24:12 - Koneksi berhasil ke database.
+2024-11-26 22:24:16 - Koneksi berhasil ke database.
+2024-11-26 22:24:17 - Koneksi berhasil ke database.
+2024-11-26 22:24:18 - Koneksi berhasil ke database.
+2024-11-26 22:24:18 - Tampilkan data konsultasi ke Frame Form_PasienKonsul
+2024-11-26 22:31:44 - Koneksi berhasil ke database.
+2024-11-26 22:31:48 - Koneksi berhasil ke database.
+2024-11-26 22:31:48 - Koneksi berhasil ke database.
+2024-11-26 22:31:49 - Koneksi berhasil ke database.
+2024-11-26 22:31:49 - Tampilkan data konsultasi ke Frame Form_PasienKonsul
+2024-11-26 22:32:01 - Koneksi berhasil ke database.
+2024-11-26 22:32:02 - Koneksi berhasil ke database.
+2024-11-26 22:32:02 - Koneksi berhasil ke database.
+2024-11-26 22:32:02 - Koneksi berhasil ke database.
+2024-11-26 22:32:02 - Tampilkan data konsultasi ke Frame Form_PasienKonsul
+2024-11-26 22:33:58 - Koneksi berhasil ke database.
+2024-11-26 22:34:02 - Koneksi berhasil ke database.
+2024-11-26 22:34:03 - Koneksi berhasil ke database.
+2024-11-26 22:35:29 - Koneksi berhasil ke database.
+2024-11-26 22:35:35 - Koneksi berhasil ke database.
+2024-11-26 22:35:35 - Koneksi berhasil ke database.
+2024-11-26 22:35:35 - Koneksi berhasil ke database.
+2024-11-26 22:35:35 - Tampilkan data konsultasi ke Frame Form_PasienKonsul
