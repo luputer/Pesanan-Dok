@@ -93,7 +93,7 @@ public class Register extends javax.swing.JFrame {
         jPanel1.add(txtAlamat, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 300, 440, 40));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/asset/padlock 1.png"))); // NOI18N
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 170, 40, 40));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 170, 40, 40));
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/asset/padlock 1.png"))); // NOI18N
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 170, 40, 40));

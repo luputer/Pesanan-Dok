@@ -172,17 +172,17 @@ public class MenuUtama extends javax.swing.JFrame {
         pn_navbar.setLayout(pn_navbarLayout);
         pn_navbarLayout.setHorizontalGroup(
             pn_navbarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pn_navbarLayout.createSequentialGroup()
-                .addGap(231, 231, 231)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pn_navbarLayout.createSequentialGroup()
+                .addContainerGap(892, Short.MAX_VALUE)
                 .addComponent(lb_tanggal, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(667, Short.MAX_VALUE))
+                .addContainerGap())
         );
         pn_navbarLayout.setVerticalGroup(
             pn_navbarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pn_navbarLayout.createSequentialGroup()
-                .addContainerGap(59, Short.MAX_VALUE)
+            .addGroup(pn_navbarLayout.createSequentialGroup()
+                .addGap(38, 38, 38)
                 .addComponent(lb_tanggal)
-                .addGap(25, 25, 25))
+                .addContainerGap(46, Short.MAX_VALUE))
         );
 
         getContentPane().add(pn_navbar, java.awt.BorderLayout.PAGE_START);
@@ -265,7 +265,14 @@ public class MenuUtama extends javax.swing.JFrame {
     private void execute() {
 
         //tempat naro icon
-        ImageIcon iconUser = new ImageIcon(getClass().getResource("/asset/user.png"));
+        ImageIcon iconUser    = new ImageIcon(getClass().getResource("/asset/user.png"));
+//        ImageIcon iconHome    = new ImageIcon(getClass().getResource("/asset/user.png"));
+//        ImageIcon iconAbout   = new ImageIcon(getClass().getResource("/asset/user.png"));
+//        ImageIcon iconPasien  = new ImageIcon(getClass().getResource("/asset/user.png"));
+//        ImageIcon iconDokter  = new ImageIcon(getClass().getResource("/asset/user.png"));
+//        ImageIcon iconKonsulasi    = new ImageIcon(getClass().getResource("/asset/user.png"));
+//        ImageIcon iconKonsulasi    = new ImageIcon(getClass().getResource("/asset/user.png"));
+        
 
         //nav children
         //nav utamahalaman Home

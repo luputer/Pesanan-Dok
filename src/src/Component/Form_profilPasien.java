@@ -5,6 +5,7 @@
 package src.Component;
 
 import java.sql.Connection;
+import javaaplikasi_v1.pkg0.Dashboard;
 import javax.swing.JOptionPane;
 import model.Config;
 import static model.Config.writeLog;
@@ -176,7 +177,7 @@ public class Form_profilPasien extends javax.swing.JPanel {
     private void btEditSimpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btEditSimpanActionPerformed
         // TODO add your handling code here:
         mainPanel.removeAll();
-//        mainPanel.add(dataUser);
+        mainPanel.add(editUSer);
         mainPanel.repaint();
         mainPanel.revalidate();
 
@@ -225,7 +226,7 @@ public class Form_profilPasien extends javax.swing.JPanel {
     private void btBatal1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btBatal1ActionPerformed
         // TODO add your handling code here:
         mainPanel.removeAll();
-//        mainPanel.add(dataUser);
+        mainPanel.add(editUSer);
         mainPanel.repaint();
         mainPanel.revalidate();
     }//GEN-LAST:event_btBatal1ActionPerformed

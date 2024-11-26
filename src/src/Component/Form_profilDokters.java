@@ -195,6 +195,7 @@ public class Form_profilDokters extends javax.swing.JPanel {
     private void btEditSimpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btEditSimpanActionPerformed
         // TODO add your handling code here:
         mainPanel.removeAll();
+        mainPanel.add(editProfileDokter);
         mainPanel.repaint();
         mainPanel.revalidate();
 
@@ -247,6 +248,7 @@ public class Form_profilDokters extends javax.swing.JPanel {
     private void btBatal2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btBatal2ActionPerformed
         // TODO add your handling code here:
         mainPanel.removeAll();
+        mainPanel.add(editProfileDokter);
         mainPanel.repaint();
         mainPanel.revalidate();
     }//GEN-LAST:event_btBatal2ActionPerformed

@@ -58,7 +58,7 @@ public class Login extends javax.swing.JFrame {
         jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 370, -1, 30));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/asset/padlock 1.png"))); // NOI18N
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 270, 40, 40));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 270, 50, 40));
 
         txtPassword.setBackground(new java.awt.Color(195, 224, 253));
         txtPassword.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
@@ -242,7 +242,7 @@ public class Login extends javax.swing.JFrame {
                 txtPassword.setText("Password");
                 txtUsername.requestFocus();
             }
-        } catch (java.sql.SQLException e) {
+        } catch (java.sql.SQLException e) {  
             JOptionPane.showMessageDialog(null, "Error: " + e.getMessage());
             writeLog("Login Error: " + e.getMessage());
         }
