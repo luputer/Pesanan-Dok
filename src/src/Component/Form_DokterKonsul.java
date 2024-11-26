@@ -4,17 +4,140 @@
  */
 package src.Component;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.HashMap;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+import model.Config;
+import static model.Config.writeLog;
+
 /**
  *
  * @author Saidi
  */
 public class Form_DokterKonsul extends javax.swing.JPanel {
 
+    private void load_table(int idDokter) {
+        // Membuat tampilan model tabel
+        DefaultTableModel model = new DefaultTableModel();
+        model.addColumn("No");
+        model.addColumn("ID Konsultasi"); // Kolom ini akan disembunyikan
+        model.addColumn("Nama Pasien");
+        model.addColumn("Nama Dokter");
+        model.addColumn("Waktu Konsultasi");
+        model.addColumn("Catatan");
+        model.addColumn("Keperluan Pasien");
+
+        // Menampilkan data database ke dalam tabel
+        try {
+            int no = 1;
+            String sql = "SELECT k.idKonsultasi, p.namaPasien, d.namaDokter, k.waktuKonsultasi, k.catatan, k.keperluanPasien "
+                    + "FROM t_konsultasi k "
+                    + "JOIN t_pasien p ON k.idPasien = p.idPasien "
+                    + "JOIN t_dokter d ON k.idDokter = d.idDokter "
+                    + "WHERE k.idDokter = ?"; // Hanya data sesuai idPasien yang login
+
+            java.sql.Connection conn = (Connection) Config.configDB();
+            java.sql.PreparedStatement pst = conn.prepareStatement(sql);
+            pst.setInt(1, idDokter); // Sesuaikan dengan metode Anda untuk mendapatkan idPasien login
+            java.sql.ResultSet res = pst.executeQuery();
+
+            while (res.next()) {
+                model.addRow(new Object[]{
+                    no++,
+                    res.getString("idKonsultasi"),
+                    res.getString("namaPasien"),
+                    res.getString("namaDokter"),
+                    res.getString("waktuKonsultasi"),
+                    res.getString("catatan"),
+                    res.getString("keperluanPasien")
+                });
+            }
+
+            tblDokterKonsul.setModel(model);
+
+            // Menyembunyikan kolom ID Konsultasi
+            tblDokterKonsul.getColumnModel().getColumn(1).setMinWidth(0);
+            tblDokterKonsul.getColumnModel().getColumn(1).setMaxWidth(0);
+            tblDokterKonsul.getColumnModel().getColumn(1).setWidth(0);
+
+            writeLog("Tampilkan data konsultasi ke Frame " + getClass().getSimpleName());
+        } catch (Exception e) {
+            writeLog("Data tidak dapat ditampilkan : " + e.getMessage());
+        }
+    }
+    private HashMap<String, Integer> dokterMap = new HashMap<>();
+
+    private void relasiPasien() {
+        try {
+            // Buka koneksi ke database
+            Connection conn = Config.configDB();
+
+            // Query untuk mengambil idDokter dan namaDokter dari tabel t_dokter
+            String sql = "SELECT idPasien, namaPasien FROM t_pasien";
+            PreparedStatement pst = conn.prepareStatement(sql);
+            ResultSet rs = pst.executeQuery();
+
+            // Bersihkan ComboBox sebelum mengisinya
+            dokterMap.clear(); // Kosongkan peta
+
+            // Loop untuk memasukkan nama dokter ke dalam comboBox dan map
+            while (rs.next()) {
+                int idPasien = rs.getInt("idPasien");
+                String namaPasien = rs.getString("namaPasien");
+
+                // Simpan hubungan antara namaDokter dan idDokter
+                dokterMap.put(namaPasien, idPasien);
+
+                // Tambahkan namaDokter ke ComboBox
+                cbNamaPasien.addItem(namaPasien);
+//                cbEditNamaDokter.addItem(namaDokter);
+            }
+
+            // Tutup koneksi
+            rs.close();
+            pst.close();
+            conn.close();
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null,
+                    "Terjadi kesalahan saat memuat data dokter: " + e.getMessage(),
+                    "Error",
+                    JOptionPane.ERROR_MESSAGE);
+        }
+    }
+
+    // Kelas untuk menyimpan ID dan nama dokter
+    private void setNamaDokter(int idDokter) {
+        try {
+            // Query untuk mendapatkan data pasien berdasarkan idPasien
+            String sqlSelect = "SELECT * FROM t_dokter WHERE idDokter = ?";
+            java.sql.Connection conn = (Connection) Config.configDB();
+            java.sql.PreparedStatement pstSelect = conn.prepareStatement(sqlSelect);
+            pstSelect.setInt(1, idDokter); // Menggunakan idPasien untuk filter
+            java.sql.ResultSet rs = pstSelect.executeQuery();
+
+            if (rs.next()) {
+                // Set text field dengan data pasien yang diambil
+                txtNamaDokter.setText(rs.getString("namaDokter"));
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Gagal memuat data dokter: " + e.getMessage());
+        }
+    }
+
     /**
      * Creates new form Form_DataKonsul
      */
-    public Form_DokterKonsul() {
+    public Form_DokterKonsul(int idDokter) {
         initComponents();
+        load_table(idDokter);
+        txtHiddenIdDokter.setVisible(false);
+        txtHiddenIdKonsul.setVisible(false);
+        txtHiddenIdDokter.setText(String.valueOf(idDokter));
+        setNamaDokter(idDokter);
+        relasiPasien();
     }
 
     /**
@@ -30,7 +153,7 @@ public class Form_DokterKonsul extends javax.swing.JPanel {
         mainPanel = new javax.swing.JPanel();
         dataKonsul = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tblDokterKonsul = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
         btTambah = new javax.swing.JButton();
         bt_edit = new javax.swing.JButton();
@@ -41,12 +164,15 @@ public class Form_DokterKonsul extends javax.swing.JPanel {
         jLabel4 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
-        cbLevel2 = new javax.swing.JComboBox<>();
-        jTextField9 = new javax.swing.JTextField();
-        jComboBox2 = new javax.swing.JComboBox<>();
+        txtKeluhan = new javax.swing.JTextField();
+        cbNamaPasien = new javax.swing.JComboBox<>();
         jLabel10 = new javax.swing.JLabel();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        jTextArea2 = new javax.swing.JTextArea();
+        txtNamaDokter = new javax.swing.JTextField();
+        jLabel11 = new javax.swing.JLabel();
+        txtWaktu = new javax.swing.JTextField();
+        txtHiddenIdDokter = new javax.swing.JTextField();
+        txtHiddenIdKonsul = new javax.swing.JTextField();
+        txtCatatan = new javax.swing.JTextField();
         cbLevel3 = new javax.swing.JComboBox<>();
         jLabel17 = new javax.swing.JLabel();
         tambahKonsul = new javax.swing.JPanel();
@@ -56,12 +182,12 @@ public class Form_DokterKonsul extends javax.swing.JPanel {
         jLabel3 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        cbLevel = new javax.swing.JComboBox<>();
         jTextField6 = new javax.swing.JTextField();
         jComboBox1 = new javax.swing.JComboBox<>();
         jLabel8 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
+        jTextField7 = new javax.swing.JTextField();
         cbLevel1 = new javax.swing.JComboBox<>();
         jLabel16 = new javax.swing.JLabel();
 
@@ -71,7 +197,7 @@ public class Form_DokterKonsul extends javax.swing.JPanel {
 
         dataKonsul.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tblDokterKonsul.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -82,17 +208,17 @@ public class Form_DokterKonsul extends javax.swing.JPanel {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
+        tblDokterKonsul.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jTable1MouseClicked(evt);
+                tblDokterKonsulMouseClicked(evt);
             }
         });
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tblDokterKonsul);
 
         dataKonsul.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 110, 1470, 360));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
-        jLabel1.setText("Konsulatasi DOk");
+        jLabel1.setText("Konsulatasi");
         dataKonsul.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 6, 400, -1));
 
         btTambah.setText("Tambah");
@@ -141,14 +267,13 @@ public class Form_DokterKonsul extends javax.swing.JPanel {
         jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel9.setText("Keluhan");
 
-        cbLevel2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " " }));
-
         jLabel10.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel10.setText("Catatan");
 
-        jTextArea2.setColumns(20);
-        jTextArea2.setRows(5);
-        jScrollPane3.setViewportView(jTextArea2);
+        txtNamaDokter.setEditable(false);
+
+        jLabel11.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel11.setText("Waktu");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -159,45 +284,66 @@ public class Form_DokterKonsul extends javax.swing.JPanel {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField9)
+                            .addComponent(txtKeluhan)
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(0, 0, Short.MAX_VALUE)))
                         .addContainerGap())
+                    .addComponent(txtNamaDokter)
+                    .addComponent(txtWaktu)
+                    .addComponent(txtCatatan)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 390, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(cbLevel2, javax.swing.GroupLayout.PREFERRED_SIZE, 390, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 1041, Short.MAX_VALUE))))
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 742, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                            .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(cbNamaPasien, javax.swing.GroupLayout.PREFERRED_SIZE, 390, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel2Layout.createSequentialGroup()
+                                        .addGap(222, 222, 222)
+                                        .addComponent(txtHiddenIdDokter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(jPanel2Layout.createSequentialGroup()
+                                        .addGap(234, 234, 234)
+                                        .addComponent(txtHiddenIdKonsul, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                        .addGap(0, 732, Short.MAX_VALUE))))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(26, 26, 26)
-                .addComponent(jLabel6)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(26, 26, 26)
+                        .addComponent(jLabel6)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(cbNamaPasien, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel4)
+                        .addGap(14, 14, 14)
+                        .addComponent(txtNamaDokter, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel9)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtKeluhan, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel10))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(49, 49, 49)
+                        .addComponent(txtHiddenIdKonsul, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(txtHiddenIdDokter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(txtCatatan, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(17, 17, 17)
+                .addComponent(jLabel11)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(cbLevel2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel9)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel10)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE))
+                .addComponent(txtWaktu, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(35, Short.MAX_VALUE))
         );
 
-        editKonsul.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, -1, 430));
+        editKonsul.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, -1, 490));
 
         cbLevel3.setBackground(new java.awt.Color(153, 153, 255));
         cbLevel3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Level 1 (User)", "Level 2 (Pegawai)", "Level 3 (Admin)" }));
@@ -237,8 +383,6 @@ public class Form_DokterKonsul extends javax.swing.JPanel {
         jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel7.setText("Keluhan");
 
-        cbLevel.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " " }));
-
         jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel8.setText("Catatan");
 
@@ -246,10 +390,15 @@ public class Form_DokterKonsul extends javax.swing.JPanel {
         jTextArea1.setRows(5);
         jScrollPane2.setViewportView(jTextArea1);
 
+        jTextField7.setEditable(false);
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 742, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -264,13 +413,10 @@ public class Form_DokterKonsul extends javax.swing.JPanel {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 390, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(cbLevel, javax.swing.GroupLayout.PREFERRED_SIZE, 390, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 1041, Short.MAX_VALUE))))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 742, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                        .addGap(0, 1041, Short.MAX_VALUE))
+                    .addComponent(jTextField7)))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -281,9 +427,9 @@ public class Form_DokterKonsul extends javax.swing.JPanel {
                 .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(cbLevel, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(20, 20, 20)
                 .addComponent(jLabel7)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -310,62 +456,126 @@ public class Form_DokterKonsul extends javax.swing.JPanel {
 
     private void btSimpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSimpanActionPerformed
         // TODO add your handling code here:
-          mainPanel.removeAll();
-          mainPanel.add(dataKonsul);
-          mainPanel.repaint();
-          mainPanel.revalidate();
+        mainPanel.removeAll();
+        mainPanel.add(dataKonsul);
+        mainPanel.repaint();
+        mainPanel.revalidate();
     }//GEN-LAST:event_btSimpanActionPerformed
-
-    private void btTambahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btTambahActionPerformed
-        // TODO add your handling code here:
-          mainPanel.removeAll();
-          mainPanel.repaint();
-          mainPanel.revalidate();
-          
-          mainPanel.add(tambahKonsul);
-          mainPanel.repaint();
-          mainPanel.revalidate();
-          
-        
-    }//GEN-LAST:event_btTambahActionPerformed
 
     private void btBatalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btBatalActionPerformed
         // TODO add your handling code here:
-       
-          mainPanel.removeAll();
-          mainPanel.add(dataKonsul);
-          mainPanel.repaint();
-          mainPanel.revalidate();
-          
+
+        mainPanel.removeAll();
+        mainPanel.add(dataKonsul);
+        mainPanel.repaint();
+        mainPanel.revalidate();
+
     }//GEN-LAST:event_btBatalActionPerformed
 
-    private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
+    private void tblDokterKonsulMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblDokterKonsulMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTable1MouseClicked
+        int baris = tblDokterKonsul.rowAtPoint(evt.getPoint());
+
+// Ambil nilai dari kolom yang sesuai dengan pemeriksaan null
+        String idKonsultasi = (tblDokterKonsul.getValueAt(baris, 1) != null) ? tblDokterKonsul.getValueAt(baris, 1).toString() : ""; // ID Konsultasi
+        String namaPasien = (tblDokterKonsul.getValueAt(baris, 2) != null) ? tblDokterKonsul.getValueAt(baris, 2).toString() : ""; // ID Pasien
+        String idDokter = (tblDokterKonsul.getValueAt(baris, 3) != null) ? tblDokterKonsul.getValueAt(baris, 3).toString() : ""; // ID Dokter
+        String waktuKonsultasi = (tblDokterKonsul.getValueAt(baris, 4) != null) ? tblDokterKonsul.getValueAt(baris, 4).toString() : ""; // Waktu Konsultasi
+        String catatan = (tblDokterKonsul.getValueAt(baris, 5) != null) ? tblDokterKonsul.getValueAt(baris, 5).toString() : ""; // Catatan
+        String keperluanPasien = (tblDokterKonsul.getValueAt(baris, 6) != null) ? tblDokterKonsul.getValueAt(baris, 6).toString() : ""; // Keperluan Pasien
+
+// Menampilkan data yang dipilih ke field yang sesuai
+        txtHiddenIdKonsul.setText(idKonsultasi); // Menyimpan ID Konsultasi
+        txtCatatan.setText(catatan); // Menyimpan ID Konsultasi
+
+// Mencari nama pasien berdasarkan ID Pasien dan mengatur ComboBox
+//        String namaPasien = txtHiddenIdDokter.getText();
+        cbNamaPasien.setSelectedItem(namaPasien); // Set nama pasien di ComboBox
+
+// Menampilkan data lainnya yang relevan ke field yang sesuai
+        txtWaktu.setText(waktuKonsultasi);
+        txtKeluhan.setText(keperluanPasien);
+
+    }//GEN-LAST:event_tblDokterKonsulMouseClicked
 
     private void bt_editActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_editActionPerformed
         // TODO add your handling code here:
-          mainPanel.removeAll();
-          mainPanel.add(editKonsul);
-          mainPanel.repaint();
-          mainPanel.revalidate();
+        mainPanel.removeAll();
+        mainPanel.add(editKonsul);
+        mainPanel.repaint();
+        mainPanel.revalidate();
     }//GEN-LAST:event_bt_editActionPerformed
 
     private void btSimpanKonsulActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSimpanKonsulActionPerformed
         // TODO add your handling code here:
-          mainPanel.removeAll();
-          mainPanel.add(editKonsul);
-          mainPanel.repaint();
-          mainPanel.revalidate();
+        mainPanel.removeAll();
+        mainPanel.add(editKonsul);
+        mainPanel.repaint();
+        mainPanel.revalidate();
+
+        try {
+            // Ambil data dari input pengguna
+            String idKonsultasi = txtHiddenIdKonsul.getText();
+            String namaPasien = (String) cbNamaPasien.getSelectedItem();
+            String waktuKonsultasi = txtWaktu.getText();
+            String keperluanPasien = txtKeluhan.getText();
+            String catatan = txtCatatan.getText(); // Pastikan ada komponen untuk catatan
+
+            // Validasi data input
+            if (idKonsultasi.isEmpty() || namaPasien.isEmpty() || waktuKonsultasi.isEmpty()) {
+                JOptionPane.showMessageDialog(this, "Harap isi semua data yang diperlukan.", "Peringatan", JOptionPane.WARNING_MESSAGE);
+                return;
+            }
+
+            // Dapatkan ID Pasien dari nama pasien
+            int idPasien = dokterMap.get(namaPasien);
+
+            // Update data di database
+            String sqlUpdate = "UPDATE t_konsultasi SET idPasien = ?, waktuKonsultasi = ?,  catatan = ? ,keperluanPasien = ? WHERE idKonsultasi = ?";
+            Connection conn = Config.configDB();
+            PreparedStatement pst = conn.prepareStatement(sqlUpdate);
+            pst.setInt(1, idPasien);
+            pst.setString(2, waktuKonsultasi);
+            pst.setString(3, catatan);
+            pst.setString(4, keperluanPasien);
+            pst.setString(5, idKonsultasi);
+
+            int rowsUpdated = pst.executeUpdate();
+
+            if (rowsUpdated > 0) {
+                JOptionPane.showMessageDialog(this, "Data konsultasi berhasil diperbarui.", "Informasi", JOptionPane.INFORMATION_MESSAGE);
+                load_table(Integer.parseInt(txtHiddenIdDokter.getText())); // Refresh tabel
+            } else {
+                JOptionPane.showMessageDialog(this, "Gagal memperbarui data konsultasi.", "Kesalahan", JOptionPane.ERROR_MESSAGE);
+            }
+
+            // Tutup koneksi
+            pst.close();
+            conn.close();
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Terjadi kesalahan: " + e.getMessage(), "Kesalahan", JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_btSimpanKonsulActionPerformed
 
     private void btBatalKonsulActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btBatalKonsulActionPerformed
         // TODO add your handling code here:
-          mainPanel.removeAll();
-          mainPanel.add(editKonsul);
-          mainPanel.repaint();
-          mainPanel.revalidate();
+        mainPanel.removeAll();
+        mainPanel.add(editKonsul);
+        mainPanel.repaint();
+        mainPanel.revalidate();
     }//GEN-LAST:event_btBatalKonsulActionPerformed
+
+    private void btTambahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btTambahActionPerformed
+        // TODO add your handling code here:
+        mainPanel.removeAll();
+        mainPanel.repaint();
+        mainPanel.revalidate();
+
+        mainPanel.add(tambahKonsul);
+        mainPanel.repaint();
+        mainPanel.revalidate();
+
+    }//GEN-LAST:event_btTambahActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -375,16 +585,15 @@ public class Form_DokterKonsul extends javax.swing.JPanel {
     private javax.swing.JButton btSimpanKonsul;
     private javax.swing.JButton btTambah;
     private javax.swing.JButton bt_edit;
-    private javax.swing.JComboBox<String> cbLevel;
     private javax.swing.JComboBox<String> cbLevel1;
-    private javax.swing.JComboBox<String> cbLevel2;
     private javax.swing.JComboBox<String> cbLevel3;
+    private javax.swing.JComboBox<String> cbNamaPasien;
     private javax.swing.JPanel dataKonsul;
     private javax.swing.JPanel editKonsul;
     private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel3;
@@ -398,14 +607,18 @@ public class Form_DokterKonsul extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JTable jTable1;
     private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextArea jTextArea2;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField9;
+    private javax.swing.JTextField jTextField7;
     private javax.swing.JPanel mainPanel;
     private javax.swing.JPanel tambahKonsul;
+    private javax.swing.JTable tblDokterKonsul;
+    private javax.swing.JTextField txtCatatan;
+    private javax.swing.JTextField txtHiddenIdDokter;
+    private javax.swing.JTextField txtHiddenIdKonsul;
+    private javax.swing.JTextField txtKeluhan;
+    private javax.swing.JTextField txtNamaDokter;
+    private javax.swing.JTextField txtWaktu;
     // End of variables declaration//GEN-END:variables
 }

@@ -347,7 +347,7 @@ public class MenuUtama extends javax.swing.JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 pn_utama.removeAll();
-                pn_utama.add(new Form_DokterKonsul());
+                pn_utama.add(new Form_DokterKonsul(idDokter));
                 pn_utama.repaint();
                 pn_utama.revalidate();
             }
