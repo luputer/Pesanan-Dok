@@ -92,101 +92,101 @@ public class MenuUtama extends javax.swing.JFrame {
         pn_sidebar = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         pn_menu = new javax.swing.JPanel();
-        jPanel1 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
         pn_navbar = new javax.swing.JPanel();
         lb_tanggal = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
         pn_conten = new javax.swing.JPanel();
         pn_utama = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
 
-        pn_sidebar.setBackground(new java.awt.Color(255, 255, 255));
+        pn_sidebar.setBackground(new java.awt.Color(220, 232, 243));
         pn_sidebar.setPreferredSize(new java.awt.Dimension(250, 495));
 
         jScrollPane1.setBackground(new java.awt.Color(255, 255, 255));
         jScrollPane1.setBorder(null);
 
-        pn_menu.setBackground(new java.awt.Color(255, 255, 255));
+        pn_menu.setBackground(new java.awt.Color(220, 232, 243));
         pn_menu.setLayout(new javax.swing.BoxLayout(pn_menu, javax.swing.BoxLayout.Y_AXIS));
         jScrollPane1.setViewportView(pn_menu);
-
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-
-        jLabel2.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 18)); // NOI18N
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("Level");
-
-        jLabel3.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 18)); // NOI18N
-        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setText("Nama");
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(21, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel2)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
 
         javax.swing.GroupLayout pn_sidebarLayout = new javax.swing.GroupLayout(pn_sidebar);
         pn_sidebar.setLayout(pn_sidebarLayout);
         pn_sidebarLayout.setHorizontalGroup(
             pn_sidebarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(pn_sidebarLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 238, Short.MAX_VALUE)
+                .addContainerGap())
         );
         pn_sidebarLayout.setVerticalGroup(
             pn_sidebarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pn_sidebarLayout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 598, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(pn_sidebarLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 691, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(7, Short.MAX_VALUE))
         );
 
         getContentPane().add(pn_sidebar, java.awt.BorderLayout.LINE_START);
 
-        pn_navbar.setBackground(new java.awt.Color(0, 153, 153));
+        pn_navbar.setBackground(new java.awt.Color(195, 224, 253));
 
         lb_tanggal.setBackground(new java.awt.Color(255, 255, 255));
         lb_tanggal.setFont(new java.awt.Font("Yu Gothic UI", 1, 14)); // NOI18N
-        lb_tanggal.setForeground(new java.awt.Color(255, 255, 255));
+        lb_tanggal.setForeground(new java.awt.Color(0, 0, 0));
         lb_tanggal.setText("Tanggal dan waktu");
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/asset/Elegant_and_Minimalist_Medical_Logo__1_-removebg-preview 2 (3).png"))); // NOI18N
+
+        jLabel2.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel2.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 14)); // NOI18N
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setText("Level");
+
+        jLabel3.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel3.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 14)); // NOI18N
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel3.setText("Nama");
 
         javax.swing.GroupLayout pn_navbarLayout = new javax.swing.GroupLayout(pn_navbar);
         pn_navbar.setLayout(pn_navbarLayout);
         pn_navbarLayout.setHorizontalGroup(
             pn_navbarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pn_navbarLayout.createSequentialGroup()
-                .addContainerGap(892, Short.MAX_VALUE)
+                .addContainerGap()
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(pn_navbarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 633, Short.MAX_VALUE)
                 .addComponent(lb_tanggal, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         pn_navbarLayout.setVerticalGroup(
             pn_navbarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pn_navbarLayout.createSequentialGroup()
-                .addGap(38, 38, 38)
-                .addComponent(lb_tanggal)
-                .addContainerGap(46, Short.MAX_VALUE))
+                .addGroup(pn_navbarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pn_navbarLayout.createSequentialGroup()
+                        .addGap(34, 34, 34)
+                        .addComponent(lb_tanggal)
+                        .addGap(27, 27, 27))
+                    .addComponent(jLabel1))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pn_navbarLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel2)
+                .addGap(45, 45, 45))
         );
 
         getContentPane().add(pn_navbar, java.awt.BorderLayout.PAGE_START);
 
+        pn_utama.setBackground(new java.awt.Color(255, 255, 255));
         pn_utama.setLayout(new javax.swing.BoxLayout(pn_utama, javax.swing.BoxLayout.LINE_AXIS));
 
         javax.swing.GroupLayout pn_contenLayout = new javax.swing.GroupLayout(pn_conten);
@@ -197,7 +197,9 @@ public class MenuUtama extends javax.swing.JFrame {
         );
         pn_contenLayout.setVerticalGroup(
             pn_contenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pn_utama, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pn_contenLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(pn_utama, javax.swing.GroupLayout.PREFERRED_SIZE, 704, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         getContentPane().add(pn_conten, java.awt.BorderLayout.CENTER);
@@ -250,9 +252,9 @@ public class MenuUtama extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lb_tanggal;
     private javax.swing.JPanel pn_conten;
@@ -265,18 +267,20 @@ public class MenuUtama extends javax.swing.JFrame {
     private void execute() {
 
         //tempat naro icon
-        ImageIcon iconUser    = new ImageIcon(getClass().getResource("/asset/user.png"));
-//        ImageIcon iconHome    = new ImageIcon(getClass().getResource("/asset/user.png"));
-//        ImageIcon iconAbout   = new ImageIcon(getClass().getResource("/asset/user.png"));
-//        ImageIcon iconPasien  = new ImageIcon(getClass().getResource("/asset/user.png"));
-//        ImageIcon iconDokter  = new ImageIcon(getClass().getResource("/asset/user.png"));
-//        ImageIcon iconKonsulasi    = new ImageIcon(getClass().getResource("/asset/user.png"));
-//        ImageIcon iconKonsulasi    = new ImageIcon(getClass().getResource("/asset/user.png"));
+        ImageIcon iconUser    = new ImageIcon(getClass().getResource("/asset/iconuser.png"));
+        ImageIcon iconHome    = new ImageIcon(getClass().getResource("/asset/iconhome.png"));   
+        ImageIcon iconDokter   = new ImageIcon(getClass().getResource("/asset/icondokter.png"));
+        ImageIcon iconPasien  = new ImageIcon(getClass().getResource("/asset/iconPasien.png"));
+        ImageIcon iconkonsul  = new ImageIcon(getClass().getResource("/asset/iconkonsul.png"));
+        ImageIcon icondatakonsul    = new ImageIcon(getClass().getResource("/asset/icondatakonsul.png"));
+        ImageIcon iconAbout    = new ImageIcon(getClass().getResource("/asset/iconAbout.png"));
+        ImageIcon iconExit    = new ImageIcon(getClass().getResource("/asset/exit.png"));
+        
         
 
         //nav children
         //nav utamahalaman Home
-        MenuItem menuHome = new MenuItem(iconUser, false, null, "Home", new ActionListener() {
+        MenuItem menuHome = new MenuItem(iconHome, false, null, "Home", new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 pn_utama.removeAll();
@@ -299,7 +303,7 @@ public class MenuUtama extends javax.swing.JFrame {
         });
 
         //halaman ke menudokter
-        MenuItem menuDokter = new MenuItem(iconUser, false, null, "Dokter", new ActionListener() {
+        MenuItem menuDokter = new MenuItem(iconDokter, false, null, "Dokter", new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 pn_utama.removeAll();
@@ -310,7 +314,7 @@ public class MenuUtama extends javax.swing.JFrame {
         });
 
         //halaman pasient
-        MenuItem dataPasient = new MenuItem(null, true, iconUser, "Biodata", new ActionListener() {
+        MenuItem dataPasient = new MenuItem(null, true, icondatakonsul, "Biodata", new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 pn_utama.removeAll();
@@ -321,7 +325,7 @@ public class MenuUtama extends javax.swing.JFrame {
             }
         });
 
-        MenuItem DataKonsul = new MenuItem(null, true, iconUser, "konsul", new ActionListener() {
+        MenuItem DataKonsul = new MenuItem(null, true, iconkonsul, "konsul", new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 pn_utama.removeAll();
@@ -331,7 +335,7 @@ public class MenuUtama extends javax.swing.JFrame {
             }
         });
 
-        MenuItem MenuPasient = new MenuItem(iconUser, false, null, "Pasient", null, dataPasient, DataKonsul);
+        MenuItem MenuPasient = new MenuItem(iconPasien, false, null, "Pasient", null, dataPasient, DataKonsul);
 
         MenuItem menuProfilDokter = new MenuItem(iconUser, false, null, "profil", new ActionListener() {
             @Override
@@ -374,7 +378,7 @@ public class MenuUtama extends javax.swing.JFrame {
         });
 
         //halaman about
-        MenuItem MenuAbout = new MenuItem(iconUser, false, null, "About", new ActionListener() {
+        MenuItem MenuAbout = new MenuItem(iconAbout, false, null, "About", new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 pn_utama.removeAll();
@@ -384,7 +388,7 @@ public class MenuUtama extends javax.swing.JFrame {
             }
         });
 
-        MenuItem MenuExit = new MenuItem(iconUser, false, null, "Exit", new ActionListener() {
+        MenuItem MenuExit = new MenuItem(iconExit, false, null, "Exit", new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 dispose();

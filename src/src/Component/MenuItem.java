@@ -72,13 +72,14 @@ public class MenuItem extends javax.swing.JPanel {
         lb_iconSub = new javax.swing.JLabel();
         lb_icon = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(255, 255, 255));
+        setBackground(new java.awt.Color(220, 232, 243));
         addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 formMousePressed(evt);
             }
         });
 
+        lb_menuName.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
         lb_menuName.setText("Menu Item");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -91,12 +92,12 @@ public class MenuItem extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lb_iconSub, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(lb_menuName, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(12, Short.MAX_VALUE))
+                .addComponent(lb_menuName)
+                .addContainerGap(38, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addComponent(lb_menuName, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
@@ -126,9 +127,9 @@ public class MenuItem extends javax.swing.JPanel {
     }
 
    
-    this.setBackground(new java.awt.Color(102, 102, 102)); // Warna gelap untuk menu yang aktif
+    this.setBackground(new java.awt.Color(0xB4D2FF)); // Warna gelap untuk menu yang aktif
 
-     this.setBackground(new java.awt.Color(102, 102, 102));
+//     this.setBackground(new java.awt.Color(102, 102, 102));
     
     }//GEN-LAST:event_formMousePressed
 
@@ -176,7 +177,7 @@ public class MenuItem extends javax.swing.JPanel {
         if (this.getParent() instanceof javax.swing.JPanel parent) {
         for (java.awt.Component comp : parent.getComponents()) {
             if (comp instanceof MenuItem menuItem && menuItem != this) {
-                menuItem.setBackground(new java.awt.Color(255, 255, 255));
+                menuItem.setBackground(new java.awt.Color(0x0DCE8F3));
             }
         }
     }

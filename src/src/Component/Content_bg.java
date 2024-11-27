@@ -27,21 +27,20 @@ public class Content_bg extends javax.swing.JPanel {
     private void initComponents() {
 
         dashbord = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
 
         dashbord.setBackground(new java.awt.Color(255, 255, 255));
         dashbord.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel2.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/asset/Dashboard.png"))); // NOI18N
-        dashbord.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(-170, 10, 1080, 580));
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/asset/Rectangle 29 (8).png"))); // NOI18N
+        dashbord.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, -20, 1290, 570));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(dashbord, javax.swing.GroupLayout.DEFAULT_SIZE, 1481, Short.MAX_VALUE)
+                .addComponent(dashbord, javax.swing.GroupLayout.DEFAULT_SIZE, 1420, Short.MAX_VALUE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -53,6 +52,6 @@ public class Content_bg extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel dashbord;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     // End of variables declaration//GEN-END:variables
 }

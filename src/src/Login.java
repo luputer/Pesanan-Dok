@@ -34,18 +34,22 @@ public class Login extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
+        jLabel10 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         txtPassword = new javax.swing.JTextField();
         txtUsername = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         btn_login = new javax.swing.JButton();
         lblDaftar = new javax.swing.JLabel();
+        lblDaftar1 = new javax.swing.JLabel();
+        jLabel63 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -54,8 +58,14 @@ public class Login extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jLabel10.setText("Menjaga kesahatan anda, itu tugas kami");
+        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 130, -1, -1));
+
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/asset/Back.png"))); // NOI18N
         jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 370, -1, 30));
+
+        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/asset/dokter_login-removebg-preview 1 (2).png"))); // NOI18N
+        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(-20, 160, 500, 330));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/asset/padlock 1.png"))); // NOI18N
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 270, 50, 40));
@@ -98,22 +108,22 @@ public class Login extends javax.swing.JFrame {
                 txtUsernameActionPerformed(evt);
             }
         });
-        jPanel1.add(txtUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 190, 260, 40));
+        jPanel1.add(txtUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 180, 260, 40));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/asset/HEALINK (2).png"))); // NOI18N
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 70, 252, -1));
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/asset/user 1 (1).png"))); // NOI18N
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 190, -1, -1));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/asset/61c7a28bbb12ee7d75064e9dba23305e 1.png"))); // NOI18N
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 110, -1, -1));
-
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/asset/HEALINK.png"))); // NOI18N
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(429, 41, 252, -1));
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/asset/Rectangle 5 (2).png"))); // NOI18N
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 510, 540));
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/asset/Rectangle 1 (1).png"))); // NOI18N
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 267, -1, 60));
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 267, 340, 60));
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/asset/Rectangle 1 (1).png"))); // NOI18N
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 177, -1, 60));
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 170, -1, -1));
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/asset/Rectangle 4 (1).png"))); // NOI18N
         jLabel7.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -134,16 +144,32 @@ public class Login extends javax.swing.JFrame {
         });
         jPanel1.add(btn_login, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 360, 130, 50));
 
+        lblDaftar.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         lblDaftar.setForeground(new java.awt.Color(0, 0, 0));
-        lblDaftar.setText("Tidak Punya Akun? Silahkan Daftar dulu");
+        lblDaftar.setText("Sign Up");
         lblDaftar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 lblDaftarMouseClicked(evt);
             }
         });
-        jPanel1.add(lblDaftar, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 440, -1, -1));
+        jPanel1.add(lblDaftar, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 440, 50, -1));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1010, 550));
+        lblDaftar1.setForeground(new java.awt.Color(0, 0, 0));
+        lblDaftar1.setText("Don’t have an account? ");
+        lblDaftar1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblDaftar1MouseClicked(evt);
+            }
+        });
+        jPanel1.add(lblDaftar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 440, -1, -1));
+
+        jLabel63.setBackground(new java.awt.Color(102, 102, 255));
+        jLabel63.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel63.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel63.setText("Log in ");
+        jPanel1.add(jLabel63, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 120, 120, -1));
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1010, 540));
 
         pack();
         setLocationRelativeTo(null);
@@ -293,6 +319,10 @@ public class Login extends javax.swing.JFrame {
         Register.setVisible(true);
     }//GEN-LAST:event_lblDaftarMouseClicked
 
+    private void lblDaftar1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblDaftar1MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_lblDaftar1MouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -331,15 +361,19 @@ public class Login extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_login;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel63;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblDaftar;
+    private javax.swing.JLabel lblDaftar1;
     private javax.swing.JTextField txtPassword;
     private javax.swing.JTextField txtUsername;
     // End of variables declaration//GEN-END:variables
