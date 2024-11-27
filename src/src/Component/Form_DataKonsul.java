@@ -4,17 +4,104 @@
  */
 package src.Component;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import javax.swing.JOptionPane;
+import java.sql.Statement;        // Untuk eksekusi query SQL\
+import javax.swing.table.DefaultTableModel;
+import model.Config;
+import static model.Config.writeLog;
+
 /**
  *
  * @author Saidi
  */
 public class Form_DataKonsul extends javax.swing.JPanel {
 
+    private void load_table() {
+        DefaultTableModel model = new DefaultTableModel();
+        model.addColumn("No");
+        model.addColumn("ID Konsultasi");
+        model.addColumn("ID Pasien");
+        model.addColumn("ID Dokter");
+        model.addColumn("Waktu Konsultasi");
+        model.addColumn("Catatan");
+        model.addColumn("Keperluan Pasien");
+
+        try {
+            int no = 1;
+            String sql = "SELECT * FROM t_konsultasi";
+            Connection conn = Config.configDB();
+            Statement stm = conn.createStatement();
+            ResultSet res = stm.executeQuery(sql);
+
+            while (res.next()) {
+                model.addRow(new Object[]{
+                    no++,
+                    res.getString("idKonsultasi"),
+                    res.getString("idPasien"),
+                    res.getString("idDokter"),
+                    res.getString("waktuKonsultasi"),
+                    res.getString("catatan"),
+                    res.getString("keperluanPasien")
+                });
+            }
+            tblKonsultasi.setModel(model);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Data tidak dapat ditampilkan: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+
+    private void relasiDokter() {
+        try {
+            Connection conn = Config.configDB();
+            String sql = "SELECT idDokter, namaDokter FROM t_dokter";
+            PreparedStatement pst = conn.prepareStatement(sql);
+            ResultSet rs = pst.executeQuery();
+
+            cbTambahNamaDokter.removeAllItems();
+            cbEditNamaDokter.removeAllItems();
+
+            while (rs.next()) {
+                String item = rs.getString("namaDokter") + " (ID: " + rs.getInt("idDokter") + ")";
+                cbTambahNamaDokter.addItem(item);
+                cbEditNamaDokter.addItem(item);
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Terjadi kesalahan saat memuat data dokter: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+
+    private void relasiPasien() {
+        try {
+            Connection conn = Config.configDB();
+            String sql = "SELECT idPasien, namaPasien FROM t_pasien";
+            PreparedStatement pst = conn.prepareStatement(sql);
+            ResultSet rs = pst.executeQuery();
+
+            cbTambahNamaPasien.removeAllItems();
+            cbEditNamaPasien.removeAllItems();
+
+            while (rs.next()) {
+                String item = rs.getString("namaPasien") + " (ID: " + rs.getInt("idPasien") + ")";
+                cbTambahNamaPasien.addItem(item);
+                cbEditNamaPasien.addItem(item);
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Terjadi kesalahan saat memuat data pasien: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+
     /**
      * Creates new form Form_DataKonsul
      */
     public Form_DataKonsul() {
         initComponents();
+        load_table();
+        relasiDokter();
+        relasiPasien();
+        txtHiddenIdKonsultasi.setVisible(false);
     }
 
     /**
@@ -42,12 +129,14 @@ public class Form_DataKonsul extends javax.swing.JPanel {
         jLabel4 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
-        cbLevel2 = new javax.swing.JComboBox<>();
-        jComboBox2 = new javax.swing.JComboBox<>();
+        cbEditNamaDokter = new javax.swing.JComboBox<>();
+        cbEditNamaPasien = new javax.swing.JComboBox<>();
         jLabel10 = new javax.swing.JLabel();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        jTextArea2 = new javax.swing.JTextArea();
-        txtid2 = new javax.swing.JTextField();
+        txtEditKeluhan = new javax.swing.JTextField();
+        txtEditCatatan = new javax.swing.JTextField();
+        jLabel12 = new javax.swing.JLabel();
+        txtEditWaktu = new javax.swing.JTextField();
+        txtHiddenIdKonsultasi = new javax.swing.JTextField();
         cbLevel3 = new javax.swing.JComboBox<>();
         jLabel17 = new javax.swing.JLabel();
         tambahKonsul = new javax.swing.JPanel();
@@ -57,12 +146,13 @@ public class Form_DataKonsul extends javax.swing.JPanel {
         jLabel3 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        cbLevel = new javax.swing.JComboBox<>();
-        jTextField6 = new javax.swing.JTextField();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        cbTambahNamaDokter = new javax.swing.JComboBox<>();
+        txtKeluhan = new javax.swing.JTextField();
+        cbTambahNamaPasien = new javax.swing.JComboBox<>();
         jLabel8 = new javax.swing.JLabel();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        txtCatatan = new javax.swing.JTextField();
+        jLabel11 = new javax.swing.JLabel();
+        txtWaktu = new javax.swing.JTextField();
         cbLevel1 = new javax.swing.JComboBox<>();
         jLabel16 = new javax.swing.JLabel();
 
@@ -113,6 +203,11 @@ public class Form_DataKonsul extends javax.swing.JPanel {
         dataKonsul.add(bt_edit, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 80, 94, -1));
 
         jButton3.setText("Hapus");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
         dataKonsul.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 80, 94, -1));
 
         mainPanel.add(dataKonsul, "card2");
@@ -145,23 +240,20 @@ public class Form_DataKonsul extends javax.swing.JPanel {
         jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel9.setText("Keluhan");
 
-        cbLevel2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " " }));
-
         jLabel10.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel10.setText("Catatan");
 
-        jTextArea2.setColumns(20);
-        jTextArea2.setRows(5);
-        jScrollPane3.setViewportView(jTextArea2);
-
-        txtid2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        txtid2.setToolTipText("");
-        txtid2.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(0, 255, 0)));
-        txtid2.addActionListener(new java.awt.event.ActionListener() {
+        txtEditKeluhan.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        txtEditKeluhan.setToolTipText("");
+        txtEditKeluhan.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(0, 255, 0)));
+        txtEditKeluhan.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtid2txtid1ActionPerformed(evt);
+                txtEditKeluhantxtid1ActionPerformed(evt);
             }
         });
+
+        jLabel12.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel12.setText("Waktu Konsultasi");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -175,18 +267,29 @@ public class Form_DataKonsul extends javax.swing.JPanel {
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 390, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(cbEditNamaPasien, javax.swing.GroupLayout.PREFERRED_SIZE, 390, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(82, 82, 82)
+                                .addComponent(txtHiddenIdKonsultasi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(cbLevel2, javax.swing.GroupLayout.PREFERRED_SIZE, 390, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cbEditNamaDokter, javax.swing.GroupLayout.PREFERRED_SIZE, 390, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE))))
+                        .addGap(0, 189, Short.MAX_VALUE))))
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 742, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(12, 12, 12)
-                        .addComponent(txtid2, javax.swing.GroupLayout.PREFERRED_SIZE, 502, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(txtEditKeluhan, javax.swing.GroupLayout.PREFERRED_SIZE, 502, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(txtEditCatatan, javax.swing.GroupLayout.PREFERRED_SIZE, 569, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(txtEditWaktu, javax.swing.GroupLayout.PREFERRED_SIZE, 569, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -195,22 +298,29 @@ public class Form_DataKonsul extends javax.swing.JPanel {
                 .addGap(26, 26, 26)
                 .addComponent(jLabel6)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(cbEditNamaPasien, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtHiddenIdKonsultasi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(cbLevel2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(cbEditNamaDokter, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel9)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtid2, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtEditKeluhan, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel10)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE))
+                .addComponent(txtEditCatatan, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel12)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtEditWaktu, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(40, Short.MAX_VALUE))
         );
 
-        editKonsul.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, -1, 430));
+        editKonsul.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, -1, 510));
 
         cbLevel3.setBackground(new java.awt.Color(153, 153, 255));
         cbLevel3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Level 1 (User)", "Level 2 (Pegawai)", "Level 3 (Admin)" }));
@@ -250,14 +360,13 @@ public class Form_DataKonsul extends javax.swing.JPanel {
         jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel7.setText("Keluhan");
 
-        cbLevel.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " " }));
+        cbTambahNamaDokter.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " " }));
 
         jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        jLabel8.setText("Catatan");
+        jLabel8.setText("Waktu Konsultasi");
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane2.setViewportView(jTextArea1);
+        jLabel11.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel11.setText("Catatan");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -268,22 +377,22 @@ public class Form_DataKonsul extends javax.swing.JPanel {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField6)
+                            .addComponent(txtKeluhan)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(0, 0, Short.MAX_VALUE)))
                         .addContainerGap())
+                    .addComponent(txtCatatan)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 390, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cbTambahNamaPasien, javax.swing.GroupLayout.PREFERRED_SIZE, 390, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(cbLevel, javax.swing.GroupLayout.PREFERRED_SIZE, 390, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cbTambahNamaDokter, javax.swing.GroupLayout.PREFERRED_SIZE, 390, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 1041, Short.MAX_VALUE))))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 742, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                            .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 1041, Short.MAX_VALUE))
+                    .addComponent(txtWaktu)))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -291,22 +400,27 @@ public class Form_DataKonsul extends javax.swing.JPanel {
                 .addGap(26, 26, 26)
                 .addComponent(jLabel5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(cbTambahNamaPasien, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(cbLevel, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(cbTambahNamaDokter, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel7)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtKeluhan, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel11)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtCatatan, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel8)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE))
+                .addComponent(txtWaktu, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(40, Short.MAX_VALUE))
         );
 
-        tambahKonsul.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, -1, 430));
+        tambahKonsul.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, -1, 490));
 
         cbLevel1.setBackground(new java.awt.Color(153, 153, 255));
         cbLevel1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Level 1 (User)", "Level 2 (Pegawai)", "Level 3 (Admin)" }));
@@ -323,66 +437,223 @@ public class Form_DataKonsul extends javax.swing.JPanel {
 
     private void btSimpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSimpanActionPerformed
         // TODO add your handling code here:
-          mainPanel.removeAll();
-          mainPanel.add(dataKonsul);
-          mainPanel.repaint();
-          mainPanel.revalidate();
+        mainPanel.removeAll();
+        mainPanel.add(dataKonsul);
+        mainPanel.repaint();
+        mainPanel.revalidate();
+        try {
+            String sql = "INSERT INTO t_konsultasi (idPasien, idDokter, waktuKonsultasi, catatan, keperluanPasien) VALUES (?, ?, ?, ?, ?)";
+            java.sql.Connection conn = (Connection) Config.configDB();
+            java.sql.PreparedStatement pst = conn.prepareStatement(sql);
+
+            // Mengambil nilai dari ComboBox dan TextField
+            String pasienItem = cbTambahNamaPasien.getSelectedItem().toString();
+            String dokterItem = cbTambahNamaDokter.getSelectedItem().toString();
+
+            // Pastikan format nama (ID: 1)
+            int idPasien = Integer.parseInt(pasienItem.substring(pasienItem.indexOf("ID:") + 3, pasienItem.indexOf(")")).trim());
+            int idDokter = Integer.parseInt(dokterItem.substring(dokterItem.indexOf("ID:") + 3, dokterItem.indexOf(")")).trim());
+
+            String waktuKonsultasi = txtWaktu.getText();
+            String catatan = txtCatatan.getText();
+            String keperluanPasien = txtKeluhan.getText();
+
+            // Mengisi parameter ke query
+            pst.setInt(1, idPasien); // idPasien
+            pst.setInt(2, idDokter); // idDokter
+            pst.setString(3, waktuKonsultasi); // waktuKonsultasi
+            pst.setString(4, catatan); // catatan
+            pst.setString(5, keperluanPasien); // keperluanPasien
+
+            // Menjalankan query
+            pst.execute();
+            JOptionPane.showMessageDialog(null, "Penyimpanan Data Berhasil");
+            writeLog("Penyimpanan Data Berhasil untuk Konsultasi dengan ID Pasien: " + idPasien + " dan ID Dokter: " + idDokter);
+
+            // Muat ulang tabel dan bersihkan form
+            load_table();
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Data gagal disimpan: " + e.getMessage());
+            writeLog("Data gagal disimpan: " + e.getMessage());
+        }
+
+
     }//GEN-LAST:event_btSimpanActionPerformed
 
     private void btTambahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btTambahActionPerformed
         // TODO add your handling code here:
-          mainPanel.removeAll();
-          mainPanel.repaint();
-          mainPanel.revalidate();
-          
-          mainPanel.add(tambahKonsul);
-          mainPanel.repaint();
-          mainPanel.revalidate();
-          
-        
+        mainPanel.removeAll();
+        mainPanel.repaint();
+        mainPanel.revalidate();
+
+        mainPanel.add(tambahKonsul);
+        mainPanel.repaint();
+        mainPanel.revalidate();
+
+
     }//GEN-LAST:event_btTambahActionPerformed
 
     private void btBatalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btBatalActionPerformed
         // TODO add your handling code here:
-       
-          mainPanel.removeAll();
-          mainPanel.add(dataKonsul);
-          mainPanel.repaint();
-          mainPanel.revalidate();
-          
+
+        mainPanel.removeAll();
+        mainPanel.add(dataKonsul);
+        mainPanel.repaint();
+        mainPanel.revalidate();
+
     }//GEN-LAST:event_btBatalActionPerformed
 
     private void tblKonsultasiMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblKonsultasiMouseClicked
         // TODO add your handling code here:
+        int baris = tblKonsultasi.rowAtPoint(evt.getPoint());
+
+        if (baris >= 0) {
+            String idKonsultasi = tblKonsultasi.getValueAt(baris, 1).toString();
+            String idPasien = tblKonsultasi.getValueAt(baris, 2).toString();
+            String idDokter = tblKonsultasi.getValueAt(baris, 3).toString();
+            String waktuKonsultasi = tblKonsultasi.getValueAt(baris, 4).toString();
+            String catatan = tblKonsultasi.getValueAt(baris, 5).toString();
+            String keperluanPasien = tblKonsultasi.getValueAt(baris, 6).toString();
+
+            // Set nilai ke TextField
+            txtHiddenIdKonsultasi.setText(idKonsultasi);
+            txtEditWaktu.setText(waktuKonsultasi);
+            txtEditCatatan.setText(catatan);
+            txtEditKeluhan.setText(keperluanPasien);
+
+            // Pilih item pada ComboBox Pasien
+            for (int i = 0; i < cbEditNamaPasien.getItemCount(); i++) {
+                String item = cbEditNamaPasien.getItemAt(i);
+                if (item.contains("ID: " + idPasien)) {
+                    cbEditNamaPasien.setSelectedIndex(i);
+                    break;
+                }
+            }
+
+            // Pilih item pada ComboBox Dokter
+            for (int i = 0; i < cbEditNamaDokter.getItemCount(); i++) {
+                String item = cbEditNamaDokter.getItemAt(i);
+                if (item.contains("ID: " + idDokter)) {
+                    cbEditNamaDokter.setSelectedIndex(i);
+                    break;
+                }
+            }
+        } else {
+            JOptionPane.showMessageDialog(this, "Silakan pilih baris yang valid!", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+
+
     }//GEN-LAST:event_tblKonsultasiMouseClicked
 
     private void bt_editActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_editActionPerformed
         // TODO add your handling code here:
-          mainPanel.removeAll();
-          mainPanel.add(editKonsul);
-          mainPanel.repaint();
-          mainPanel.revalidate();
+        mainPanel.removeAll();
+        mainPanel.add(editKonsul);
+        mainPanel.repaint();
+        mainPanel.revalidate();
     }//GEN-LAST:event_bt_editActionPerformed
 
     private void btSimpanKonsulActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSimpanKonsulActionPerformed
         // TODO add your handling code here:
-          mainPanel.removeAll();
-          mainPanel.add(editKonsul);
-          mainPanel.repaint();
-          mainPanel.revalidate();
+        mainPanel.removeAll();
+        mainPanel.add(editKonsul);
+        mainPanel.repaint();
+        mainPanel.revalidate();
+
+        try {
+            String sql = "UPDATE t_konsultasi SET idPasien = ?, idDokter = ?, waktuKonsultasi = ?, catatan = ?, keperluanPasien = ? WHERE idKonsultasi = ?";
+            java.sql.Connection conn = (Connection) Config.configDB();
+            java.sql.PreparedStatement pst = conn.prepareStatement(sql);
+
+            // Mengambil nilai dari ComboBox dan TextField
+            String pasienItem = cbEditNamaPasien.getSelectedItem().toString();
+            String dokterItem = cbEditNamaDokter.getSelectedItem().toString();  // Perbaikan: Ambil nilai dari ComboBox Dokter
+
+            // Pastikan format nama (ID: 1)
+            int idPasien = Integer.parseInt(pasienItem.substring(pasienItem.indexOf("ID:") + 3, pasienItem.indexOf(")")).trim());
+            int idDokter = Integer.parseInt(dokterItem.substring(dokterItem.indexOf("ID:") + 3, dokterItem.indexOf(")")).trim());
+
+            String waktuKonsultasi = txtEditWaktu.getText();
+            String catatan = txtEditCatatan.getText();
+            String keperluanPasien = txtEditKeluhan.getText();
+            int idKonsultasi = Integer.parseInt(txtHiddenIdKonsultasi.getText()); // ID Konsultasi yang diupdate
+
+            // Validasi input
+            if (waktuKonsultasi.isEmpty() || catatan.isEmpty() || keperluanPasien.isEmpty()) {
+                JOptionPane.showMessageDialog(this, "Pastikan semua field terisi dengan benar.");
+                return;
+            }
+
+            // Mengisi parameter ke query
+            pst.setInt(1, idPasien); // idPasien
+            pst.setInt(2, idDokter); // idDokter
+            pst.setString(3, waktuKonsultasi); // waktuKonsultasi
+            pst.setString(4, catatan); // catatan
+            pst.setString(5, keperluanPasien); // keperluanPasien
+            pst.setInt(6, idKonsultasi); // idKonsultasi
+
+            // Menjalankan query
+            int rowsAffected = pst.executeUpdate(); // Mengeksekusi update
+            if (rowsAffected > 0) {
+                JOptionPane.showMessageDialog(null, "Data berhasil diperbarui");
+                writeLog("Data berhasil diperbarui untuk Konsultasi dengan ID Konsultasi: " + idKonsultasi);
+
+                // Muat ulang tabel dan bersihkan form
+                load_table();
+            } else {
+                JOptionPane.showMessageDialog(null, "Tidak ada perubahan data.");
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Data gagal diperbarui: " + e.getMessage());
+            writeLog("Data gagal diperbarui: " + e.getMessage());
+        }
     }//GEN-LAST:event_btSimpanKonsulActionPerformed
 
     private void btBatalKonsulActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btBatalKonsulActionPerformed
         // TODO add your handling code here:
-          mainPanel.removeAll();
-          mainPanel.add(editKonsul);
-          mainPanel.repaint();
-          mainPanel.revalidate();
+        mainPanel.removeAll();
+        mainPanel.add(editKonsul);
+        mainPanel.repaint();
+        mainPanel.revalidate();
     }//GEN-LAST:event_btBatalKonsulActionPerformed
 
-    private void txtid2txtid1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtid2txtid1ActionPerformed
+    private void txtEditKeluhantxtid1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEditKeluhantxtid1ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtid2txtid1ActionPerformed
+    }//GEN-LAST:event_txtEditKeluhantxtid1ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+        try {
+            if ("".equals(txtHiddenIdKonsultasi.getText())) {  // Periksa apakah ID Konsultasi kosong
+                JOptionPane.showMessageDialog(this, "Pilih Data Yang ingin dihapus terlebih dahulu");
+            } else {
+                // Menampilkan konfirmasi sebelum menghapus data
+                int confirm = JOptionPane.showConfirmDialog(this,
+                        "Apakah Anda yakin ingin menghapus data dengan ID Konsultasi: " + txtHiddenIdKonsultasi.getText(),
+                        "Konfirmasi Hapus", JOptionPane.YES_NO_OPTION);
+
+                // Jika pengguna memilih YES, lanjutkan menghapus
+                if (confirm == JOptionPane.YES_OPTION) {
+                    String sql = "DELETE FROM t_konsultasi WHERE idKonsultasi='" + txtHiddenIdKonsultasi.getText() + "'"; // Menggunakan ID Konsultasi
+                    java.sql.Connection conn = (Connection) Config.configDB();
+                    java.sql.PreparedStatement pst = conn.prepareStatement(sql);
+                    pst.execute();
+                    JOptionPane.showMessageDialog(this, "Data Berhasil Dihapus dengan ID Konsultasi: " + txtHiddenIdKonsultasi.getText());
+                    writeLog("Data Berhasil Dihapus dengan ID Konsultasi: " + txtHiddenIdKonsultasi.getText());
+                } else {
+                    // Jika pengguna memilih NO, tidak melakukan apa-apa
+                    JOptionPane.showMessageDialog(this, "Data Tidak Dihapus");
+                }
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Error: " + e.getMessage());
+            writeLog("Data gagal dihapus: " + e.getMessage());
+        }
+
+// Memuat ulang tabel setelah data dihapus
+        load_table();
+
+    }//GEN-LAST:event_jButton3ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -392,17 +663,19 @@ public class Form_DataKonsul extends javax.swing.JPanel {
     private javax.swing.JButton btSimpanKonsul;
     private javax.swing.JButton btTambah;
     private javax.swing.JButton bt_edit;
-    private javax.swing.JComboBox<String> cbLevel;
+    private javax.swing.JComboBox<String> cbEditNamaDokter;
+    private javax.swing.JComboBox<String> cbEditNamaPasien;
     private javax.swing.JComboBox<String> cbLevel1;
-    private javax.swing.JComboBox<String> cbLevel2;
     private javax.swing.JComboBox<String> cbLevel3;
+    private javax.swing.JComboBox<String> cbTambahNamaDokter;
+    private javax.swing.JComboBox<String> cbTambahNamaPasien;
     private javax.swing.JPanel dataKonsul;
     private javax.swing.JPanel editKonsul;
     private javax.swing.JButton jButton3;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel3;
@@ -415,15 +688,16 @@ public class Form_DataKonsul extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextArea jTextArea2;
     private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField6;
     private javax.swing.JPanel mainPanel;
     private javax.swing.JPanel tambahKonsul;
     private javax.swing.JTable tblKonsultasi;
-    private javax.swing.JTextField txtid2;
+    private javax.swing.JTextField txtCatatan;
+    private javax.swing.JTextField txtEditCatatan;
+    private javax.swing.JTextField txtEditKeluhan;
+    private javax.swing.JTextField txtEditWaktu;
+    private javax.swing.JTextField txtHiddenIdKonsultasi;
+    private javax.swing.JTextField txtKeluhan;
+    private javax.swing.JTextField txtWaktu;
     // End of variables declaration//GEN-END:variables
 }

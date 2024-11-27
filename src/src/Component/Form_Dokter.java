@@ -5,6 +5,8 @@
 package src.Component;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
@@ -26,11 +28,12 @@ public class Form_Dokter extends javax.swing.JPanel {
         model.addColumn("Jenis Kelamin");
         model.addColumn("Ruangan");
         model.addColumn("ID Pasien");
+        model.addColumn("Username");
 
         //menampilkan data database kedalam tabel
         try {
             int no = 1;
-            String sql = "SELECT idDokter, namaDokter, spesialis, jenisKelamin, ruangan FROM t_dokter";
+            String sql = "SELECT idDokter, namaDokter, spesialis, jenisKelamin, ruangan, username FROM t_dokter";
             java.sql.Connection conn = (Connection) Config.configDB();
             java.sql.Statement stm = conn.createStatement();
             java.sql.ResultSet res = stm.executeQuery(sql);
@@ -41,7 +44,8 @@ public class Form_Dokter extends javax.swing.JPanel {
                     res.getString("spesialis"),
                     res.getString("jenisKelamin"),
                     res.getString("ruangan"),
-                    res.getString("idDokter") // ID Dokter tetap ada tapi akan disembunyikan
+                    res.getString("idDokter"), // ID Dokter tetap ada tapi akan disembunyikan
+                    res.getString("username") 
                 });
             }
             // Sembunyikan kolom `idDokter`
@@ -54,6 +58,24 @@ public class Form_Dokter extends javax.swing.JPanel {
             writeLog("Data tidak dapat ditampilkan : " + e.getMessage());
         }
 
+    }
+    private void relasiUsername() {
+        try {
+            Connection conn = Config.configDB();
+            String sql = "SELECT username FROM t_user";
+            PreparedStatement pst = conn.prepareStatement(sql);
+            ResultSet rs = pst.executeQuery();
+//            cbT.removeAllItems();
+            
+            while (rs.next()) {
+                String username = rs.getString("username");
+                cbTambahUsername.addItem(username);
+                cbEditUsername.addItem(username);
+                
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Terjadi kesalahan saat memuat data dokter: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        }
     }
 
     private void bersihkan() {
@@ -69,6 +91,7 @@ public class Form_Dokter extends javax.swing.JPanel {
     public Form_Dokter() {
         initComponents();
         load_table();
+        relasiUsername();
         // Mengatur lebar kolom tabel
         txtHiddenIdDokter.setVisible(false); // Menyembunyikan JTextField
     }
@@ -98,11 +121,13 @@ public class Form_Dokter extends javax.swing.JPanel {
         jLabel3 = new javax.swing.JLabel();
         txtTambahSpesialis = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
         cbTambahJenisKelamin = new javax.swing.JComboBox<>();
         txtTambahNamaDokter = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
         txtTambahRuangan = new javax.swing.JTextField();
+        jLabel8 = new javax.swing.JLabel();
+        cbTambahUsername = new javax.swing.JComboBox<>();
+        jLabel7 = new javax.swing.JLabel();
         cbLevel1 = new javax.swing.JComboBox<>();
         jLabel16 = new javax.swing.JLabel();
         editDokter = new javax.swing.JPanel();
@@ -119,6 +144,8 @@ public class Form_Dokter extends javax.swing.JPanel {
         jLabel15 = new javax.swing.JLabel();
         txtEditRuangan = new javax.swing.JTextField();
         txtHiddenIdDokter = new javax.swing.JTextField();
+        cbEditUsername = new javax.swing.JComboBox<>();
+        jLabel9 = new javax.swing.JLabel();
         cbLevel5 = new javax.swing.JComboBox<>();
 
         setLayout(new java.awt.CardLayout());
@@ -202,13 +229,16 @@ public class Form_Dokter extends javax.swing.JPanel {
         jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel5.setText("Nama");
 
-        jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        jLabel7.setText("Ruangan");
-
         cbTambahJenisKelamin.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "laki-laki", "Perempuan" }));
 
         jLabel10.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel10.setText("Spesialis");
+
+        jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel8.setText("Ruangan");
+
+        jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel7.setText("Username");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -221,7 +251,7 @@ public class Form_Dokter extends javax.swing.JPanel {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 1322, Short.MAX_VALUE))
+                                .addGap(0, 1350, Short.MAX_VALUE))
                             .addComponent(txtTambahSpesialis, javax.swing.GroupLayout.Alignment.TRAILING))
                         .addContainerGap())
                     .addComponent(txtTambahNamaDokter)
@@ -230,14 +260,17 @@ public class Form_Dokter extends javax.swing.JPanel {
                             .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(cbTambahJenisKelamin, javax.swing.GroupLayout.PREFERRED_SIZE, 390, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE))
+                        .addGap(0, 1105, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(6, 6, 6)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtTambahRuangan)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addComponent(txtTambahRuangan)))))
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(cbTambahUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 390, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(0, 0, Short.MAX_VALUE))))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -254,14 +287,18 @@ public class Form_Dokter extends javax.swing.JPanel {
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(cbTambahJenisKelamin, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel8)
                 .addGap(18, 18, 18)
+                .addComponent(txtTambahRuangan, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
                 .addComponent(jLabel7)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtTambahRuangan, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(12, Short.MAX_VALUE))
+                .addComponent(cbTambahUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(33, 33, 33))
         );
 
-        tambahDokter.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, -1, 380));
+        tambahDokter.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, -1, 500));
 
         cbLevel1.setBackground(new java.awt.Color(153, 153, 255));
         cbLevel1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Level 1 (User)", "Level 2 (Pegawai)", "Level 3 (Admin)" }));
@@ -310,6 +347,9 @@ public class Form_Dokter extends javax.swing.JPanel {
         jLabel15.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel15.setText("Spesialis");
 
+        jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel9.setText("Username");
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -337,10 +377,13 @@ public class Form_Dokter extends javax.swing.JPanel {
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(6, 6, 6)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtEditRuangan)
                             .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addComponent(txtEditRuangan)))))
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(cbEditUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 390, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(0, 0, Short.MAX_VALUE))))))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -364,10 +407,14 @@ public class Form_Dokter extends javax.swing.JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtEditRuangan, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(txtHiddenIdDokter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(12, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel9)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(cbEditUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(18, Short.MAX_VALUE))
         );
 
-        editDokter.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, -1, 380));
+        editDokter.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, -1, 470));
 
         cbLevel5.setBackground(new java.awt.Color(153, 153, 255));
         cbLevel5.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Level 1 (User)", "Level 2 (Pegawai)", "Level 3 (Admin)" }));
@@ -386,11 +433,12 @@ public class Form_Dokter extends javax.swing.JPanel {
         mainPanel.revalidate();
 
         try {
-            String sql = "INSERT INTO t_dokter (namaDokter, spesialis, jenisKelamin, ruangan) VALUES ('"
+            String sql = "INSERT INTO t_dokter (namaDokter, spesialis, jenisKelamin, ruangan, username) VALUES ('"
                     + txtTambahNamaDokter.getText() + "', '"
                     + txtTambahSpesialis.getText() + "', '"
                     + cbTambahJenisKelamin.getSelectedItem() + "', '"
-                    + txtTambahRuangan.getText() + "')";
+                    + txtTambahRuangan.getText() + "', '"
+                    + cbTambahUsername.getSelectedItem() + "')";
             java.sql.Connection conn = (Connection) Config.configDB();
             java.sql.PreparedStatement pst = conn.prepareStatement(sql);
             pst.execute();
@@ -436,6 +484,7 @@ public class Form_Dokter extends javax.swing.JPanel {
         String jenisKelamin = tblDokter.getValueAt(baris, 3).toString(); // Kolom 3: jenisKelamin
         String ruangan = tblDokter.getValueAt(baris, 4).toString(); // Kolom 4: ruangan
         String idDokter = tblDokter.getValueAt(baris, 5).toString(); // Kolom 5: idDokter (tersembunyi)
+        String username = tblDokter.getValueAt(baris, 6).toString(); // Kolom 5: idDokter (tersembunyi)
 
         // Set data ke form edit
         txtEditNamaDokter.setText(namaDokter);
@@ -443,6 +492,7 @@ public class Form_Dokter extends javax.swing.JPanel {
         txtEditRuangan.setText(ruangan);
         txtHiddenIdDokter.setText(idDokter); // ID Dokter disimpan di komponen hidden
         cbEditJenisKelamin.setSelectedItem(jenisKelamin); // Pilih jenis kelamin pada ComboBox
+        cbEditUsername.setSelectedItem(username); // Pilih jenis kelamin pada ComboBox
     }//GEN-LAST:event_tblDokterMouseClicked
 
     private void bt_editActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_editActionPerformed
@@ -468,7 +518,7 @@ public class Form_Dokter extends javax.swing.JPanel {
                 JOptionPane.showMessageDialog(this, "ID Dokter tidak ditemukan");
             } else {
                 // Query dengan parameter
-                String sql = "UPDATE t_dokter SET namaDokter = ?, spesialis = ?, jenisKelamin = ?, ruangan = ? WHERE idDokter = ?";
+                String sql = "UPDATE t_dokter SET namaDokter = ?, spesialis = ?, jenisKelamin = ?, ruangan = ?, username = ? WHERE idDokter = ?";
                 java.sql.Connection conn = (Connection) Config.configDB();
                 java.sql.PreparedStatement pst = conn.prepareStatement(sql);
 
@@ -477,7 +527,8 @@ public class Form_Dokter extends javax.swing.JPanel {
                 pst.setString(2, txtEditSpesialis.getText());
                 pst.setString(3, cbEditJenisKelamin.getSelectedItem().toString());
                 pst.setString(4, txtEditRuangan.getText());
-                pst.setString(5, txtHiddenIdDokter.getText());
+                pst.setString(5, cbEditUsername.getSelectedItem().toString());
+                pst.setString(6, txtHiddenIdDokter.getText());
 
                 // Eksekusi query
                 int rowsAffected = pst.executeUpdate();
@@ -545,9 +596,11 @@ public class Form_Dokter extends javax.swing.JPanel {
     private javax.swing.JButton btTambah;
     private javax.swing.JButton bt_edit;
     private javax.swing.JComboBox<String> cbEditJenisKelamin;
+    private javax.swing.JComboBox<String> cbEditUsername;
     private javax.swing.JComboBox<String> cbLevel1;
     private javax.swing.JComboBox<String> cbLevel5;
     private javax.swing.JComboBox<String> cbTambahJenisKelamin;
+    private javax.swing.JComboBox<String> cbTambahUsername;
     private javax.swing.JPanel dataDokter;
     private javax.swing.JPanel editDokter;
     private javax.swing.JButton jButton3;
@@ -562,6 +615,8 @@ public class Form_Dokter extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
