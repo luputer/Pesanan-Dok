@@ -2287,3 +2287,22 @@ The last packet sent successfully to the server was 0 milliseconds ago. The driv
 2024-11-27 14:40:03 - Koneksi berhasil ke database.
 2024-11-27 14:40:03 - Koneksi berhasil ke database.
 2024-11-27 14:40:03 - Koneksi berhasil ke database.
+2024-11-27 15:34:44 - Koneksi berhasil ke database.
+2024-11-27 15:34:46 - Penyimpanan Data User Berhasil dengan Username registerbaru
+2024-11-27 15:34:46 - Penyimpanan Data Pasien Berhasil untuk Nama registerbaru
+2024-11-27 15:34:57 - Koneksi berhasil ke database.
+2024-11-27 15:38:18 - Koneksi berhasil ke database.
+2024-11-27 15:38:20 - Penyimpanan Data User Berhasil dengan Username tesregister2
+2024-11-27 15:38:23 - Data gagal disimpan : Data truncated for column 'jenisKelamin' at row 1
+2024-11-27 15:40:04 - Koneksi berhasil ke database.
+2024-11-27 15:40:06 - Penyimpanan Data User Berhasil dengan Username regis3
+2024-11-27 15:40:20 - Data gagal disimpan : Cannot add or update a child row: a foreign key constraint fails (`db_healink`.`t_pasien`, CONSTRAINT `fk_username_pasien` FOREIGN KEY (`username`) REFERENCES `t_user` (`username`) ON DELETE CASCADE)
+2024-11-27 15:41:38 - Koneksi berhasil ke database.
+2024-11-27 15:41:41 - Penyimpanan Data User Berhasil dengan Username reg4
+2024-11-27 15:41:41 - Penyimpanan Data Pasien Berhasil untuk Nama regis4
+2024-11-27 15:41:47 - Koneksi berhasil ke database.
+2024-11-27 15:41:52 - Koneksi berhasil ke database.
+2024-11-27 15:41:54 - Koneksi berhasil ke database.
+2024-11-27 15:41:54 - Koneksi berhasil ke database.
+2024-11-27 15:41:54 - Koneksi berhasil ke database.
+2024-11-27 15:41:54 - Tampilkan data konsultasi ke Frame Form_PasienKonsul

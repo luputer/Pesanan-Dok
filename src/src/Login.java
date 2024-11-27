@@ -315,8 +315,8 @@ public class Login extends javax.swing.JFrame {
     private void lblDaftarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblDaftarMouseClicked
         // TODO add your handling code here:
 
-        Register Register = new Register();
-        Register.setVisible(true);
+        Register register = new Register();
+        register.setVisible(true);
     }//GEN-LAST:event_lblDaftarMouseClicked
 
     private void lblDaftar1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblDaftar1MouseClicked
