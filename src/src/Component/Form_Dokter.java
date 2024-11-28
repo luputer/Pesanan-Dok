@@ -79,7 +79,7 @@ public class Form_Dokter extends javax.swing.JPanel {
     }
 
     private void bersihkan() {
-        txtTambahNamaDokter.setText(null);
+        txtTambahSpesialis.setText(null);
         txtTambahSpesialis.setText(null);
         txtTambahRuangan.setText(null);
         cbTambahJenisKelamin.setSelectedIndex(0);
@@ -110,48 +110,52 @@ public class Form_Dokter extends javax.swing.JPanel {
         dataDokter = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblDokter = new javax.swing.JTable();
-        jLabel1 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
         btTambah = new javax.swing.JButton();
         bt_edit = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
+        jLabel22 = new javax.swing.JLabel();
         tambahDokter = new javax.swing.JPanel();
-        btSimpan = new javax.swing.JButton();
-        btBatal = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
-        txtTambahSpesialis = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         cbTambahJenisKelamin = new javax.swing.JComboBox<>();
-        txtTambahNamaDokter = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
-        txtTambahRuangan = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         cbTambahUsername = new javax.swing.JComboBox<>();
         jLabel7 = new javax.swing.JLabel();
+        txtTambahSpesialis = new javax.swing.JTextField();
+        txtTambahNamaDokter1 = new javax.swing.JTextField();
+        txtTambahRuangan = new javax.swing.JTextField();
+        btSimpan = new javax.swing.JButton();
+        btBatal = new javax.swing.JButton();
         cbLevel1 = new javax.swing.JComboBox<>();
-        jLabel16 = new javax.swing.JLabel();
+        jLabel23 = new javax.swing.JLabel();
         editDokter = new javax.swing.JPanel();
-        jLabel11 = new javax.swing.JLabel();
-        btEditSimpan = new javax.swing.JButton();
-        btBatal2 = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jLabel12 = new javax.swing.JLabel();
-        txtEditSpesialis = new javax.swing.JTextField();
-        jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
         cbEditJenisKelamin = new javax.swing.JComboBox<>();
-        txtEditNamaDokter = new javax.swing.JTextField();
         jLabel15 = new javax.swing.JLabel();
-        txtEditRuangan = new javax.swing.JTextField();
         txtHiddenIdDokter = new javax.swing.JTextField();
         cbEditUsername = new javax.swing.JComboBox<>();
         jLabel9 = new javax.swing.JLabel();
+        btEditSimpan = new javax.swing.JButton();
+        btBatal2 = new javax.swing.JButton();
+        txtEditRuangan = new javax.swing.JTextField();
+        jLabel13 = new javax.swing.JLabel();
+        txtEditNamaDokter1 = new javax.swing.JTextField();
+        txtEditSpesialis = new javax.swing.JTextField();
         cbLevel5 = new javax.swing.JComboBox<>();
+        jLabel63 = new javax.swing.JLabel();
 
         setLayout(new java.awt.CardLayout());
 
         mainPanel.setLayout(new java.awt.CardLayout());
 
+        dataDokter.setBackground(new java.awt.Color(255, 255, 255));
         dataDokter.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         tblDokter.setModel(new javax.swing.table.DefaultTableModel(
@@ -172,55 +176,59 @@ public class Form_Dokter extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(tblDokter);
 
-        dataDokter.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 110, 1470, 360));
+        dataDokter.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 130, 1100, 360));
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
-        jLabel1.setText("Data Dokter");
-        dataDokter.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 6, 250, -1));
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/asset/image 10.png"))); // NOI18N
+        dataDokter.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 530, -1, -1));
 
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/asset/pngtree-blue-plus-concept-icon-on-white-background-png-image_8159235-removebg-preview 1_1.png"))); // NOI18N
+        dataDokter.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 530, -1, -1));
+
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/asset/image 12.png"))); // NOI18N
+        dataDokter.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 530, -1, -1));
+
+        btTambah.setBackground(new java.awt.Color(195, 224, 253));
+        btTambah.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btTambah.setText("Tambah");
         btTambah.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btTambahActionPerformed(evt);
             }
         });
-        dataDokter.add(btTambah, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, 94, -1));
+        dataDokter.add(btTambah, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 520, 120, 50));
 
+        bt_edit.setBackground(new java.awt.Color(129, 179, 251));
+        bt_edit.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         bt_edit.setText("Edit");
         bt_edit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bt_editActionPerformed(evt);
             }
         });
-        dataDokter.add(bt_edit, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 80, 94, -1));
+        dataDokter.add(bt_edit, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 520, 130, 50));
 
+        jButton3.setBackground(new java.awt.Color(195, 224, 253));
+        jButton3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jButton3.setText("Hapus");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
             }
         });
-        dataDokter.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 80, 94, -1));
+        dataDokter.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 520, 130, 50));
+
+        jLabel22.setBackground(new java.awt.Color(102, 102, 255));
+        jLabel22.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        jLabel22.setForeground(new java.awt.Color(51, 51, 255));
+        jLabel22.setText("Data dokter");
+        dataDokter.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, -1, -1));
 
         mainPanel.add(dataDokter, "card2");
 
+        tambahDokter.setBackground(new java.awt.Color(255, 255, 255));
         tambahDokter.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        btSimpan.setText("Simpan");
-        btSimpan.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btSimpanActionPerformed(evt);
-            }
-        });
-        tambahDokter.add(btSimpan, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 73, 100, 30));
-
-        btBatal.setText("Batal");
-        btBatal.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btBatalActionPerformed(evt);
-            }
-        });
-        tambahDokter.add(btBatal, new org.netbeans.lib.awtextra.AbsoluteConstraints(106, 73, 100, 30));
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel3.setText("jenis kelamin");
@@ -240,6 +248,53 @@ public class Form_Dokter extends javax.swing.JPanel {
         jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel7.setText("Username");
 
+        txtTambahSpesialis.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        txtTambahSpesialis.setToolTipText("");
+        txtTambahSpesialis.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(0, 255, 0)));
+        txtTambahSpesialis.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtTambahSpesialisActionPerformed(evt);
+            }
+        });
+
+        txtTambahNamaDokter1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        txtTambahNamaDokter1.setToolTipText("");
+        txtTambahNamaDokter1.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(0, 255, 0)));
+        txtTambahNamaDokter1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtTambahNamaDokter1ActionPerformed(evt);
+            }
+        });
+
+        txtTambahRuangan.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        txtTambahRuangan.setToolTipText("");
+        txtTambahRuangan.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(0, 255, 0)));
+        txtTambahRuangan.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtTambahRuanganActionPerformed(evt);
+            }
+        });
+
+        btSimpan.setBackground(new java.awt.Color(195, 224, 253));
+        btSimpan.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
+        btSimpan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/asset/Vector.png"))); // NOI18N
+        btSimpan.setText("Simpan");
+        btSimpan.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btSimpanActionPerformed(evt);
+            }
+        });
+
+        btBatal.setBackground(new java.awt.Color(204, 255, 255));
+        btBatal.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
+        btBatal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/asset/image 10.png"))); // NOI18N
+        btBatal.setText("Batal");
+        btBatal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btBatalActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -248,96 +303,80 @@ public class Form_Dokter extends javax.swing.JPanel {
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 1350, Short.MAX_VALUE))
-                            .addComponent(txtTambahSpesialis, javax.swing.GroupLayout.Alignment.TRAILING))
-                        .addContainerGap())
-                    .addComponent(txtTambahNamaDokter)
+                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(cbTambahJenisKelamin, javax.swing.GroupLayout.PREFERRED_SIZE, 390, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 1105, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(6, 6, 6)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtTambahRuangan)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(cbTambahUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 390, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(0, 0, Short.MAX_VALUE))))))
+                                .addGap(6, 6, 6)
+                                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtTambahSpesialis, javax.swing.GroupLayout.PREFERRED_SIZE, 358, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtTambahNamaDokter1, javax.swing.GroupLayout.PREFERRED_SIZE, 358, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtTambahRuangan, javax.swing.GroupLayout.PREFERRED_SIZE, 358, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(cbTambahUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 390, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                    .addComponent(btSimpan, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(btBatal, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(13, 13, 13))))
+                        .addGap(0, 444, Short.MAX_VALUE))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(26, 26, 26)
                 .addComponent(jLabel5)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(txtTambahNamaDokter, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(12, 12, 12)
+                .addGap(18, 18, 18)
+                .addComponent(txtTambahNamaDokter1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(13, 13, 13)
                 .addComponent(jLabel10)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtTambahSpesialis, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addComponent(txtTambahSpesialis, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(22, 22, 22)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(cbTambahJenisKelamin, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel8)
-                .addGap(18, 18, 18)
-                .addComponent(txtTambahRuangan, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtTambahRuangan, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel7)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(cbTambahUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(33, 33, 33))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btSimpan, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btBatal, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(54, 54, 54))
         );
 
-        tambahDokter.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, -1, 500));
+        tambahDokter.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, -1, 530));
 
         cbLevel1.setBackground(new java.awt.Color(153, 153, 255));
         cbLevel1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Level 1 (User)", "Level 2 (Pegawai)", "Level 3 (Admin)" }));
         tambahDokter.add(cbLevel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(323, 224, 364, -1));
 
-        jLabel16.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
-        jLabel16.setText("Tambah Dokter");
-        tambahDokter.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
+        jLabel23.setBackground(new java.awt.Color(102, 102, 255));
+        jLabel23.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        jLabel23.setForeground(new java.awt.Color(51, 51, 255));
+        jLabel23.setText("Tambah Dokter");
+        tambahDokter.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, -1, -1));
 
         mainPanel.add(tambahDokter, "card2");
 
+        editDokter.setBackground(new java.awt.Color(255, 255, 255));
         editDokter.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel11.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
-        jLabel11.setText("Edit Dokter");
-        editDokter.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 370, -1));
-
-        btEditSimpan.setText("Simpan");
-        btEditSimpan.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btEditSimpanActionPerformed(evt);
-            }
-        });
-        editDokter.add(btEditSimpan, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 73, 100, 30));
-
-        btBatal2.setText("Batal");
-        btBatal2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btBatal2ActionPerformed(evt);
-            }
-        });
-        editDokter.add(btBatal2, new org.netbeans.lib.awtextra.AbsoluteConstraints(106, 73, 100, 30));
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel12.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel12.setText("jenis kelamin");
-
-        jLabel13.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel13.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        jLabel13.setText("Nama");
 
         jLabel14.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel14.setText("Ruangan");
@@ -350,6 +389,57 @@ public class Form_Dokter extends javax.swing.JPanel {
         jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel9.setText("Username");
 
+        btEditSimpan.setBackground(new java.awt.Color(195, 224, 253));
+        btEditSimpan.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
+        btEditSimpan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/asset/Vector.png"))); // NOI18N
+        btEditSimpan.setText("Simpan");
+        btEditSimpan.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btEditSimpanActionPerformed(evt);
+            }
+        });
+
+        btBatal2.setBackground(new java.awt.Color(204, 255, 255));
+        btBatal2.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
+        btBatal2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/asset/image 10.png"))); // NOI18N
+        btBatal2.setText("Batal");
+        btBatal2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btBatal2ActionPerformed(evt);
+            }
+        });
+
+        txtEditRuangan.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        txtEditRuangan.setToolTipText("");
+        txtEditRuangan.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(0, 255, 0)));
+        txtEditRuangan.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtEditRuanganActionPerformed(evt);
+            }
+        });
+
+        jLabel13.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel13.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel13.setText("Nama");
+
+        txtEditNamaDokter1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        txtEditNamaDokter1.setToolTipText("");
+        txtEditNamaDokter1.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(0, 255, 0)));
+        txtEditNamaDokter1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtEditNamaDokter1ActionPerformed(evt);
+            }
+        });
+
+        txtEditSpesialis.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        txtEditSpesialis.setToolTipText("");
+        txtEditSpesialis.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(0, 255, 0)));
+        txtEditSpesialis.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtEditSpesialisActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -357,68 +447,73 @@ public class Form_Dokter extends javax.swing.JPanel {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtEditRuangan, javax.swing.GroupLayout.PREFERRED_SIZE, 363, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 1322, Short.MAX_VALUE))
-                            .addComponent(txtEditSpesialis, javax.swing.GroupLayout.Alignment.TRAILING))
-                        .addContainerGap())
-                    .addComponent(txtEditNamaDokter)
+                            .addComponent(txtEditSpesialis, javax.swing.GroupLayout.PREFERRED_SIZE, 363, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(47, 47, 47)
+                        .addComponent(txtHiddenIdDokter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtEditNamaDokter1, javax.swing.GroupLayout.PREFERRED_SIZE, 363, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cbEditJenisKelamin, javax.swing.GroupLayout.PREFERRED_SIZE, 390, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(cbEditJenisKelamin, javax.swing.GroupLayout.PREFERRED_SIZE, 390, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(234, 234, 234)
-                                .addComponent(txtHiddenIdDokter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 989, Short.MAX_VALUE))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(6, 6, 6)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtEditRuangan)
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(cbEditUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 390, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(0, 0, Short.MAX_VALUE))))))
+                        .addGap(162, 162, 162)
+                        .addComponent(btEditSimpan)
+                        .addGap(18, 18, 18)
+                        .addComponent(btBatal2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cbEditUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 390, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 941, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(26, 26, 26)
+                .addContainerGap()
                 .addComponent(jLabel13)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(txtEditNamaDokter, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(12, 12, 12)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(88, 88, 88)
+                        .addComponent(txtHiddenIdDokter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtEditNamaDokter1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel15)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtEditSpesialis, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
+                        .addComponent(txtEditSpesialis, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel12)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(cbEditJenisKelamin, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel14)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtEditRuangan, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(txtHiddenIdDokter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(txtEditRuangan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel9)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(cbEditUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(18, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btEditSimpan, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btBatal2, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(23, 23, 23))
         );
 
-        editDokter.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, -1, 470));
+        editDokter.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, -1, 470));
 
         cbLevel5.setBackground(new java.awt.Color(153, 153, 255));
         cbLevel5.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Level 1 (User)", "Level 2 (Pegawai)", "Level 3 (Admin)" }));
         editDokter.add(cbLevel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(323, 224, 364, -1));
+
+        jLabel63.setBackground(new java.awt.Color(102, 102, 255));
+        jLabel63.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        jLabel63.setForeground(new java.awt.Color(51, 51, 255));
+        jLabel63.setText("Edit Dokter");
+        editDokter.add(jLabel63, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
 
         mainPanel.add(editDokter, "card2");
 
@@ -434,7 +529,7 @@ public class Form_Dokter extends javax.swing.JPanel {
 
         try {
             String sql = "INSERT INTO t_dokter (namaDokter, spesialis, jenisKelamin, ruangan, username) VALUES ('"
-                    + txtTambahNamaDokter.getText() + "', '"
+                    + txtTambahSpesialis.getText() + "', '"
                     + txtTambahSpesialis.getText() + "', '"
                     + cbTambahJenisKelamin.getSelectedItem() + "', '"
                     + txtTambahRuangan.getText() + "', '"
@@ -443,7 +538,7 @@ public class Form_Dokter extends javax.swing.JPanel {
             java.sql.PreparedStatement pst = conn.prepareStatement(sql);
             pst.execute();
             JOptionPane.showMessageDialog(null, "Penyimpanan Data Berhasil");
-            writeLog("Penyimpanan Data Berhasil dengan Nama Dokter " + txtTambahNamaDokter.getText());
+            writeLog("Penyimpanan Data Berhasil dengan Nama Dokter " + txtTambahSpesialis.getText());
             load_table();
             bersihkan();
         } catch (Exception e) {
@@ -487,7 +582,7 @@ public class Form_Dokter extends javax.swing.JPanel {
         String username = tblDokter.getValueAt(baris, 6).toString(); // Kolom 5: idDokter (tersembunyi)
 
         // Set data ke form edit
-        txtEditNamaDokter.setText(namaDokter);
+        txtEditRuangan.setText(namaDokter);
         txtEditSpesialis.setText(spesialis);
         txtEditRuangan.setText(ruangan);
         txtHiddenIdDokter.setText(idDokter); // ID Dokter disimpan di komponen hidden
@@ -512,7 +607,7 @@ public class Form_Dokter extends javax.swing.JPanel {
 
         try {
             // Validasi input
-            if ("".equals(txtEditNamaDokter.getText())) {
+            if ("".equals(txtEditRuangan.getText())) {
                 JOptionPane.showMessageDialog(this, "Isikan Nama Dokter terlebih dahulu");
             } else if ("".equals(txtHiddenIdDokter.getText())) {
                 JOptionPane.showMessageDialog(this, "ID Dokter tidak ditemukan");
@@ -523,7 +618,7 @@ public class Form_Dokter extends javax.swing.JPanel {
                 java.sql.PreparedStatement pst = conn.prepareStatement(sql);
 
                 // Set nilai parameter
-                pst.setString(1, txtEditNamaDokter.getText());
+                pst.setString(1, txtEditRuangan.getText());
                 pst.setString(2, txtEditSpesialis.getText());
                 pst.setString(3, cbEditJenisKelamin.getSelectedItem().toString());
                 pst.setString(4, txtEditRuangan.getText());
@@ -533,8 +628,8 @@ public class Form_Dokter extends javax.swing.JPanel {
                 // Eksekusi query
                 int rowsAffected = pst.executeUpdate();
                 if (rowsAffected > 0) {
-                    JOptionPane.showMessageDialog(null, "Data Berhasil Diperbaharui dengan Nama Dokter: " + txtEditNamaDokter.getText());
-                    writeLog("Data Berhasil Diperbaharui dengan Nama Dokter " + txtEditNamaDokter.getText());
+                    JOptionPane.showMessageDialog(null, "Data Berhasil Diperbaharui dengan Nama Dokter: " + txtEditRuangan.getText());
+                    writeLog("Data Berhasil Diperbaharui dengan Nama Dokter " + txtEditRuangan.getText());
                 } else {
 
                 }
@@ -564,7 +659,7 @@ public class Form_Dokter extends javax.swing.JPanel {
                 JOptionPane.showMessageDialog(this, "Pilih Data Yang ingin dihapus terlebih dahulu");
             } else {
                 // Menampilkan konfirmasi sebelum menghapus data
-                int confirm = JOptionPane.showConfirmDialog(this, "Apakah Anda yakin ingin menghapus data dengan Nama Dokter: " + txtEditNamaDokter.getText(),
+                int confirm = JOptionPane.showConfirmDialog(this, "Apakah Anda yakin ingin menghapus data dengan Nama Dokter: " + txtEditRuangan.getText(),
                         "Konfirmasi Hapus", JOptionPane.YES_NO_OPTION);
 
                 // Jika pengguna memilih YES, lanjutkan menghapus
@@ -573,8 +668,8 @@ public class Form_Dokter extends javax.swing.JPanel {
                     java.sql.Connection conn = (Connection) Config.configDB();
                     java.sql.PreparedStatement pst = conn.prepareStatement(sql);
                     pst.execute();
-                    JOptionPane.showMessageDialog(this, "Data Berhasil Dihapus dengan Nama Dokter " + txtEditNamaDokter.getText());
-                    writeLog("Data Berhasil Dihapus dengan Nama Dokter " + txtEditNamaDokter.getText());
+                    JOptionPane.showMessageDialog(this, "Data Berhasil Dihapus dengan Nama Dokter " + txtEditRuangan.getText());
+                    writeLog("Data Berhasil Dihapus dengan Nama Dokter " + txtEditRuangan.getText());
                 } else {
                     // Jika pengguna memilih NO, tidak melakukan apa-apa
 //                    JOptionPane.showMessageDialog(this, "Data Tidak Dihapus");
@@ -586,6 +681,30 @@ public class Form_Dokter extends javax.swing.JPanel {
         }
         load_table();
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void txtTambahSpesialisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTambahSpesialisActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtTambahSpesialisActionPerformed
+
+    private void txtTambahNamaDokter1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTambahNamaDokter1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtTambahNamaDokter1ActionPerformed
+
+    private void txtTambahRuanganActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTambahRuanganActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtTambahRuanganActionPerformed
+
+    private void txtEditRuanganActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEditRuanganActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtEditRuanganActionPerformed
+
+    private void txtEditNamaDokter1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEditNamaDokter1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtEditNamaDokter1ActionPerformed
+
+    private void txtEditSpesialisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEditSpesialisActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtEditSpesialisActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -604,16 +723,19 @@ public class Form_Dokter extends javax.swing.JPanel {
     private javax.swing.JPanel dataDokter;
     private javax.swing.JPanel editDokter;
     private javax.swing.JButton jButton3;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel63;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
@@ -624,11 +746,11 @@ public class Form_Dokter extends javax.swing.JPanel {
     private javax.swing.JPanel mainPanel;
     private javax.swing.JPanel tambahDokter;
     private javax.swing.JTable tblDokter;
-    private javax.swing.JTextField txtEditNamaDokter;
+    private javax.swing.JTextField txtEditNamaDokter1;
     private javax.swing.JTextField txtEditRuangan;
     private javax.swing.JTextField txtEditSpesialis;
     private javax.swing.JTextField txtHiddenIdDokter;
-    private javax.swing.JTextField txtTambahNamaDokter;
+    private javax.swing.JTextField txtTambahNamaDokter1;
     private javax.swing.JTextField txtTambahRuangan;
     private javax.swing.JTextField txtTambahSpesialis;
     // End of variables declaration//GEN-END:variables

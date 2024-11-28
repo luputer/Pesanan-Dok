@@ -172,8 +172,7 @@ public class MenuUtama extends javax.swing.JFrame {
                 .addGroup(pn_navbarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pn_navbarLayout.createSequentialGroup()
                         .addGap(34, 34, 34)
-                        .addComponent(lb_tanggal)
-                        .addGap(27, 27, 27))
+                        .addComponent(lb_tanggal))
                     .addComponent(jLabel1))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pn_navbarLayout.createSequentialGroup()
@@ -197,9 +196,7 @@ public class MenuUtama extends javax.swing.JFrame {
         );
         pn_contenLayout.setVerticalGroup(
             pn_contenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pn_contenLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(pn_utama, javax.swing.GroupLayout.PREFERRED_SIZE, 704, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(pn_utama, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 721, Short.MAX_VALUE)
         );
 
         getContentPane().add(pn_conten, java.awt.BorderLayout.CENTER);
@@ -272,7 +269,7 @@ public class MenuUtama extends javax.swing.JFrame {
         ImageIcon iconDokter   = new ImageIcon(getClass().getResource("/asset/icondokter.png"));
         ImageIcon iconPasien  = new ImageIcon(getClass().getResource("/asset/iconPasien.png"));
         ImageIcon iconkonsul  = new ImageIcon(getClass().getResource("/asset/iconkonsul.png"));
-        ImageIcon icondatakonsul    = new ImageIcon(getClass().getResource("/asset/icondatakonsul.png"));
+        ImageIcon icondatakonsul   = new ImageIcon(getClass().getResource("/asset/icondatakonsul.png"));
         ImageIcon iconAbout    = new ImageIcon(getClass().getResource("/asset/iconAbout.png"));
         ImageIcon iconExit    = new ImageIcon(getClass().getResource("/asset/exit.png"));
         
@@ -347,7 +344,7 @@ public class MenuUtama extends javax.swing.JFrame {
             }
         });
 
-        MenuItem menuDokterKonsul = new MenuItem(iconUser, false, null, "konsultasi", new ActionListener() {
+        MenuItem menuDokterKonsul = new MenuItem(iconkonsul, false, null, "konsultasi", new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 pn_utama.removeAll();
@@ -367,7 +364,7 @@ public class MenuUtama extends javax.swing.JFrame {
             }
         });
 
-        MenuItem menuKonsulPasien = new MenuItem(iconUser, false, null, "konsultasi", new ActionListener() {
+        MenuItem menuKonsulPasien = new MenuItem(iconkonsul, false, null, "konsultasi", new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 pn_utama.removeAll();

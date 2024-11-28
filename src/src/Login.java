@@ -291,7 +291,7 @@ public class Login extends javax.swing.JFrame {
     private void txtPasswordFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtPasswordFocusGained
         // TODO add your handling code here:
         String pass = txtPassword.getText();
-        if (pass.equals("Password")) {
+        if (pass.equals("Password")) {  
             txtPassword.setText("");
         }
     }//GEN-LAST:event_txtPasswordFocusGained
