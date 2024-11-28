@@ -2530,3 +2530,202 @@ The last packet sent successfully to the server was 0 milliseconds ago. The driv
 2024-11-28 08:21:52 - Koneksi berhasil ke database.
 2024-11-28 08:21:55 - Koneksi berhasil ke database.
 2024-11-28 08:21:55 - Tampilkan data ke Frame Form_DataPasient
+2024-11-28 08:23:17 - Koneksi berhasil ke database.
+2024-11-28 08:23:17 - Koneksi berhasil ke database.
+2024-11-28 08:23:17 - Koneksi berhasil ke database.
+2024-11-28 08:23:18 - Koneksi berhasil ke database.
+2024-11-28 08:23:18 - Tampilkan data ke Frame Form_DataPasient
+2024-11-28 08:23:23 - Koneksi berhasil ke database.
+2024-11-28 08:23:23 - Koneksi berhasil ke database.
+2024-11-28 08:23:23 - Koneksi berhasil ke database.
+2024-11-28 08:23:24 - Koneksi berhasil ke database.
+2024-11-28 08:23:24 - Tampilkan data ke Frame Form_DataPasient
+2024-11-28 08:23:24 - Koneksi berhasil ke database.
+2024-11-28 08:23:24 - Koneksi berhasil ke database.
+2024-11-28 08:23:24 - Koneksi berhasil ke database.
+2024-11-28 08:23:25 - Koneksi berhasil ke database.
+2024-11-28 08:23:25 - Tampilkan data ke Frame Form_DataPasient
+2024-11-28 08:23:26 - Koneksi berhasil ke database.
+2024-11-28 08:23:26 - Tampilkan data ke Frame Form_User
+2024-11-28 08:23:35 - Koneksi berhasil ke database.
+2024-11-28 08:23:35 - Tampilkan data ke Frame Form_User
+2024-11-28 10:36:14 - Koneksi berhasil ke database.
+2024-11-28 10:36:18 - Koneksi berhasil ke database.
+2024-11-28 10:36:18 - Koneksi berhasil ke database.
+2024-11-28 10:36:18 - Koneksi berhasil ke database.
+2024-11-28 10:36:21 - Koneksi berhasil ke database.
+2024-11-28 10:36:21 - Tampilkan data ke Frame Form_DataPasient
+2024-11-28 10:42:47 - Koneksi berhasil ke database.
+2024-11-28 10:42:49 - Koneksi berhasil ke database.
+2024-11-28 10:42:49 - Tampilkan data ke Frame Form_Dokter
+2024-11-28 10:42:49 - Koneksi berhasil ke database.
+2024-11-28 10:42:51 - Koneksi berhasil ke database.
+2024-11-28 10:42:51 - Tampilkan data ke Frame Form_DataPasient
+2024-11-28 10:43:20 - Perubahan Data Gagal : Uncompilable code - cannot find symbol
+  symbol:   variable d
+  location: class src.Component.Form_DataPasient
+2024-11-28 10:43:20 - Koneksi berhasil ke database.
+2024-11-28 10:43:20 - Tampilkan data ke Frame Form_DataPasient
+2024-11-28 10:43:37 - Perubahan Data Gagal : Uncompilable code - cannot find symbol
+  symbol:   variable d
+  location: class src.Component.Form_DataPasient
+2024-11-28 10:43:37 - Koneksi berhasil ke database.
+2024-11-28 10:43:37 - Tampilkan data ke Frame Form_DataPasient
+2024-11-28 10:44:51 - Koneksi berhasil ke database.
+2024-11-28 10:44:55 - Koneksi berhasil ke database.
+2024-11-28 10:44:55 - Tampilkan data ke Frame Form_Dokter
+2024-11-28 10:44:55 - Koneksi berhasil ke database.
+2024-11-28 10:44:58 - Koneksi berhasil ke database.
+2024-11-28 10:44:58 - Tampilkan data ke Frame Form_User
+2024-11-28 10:44:58 - Koneksi berhasil ke database.
+2024-11-28 10:44:58 - Tampilkan data ke Frame Form_Dokter
+2024-11-28 10:44:58 - Koneksi berhasil ke database.
+2024-11-28 10:45:00 - Koneksi berhasil ke database.
+2024-11-28 10:45:00 - Koneksi berhasil ke database.
+2024-11-28 10:45:00 - Koneksi berhasil ke database.
+2024-11-28 10:45:02 - Koneksi berhasil ke database.
+2024-11-28 10:45:02 - Tampilkan data ke Frame Form_DataPasient
+2024-11-28 10:45:10 - Koneksi berhasil ke database.
+2024-11-28 10:45:12 - Data Berhasil Diperbaharui dengan Nama Pasien bambang
+2024-11-28 10:45:12 - Koneksi berhasil ke database.
+2024-11-28 10:45:12 - Tampilkan data ke Frame Form_DataPasient
+2024-11-28 10:45:20 - Koneksi berhasil ke database.
+2024-11-28 10:45:20 - Data Berhasil Dihapus dengan Nama Pasien bambang
+2024-11-28 10:45:20 - Koneksi berhasil ke database.
+2024-11-28 10:45:20 - Tampilkan data ke Frame Form_DataPasient
+2024-11-28 10:45:32 - Koneksi berhasil ke database.
+2024-11-28 10:45:32 - Koneksi berhasil ke database.
+2024-11-28 10:45:32 - Koneksi berhasil ke database.
+2024-11-28 10:45:33 - Koneksi berhasil ke database.
+2024-11-28 10:45:33 - Tampilkan data ke Frame Form_DataPasient
+2024-11-28 10:45:39 - Koneksi berhasil ke database.
+2024-11-28 10:45:39 - Koneksi berhasil ke database.
+2024-11-28 10:45:39 - Koneksi berhasil ke database.
+2024-11-28 10:53:37 - Koneksi berhasil ke database.
+2024-11-28 10:53:40 - Koneksi berhasil ke database.
+2024-11-28 10:53:40 - Tampilkan data ke Frame Form_Dokter
+2024-11-28 10:53:40 - Koneksi berhasil ke database.
+2024-11-28 10:53:41 - Koneksi berhasil ke database.
+2024-11-28 10:53:41 - Tampilkan data ke Frame Form_DataPasient
+2024-11-28 10:53:42 - Koneksi berhasil ke database.
+2024-11-28 10:53:42 - Koneksi berhasil ke database.
+2024-11-28 10:53:42 - Koneksi berhasil ke database.
+2024-11-28 10:53:44 - Koneksi berhasil ke database.
+2024-11-28 10:53:44 - Tampilkan data ke Frame Form_DataPasient
+2024-11-28 10:53:45 - Koneksi berhasil ke database.
+2024-11-28 10:53:45 - Koneksi berhasil ke database.
+2024-11-28 10:53:45 - Koneksi berhasil ke database.
+2024-11-28 10:53:48 - Koneksi berhasil ke database.
+2024-11-28 10:53:48 - Tampilkan data ke Frame Form_DataPasient
+2024-11-28 10:53:50 - Koneksi berhasil ke database.
+2024-11-28 10:53:50 - Koneksi berhasil ke database.
+2024-11-28 10:53:50 - Koneksi berhasil ke database.
+2024-11-28 10:54:05 - Koneksi berhasil ke database.
+2024-11-28 10:54:05 - Tampilkan data ke Frame Form_DataPasient
+2024-11-28 10:54:11 - Koneksi berhasil ke database.
+2024-11-28 10:54:11 - Koneksi berhasil ke database.
+2024-11-28 10:54:11 - Koneksi berhasil ke database.
+2024-11-28 10:54:26 - Koneksi berhasil ke database.
+2024-11-28 10:54:26 - Tampilkan data ke Frame Form_DataPasient
+2024-11-28 10:54:31 - Koneksi berhasil ke database.
+2024-11-28 10:54:31 - Koneksi berhasil ke database.
+2024-11-28 10:54:31 - Koneksi berhasil ke database.
+2024-11-28 10:55:57 - Koneksi berhasil ke database.
+2024-11-28 10:55:57 - Koneksi berhasil ke database.
+2024-11-28 10:55:57 - Koneksi berhasil ke database.
+2024-11-28 10:56:00 - Koneksi berhasil ke database.
+2024-11-28 10:56:00 - Tampilkan data ke Frame Form_DataPasient
+2024-11-28 10:56:01 - Koneksi berhasil ke database.
+2024-11-28 10:56:01 - Koneksi berhasil ke database.
+2024-11-28 10:56:01 - Koneksi berhasil ke database.
+2024-11-28 10:56:04 - Koneksi berhasil ke database.
+2024-11-28 10:56:04 - Koneksi berhasil ke database.
+2024-11-28 10:56:04 - Koneksi berhasil ke database.
+2024-11-28 10:56:08 - Koneksi berhasil ke database.
+2024-11-28 10:56:09 - Koneksi berhasil ke database.
+2024-11-28 10:56:09 - Tampilkan data ke Frame Form_DataPasient
+2024-11-28 10:56:11 - Koneksi berhasil ke database.
+2024-11-28 10:56:11 - Koneksi berhasil ke database.
+2024-11-28 10:56:11 - Koneksi berhasil ke database.
+2024-11-28 10:56:16 - Koneksi berhasil ke database.
+2024-11-28 10:56:16 - Koneksi berhasil ke database.
+2024-11-28 10:56:16 - Koneksi berhasil ke database.
+2024-11-28 11:08:21 - Koneksi berhasil ke database.
+2024-11-28 11:08:24 - Koneksi berhasil ke database.
+2024-11-28 11:08:24 - Koneksi berhasil ke database.
+2024-11-28 11:08:24 - Koneksi berhasil ke database.
+2024-11-28 11:08:40 - Koneksi berhasil ke database.
+2024-11-28 11:08:42 - Data gagal diperbarui: For input string: ""
+2024-11-28 11:11:27 - Koneksi berhasil ke database.
+2024-11-28 11:11:31 - Koneksi berhasil ke database.
+2024-11-28 11:11:31 - Tampilkan data ke Frame Form_Dokter
+2024-11-28 11:11:31 - Koneksi berhasil ke database.
+2024-11-28 11:11:32 - Koneksi berhasil ke database.
+2024-11-28 11:11:32 - Tampilkan data ke Frame Form_DataPasient
+2024-11-28 11:11:34 - Koneksi berhasil ke database.
+2024-11-28 11:11:34 - Koneksi berhasil ke database.
+2024-11-28 11:11:34 - Koneksi berhasil ke database.
+2024-11-28 11:12:09 - Koneksi berhasil ke database.
+2024-11-28 11:12:09 - Koneksi berhasil ke database.
+2024-11-28 11:12:09 - Koneksi berhasil ke database.
+2024-11-28 11:12:10 - Koneksi berhasil ke database.
+2024-11-28 11:12:10 - Tampilkan data ke Frame Form_DataPasient
+2024-11-28 11:12:14 - Koneksi berhasil ke database.
+2024-11-28 11:12:14 - Koneksi berhasil ke database.
+2024-11-28 11:12:14 - Koneksi berhasil ke database.
+2024-11-28 11:14:51 - Koneksi berhasil ke database.
+2024-11-28 11:14:54 - Koneksi berhasil ke database.
+2024-11-28 11:14:54 - Tampilkan data ke Frame Form_DataPasient
+2024-11-28 11:15:04 - Koneksi berhasil ke database.
+2024-11-28 11:15:04 - Koneksi berhasil ke database.
+2024-11-28 11:15:04 - Koneksi berhasil ke database.
+2024-11-28 11:15:14 - Koneksi berhasil ke database.
+2024-11-28 11:15:15 - Penyimpanan Data Berhasil untuk Konsultasi dengan ID Pasien: 1 dan ID Dokter: 1
+2024-11-28 11:15:15 - Koneksi berhasil ke database.
+2024-11-28 11:15:28 - Koneksi berhasil ke database.
+2024-11-28 11:15:30 - Data berhasil diperbarui untuk Konsultasi dengan ID Konsultasi: 16
+2024-11-28 11:15:30 - Koneksi berhasil ke database.
+2024-11-28 11:15:40 - Koneksi berhasil ke database.
+2024-11-28 11:15:43 - Data berhasil diperbarui untuk Konsultasi dengan ID Konsultasi: 16
+2024-11-28 11:15:43 - Koneksi berhasil ke database.
+2024-11-28 11:16:01 - Koneksi berhasil ke database.
+2024-11-28 11:16:03 - Data Berhasil Dihapus dengan ID Konsultasi: 16
+2024-11-28 11:16:03 - Koneksi berhasil ke database.
+2024-11-28 11:17:41 - Koneksi berhasil ke database.
+2024-11-28 11:17:44 - Koneksi berhasil ke database.
+2024-11-28 11:17:44 - Tampilkan data ke Frame Form_Dokter
+2024-11-28 11:17:44 - Koneksi berhasil ke database.
+2024-11-28 11:17:45 - Koneksi berhasil ke database.
+2024-11-28 11:17:45 - Tampilkan data ke Frame Form_User
+2024-11-28 11:17:47 - Koneksi berhasil ke database.
+2024-11-28 11:17:47 - Tampilkan data ke Frame Form_Dokter
+2024-11-28 11:17:47 - Koneksi berhasil ke database.
+2024-11-28 11:17:50 - Koneksi berhasil ke database.
+2024-11-28 11:17:50 - Tampilkan data ke Frame Form_DataPasient
+2024-11-28 11:17:54 - Koneksi berhasil ke database.
+2024-11-28 11:17:54 - Koneksi berhasil ke database.
+2024-11-28 11:17:54 - Koneksi berhasil ke database.
+2024-11-28 11:17:56 - Koneksi berhasil ke database.
+2024-11-28 11:17:56 - Tampilkan data ke Frame Form_DataPasient
+2024-11-28 11:17:58 - Koneksi berhasil ke database.
+2024-11-28 11:17:58 - Koneksi berhasil ke database.
+2024-11-28 11:17:58 - Koneksi berhasil ke database.
+2024-11-28 11:17:59 - Koneksi berhasil ke database.
+2024-11-28 11:17:59 - Tampilkan data ke Frame Form_DataPasient
+2024-11-28 11:18:01 - Koneksi berhasil ke database.
+2024-11-28 11:18:01 - Koneksi berhasil ke database.
+2024-11-28 11:18:01 - Koneksi berhasil ke database.
+2024-11-28 11:25:54 - Koneksi berhasil ke database.
+2024-11-28 11:25:58 - Koneksi berhasil ke database.
+2024-11-28 11:25:58 - Koneksi berhasil ke database.
+2024-11-28 11:25:58 - Koneksi berhasil ke database.
+2024-11-28 11:26:16 - Koneksi berhasil ke database.
+2024-11-28 11:26:18 - Penyimpanan Data Berhasil untuk Konsultasi dengan ID Pasien: 1 dan ID Dokter: 1
+2024-11-28 11:26:18 - Koneksi berhasil ke database.
+2024-11-28 11:26:37 - Koneksi berhasil ke database.
+2024-11-28 11:26:37 - Tampilkan data ke Frame Form_DataPasient
+2024-11-28 11:26:37 - Koneksi berhasil ke database.
+2024-11-28 11:26:37 - Koneksi berhasil ke database.
+2024-11-28 11:26:37 - Koneksi berhasil ke database.
+2024-11-28 11:26:38 - Koneksi berhasil ke database.
+2024-11-28 11:26:38 - Tampilkan data ke Frame Form_DataPasient
