@@ -100,12 +100,12 @@ public class Form_DataPasient extends javax.swing.JPanel {
         cbTambahJenisKelamin = new javax.swing.JComboBox<>();
         jScrollPane2 = new javax.swing.JScrollPane();
         txtTambahAlamat = new javax.swing.JTextArea();
-        btBatal = new javax.swing.JButton();
-        btSimpan = new javax.swing.JButton();
         txtTambahNama = new javax.swing.JTextField();
         cbLevel1 = new javax.swing.JComboBox<>();
         jLabel63 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
+        btBatal = new javax.swing.JButton();
+        btSimpan = new javax.swing.JButton();
         editPasient = new javax.swing.JPanel();
         btEditPasien = new javax.swing.JButton();
         btBatal2 = new javax.swing.JButton();
@@ -221,26 +221,6 @@ public class Form_DataPasient extends javax.swing.JPanel {
         txtTambahAlamat.setRows(5);
         jScrollPane2.setViewportView(txtTambahAlamat);
 
-        btBatal.setBackground(new java.awt.Color(204, 255, 255));
-        btBatal.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
-        btBatal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/asset/Group 2802.png"))); // NOI18N
-        btBatal.setText("Batal");
-        btBatal.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btBatalActionPerformed(evt);
-            }
-        });
-
-        btSimpan.setBackground(new java.awt.Color(195, 224, 253));
-        btSimpan.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
-        btSimpan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/asset/Vector.png"))); // NOI18N
-        btSimpan.setText("Simpan");
-        btSimpan.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btSimpanActionPerformed(evt);
-            }
-        });
-
         txtTambahNama.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         txtTambahNama.setToolTipText("");
         txtTambahNama.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(0, 255, 0)));
@@ -255,24 +235,18 @@ public class Form_DataPasient extends javax.swing.JPanel {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(txtTambahNama, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(cbTambahJenisKelamin, javax.swing.GroupLayout.Alignment.LEADING, 0, 390, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
+                        .addGap(6, 6, 6)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(6, 6, 6)
-                                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 451, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(txtTambahNama, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(cbTambahJenisKelamin, javax.swing.GroupLayout.Alignment.LEADING, 0, 390, Short.MAX_VALUE))))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(34, 34, 34)
-                        .addComponent(btSimpan, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(55, 55, 55)
-                        .addComponent(btBatal, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(2024, Short.MAX_VALUE))
+                            .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(182, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -286,11 +260,7 @@ public class Form_DataPasient extends javax.swing.JPanel {
                 .addComponent(jLabel7)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btSimpan, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btBatal, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(24, Short.MAX_VALUE))
+                .addContainerGap(83, Short.MAX_VALUE))
         );
 
         tambahPasient.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, -1, 380));
@@ -309,6 +279,28 @@ public class Form_DataPasient extends javax.swing.JPanel {
         jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel5.setText("Nama");
         tambahPasient.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, 139, -1));
+
+        btBatal.setBackground(new java.awt.Color(204, 255, 255));
+        btBatal.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
+        btBatal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/asset/Group 2802.png"))); // NOI18N
+        btBatal.setText("Batal");
+        btBatal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btBatalActionPerformed(evt);
+            }
+        });
+        tambahPasient.add(btBatal, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 500, 100, 40));
+
+        btSimpan.setBackground(new java.awt.Color(195, 224, 253));
+        btSimpan.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
+        btSimpan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/asset/Vector.png"))); // NOI18N
+        btSimpan.setText("Simpan");
+        btSimpan.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btSimpanActionPerformed(evt);
+            }
+        });
+        tambahPasient.add(btSimpan, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 500, 100, 40));
 
         mainPanel.add(tambahPasient, "card2");
 
@@ -428,7 +420,7 @@ public class Form_DataPasient extends javax.swing.JPanel {
         try {
             String sql = "INSERT INTO t_pasien VALUES (NULL, '" + txtTambahNama.getText()
                     + "','" + cbTambahJenisKelamin.getSelectedItem()
-                    + "','" + txtTambahAlamat.getText() + "')";
+                    + "','" + txtTambahAlamat.getText() + "', NULL)";
             java.sql.Connection conn = (Connection) Config.configDB();
             java.sql.PreparedStatement pst = conn.prepareStatement(sql);
             pst.execute();
@@ -546,8 +538,10 @@ public class Form_DataPasient extends javax.swing.JPanel {
             } else {
                 String sql = "UPDATE t_pasien SET namaPasien = '" + txtEditNamaPasien.getText()
                 + "', jenisKelamin = '" + cbJenisKelamin.getSelectedItem()
-                + "', alamat = '" + txtEditAlamat.getText()
-                + "' WHERE idPasien = '" + txtHiddenIdPasien.getText() + "'";
+                + "', alamat = '" + txtEditAlamat.getText() 
+                + "', username = NULL " 
+                + "WHERE idPasien = '" + txtHiddenIdPasien.getText() + "'";
+
                 java.sql.Connection conn = (Connection) Config.configDB();
                 java.sql.PreparedStatement pst = conn.prepareStatement(sql);
                 pst.execute();

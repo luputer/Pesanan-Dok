@@ -403,7 +403,7 @@ public class Form_User extends javax.swing.JPanel {
         mainPanel.repaint();
         mainPanel.revalidate();
         try {
-            String sql = "INSERT INTO t_user VALUES ('" + txtPassword.getText()
+            String sql = "INSERT INTO t_user VALUES ('" + txtUsername.getText()
                     + "','" + txtPassword.getText()
                     + "','" + (cbLevel.getSelectedIndex() + 1) + "')";
             java.sql.Connection conn = (Connection) Config.configDB();
@@ -450,7 +450,7 @@ public class Form_User extends javax.swing.JPanel {
         String level = tblUser.getValueAt(baris, 3).toString().trim(); // Ambil nilai level (1, 2, atau 3)
         // Konversi nilai level (angka) ke indeks untuk JComboBox
         int levelIndex = Integer.parseInt(level) - 1; // Karena indeks JComboBox dimulai dari 0
-        txtEditPassword.setText(username);
+        txtEditUsername.setText(username);
         txtHiddenUsername.setText(username);
         txtEditPassword.setText(password);
         // Set JComboBox ke indeks yang sesuai
@@ -469,15 +469,15 @@ public class Form_User extends javax.swing.JPanel {
             if ("".equals(txtEditPassword.getText())) {
                 JOptionPane.showMessageDialog(this, "Isikan Username terlebih dahulu");
             } else {
-                String sql = "UPDATE t_user SET username = '" + txtEditPassword.getText()
+                String sql = "UPDATE t_user SET username = '" + txtEditUsername.getText()
                         + "', password= '" + txtEditPassword.getText()
                         + "', level = '" + (cbEditLevel.getSelectedIndex() + 1)
                         + "' WHERE t_user.username = '" + txtHiddenUsername.getText() + "'";
                 java.sql.Connection conn = (Connection) Config.configDB();
                 java.sql.PreparedStatement pst = conn.prepareStatement(sql);
                 pst.execute();
-                JOptionPane.showMessageDialog(null, "Data Berhasil Diperbaharui dengan Username" + txtEditPassword.getText());
-                writeLog("Data Berhasil Diperbaharui dengan NIM " + txtEditPassword.getText());
+                JOptionPane.showMessageDialog(null, "Data Berhasil Diperbaharui dengan Username" + txtEditUsername.getText());
+                writeLog("Data Berhasil Diperbaharui dengan NIM " + txtEditUsername.getText());
             }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Perubahan Data Gagal" + e.getMessage());
@@ -520,7 +520,7 @@ public class Form_User extends javax.swing.JPanel {
 
                 // Jika pengguna memilih YES, lanjutkan menghapus
                 if (confirm == JOptionPane.YES_OPTION) {
-                    String sql = "DELETE FROM t_user WHERE username='" + txtEditPassword.getText() + "'";
+                    String sql = "DELETE FROM t_user WHERE username='" + txtEditUsername.getText() + "'";
                     java.sql.Connection conn = (Connection) Config.configDB();
                     java.sql.PreparedStatement pst = conn.prepareStatement(sql);
                     pst.execute();

@@ -120,7 +120,7 @@ public class Form_DokterKonsul extends javax.swing.JPanel {
 
             if (rs.next()) {
                 // Set text field dengan data pasien yang diambil
-                jTextField6.setText(rs.getString("namaDokter"));
+                txtEditNamaDokter.setText(rs.getString("namaDokter"));
             }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Gagal memuat data dokter: " + e.getMessage());
@@ -154,8 +154,6 @@ public class Form_DokterKonsul extends javax.swing.JPanel {
         dataKonsul = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblDokterKonsul = new javax.swing.JTable();
-        jLabel2 = new javax.swing.JLabel();
-        btTambah = new javax.swing.JButton();
         jLabel64 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         bt_edit = new javax.swing.JButton();
@@ -170,7 +168,7 @@ public class Form_DokterKonsul extends javax.swing.JPanel {
         txtHiddenIdKonsul = new javax.swing.JTextField();
         btSimpanKonsul = new javax.swing.JButton();
         btBatalKonsul = new javax.swing.JButton();
-        txtid = new javax.swing.JTextField();
+        txtEditNamaDokter = new javax.swing.JTextField();
         txtKeluhan = new javax.swing.JTextField();
         txtCatatan = new javax.swing.JTextField();
         txtWaktu = new javax.swing.JTextField();
@@ -219,19 +217,6 @@ public class Form_DokterKonsul extends javax.swing.JPanel {
         jScrollPane1.setViewportView(tblDokterKonsul);
 
         dataKonsul.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 60, 920, 370));
-
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/asset/pngtree-blue-plus-concept-icon-on-white-background-png-image_8159235-removebg-preview 1_1.png"))); // NOI18N
-        dataKonsul.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 470, -1, -1));
-
-        btTambah.setBackground(new java.awt.Color(195, 224, 253));
-        btTambah.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        btTambah.setText("Tambah");
-        btTambah.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btTambahActionPerformed(evt);
-            }
-        });
-        dataKonsul.add(btTambah, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 460, 100, 50));
 
         jLabel64.setBackground(new java.awt.Color(102, 102, 255));
         jLabel64.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
@@ -291,12 +276,13 @@ public class Form_DokterKonsul extends javax.swing.JPanel {
             }
         });
 
-        txtid.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        txtid.setToolTipText("");
-        txtid.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(0, 255, 0)));
-        txtid.addActionListener(new java.awt.event.ActionListener() {
+        txtEditNamaDokter.setEditable(false);
+        txtEditNamaDokter.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        txtEditNamaDokter.setToolTipText("");
+        txtEditNamaDokter.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(0, 255, 0)));
+        txtEditNamaDokter.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtidActionPerformed(evt);
+                txtEditNamaDokterActionPerformed(evt);
             }
         });
 
@@ -341,7 +327,7 @@ public class Form_DokterKonsul extends javax.swing.JPanel {
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtid, javax.swing.GroupLayout.PREFERRED_SIZE, 390, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(txtEditNamaDokter, javax.swing.GroupLayout.PREFERRED_SIZE, 390, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel2Layout.createSequentialGroup()
                                         .addGap(234, 234, 234)
@@ -371,7 +357,7 @@ public class Form_DokterKonsul extends javax.swing.JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel4)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtid, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(txtEditNamaDokter, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(49, 49, 49)
                         .addComponent(txtHiddenIdKonsul, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -517,7 +503,7 @@ public class Form_DokterKonsul extends javax.swing.JPanel {
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 77, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btSimpan, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btBatal, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(33, 33, 33))
@@ -656,21 +642,9 @@ public class Form_DokterKonsul extends javax.swing.JPanel {
         mainPanel.revalidate();
     }//GEN-LAST:event_btBatalKonsulActionPerformed
 
-    private void btTambahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btTambahActionPerformed
+    private void txtEditNamaDokterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEditNamaDokterActionPerformed
         // TODO add your handling code here:
-        mainPanel.removeAll();
-        mainPanel.repaint();
-        mainPanel.revalidate();
-
-        mainPanel.add(tambahKonsul);
-        mainPanel.repaint();
-        mainPanel.revalidate();
-
-    }//GEN-LAST:event_btTambahActionPerformed
-
-    private void txtidActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtidActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtidActionPerformed
+    }//GEN-LAST:event_txtEditNamaDokterActionPerformed
 
     private void txtKeluhanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtKeluhanActionPerformed
         // TODO add your handling code here:
@@ -698,7 +672,6 @@ public class Form_DokterKonsul extends javax.swing.JPanel {
     private javax.swing.JButton btBatalKonsul;
     private javax.swing.JButton btSimpan;
     private javax.swing.JButton btSimpanKonsul;
-    private javax.swing.JButton btTambah;
     private javax.swing.JButton bt_edit;
     private javax.swing.JComboBox<String> cbLevel1;
     private javax.swing.JComboBox<String> cbLevel3;
@@ -709,7 +682,6 @@ public class Form_DokterKonsul extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel3;
@@ -731,11 +703,11 @@ public class Form_DokterKonsul extends javax.swing.JPanel {
     private javax.swing.JPanel tambahKonsul;
     private javax.swing.JTable tblDokterKonsul;
     private javax.swing.JTextField txtCatatan;
+    private javax.swing.JTextField txtEditNamaDokter;
     private javax.swing.JTextField txtHiddenIdDokter;
     private javax.swing.JTextField txtHiddenIdKonsul;
     private javax.swing.JTextField txtKeluhan;
     private javax.swing.JTextField txtNamaDokter1;
     private javax.swing.JTextField txtWaktu;
-    private javax.swing.JTextField txtid;
     // End of variables declaration//GEN-END:variables
 }

@@ -529,7 +529,7 @@ public class Form_Dokter extends javax.swing.JPanel {
 
         try {
             String sql = "INSERT INTO t_dokter (namaDokter, spesialis, jenisKelamin, ruangan, username) VALUES ('"
-                    + txtTambahSpesialis.getText() + "', '"
+                    + txtTambahNamaDokter1.getText() + "', '"
                     + txtTambahSpesialis.getText() + "', '"
                     + cbTambahJenisKelamin.getSelectedItem() + "', '"
                     + txtTambahRuangan.getText() + "', '"
@@ -538,7 +538,7 @@ public class Form_Dokter extends javax.swing.JPanel {
             java.sql.PreparedStatement pst = conn.prepareStatement(sql);
             pst.execute();
             JOptionPane.showMessageDialog(null, "Penyimpanan Data Berhasil");
-            writeLog("Penyimpanan Data Berhasil dengan Nama Dokter " + txtTambahSpesialis.getText());
+            writeLog("Penyimpanan Data Berhasil dengan Nama Dokter " + txtTambahNamaDokter1.getText());
             load_table();
             bersihkan();
         } catch (Exception e) {
@@ -582,7 +582,7 @@ public class Form_Dokter extends javax.swing.JPanel {
         String username = tblDokter.getValueAt(baris, 6).toString(); // Kolom 5: idDokter (tersembunyi)
 
         // Set data ke form edit
-        txtEditRuangan.setText(namaDokter);
+        txtEditNamaDokter1.setText(namaDokter);
         txtEditSpesialis.setText(spesialis);
         txtEditRuangan.setText(ruangan);
         txtHiddenIdDokter.setText(idDokter); // ID Dokter disimpan di komponen hidden
@@ -607,7 +607,7 @@ public class Form_Dokter extends javax.swing.JPanel {
 
         try {
             // Validasi input
-            if ("".equals(txtEditRuangan.getText())) {
+            if ("".equals(txtEditNamaDokter1.getText())) {
                 JOptionPane.showMessageDialog(this, "Isikan Nama Dokter terlebih dahulu");
             } else if ("".equals(txtHiddenIdDokter.getText())) {
                 JOptionPane.showMessageDialog(this, "ID Dokter tidak ditemukan");
@@ -618,7 +618,7 @@ public class Form_Dokter extends javax.swing.JPanel {
                 java.sql.PreparedStatement pst = conn.prepareStatement(sql);
 
                 // Set nilai parameter
-                pst.setString(1, txtEditRuangan.getText());
+                pst.setString(1, txtEditNamaDokter1.getText());
                 pst.setString(2, txtEditSpesialis.getText());
                 pst.setString(3, cbEditJenisKelamin.getSelectedItem().toString());
                 pst.setString(4, txtEditRuangan.getText());
@@ -628,8 +628,8 @@ public class Form_Dokter extends javax.swing.JPanel {
                 // Eksekusi query
                 int rowsAffected = pst.executeUpdate();
                 if (rowsAffected > 0) {
-                    JOptionPane.showMessageDialog(null, "Data Berhasil Diperbaharui dengan Nama Dokter: " + txtEditRuangan.getText());
-                    writeLog("Data Berhasil Diperbaharui dengan Nama Dokter " + txtEditRuangan.getText());
+                    JOptionPane.showMessageDialog(null, "Data Berhasil Diperbaharui dengan Nama Dokter: " + txtEditNamaDokter1.getText());
+                    writeLog("Data Berhasil Diperbaharui dengan Nama Dokter " + txtEditNamaDokter1.getText());
                 } else {
 
                 }
@@ -659,7 +659,7 @@ public class Form_Dokter extends javax.swing.JPanel {
                 JOptionPane.showMessageDialog(this, "Pilih Data Yang ingin dihapus terlebih dahulu");
             } else {
                 // Menampilkan konfirmasi sebelum menghapus data
-                int confirm = JOptionPane.showConfirmDialog(this, "Apakah Anda yakin ingin menghapus data dengan Nama Dokter: " + txtEditRuangan.getText(),
+                int confirm = JOptionPane.showConfirmDialog(this, "Apakah Anda yakin ingin menghapus data dengan Nama Dokter: " + txtHiddenIdDokter.getText(),
                         "Konfirmasi Hapus", JOptionPane.YES_NO_OPTION);
 
                 // Jika pengguna memilih YES, lanjutkan menghapus
@@ -668,8 +668,8 @@ public class Form_Dokter extends javax.swing.JPanel {
                     java.sql.Connection conn = (Connection) Config.configDB();
                     java.sql.PreparedStatement pst = conn.prepareStatement(sql);
                     pst.execute();
-                    JOptionPane.showMessageDialog(this, "Data Berhasil Dihapus dengan Nama Dokter " + txtEditRuangan.getText());
-                    writeLog("Data Berhasil Dihapus dengan Nama Dokter " + txtEditRuangan.getText());
+                    JOptionPane.showMessageDialog(this, "Data Berhasil Dihapus dengan Nama Dokter " + txtHiddenIdDokter.getText());
+                    writeLog("Data Berhasil Dihapus dengan Nama Dokter " + txtHiddenIdDokter.getText());
                 } else {
                     // Jika pengguna memilih NO, tidak melakukan apa-apa
 //                    JOptionPane.showMessageDialog(this, "Data Tidak Dihapus");

@@ -384,6 +384,7 @@ public class Form_PasienKonsul extends javax.swing.JPanel {
             }
         });
 
+        txtNamaPasien.setEditable(false);
         txtNamaPasien.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         txtNamaPasien.setToolTipText("");
         txtNamaPasien.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(0, 255, 0)));
@@ -509,7 +510,7 @@ public class Form_PasienKonsul extends javax.swing.JPanel {
 
             // Ambil data dari input form
             int idPasien = Integer.parseInt(txtHiddenIdPasien.getText());
-            String keluhan = txtWaktu.getText();
+            String keluhan = txtKeluhan1.getText();
             String tanggalKonsultasi = txtWaktu.getText(); // Format tanggal sesuai dengan tipe di database
 
             // Set nilai parameter untuk query
