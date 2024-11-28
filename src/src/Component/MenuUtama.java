@@ -102,6 +102,7 @@ public class MenuUtama extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
+        setUndecorated(true);
 
         pn_sidebar.setBackground(new java.awt.Color(220, 232, 243));
         pn_sidebar.setPreferredSize(new java.awt.Dimension(250, 495));
@@ -127,7 +128,7 @@ public class MenuUtama extends javax.swing.JFrame {
             .addGroup(pn_sidebarLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 691, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(7, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         getContentPane().add(pn_sidebar, java.awt.BorderLayout.LINE_START);
