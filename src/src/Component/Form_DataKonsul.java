@@ -596,18 +596,25 @@ public class Form_DataKonsul extends javax.swing.JPanel {
         int baris = tblKonsultasi.rowAtPoint(evt.getPoint());
 
         if (baris >= 0) {
-            String idKonsultasi = tblKonsultasi.getValueAt(baris, 1).toString();
-            String idPasien = tblKonsultasi.getValueAt(baris, 2).toString();
-            String idDokter = tblKonsultasi.getValueAt(baris, 3).toString();
-            String waktuKonsultasi = tblKonsultasi.getValueAt(baris, 4).toString();
-            String catatan = tblKonsultasi.getValueAt(baris, 5).toString();
-            String keperluanPasien = tblKonsultasi.getValueAt(baris, 6).toString();
+            Object objIdKonsultasi = tblKonsultasi.getValueAt(baris, 1);
+            Object objIdPasien = tblKonsultasi.getValueAt(baris, 2);
+            Object objIdDokter = tblKonsultasi.getValueAt(baris, 3);
+            Object objWaktuKonsultasi = tblKonsultasi.getValueAt(baris, 4);
+            Object objCatatan = tblKonsultasi.getValueAt(baris, 5);
+            Object objKeperluanPasien = tblKonsultasi.getValueAt(baris, 6);
+
+            String idKonsultasi = objIdKonsultasi != null ? objIdKonsultasi.toString() : "";
+            String idPasien = objIdPasien != null ? objIdPasien.toString() : "";
+            String idDokter = objIdDokter != null ? objIdDokter.toString() : "";
+            String waktuKonsultasi = objWaktuKonsultasi != null ? objWaktuKonsultasi.toString() : "";
+            String catatan = objCatatan != null ? objCatatan.toString() : "";
+            String keperluanPasien = objKeperluanPasien != null ? objKeperluanPasien.toString() : "";
 
             // Set nilai ke TextField
             txtHiddenIdKonsultasi.setText(idKonsultasi);
             txtEditWaktu.setText(waktuKonsultasi);
-            txtEditWaktu.setText(catatan);
-            txtEditWaktu.setText(keperluanPasien);
+            txtEditCatatan1.setText(catatan);
+            txtEditKeluhan1.setText(keperluanPasien);
 
             // Pilih item pada ComboBox Pasien
             for (int i = 0; i < cbEditNamaPasien.getItemCount(); i++) {
@@ -662,8 +669,8 @@ public class Form_DataKonsul extends javax.swing.JPanel {
             int idDokter = Integer.parseInt(dokterItem.substring(dokterItem.indexOf("ID:") + 3, dokterItem.indexOf(")")).trim());
 
             String waktuKonsultasi = txtEditWaktu.getText();
-            String catatan = txtEditWaktu.getText();
-            String keperluanPasien = txtEditWaktu.getText();
+            String catatan = txtEditCatatan1.getText();
+            String keperluanPasien = txtEditKeluhan1.getText();
             int idKonsultasi = Integer.parseInt(txtHiddenIdKonsultasi.getText()); // ID Konsultasi yang diupdate
 
             // Validasi input
