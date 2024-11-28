@@ -42,7 +42,7 @@ public class Form_User extends javax.swing.JPanel {
     }
 
     private void bersihkan() {
-        txtUsername.setText(null);
+        txtPassword.setText(null);
         txtPassword.setText(null);
         cbLevel.setSelectedIndex(0);
     }
@@ -65,44 +65,52 @@ public class Form_User extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel13 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
         mainPanel = new javax.swing.JPanel();
         dataUser = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblUser = new javax.swing.JTable();
-        jLabel1 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
         btTambah = new javax.swing.JButton();
         bt_edit = new javax.swing.JButton();
         btHapus = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
         editUSer = new javax.swing.JPanel();
-        jLabel4 = new javax.swing.JLabel();
         btEditSimpan = new javax.swing.JButton();
         btBatal1 = new javax.swing.JButton();
-        cbEditLevel = new javax.swing.JComboBox<>();
         jPanel2 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
-        txtEditUsername = new javax.swing.JTextField();
-        jLabel8 = new javax.swing.JLabel();
-        txtEditPassword = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
+        cbEditLevel = new javax.swing.JComboBox<>();
+        txtEditUsername = new javax.swing.JTextField();
+        txtEditPassword = new javax.swing.JTextField();
+        jLabel64 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
         txtHiddenUsername = new javax.swing.JTextField();
-        cbLevel3 = new javax.swing.JComboBox<>();
         TambahUser = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
-        btSimpan = new javax.swing.JButton();
-        btBatal = new javax.swing.JButton();
-        cbLevel = new javax.swing.JComboBox<>();
         jPanel1 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
-        txtUsername = new javax.swing.JTextField();
-        jLabel5 = new javax.swing.JLabel();
-        txtPassword = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
-        cbLevel1 = new javax.swing.JComboBox<>();
+        jLabel5 = new javax.swing.JLabel();
+        cbLevel = new javax.swing.JComboBox<>();
+        txtPassword = new javax.swing.JTextField();
+        txtUsername = new javax.swing.JTextField();
+        jLabel65 = new javax.swing.JLabel();
+        btSimpan = new javax.swing.JButton();
+        btBatal = new javax.swing.JButton();
+
+        jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/asset/image 12.png"))); // NOI18N
+
+        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/asset/image 10.png"))); // NOI18N
 
         setLayout(new java.awt.CardLayout());
 
         mainPanel.setLayout(new java.awt.CardLayout());
 
+        dataUser.setBackground(new java.awt.Color(255, 255, 255));
         dataUser.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         tblUser.setModel(new javax.swing.table.DefaultTableModel(
@@ -123,59 +131,86 @@ public class Form_User extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(tblUser);
 
-        dataUser.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 110, 1470, 360));
+        dataUser.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 70, 1040, 370));
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
-        jLabel1.setText("Data User");
-        dataUser.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 6, 177, -1));
+        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/asset/pngtree-blue-plus-concept-icon-on-white-background-png-image_8159235-removebg-preview 1_1.png"))); // NOI18N
+        dataUser.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 470, -1, -1));
 
+        jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/asset/image 12.png"))); // NOI18N
+        dataUser.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 470, -1, -1));
+
+        jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/asset/image 10.png"))); // NOI18N
+        dataUser.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(1080, 470, 30, -1));
+
+        btTambah.setBackground(new java.awt.Color(195, 224, 253));
+        btTambah.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btTambah.setText("Tambah");
         btTambah.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btTambahActionPerformed(evt);
             }
         });
-        dataUser.add(btTambah, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, 94, -1));
+        dataUser.add(btTambah, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 460, 100, 50));
 
+        bt_edit.setBackground(new java.awt.Color(129, 179, 251));
+        bt_edit.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         bt_edit.setText("Edit");
         bt_edit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bt_editActionPerformed(evt);
             }
         });
-        dataUser.add(bt_edit, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 80, 94, -1));
+        dataUser.add(bt_edit, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 460, 100, 50));
 
+        btHapus.setBackground(new java.awt.Color(195, 224, 253));
+        btHapus.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btHapus.setText("Hapus");
         btHapus.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btHapusActionPerformed(evt);
             }
         });
-        dataUser.add(btHapus, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 80, 94, -1));
+        dataUser.add(btHapus, new org.netbeans.lib.awtextra.AbsoluteConstraints(1070, 460, 100, 50));
+
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(51, 51, 255));
+        jLabel1.setText("Data user");
+        dataUser.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 20, 140, -1));
 
         mainPanel.add(dataUser, "card2");
 
+        editUSer.setBackground(new java.awt.Color(255, 255, 255));
         editUSer.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
-        jLabel4.setText("Edit User");
-        editUSer.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 240, -1));
-
+        btEditSimpan.setBackground(new java.awt.Color(195, 224, 253));
+        btEditSimpan.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
+        btEditSimpan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/asset/Vector.png"))); // NOI18N
         btEditSimpan.setText("Simpan");
         btEditSimpan.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btEditSimpanActionPerformed(evt);
             }
         });
-        editUSer.add(btEditSimpan, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 73, 100, 30));
+        editUSer.add(btEditSimpan, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 350, 100, 40));
 
+        btBatal1.setBackground(new java.awt.Color(204, 255, 255));
+        btBatal1.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
+        btBatal1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/asset/image 10.png"))); // NOI18N
         btBatal1.setText("Batal");
         btBatal1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btBatal1ActionPerformed(evt);
             }
         });
-        editUSer.add(btBatal1, new org.netbeans.lib.awtextra.AbsoluteConstraints(106, 73, 100, 30));
+        editUSer.add(btBatal1, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 350, 100, 40));
+
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+
+        jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel6.setText("Password");
+
+        jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel9.setText("Level");
 
         cbEditLevel.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Level 1 (User)", "Level 2 (Pegawai)", "Level 3 (Admin)" }));
         cbEditLevel.addActionListener(new java.awt.event.ActionListener() {
@@ -183,17 +218,24 @@ public class Form_User extends javax.swing.JPanel {
                 cbEditLevelActionPerformed(evt);
             }
         });
-        editUSer.add(cbEditLevel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 340, 460, 40));
 
-        jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        jLabel6.setText("Password");
+        txtEditUsername.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        txtEditUsername.setToolTipText("");
+        txtEditUsername.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(0, 255, 0)));
+        txtEditUsername.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtEditUsernameActionPerformed(evt);
+            }
+        });
 
-        jLabel8.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        jLabel8.setText("Username");
-
-        jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel9.setText("Level");
+        txtEditPassword.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        txtEditPassword.setToolTipText("");
+        txtEditPassword.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(0, 255, 0)));
+        txtEditPassword.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtEditPasswordActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -202,90 +244,89 @@ public class Form_User extends javax.swing.JPanel {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(228, 228, 228)
-                                .addComponent(txtHiddenUsername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(txtEditPassword)
-                        .addContainerGap())))
+                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cbEditLevel, javax.swing.GroupLayout.PREFERRED_SIZE, 460, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(txtEditUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 1447, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtEditPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 484, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
+            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel2Layout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(txtEditUsername, javax.swing.GroupLayout.DEFAULT_SIZE, 484, Short.MAX_VALUE)
+                    .addContainerGap()))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(26, 26, 26)
-                .addComponent(jLabel8)
+                .addGap(44, 44, 44)
+                .addComponent(jLabel6)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtEditUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel6)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtEditPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel9))
-                    .addComponent(txtHiddenUsername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(txtEditPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(31, 31, 31)
+                .addComponent(jLabel9)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(cbEditLevel, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(18, Short.MAX_VALUE))
+            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel2Layout.createSequentialGroup()
+                    .addGap(10, 10, 10)
+                    .addComponent(txtEditUsername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(192, Short.MAX_VALUE)))
         );
 
         editUSer.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, -1, -1));
 
-        cbLevel3.setBackground(new java.awt.Color(153, 153, 255));
-        cbLevel3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Level 1 (User)", "Level 2 (Pegawai)", "Level 3 (Admin)" }));
-        editUSer.add(cbLevel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(323, 224, 364, -1));
+        jLabel64.setBackground(new java.awt.Color(102, 102, 255));
+        jLabel64.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        jLabel64.setForeground(new java.awt.Color(51, 51, 255));
+        jLabel64.setText("Edit User");
+        editUSer.add(jLabel64, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
+
+        jLabel8.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel8.setText("Username");
+        editUSer.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 139, -1));
+        editUSer.add(txtHiddenUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 200, -1, -1));
 
         mainPanel.add(editUSer, "card2");
 
+        TambahUser.setBackground(new java.awt.Color(255, 255, 255));
         TambahUser.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
-        jLabel2.setText("Tambah User");
-        TambahUser.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 240, -1));
-
-        btSimpan.setText("Simpan");
-        btSimpan.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btSimpanActionPerformed(evt);
-            }
-        });
-        TambahUser.add(btSimpan, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 73, 100, 30));
-
-        btBatal.setText("Batal");
-        btBatal.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btBatalActionPerformed(evt);
-            }
-        });
-        TambahUser.add(btBatal, new org.netbeans.lib.awtextra.AbsoluteConstraints(106, 73, 100, 30));
-
-        cbLevel.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Level 1 (User)", "Level 2 (Pegawai)", "Level 3 (Admin)" }));
-        TambahUser.add(cbLevel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 340, 390, 40));
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel3.setText("Password");
 
-        txtUsername.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                txtUsernameMouseClicked(evt);
-            }
-        });
+        jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel7.setText("Level");
 
         jLabel5.setBackground(new java.awt.Color(255, 255, 255));
         jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel5.setText("Username");
 
-        jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel7.setText("Level");
+        cbLevel.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Level 1 (User)", "Level 2 (Pegawai)", "Level 3 (Admin)" }));
+
+        txtPassword.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        txtPassword.setToolTipText("");
+        txtPassword.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(0, 255, 0)));
+        txtPassword.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtPasswordActionPerformed(evt);
+            }
+        });
+
+        txtUsername.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        txtUsername.setToolTipText("");
+        txtUsername.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(0, 255, 0)));
+        txtUsername.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtUsernameActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -294,39 +335,61 @@ public class Form_User extends javax.swing.JPanel {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(1314, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(txtUsername, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtPassword))
-                        .addGap(25, 25, 25))))
+                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cbLevel, javax.swing.GroupLayout.PREFERRED_SIZE, 390, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 476, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 476, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(58, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(26, 26, 26)
+                .addGap(12, 12, 12)
                 .addComponent(jLabel5)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(txtUsername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(19, 19, 19)
                 .addComponent(jLabel7)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(cbLevel, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        TambahUser.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, -1, -1));
+        TambahUser.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 540, -1));
 
-        cbLevel1.setBackground(new java.awt.Color(153, 153, 255));
-        cbLevel1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Level 1 (User)", "Level 2 (Pegawai)", "Level 3 (Admin)" }));
-        TambahUser.add(cbLevel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(323, 224, 364, -1));
+        jLabel65.setBackground(new java.awt.Color(102, 102, 255));
+        jLabel65.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        jLabel65.setForeground(new java.awt.Color(51, 51, 255));
+        jLabel65.setText("Tambah user");
+        TambahUser.add(jLabel65, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
+
+        btSimpan.setBackground(new java.awt.Color(195, 224, 253));
+        btSimpan.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
+        btSimpan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/asset/Vector.png"))); // NOI18N
+        btSimpan.setText("Simpan");
+        btSimpan.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btSimpanActionPerformed(evt);
+            }
+        });
+        TambahUser.add(btSimpan, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 320, 100, 40));
+
+        btBatal.setBackground(new java.awt.Color(204, 255, 255));
+        btBatal.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
+        btBatal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/asset/image 10.png"))); // NOI18N
+        btBatal.setText("Batal");
+        btBatal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btBatalActionPerformed(evt);
+            }
+        });
+        TambahUser.add(btBatal, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 320, 100, 40));
 
         mainPanel.add(TambahUser, "card2");
 
@@ -340,14 +403,14 @@ public class Form_User extends javax.swing.JPanel {
         mainPanel.repaint();
         mainPanel.revalidate();
         try {
-            String sql = "INSERT INTO t_user VALUES ('" + txtUsername.getText()
+            String sql = "INSERT INTO t_user VALUES ('" + txtPassword.getText()
                     + "','" + txtPassword.getText()
                     + "','" + (cbLevel.getSelectedIndex() + 1) + "')";
             java.sql.Connection conn = (Connection) Config.configDB();
             java.sql.PreparedStatement pst = conn.prepareStatement(sql);
             pst.execute();
             JOptionPane.showMessageDialog(null, "Penyimpanan Data Berhasil");
-            writeLog("Penyimpanan Data Berhasil dengan Username " + txtUsername.getText());
+            writeLog("Penyimpanan Data Berhasil dengan Username " + txtPassword.getText());
             load_table();
             bersihkan();
         } catch (Exception e) {
@@ -387,7 +450,7 @@ public class Form_User extends javax.swing.JPanel {
         String level = tblUser.getValueAt(baris, 3).toString().trim(); // Ambil nilai level (1, 2, atau 3)
         // Konversi nilai level (angka) ke indeks untuk JComboBox
         int levelIndex = Integer.parseInt(level) - 1; // Karena indeks JComboBox dimulai dari 0
-        txtEditUsername.setText(username);
+        txtEditPassword.setText(username);
         txtHiddenUsername.setText(username);
         txtEditPassword.setText(password);
         // Set JComboBox ke indeks yang sesuai
@@ -403,18 +466,18 @@ public class Form_User extends javax.swing.JPanel {
         mainPanel.revalidate();
 
         try {
-            if ("".equals(txtEditUsername.getText())) {
+            if ("".equals(txtEditPassword.getText())) {
                 JOptionPane.showMessageDialog(this, "Isikan Username terlebih dahulu");
             } else {
-                String sql = "UPDATE t_user SET username = '" + txtEditUsername.getText()
+                String sql = "UPDATE t_user SET username = '" + txtEditPassword.getText()
                         + "', password= '" + txtEditPassword.getText()
                         + "', level = '" + (cbEditLevel.getSelectedIndex() + 1)
                         + "' WHERE t_user.username = '" + txtHiddenUsername.getText() + "'";
                 java.sql.Connection conn = (Connection) Config.configDB();
                 java.sql.PreparedStatement pst = conn.prepareStatement(sql);
                 pst.execute();
-                JOptionPane.showMessageDialog(null, "Data Berhasil Diperbaharui dengan Username" + txtEditUsername.getText());
-                writeLog("Data Berhasil Diperbaharui dengan NIM " + txtEditUsername.getText());
+                JOptionPane.showMessageDialog(null, "Data Berhasil Diperbaharui dengan Username" + txtEditPassword.getText());
+                writeLog("Data Berhasil Diperbaharui dengan NIM " + txtEditPassword.getText());
             }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Perubahan Data Gagal" + e.getMessage());
@@ -448,21 +511,21 @@ public class Form_User extends javax.swing.JPanel {
     private void btHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btHapusActionPerformed
         // TODO add your handling code here:
         try {
-            if ("".equals(txtEditUsername.getText())) {
+            if ("".equals(txtEditPassword.getText())) {
                 JOptionPane.showMessageDialog(this, "Pilih Data Yang ingin dihapus terlebih dahulu");
             } else {
                 // Menampilkan konfirmasi sebelum menghapus data
-                int confirm = JOptionPane.showConfirmDialog(this, "Apakah Anda yakin ingin menghapus data dengan Username: " + txtEditUsername.getText(),
+                int confirm = JOptionPane.showConfirmDialog(this, "Apakah Anda yakin ingin menghapus data dengan Username: " + txtEditPassword.getText(),
                         "Konfirmasi Hapus", JOptionPane.YES_NO_OPTION);
 
                 // Jika pengguna memilih YES, lanjutkan menghapus
                 if (confirm == JOptionPane.YES_OPTION) {
-                    String sql = "DELETE FROM t_user WHERE username='" + txtEditUsername.getText() + "'";
+                    String sql = "DELETE FROM t_user WHERE username='" + txtEditPassword.getText() + "'";
                     java.sql.Connection conn = (Connection) Config.configDB();
                     java.sql.PreparedStatement pst = conn.prepareStatement(sql);
                     pst.execute();
-                    JOptionPane.showMessageDialog(this, "Data Berhasil Dihapus dengan Username " + txtEditUsername.getText());
-                    writeLog("Data Berhasil Dihapus dengan Username " + txtEditUsername.getText());
+                    JOptionPane.showMessageDialog(this, "Data Berhasil Dihapus dengan Username " + txtEditPassword.getText());
+                    writeLog("Data Berhasil Dihapus dengan Username " + txtEditPassword.getText());
                 } else {
                     // Jika pengguna memilih NO, tidak melakukan apa-apa
 //                    JOptionPane.showMessageDialog(this, "Data Tidak Dihapus");
@@ -476,9 +539,21 @@ public class Form_User extends javax.swing.JPanel {
 
     }//GEN-LAST:event_btHapusActionPerformed
 
-    private void txtUsernameMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtUsernameMouseClicked
+    private void txtEditPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEditPasswordActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtUsernameMouseClicked
+    }//GEN-LAST:event_txtEditPasswordActionPerformed
+
+    private void txtEditUsernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEditUsernameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtEditUsernameActionPerformed
+
+    private void txtPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPasswordActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPasswordActionPerformed
+
+    private void txtUsernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUsernameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtUsernameActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -492,16 +567,19 @@ public class Form_User extends javax.swing.JPanel {
     private javax.swing.JButton bt_edit;
     private javax.swing.JComboBox<String> cbEditLevel;
     private javax.swing.JComboBox<String> cbLevel;
-    private javax.swing.JComboBox<String> cbLevel1;
-    private javax.swing.JComboBox<String> cbLevel3;
     private javax.swing.JPanel dataUser;
     private javax.swing.JPanel editUSer;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel64;
+    private javax.swing.JLabel jLabel65;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
