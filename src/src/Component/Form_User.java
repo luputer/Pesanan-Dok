@@ -71,9 +71,6 @@ public class Form_User extends javax.swing.JPanel {
         dataUser = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblUser = new javax.swing.JTable();
-        jLabel10 = new javax.swing.JLabel();
-        jLabel14 = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
         btTambah = new javax.swing.JButton();
         bt_edit = new javax.swing.JButton();
         btHapus = new javax.swing.JButton();
@@ -131,39 +128,33 @@ public class Form_User extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(tblUser);
 
-        dataUser.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 70, 1040, 370));
-
-        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/asset/pngtree-blue-plus-concept-icon-on-white-background-png-image_8159235-removebg-preview 1_1.png"))); // NOI18N
-        dataUser.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 470, -1, -1));
-
-        jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/asset/image 12.png"))); // NOI18N
-        dataUser.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 470, -1, -1));
-
-        jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/asset/image 10.png"))); // NOI18N
-        dataUser.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(1080, 470, 30, -1));
+        dataUser.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 70, 1100, 370));
 
         btTambah.setBackground(new java.awt.Color(195, 224, 253));
         btTambah.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btTambah.setIcon(new javax.swing.ImageIcon(getClass().getResource("/asset/pngtree-blue-plus-concept-icon-on-white-background-png-image_8159235-removebg-preview 1.png"))); // NOI18N
         btTambah.setText("Tambah");
         btTambah.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btTambahActionPerformed(evt);
             }
         });
-        dataUser.add(btTambah, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 460, 100, 50));
+        dataUser.add(btTambah, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 460, 120, 50));
 
         bt_edit.setBackground(new java.awt.Color(129, 179, 251));
         bt_edit.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        bt_edit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/asset/image 12.png"))); // NOI18N
         bt_edit.setText("Edit");
         bt_edit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bt_editActionPerformed(evt);
             }
         });
-        dataUser.add(bt_edit, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 460, 100, 50));
+        dataUser.add(bt_edit, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 460, 110, 50));
 
         btHapus.setBackground(new java.awt.Color(195, 224, 253));
         btHapus.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btHapus.setIcon(new javax.swing.ImageIcon(getClass().getResource("/asset/image 10.png"))); // NOI18N
         btHapus.setText("Hapus");
         btHapus.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -378,18 +369,18 @@ public class Form_User extends javax.swing.JPanel {
                 btSimpanActionPerformed(evt);
             }
         });
-        TambahUser.add(btSimpan, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 320, 100, 40));
+        TambahUser.add(btSimpan, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 330, 100, 40));
 
         btBatal.setBackground(new java.awt.Color(204, 255, 255));
         btBatal.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
-        btBatal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/asset/image 10.png"))); // NOI18N
+        btBatal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/asset/image 12.png"))); // NOI18N
         btBatal.setText("Batal");
         btBatal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btBatalActionPerformed(evt);
             }
         });
-        TambahUser.add(btBatal, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 320, 100, 40));
+        TambahUser.add(btBatal, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 330, 100, 40));
 
         mainPanel.add(TambahUser, "card2");
 
@@ -570,11 +561,8 @@ public class Form_User extends javax.swing.JPanel {
     private javax.swing.JPanel dataUser;
     private javax.swing.JPanel editUSer;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;

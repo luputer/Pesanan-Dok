@@ -227,6 +227,7 @@
             <Property name="text" type="java.lang.String" value="Login"/>
           </Properties>
           <Events>
+            <EventHandler event="componentMoved" listener="java.awt.event.ComponentListener" parameters="java.awt.event.ComponentEvent" handler="btn_loginComponentMoved"/>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_loginActionPerformed"/>
           </Events>
           <Constraints>
@@ -250,7 +251,7 @@
           </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="810" y="440" width="50" height="-1"/>
+              <AbsoluteConstraints x="820" y="440" width="50" height="-1"/>
             </Constraint>
           </Constraints>
         </Component>

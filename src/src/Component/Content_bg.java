@@ -27,45 +27,35 @@ public class Content_bg extends javax.swing.JPanel {
     private void initComponents() {
 
         dashbord = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
 
         dashbord.setBackground(new java.awt.Color(255, 255, 255));
         dashbord.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        dashbord.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, -1, -1));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/asset/Group 51 (1).png"))); // NOI18N
-        dashbord.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, -1, 380));
-
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel4.setText("Menjaga kesehatan anda, itu Tugas kami");
-        dashbord.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 200, 270, 40));
-
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/asset/HEALINK (3).png"))); // NOI18N
-        dashbord.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 140, -1, -1));
-
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/asset/Rectangle 29 (11).png"))); // NOI18N
-        dashbord.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, -20, 1280, 480));
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/asset/Dashboard (1).png"))); // NOI18N
+        dashbord.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(-190, 0, 1080, 570));
+        dashbord.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(dashbord, javax.swing.GroupLayout.DEFAULT_SIZE, 1457, Short.MAX_VALUE)
+            .addComponent(dashbord, javax.swing.GroupLayout.PREFERRED_SIZE, 943, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(dashbord, javax.swing.GroupLayout.DEFAULT_SIZE, 517, Short.MAX_VALUE)
+            .addComponent(dashbord, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel dashbord;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     // End of variables declaration//GEN-END:variables
 }

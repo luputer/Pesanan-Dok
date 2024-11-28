@@ -270,7 +270,7 @@ public class MenuUtama extends javax.swing.JFrame {
         ImageIcon iconPasien  = new ImageIcon(getClass().getResource("/asset/iconPasien.png"));
         ImageIcon iconkonsul  = new ImageIcon(getClass().getResource("/asset/iconkonsul.png"));
         ImageIcon icondatakonsul   = new ImageIcon(getClass().getResource("/asset/icondatakonsul.png"));
-        ImageIcon iconAbout    = new ImageIcon(getClass().getResource("/asset/iconAbout.png"));
+        ImageIcon iconAbout    = new ImageIcon(getClass().getResource("/asset/Abouticon.png"));
         ImageIcon iconExit    = new ImageIcon(getClass().getResource("/asset/exit.png"));
         
         

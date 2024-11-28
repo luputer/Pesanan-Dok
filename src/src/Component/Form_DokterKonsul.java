@@ -216,13 +216,13 @@ public class Form_DokterKonsul extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(tblDokterKonsul);
 
-        dataKonsul.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 60, 920, 370));
+        dataKonsul.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 70, 980, 370));
 
         jLabel64.setBackground(new java.awt.Color(102, 102, 255));
         jLabel64.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLabel64.setForeground(new java.awt.Color(51, 51, 255));
         jLabel64.setText("data konsultasi");
-        dataKonsul.add(jLabel64, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
+        dataKonsul.add(jLabel64, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, -1, -1));
 
         jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/asset/image 12.png"))); // NOI18N
         dataKonsul.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 470, -1, -1));
