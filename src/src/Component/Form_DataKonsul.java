@@ -191,7 +191,7 @@ public class Form_DataKonsul extends javax.swing.JPanel {
         jLabel22.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLabel22.setForeground(new java.awt.Color(51, 51, 255));
         jLabel22.setText("data hasil konsultasi");
-        dataKonsul.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 30, -1, -1));
+        dataKonsul.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 40, -1, -1));
 
         btTambah.setBackground(new java.awt.Color(195, 224, 253));
         btTambah.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -284,7 +284,7 @@ public class Form_DataKonsul extends javax.swing.JPanel {
 
         btBatalKonsul.setBackground(new java.awt.Color(204, 255, 255));
         btBatalKonsul.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
-        btBatalKonsul.setIcon(new javax.swing.ImageIcon(getClass().getResource("/asset/Group 2802.png"))); // NOI18N
+        btBatalKonsul.setIcon(new javax.swing.ImageIcon(getClass().getResource("/asset/Group 2803.png"))); // NOI18N
         btBatalKonsul.setText("Batal");
         btBatalKonsul.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -299,9 +299,9 @@ public class Form_DataKonsul extends javax.swing.JPanel {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(149, 149, 149)
+                        .addGap(14, 14, 14)
                         .addComponent(btSimpanKonsul)
-                        .addGap(18, 18, 18)
+                        .addGap(30, 30, 30)
                         .addComponent(btBatalKonsul, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addContainerGap()
@@ -343,9 +343,9 @@ public class Form_DataKonsul extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtEditWaktu, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(26, 26, 26)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btBatalKonsul, javax.swing.GroupLayout.DEFAULT_SIZE, 46, Short.MAX_VALUE)
-                    .addComponent(btSimpanKonsul, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btBatalKonsul, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btSimpanKonsul, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(14, Short.MAX_VALUE))
         );
 
@@ -453,7 +453,7 @@ public class Form_DataKonsul extends javax.swing.JPanel {
                             .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(cbTambahNamaDokter, javax.swing.GroupLayout.PREFERRED_SIZE, 390, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 1032, Short.MAX_VALUE))
+                        .addGap(0, 464, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(txtWaktu, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 495, Short.MAX_VALUE)
@@ -462,7 +462,7 @@ public class Form_DataKonsul extends javax.swing.JPanel {
                             .addComponent(txtKeluhan, javax.swing.GroupLayout.Alignment.LEADING))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(144, 144, 144)
+                .addGap(34, 34, 34)
                 .addComponent(btSimpan)
                 .addGap(31, 31, 31)
                 .addComponent(btBatal, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -491,13 +491,14 @@ public class Form_DataKonsul extends javax.swing.JPanel {
                 .addComponent(jLabel8)
                 .addGap(18, 18, 18)
                 .addComponent(txtWaktu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btSimpan, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btBatal, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(btBatal, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 12, Short.MAX_VALUE))
         );
 
-        tambahKonsul.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, -1, 490));
+        tambahKonsul.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 860, 510));
 
         cbLevel1.setBackground(new java.awt.Color(153, 153, 255));
         cbLevel1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Level 1 (User)", "Level 2 (Pegawai)", "Level 3 (Admin)" }));

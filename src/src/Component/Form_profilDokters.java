@@ -134,7 +134,7 @@ public class Form_profilDokters extends javax.swing.JPanel {
 
         btBatal2.setBackground(new java.awt.Color(204, 255, 255));
         btBatal2.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
-        btBatal2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/asset/image 10.png"))); // NOI18N
+        btBatal2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/asset/Group 2803.png"))); // NOI18N
         btBatal2.setText("Batal");
         btBatal2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -158,7 +158,6 @@ public class Form_profilDokters extends javax.swing.JPanel {
                     .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(txtEditNamaDokter, javax.swing.GroupLayout.DEFAULT_SIZE, 280, Short.MAX_VALUE)
                         .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(txtEditSpesialis))
                     .addGroup(jPanel3Layout.createSequentialGroup()
@@ -178,7 +177,9 @@ public class Form_profilDokters extends javax.swing.JPanel {
                         .addComponent(txtHiddeIdDokter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(116, 116, 116))
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addComponent(cbEditJenisKelamin, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(cbEditJenisKelamin, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
@@ -207,14 +208,14 @@ public class Form_profilDokters extends javax.swing.JPanel {
                         .addComponent(jLabel14)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
                         .addComponent(txtEditRuangan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(36, 36, 36)
+                        .addGap(18, 18, 18)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(btEditSimpan, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btBatal2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap())))
+                        .addGap(24, 24, 24))))
         );
 
-        editProfileDokter.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, 740, 410));
+        editProfileDokter.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, 740, 410));
 
         cbLevel5.setBackground(new java.awt.Color(153, 153, 255));
         cbLevel5.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Level 1 (User)", "Level 2 (Pegawai)", "Level 3 (Admin)" }));
@@ -224,7 +225,7 @@ public class Form_profilDokters extends javax.swing.JPanel {
         jLabel64.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLabel64.setForeground(new java.awt.Color(51, 51, 255));
         jLabel64.setText("Edit Biodata Dokter");
-        editProfileDokter.add(jLabel64, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, -1, -1));
+        editProfileDokter.add(jLabel64, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
 
         mainPanel.add(editProfileDokter, "card2");
 

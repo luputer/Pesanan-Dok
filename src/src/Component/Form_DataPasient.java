@@ -152,12 +152,12 @@ public class Form_DataPasient extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(tblPasien);
 
-        dataDokter.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 90, 970, 380));
+        dataDokter.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 80, 1030, 380));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(51, 51, 255));
         jLabel1.setText("Data Pasient");
-        dataDokter.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 40, 140, -1));
+        dataDokter.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, 140, -1));
 
         btTambah.setBackground(new java.awt.Color(195, 224, 253));
         btTambah.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
@@ -169,7 +169,7 @@ public class Form_DataPasient extends javax.swing.JPanel {
                 btTambahActionPerformed(evt);
             }
         });
-        dataDokter.add(btTambah, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 500, 130, 50));
+        dataDokter.add(btTambah, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 490, 130, 50));
 
         bt_edit.setBackground(new java.awt.Color(129, 179, 251));
         bt_edit.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -180,7 +180,7 @@ public class Form_DataPasient extends javax.swing.JPanel {
                 bt_editActionPerformed(evt);
             }
         });
-        dataDokter.add(bt_edit, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 500, 130, 50));
+        dataDokter.add(bt_edit, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 490, 130, 50));
 
         btHapus.setBackground(new java.awt.Color(195, 224, 253));
         btHapus.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -191,7 +191,7 @@ public class Form_DataPasient extends javax.swing.JPanel {
                 btHapusActionPerformed(evt);
             }
         });
-        dataDokter.add(btHapus, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 500, 130, 50));
+        dataDokter.add(btHapus, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 490, 130, 50));
 
         mainPanel.add(dataDokter, "card2");
 
@@ -222,8 +222,8 @@ public class Form_DataPasient extends javax.swing.JPanel {
         });
 
         btBatal.setBackground(new java.awt.Color(204, 255, 255));
-        btBatal.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
-        btBatal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/asset/image 12.png"))); // NOI18N
+        btBatal.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
+        btBatal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/asset/Group 2803.png"))); // NOI18N
         btBatal.setText("Batal");
         btBatal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -257,9 +257,9 @@ public class Form_DataPasient extends javax.swing.JPanel {
                         .addGap(15, 15, 15)
                         .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(24, 24, 24)
+                        .addGap(20, 20, 20)
                         .addComponent(btSimpan, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(28, 28, 28)
+                        .addGap(32, 32, 32)
                         .addComponent(btBatal, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(txtTambahNama, javax.swing.GroupLayout.PREFERRED_SIZE, 427, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -275,7 +275,7 @@ public class Form_DataPasient extends javax.swing.JPanel {
                 .addComponent(txtTambahNama, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
                 .addComponent(cbTambahJenisKelamin, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel7)

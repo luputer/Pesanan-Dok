@@ -216,7 +216,7 @@ public class Form_DokterKonsul extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(tblDokterKonsul);
 
-        dataKonsul.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 70, 980, 370));
+        dataKonsul.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 60, 980, 370));
 
         jLabel64.setBackground(new java.awt.Color(102, 102, 255));
         jLabel64.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
@@ -225,7 +225,7 @@ public class Form_DokterKonsul extends javax.swing.JPanel {
         dataKonsul.add(jLabel64, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, -1, -1));
 
         jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/asset/image 12.png"))); // NOI18N
-        dataKonsul.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 470, -1, -1));
+        dataKonsul.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 470, -1, -1));
 
         bt_edit.setBackground(new java.awt.Color(129, 179, 251));
         bt_edit.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -235,7 +235,7 @@ public class Form_DokterKonsul extends javax.swing.JPanel {
                 bt_editActionPerformed(evt);
             }
         });
-        dataKonsul.add(bt_edit, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 460, 100, 50));
+        dataKonsul.add(bt_edit, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 460, 120, 50));
 
         mainPanel.add(dataKonsul, "card2");
 
@@ -268,7 +268,7 @@ public class Form_DokterKonsul extends javax.swing.JPanel {
 
         btBatalKonsul.setBackground(new java.awt.Color(204, 255, 255));
         btBatalKonsul.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
-        btBatalKonsul.setIcon(new javax.swing.ImageIcon(getClass().getResource("/asset/image 10.png"))); // NOI18N
+        btBatalKonsul.setIcon(new javax.swing.ImageIcon(getClass().getResource("/asset/Group 2803.png"))); // NOI18N
         btBatalKonsul.setText("Batal");
         btBatalKonsul.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -342,9 +342,9 @@ public class Form_DokterKonsul extends javax.swing.JPanel {
                                 .addComponent(txtWaktu, javax.swing.GroupLayout.Alignment.LEADING))
                             .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(164, 164, 164)
+                        .addGap(26, 26, 26)
                         .addComponent(btSimpanKonsul)
-                        .addGap(18, 18, 18)
+                        .addGap(55, 55, 55)
                         .addComponent(btBatalKonsul, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(0, 725, Short.MAX_VALUE))
         );

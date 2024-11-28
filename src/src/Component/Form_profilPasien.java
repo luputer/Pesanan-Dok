@@ -95,14 +95,14 @@ public class Form_profilPasien extends javax.swing.JPanel {
 
         btBatal1.setBackground(new java.awt.Color(204, 255, 255));
         btBatal1.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
-        btBatal1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/asset/image 12.png"))); // NOI18N
+        btBatal1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/asset/Group 2803.png"))); // NOI18N
         btBatal1.setText("Batal");
         btBatal1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btBatal1ActionPerformed(evt);
             }
         });
-        editUSer.add(btBatal1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 360, 120, 50));
+        editUSer.add(btBatal1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 360, 120, 50));
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 

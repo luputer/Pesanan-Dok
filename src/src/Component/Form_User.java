@@ -373,7 +373,7 @@ public class Form_User extends javax.swing.JPanel {
 
         btBatal.setBackground(new java.awt.Color(204, 255, 255));
         btBatal.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
-        btBatal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/asset/image 12.png"))); // NOI18N
+        btBatal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/asset/Group 2803.png"))); // NOI18N
         btBatal.setText("Batal");
         btBatal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

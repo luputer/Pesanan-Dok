@@ -101,7 +101,7 @@
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="50" y="30" width="-1" height="-1"/>
+                  <AbsoluteConstraints x="30" y="40" width="-1" height="-1"/>
                 </Constraint>
               </Constraints>
             </Component>
@@ -207,9 +207,9 @@
                       <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace min="-2" pref="149" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
                                   <Component id="btSimpanKonsul" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                                   <Component id="btBatalKonsul" min="-2" pref="110" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
@@ -258,9 +258,9 @@
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="txtEditWaktu" min="-2" pref="38" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="btBatalKonsul" pref="46" max="32767" attributes="0"/>
-                              <Component id="btSimpanKonsul" max="32767" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="btBatalKonsul" alignment="3" min="-2" pref="46" max="-2" attributes="0"/>
+                              <Component id="btSimpanKonsul" alignment="3" min="-2" pref="46" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace pref="14" max="32767" attributes="0"/>
                       </Group>
@@ -402,7 +402,7 @@
                       <Font name="Segoe UI Black" size="12" style="0"/>
                     </Property>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/asset/Group 2802.png"/>
+                      <Image iconType="3" name="/asset/Group 2803.png"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="Batal"/>
                   </Properties>
@@ -495,7 +495,7 @@
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="20" y="50" width="-1" height="490"/>
+                  <AbsoluteConstraints x="20" y="50" width="860" height="510"/>
                 </Constraint>
               </Constraints>
 
@@ -514,7 +514,7 @@
                                       <Component id="jLabel3" alignment="0" min="-2" pref="176" max="-2" attributes="0"/>
                                       <Component id="cbTambahNamaDokter" alignment="0" min="-2" pref="390" max="-2" attributes="0"/>
                                   </Group>
-                                  <EmptySpace min="0" pref="1032" max="32767" attributes="0"/>
+                                  <EmptySpace min="0" pref="464" max="32767" attributes="0"/>
                               </Group>
                               <Group type="102" attributes="0">
                                   <Group type="103" groupAlignment="1" max="-2" attributes="0">
@@ -528,7 +528,7 @@
                           </Group>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="144" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
                           <Component id="btSimpan" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
                           <Component id="btBatal" min="-2" pref="113" max="-2" attributes="0"/>
@@ -559,11 +559,12 @@
                           <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="txtWaktu" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="10" max="32767" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="btSimpan" alignment="3" min="-2" pref="49" max="-2" attributes="0"/>
                               <Component id="btBatal" alignment="3" min="-2" pref="49" max="-2" attributes="0"/>
                           </Group>
+                          <EmptySpace min="0" pref="12" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>

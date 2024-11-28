@@ -35,7 +35,7 @@ public class Content_bg extends javax.swing.JPanel {
         dashbord.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         dashbord.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, -1, -1));
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/asset/Dashboard (1).png"))); // NOI18N
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/asset/Dashboard_(1)-transformed (1).png"))); // NOI18N
         dashbord.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(-190, 0, 1080, 570));
         dashbord.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, -1, -1));
 

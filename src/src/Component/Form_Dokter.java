@@ -494,7 +494,7 @@ public class Form_Dokter extends javax.swing.JPanel {
                 .addContainerGap(35, Short.MAX_VALUE))
         );
 
-        editDokter.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, -1, 470));
+        editDokter.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, -1, 470));
 
         cbLevel5.setBackground(new java.awt.Color(153, 153, 255));
         cbLevel5.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Level 1 (User)", "Level 2 (Pegawai)", "Level 3 (Admin)" }));
