@@ -86,21 +86,25 @@ public class Form_DataPasient extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         tblPasien = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
         btTambah = new javax.swing.JButton();
         bt_edit = new javax.swing.JButton();
         btHapus = new javax.swing.JButton();
         tambahPasient = new javax.swing.JPanel();
-        btSimpan = new javax.swing.JButton();
-        btBatal = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         cbTambahJenisKelamin = new javax.swing.JComboBox<>();
         txtTambahNama = new javax.swing.JTextField();
-        txtTambahAlamat = new javax.swing.JTextField();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        txtTambahAlamat = new javax.swing.JTextArea();
+        btBatal = new javax.swing.JButton();
+        btSimpan = new javax.swing.JButton();
         cbLevel1 = new javax.swing.JComboBox<>();
-        jLabel16 = new javax.swing.JLabel();
+        jLabel63 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
         editPasient = new javax.swing.JPanel();
         jLabel11 = new javax.swing.JLabel();
         btEditPasien = new javax.swing.JButton();
@@ -120,6 +124,7 @@ public class Form_DataPasient extends javax.swing.JPanel {
 
         mainPanel.setLayout(new java.awt.CardLayout());
 
+        dataDokter.setBackground(new java.awt.Color(255, 255, 255));
         dataDokter.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         tblPasien.setModel(new javax.swing.table.DefaultTableModel(
@@ -140,106 +145,138 @@ public class Form_DataPasient extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(tblPasien);
 
-        dataDokter.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 110, 1460, 360));
+        dataDokter.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 90, 1050, 380));
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(51, 51, 255));
         jLabel1.setText("Data Pasient");
-        dataDokter.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 6, 250, -1));
+        dataDokter.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 30, 140, -1));
 
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/asset/image 12.png"))); // NOI18N
+        dataDokter.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 520, -1, -1));
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/asset/pngtree-blue-plus-concept-icon-on-white-background-png-image_8159235-removebg-preview 1_1.png"))); // NOI18N
+        dataDokter.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 520, -1, -1));
+
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/asset/image 10.png"))); // NOI18N
+        dataDokter.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 520, -1, -1));
+
+        btTambah.setBackground(new java.awt.Color(195, 224, 253));
+        btTambah.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
         btTambah.setText("Tambah");
         btTambah.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btTambahActionPerformed(evt);
             }
         });
-        dataDokter.add(btTambah, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, 94, -1));
+        dataDokter.add(btTambah, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 510, 140, 50));
 
+        bt_edit.setBackground(new java.awt.Color(129, 179, 251));
+        bt_edit.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         bt_edit.setText("Edit");
         bt_edit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bt_editActionPerformed(evt);
             }
         });
-        dataDokter.add(bt_edit, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 80, 94, -1));
+        dataDokter.add(bt_edit, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 510, 130, 50));
 
+        btHapus.setBackground(new java.awt.Color(195, 224, 253));
+        btHapus.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btHapus.setText("Hapus");
         btHapus.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btHapusActionPerformed(evt);
             }
         });
-        dataDokter.add(btHapus, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 80, 94, -1));
+        dataDokter.add(btHapus, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 510, 130, 50));
 
         mainPanel.add(dataDokter, "card2");
 
+        tambahPasient.setBackground(new java.awt.Color(255, 255, 255));
         tambahPasient.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        btSimpan.setText("Simpan");
-        btSimpan.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btSimpanActionPerformed(evt);
-            }
-        });
-        tambahPasient.add(btSimpan, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 73, 100, 30));
-
-        btBatal.setText("Batal");
-        btBatal.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btBatalActionPerformed(evt);
-            }
-        });
-        tambahPasient.add(btBatal, new org.netbeans.lib.awtextra.AbsoluteConstraints(106, 73, 100, 30));
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel3.setText("jenis kelamin");
-
-        jLabel5.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        jLabel5.setText("Nama");
 
         jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel7.setText("Alamat");
 
         cbTambahJenisKelamin.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Laki-laki", "Perempuan" }));
 
+        txtTambahNama.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        txtTambahNama.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtTambahNamaActionPerformed(evt);
+            }
+        });
+
+        txtTambahAlamat.setColumns(20);
+        txtTambahAlamat.setRows(5);
+        jScrollPane2.setViewportView(txtTambahAlamat);
+
+        btBatal.setBackground(new java.awt.Color(204, 255, 255));
+        btBatal.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
+        btBatal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/asset/Group 2802.png"))); // NOI18N
+        btBatal.setText("Batal");
+        btBatal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btBatalActionPerformed(evt);
+            }
+        });
+
+        btSimpan.setBackground(new java.awt.Color(195, 224, 253));
+        btSimpan.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
+        btSimpan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/asset/Vector.png"))); // NOI18N
+        btSimpan.setText("Simpan");
+        btSimpan.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btSimpanActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtTambahNama)
                     .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(cbTambahJenisKelamin, javax.swing.GroupLayout.PREFERRED_SIZE, 390, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtTambahNama, javax.swing.GroupLayout.PREFERRED_SIZE, 428, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 1322, Short.MAX_VALUE))
-                            .addComponent(txtTambahAlamat, javax.swing.GroupLayout.Alignment.TRAILING))
-                        .addContainerGap())))
+                                .addGap(6, 6, 6)
+                                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 451, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(34, 34, 34)
+                        .addComponent(btSimpan, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(55, 55, 55)
+                        .addComponent(btBatal, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(1621, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(26, 26, 26)
-                .addComponent(jLabel5)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(txtTambahNama, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(cbTambahJenisKelamin, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jLabel7)
+                .addComponent(jLabel3)
+                .addGap(18, 18, 18)
+                .addComponent(cbTambahJenisKelamin, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(txtTambahAlamat, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(100, Short.MAX_VALUE))
+                .addComponent(jLabel7)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btSimpan, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btBatal, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(20, Short.MAX_VALUE))
         );
 
         tambahPasient.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, -1, 380));
@@ -248,9 +285,16 @@ public class Form_DataPasient extends javax.swing.JPanel {
         cbLevel1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Level 1 (User)", "Level 2 (Pegawai)", "Level 3 (Admin)" }));
         tambahPasient.add(cbLevel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(323, 224, 364, -1));
 
-        jLabel16.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
-        jLabel16.setText("Tambah Data Pasien");
-        tambahPasient.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
+        jLabel63.setBackground(new java.awt.Color(102, 102, 255));
+        jLabel63.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        jLabel63.setForeground(new java.awt.Color(51, 51, 255));
+        jLabel63.setText("Input Data Pasien");
+        tambahPasient.add(jLabel63, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
+
+        jLabel5.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel5.setText("Nama");
+        tambahPasient.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, 139, -1));
 
         mainPanel.add(tambahPasient, "card2");
 
@@ -487,6 +531,10 @@ public class Form_DataPasient extends javax.swing.JPanel {
         load_table();
     }//GEN-LAST:event_btHapusActionPerformed
 
+    private void txtTambahNamaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTambahNamaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtTambahNamaActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btBatal;
@@ -508,13 +556,17 @@ public class Form_DataPasient extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel63;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JPanel mainPanel;
     private javax.swing.JPanel tambahPasient;
@@ -522,7 +574,7 @@ public class Form_DataPasient extends javax.swing.JPanel {
     private javax.swing.JTextField txtEditAlamat;
     private javax.swing.JTextField txtEditNamaPasien;
     private javax.swing.JTextField txtHiddenIdPasien;
-    private javax.swing.JTextField txtTambahAlamat;
+    private javax.swing.JTextArea txtTambahAlamat;
     private javax.swing.JTextField txtTambahNama;
     // End of variables declaration//GEN-END:variables
 }

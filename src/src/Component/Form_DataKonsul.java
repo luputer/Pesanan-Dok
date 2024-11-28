@@ -160,6 +160,7 @@ public class Form_DataKonsul extends javax.swing.JPanel {
 
         mainPanel.setLayout(new java.awt.CardLayout());
 
+        dataKonsul.setBackground(new java.awt.Color(255, 255, 255));
         dataKonsul.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         tblKonsultasi.setModel(new javax.swing.table.DefaultTableModel(
@@ -180,7 +181,7 @@ public class Form_DataKonsul extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(tblKonsultasi);
 
-        dataKonsul.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 110, 1470, 360));
+        dataKonsul.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 110, 1090, 380));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
         jLabel1.setText("Data Hasil Konsulatasi");
