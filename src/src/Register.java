@@ -303,6 +303,7 @@ public class Register extends javax.swing.JFrame {
             writeLog("Penyimpanan Data Pasien Berhasil untuk Nama " + txtNamaPasien.getText());
             Login login = new Login();
             login.setVisible(true);
+            dispose();
             
 
         } catch (Exception e) {

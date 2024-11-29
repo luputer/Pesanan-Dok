@@ -63,7 +63,7 @@ public class Login extends javax.swing.JFrame {
 
         txtPassword.setBackground(new java.awt.Color(195, 224, 253));
         txtPassword.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txtPassword.setText("*****");
+        txtPassword.setText("Your Password");
         txtPassword.setBorder(null);
         txtPassword.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
@@ -112,6 +112,11 @@ public class Login extends javax.swing.JFrame {
         jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jButton1MouseClicked(evt);
+            }
+        });
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
             }
         });
         jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 360, 130, 50));
@@ -264,7 +269,7 @@ public class Login extends javax.swing.JFrame {
             } else {
                 JOptionPane.showMessageDialog(null, "Username atau password salah!");
                 txtUsername.setText("username");
-                txtPassword.setText("Password");
+                txtPassword.setText("Your Password");
                 txtUsername.requestFocus();
             }
         } catch (java.sql.SQLException e) {  
@@ -312,24 +317,29 @@ public class Login extends javax.swing.JFrame {
 
     private void txtPasswordFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtPasswordFocusGained
         // TODO add your handling code here:
-         String pass = txtPassword.getText();
-        if (pass.equals("*****")) {
+         String password = txtPassword.getText();
+        if (password.equals("Your Password")) {
             txtPassword.setText("");
         }
     }//GEN-LAST:event_txtPasswordFocusGained
 
     private void txtPasswordFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtPasswordFocusLost
         // TODO add your handling code here:
-        String pass = txtPassword.getText();
-        if (pass.equals("") || pass.equals("*****")) {
-            txtPassword.setText("*****");
+        String password = txtPassword.getText();
+        if (password.equals("") || password.equals("Your Password")) {
+            txtPassword.setText("Your Password");
         }
     }//GEN-LAST:event_txtPasswordFocusLost
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
         // TODO add your handling code here:
-        dispose();
+      
     }//GEN-LAST:event_jButton1MouseClicked
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        System.exit(0);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments

@@ -158,7 +158,7 @@ public class Content_bg extends javax.swing.JPanel {
         dashbord.add(lblAbout, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 520, -1, -1));
 
         jLabel15.setFont(new java.awt.Font("Segoe UI Semibold", 1, 24)); // NOI18N
-        jLabel15.setText("Jauh Heatlink");
+        jLabel15.setText("Jauh Healink");
         dashbord.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 410, -1, -1));
 
         jLabel16.setFont(new java.awt.Font("Segoe UI Semibold", 1, 24)); // NOI18N
