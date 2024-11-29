@@ -488,7 +488,7 @@ public class Form_User extends javax.swing.JPanel {
     private void bt_editActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_editActionPerformed
         // TODO add your handling code here:
         mainPanel.removeAll();
-        mainPanel.add(dataUser);
+        mainPanel.add(editUSer);
         mainPanel.repaint();
         mainPanel.revalidate();
 

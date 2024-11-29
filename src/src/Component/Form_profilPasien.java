@@ -64,7 +64,6 @@ public class Form_profilPasien extends javax.swing.JPanel {
         mainPanel = new javax.swing.JPanel();
         editUSer = new javax.swing.JPanel();
         btEditSimpan = new javax.swing.JButton();
-        btBatal1 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
@@ -92,17 +91,6 @@ public class Form_profilPasien extends javax.swing.JPanel {
             }
         });
         editUSer.add(btEditSimpan, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 360, 100, 50));
-
-        btBatal1.setBackground(new java.awt.Color(204, 255, 255));
-        btBatal1.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
-        btBatal1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/asset/Group 2803.png"))); // NOI18N
-        btBatal1.setText("Batal");
-        btBatal1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btBatal1ActionPerformed(evt);
-            }
-        });
-        editUSer.add(btBatal1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 360, 120, 50));
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -212,14 +200,6 @@ public class Form_profilPasien extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNamaProfilePasienActionPerformed
 
-    private void btBatal1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btBatal1ActionPerformed
-        // TODO add your handling code here:
-        mainPanel.removeAll();
-        mainPanel.add(editUSer);
-        mainPanel.repaint();
-        mainPanel.revalidate();
-    }//GEN-LAST:event_btBatal1ActionPerformed
-
     private void btEditSimpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btEditSimpanActionPerformed
         // TODO add your handling code here:
         mainPanel.removeAll();
@@ -271,7 +251,6 @@ public class Form_profilPasien extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btBatal1;
     private javax.swing.JButton btEditSimpan;
     private javax.swing.JComboBox<String> cbJenisKelaminProfilePasien;
     private javax.swing.JPanel editUSer;

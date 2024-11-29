@@ -20,6 +20,8 @@ import static model.Config.writeLog;
  */
 public class Form_PasienKonsul extends javax.swing.JPanel {
 
+    
+    
     private void load_table(int idPasien) {
         // Membuat tampilan model tabel
         DefaultTableModel model = new DefaultTableModel();
@@ -127,7 +129,9 @@ public class Form_PasienKonsul extends javax.swing.JPanel {
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Gagal memuat data pasien: " + e.getMessage());
         }
+        
     }
+    
 
     /**
      * Creates new form Form_DataKonsul
@@ -140,7 +144,9 @@ public class Form_PasienKonsul extends javax.swing.JPanel {
         txtHiddenIdPasien.setText(String.valueOf(idPasien));
         setNamaPasien(idPasien);
         load_table(idPasien);
+        
     }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -486,6 +492,8 @@ public class Form_PasienKonsul extends javax.swing.JPanel {
         mainPanel.add(dataKonsul);
         mainPanel.repaint();
         mainPanel.revalidate();
+        
+      int idpasien = Integer.parseInt(txtHiddenIdPasien.getText());
         try {
             String selectedNamaDokter = cbNamaDokter.getSelectedItem().toString();
 
@@ -527,7 +535,8 @@ public class Form_PasienKonsul extends javax.swing.JPanel {
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, "Data gagal disimpan: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
         }
-
+        load_table(idpasien);
+        
     }//GEN-LAST:event_btSimpanActionPerformed
 
     private void btTambahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btTambahActionPerformed

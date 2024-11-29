@@ -72,7 +72,6 @@ public class Form_profilDokters extends javax.swing.JPanel {
         txtEditSpesialis = new javax.swing.JTextField();
         txtEditNamaDokter = new javax.swing.JTextField();
         btEditSimpan = new javax.swing.JButton();
-        btBatal2 = new javax.swing.JButton();
         jLabel13 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         cbLevel5 = new javax.swing.JComboBox<>();
@@ -132,16 +131,6 @@ public class Form_profilDokters extends javax.swing.JPanel {
             }
         });
 
-        btBatal2.setBackground(new java.awt.Color(204, 255, 255));
-        btBatal2.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
-        btBatal2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/asset/Group 2803.png"))); // NOI18N
-        btBatal2.setText("Batal");
-        btBatal2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btBatal2ActionPerformed(evt);
-            }
-        });
-
         jLabel13.setBackground(new java.awt.Color(255, 255, 255));
         jLabel13.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel13.setText("Nama dokter");
@@ -170,10 +159,8 @@ public class Form_profilDokters extends javax.swing.JPanel {
                                     .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(jPanel3Layout.createSequentialGroup()
                                         .addContainerGap()
-                                        .addComponent(btEditSimpan)
-                                        .addGap(34, 34, 34)
-                                        .addComponent(btBatal2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                        .addComponent(btEditSimpan)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 380, Short.MAX_VALUE)))
                         .addComponent(txtHiddeIdDokter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(116, 116, 116))
             .addGroup(jPanel3Layout.createSequentialGroup()
@@ -209,9 +196,7 @@ public class Form_profilDokters extends javax.swing.JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
                         .addComponent(txtEditRuangan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btEditSimpan, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btBatal2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(btEditSimpan, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(24, 24, 24))))
         );
 
@@ -285,14 +270,6 @@ public class Form_profilDokters extends javax.swing.JPanel {
 
     }//GEN-LAST:event_btEditSimpanActionPerformed
 
-    private void btBatal2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btBatal2ActionPerformed
-        // TODO add your handling code here:
-        mainPanel.removeAll();
-        mainPanel.add(editProfileDokter);
-        mainPanel.repaint();
-        mainPanel.revalidate();
-    }//GEN-LAST:event_btBatal2ActionPerformed
-
     private void txtEditRuanganActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEditRuanganActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtEditRuanganActionPerformed
@@ -307,7 +284,6 @@ public class Form_profilDokters extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btBatal2;
     private javax.swing.JButton btEditSimpan;
     private javax.swing.JComboBox<String> cbEditJenisKelamin;
     private javax.swing.JComboBox<String> cbLevel5;
