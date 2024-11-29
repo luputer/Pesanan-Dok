@@ -155,7 +155,6 @@ public class Form_DokterKonsul extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         tblDokterKonsul = new javax.swing.JTable();
         jLabel64 = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
         bt_edit = new javax.swing.JButton();
         editKonsul = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
@@ -224,18 +223,16 @@ public class Form_DokterKonsul extends javax.swing.JPanel {
         jLabel64.setText("data konsultasi");
         dataKonsul.add(jLabel64, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, -1, -1));
 
-        jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/asset/image 12.png"))); // NOI18N
-        dataKonsul.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 470, -1, -1));
-
         bt_edit.setBackground(new java.awt.Color(129, 179, 251));
-        bt_edit.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        bt_edit.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
+        bt_edit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/asset/image 12.png"))); // NOI18N
         bt_edit.setText("Edit");
         bt_edit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bt_editActionPerformed(evt);
             }
         });
-        dataKonsul.add(bt_edit, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 460, 120, 50));
+        dataKonsul.add(bt_edit, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 460, 120, 50));
 
         mainPanel.add(dataKonsul, "card2");
 
@@ -586,7 +583,7 @@ public class Form_DokterKonsul extends javax.swing.JPanel {
     private void btSimpanKonsulActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSimpanKonsulActionPerformed
         // TODO add your handling code here:
         mainPanel.removeAll();
-        mainPanel.add(editKonsul);
+        mainPanel.add(dataKonsul);
         mainPanel.repaint();
         mainPanel.revalidate();
 
@@ -637,7 +634,7 @@ public class Form_DokterKonsul extends javax.swing.JPanel {
     private void btBatalKonsulActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btBatalKonsulActionPerformed
         // TODO add your handling code here:
         mainPanel.removeAll();
-        mainPanel.add(editKonsul);
+        mainPanel.add(dataKonsul);
         mainPanel.repaint();
         mainPanel.revalidate();
     }//GEN-LAST:event_btBatalKonsulActionPerformed
@@ -681,7 +678,6 @@ public class Form_DokterKonsul extends javax.swing.JPanel {
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel3;

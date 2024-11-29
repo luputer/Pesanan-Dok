@@ -173,7 +173,7 @@ public class Form_Dokter extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(tblDokter);
 
-        dataDokter.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 90, 1100, 360));
+        dataDokter.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 90, 1100, 360));
 
         btTambah.setBackground(new java.awt.Color(195, 224, 253));
         btTambah.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -184,7 +184,7 @@ public class Form_Dokter extends javax.swing.JPanel {
                 btTambahActionPerformed(evt);
             }
         });
-        dataDokter.add(btTambah, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 480, 130, 50));
+        dataDokter.add(btTambah, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 480, 130, 50));
 
         bt_edit.setBackground(new java.awt.Color(129, 179, 251));
         bt_edit.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -195,7 +195,7 @@ public class Form_Dokter extends javax.swing.JPanel {
                 bt_editActionPerformed(evt);
             }
         });
-        dataDokter.add(bt_edit, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 480, 130, 50));
+        dataDokter.add(bt_edit, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 480, 130, 50));
 
         jButton3.setBackground(new java.awt.Color(195, 224, 253));
         jButton3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -310,12 +310,12 @@ public class Form_Dokter extends javax.swing.JPanel {
                             .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                 .addComponent(cbTambahUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 390, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                                    .addGap(6, 6, 6)
                                     .addComponent(btSimpan, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGap(18, 18, 18)
-                                    .addComponent(btBatal, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(13, 13, 13))))
-                        .addGap(0, 444, Short.MAX_VALUE))))
+                                    .addComponent(btBatal, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(0, 467, Short.MAX_VALUE))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -340,11 +340,11 @@ public class Form_Dokter extends javax.swing.JPanel {
                 .addComponent(jLabel7)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(cbTambahUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btSimpan, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btBatal, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(54, 54, 54))
+                .addContainerGap(31, Short.MAX_VALUE))
         );
 
         tambahDokter.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, -1, 530));

@@ -58,7 +58,13 @@ public class MenuUtama extends javax.swing.JFrame {
                 jLabel2.setText("user"); // Set text for level 3
             default ->
                 jLabel2.setText("unknown"); // Handle unexpected levels
+                
         }
+        
+        
+         pn_utama.add(new Content_bg());
+         pn_utama.repaint();
+         pn_utama.revalidate();
 
         // Execute any additional necessary functions  
         execute();

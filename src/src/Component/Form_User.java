@@ -182,7 +182,7 @@ public class Form_User extends javax.swing.JPanel {
                 btEditSimpanActionPerformed(evt);
             }
         });
-        editUSer.add(btEditSimpan, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 350, 100, 40));
+        editUSer.add(btEditSimpan, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 340, 100, 50));
 
         btBatal1.setBackground(new java.awt.Color(204, 255, 255));
         btBatal1.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
@@ -193,7 +193,7 @@ public class Form_User extends javax.swing.JPanel {
                 btBatal1ActionPerformed(evt);
             }
         });
-        editUSer.add(btBatal1, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 350, 100, 40));
+        editUSer.add(btBatal1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 340, 100, 50));
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -369,7 +369,7 @@ public class Form_User extends javax.swing.JPanel {
                 btSimpanActionPerformed(evt);
             }
         });
-        TambahUser.add(btSimpan, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 330, 100, 40));
+        TambahUser.add(btSimpan, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 330, 100, 50));
 
         btBatal.setBackground(new java.awt.Color(204, 255, 255));
         btBatal.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
@@ -380,7 +380,7 @@ public class Form_User extends javax.swing.JPanel {
                 btBatalActionPerformed(evt);
             }
         });
-        TambahUser.add(btBatal, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 330, 100, 40));
+        TambahUser.add(btBatal, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 330, 100, 50));
 
         mainPanel.add(TambahUser, "card2");
 
@@ -488,7 +488,7 @@ public class Form_User extends javax.swing.JPanel {
     private void bt_editActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_editActionPerformed
         // TODO add your handling code here:
         mainPanel.removeAll();
-        mainPanel.add(editUSer);
+        mainPanel.add(dataUser);
         mainPanel.repaint();
         mainPanel.revalidate();
 

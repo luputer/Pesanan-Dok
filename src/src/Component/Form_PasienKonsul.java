@@ -455,9 +455,9 @@ public class Form_PasienKonsul extends javax.swing.JPanel {
                 .addComponent(txtWaktu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(36, 36, 36)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btSimpan, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btBatal, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(48, Short.MAX_VALUE))
+                    .addComponent(btSimpan, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btBatal, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(36, Short.MAX_VALUE))
         );
 
         tambahKonsul.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, -1, 430));
@@ -584,7 +584,7 @@ public class Form_PasienKonsul extends javax.swing.JPanel {
     private void btSimpanKonsulActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSimpanKonsulActionPerformed
         // TODO add your handling code here:
         mainPanel.removeAll();
-        mainPanel.add(editKonsul);
+        mainPanel.add(dataKonsul);
         mainPanel.repaint();
         mainPanel.revalidate();
     }//GEN-LAST:event_btSimpanKonsulActionPerformed
@@ -592,7 +592,7 @@ public class Form_PasienKonsul extends javax.swing.JPanel {
     private void btBatalKonsulActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btBatalKonsulActionPerformed
         // TODO add your handling code here:
         mainPanel.removeAll();
-        mainPanel.add(editKonsul);
+        mainPanel.add(dataKonsul);
         mainPanel.repaint();
         mainPanel.revalidate();
     }//GEN-LAST:event_btBatalKonsulActionPerformed
