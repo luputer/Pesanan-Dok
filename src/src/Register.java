@@ -40,7 +40,7 @@ public class Register extends javax.swing.JFrame {
         jLabel17 = new javax.swing.JLabel();
         txtNamaPasien = new javax.swing.JTextField();
         txtUsername = new javax.swing.JTextField();
-        txtPassword = new javax.swing.JTextField();
+        txtPassword = new javax.swing.JPasswordField();
         jLabel9 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
@@ -82,7 +82,7 @@ public class Register extends javax.swing.JFrame {
         jPanel1.add(cbJenisKelamin, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 200, 280, 30));
 
         jLabel17.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel17.setText("Address");
+        jLabel17.setText("Alamat");
         jPanel1.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 270, 90, -1));
 
         txtNamaPasien.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
@@ -135,12 +135,7 @@ public class Register extends javax.swing.JFrame {
                 txtPasswordFocusLost(evt);
             }
         });
-        txtPassword.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtPasswordActionPerformed(evt);
-            }
-        });
-        jPanel1.add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 370, 180, 30));
+        jPanel1.add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 372, 190, 30));
 
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/asset/user 1 (1).png"))); // NOI18N
         jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 190, -1, -1));
@@ -149,7 +144,7 @@ public class Register extends javax.swing.JFrame {
         jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 280, -1, -1));
 
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/asset/padlock 1.png"))); // NOI18N
-        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 360, 40, 40));
+        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(155, 365, 40, -1));
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/asset/Rectangle 36.png"))); // NOI18N
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 290, -1, -1));
@@ -160,10 +155,10 @@ public class Register extends javax.swing.JFrame {
                 jLabel5MouseClicked(evt);
             }
         });
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 470, -1, -1));
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 450, -1, -1));
 
         jLabel19.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel19.setText("Gender");
+        jLabel19.setText("Jenis Kelamin");
         jPanel1.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 170, -1, -1));
 
         jLabel14.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -175,7 +170,7 @@ public class Register extends javax.swing.JFrame {
         jPanel1.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 340, -1, -1));
 
         jLabel16.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel16.setText("Name");
+        jLabel16.setText("Nama");
         jPanel1.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 160, -1, -1));
 
         jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/asset/Elegant_and_Minimalist_Medical_Logo__1_-removebg-preview 2 (3).png"))); // NOI18N
@@ -191,17 +186,17 @@ public class Register extends javax.swing.JFrame {
         jPanel1.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 360, 280, 50));
 
         jLabel3.setFont(new java.awt.Font("Segoe UI Light", 0, 14)); // NOI18N
-        jLabel3.setText("Create your account");
+        jLabel3.setText("Buat akun baru anda.");
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 110, -1, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/asset/Sign Up.png"))); // NOI18N
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 70, -1, -1));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/asset/Rectangle 30 (10)_1.png"))); // NOI18N
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 10, 820, 500));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 10, 820, 530));
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel6.setText(" Log In");
+        jLabel6.setText("Masuk di sini");
         jLabel6.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel6MouseClicked(evt);
@@ -209,7 +204,7 @@ public class Register extends javax.swing.JFrame {
         });
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 540, -1, -1));
 
-        jLabel20.setText("Have an account?");
+        jLabel20.setText("Punya akun?");
         jLabel20.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel20MouseClicked(evt);
@@ -267,39 +262,23 @@ public class Register extends javax.swing.JFrame {
     private void txtUsernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUsernameActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtUsernameActionPerformed
-
-    private void txtPasswordFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtPasswordFocusGained
-        // TODO add your handling code here:
-        String password = txtPassword.getText();
-        if (password.equals("Your Password")) {
-            txtPassword.setText("");
-        }
-    }//GEN-LAST:event_txtPasswordFocusGained
-
-    private void txtPasswordFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtPasswordFocusLost
-        // TODO add your handling code here:
-
-        String password = txtPassword.getText();
-        if (password.equals("") || password.equals("Your Password")) {
-            txtPassword.setText("Your Password");
-        }
-    }//GEN-LAST:event_txtPasswordFocusLost
-
-    private void txtPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPasswordActionPerformed
-        // TODO add your handling code here:
-
-    }//GEN-LAST:event_txtPasswordActionPerformed
-
+// String password = txtPassword.getText();
+//        if (password.equals("Your Password")) {
+//            txtPassword.setText("");
+//        }
+    
     private void jLabel6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MouseClicked
         // TODO add your handling code here:
         Login login = new Login();
         login.setVisible(true);
+        dispose();
     }//GEN-LAST:event_jLabel6MouseClicked
 
     private void jLabel20MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel20MouseClicked
         // TODO add your handling code here:
         Login login = new Login();
         login.setVisible(true);
+        dispose();
     }//GEN-LAST:event_jLabel20MouseClicked
 
     private void jLabel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseClicked
@@ -331,6 +310,22 @@ public class Register extends javax.swing.JFrame {
             writeLog("Data gagal disimpan : " + e.getMessage());
         }
     }//GEN-LAST:event_jLabel5MouseClicked
+
+    private void txtPasswordFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtPasswordFocusGained
+        // TODO add your handling code here:
+        String password = txtPassword.getText();
+        if (password.equals("Your Password")) {
+            txtPassword.setText("");
+        }
+    }//GEN-LAST:event_txtPasswordFocusGained
+
+    private void txtPasswordFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtPasswordFocusLost
+        // TODO add your handling code here:
+        String password = txtPassword.getText();
+        if (password.equals("") || password.equals("Your Password")) {
+            txtPassword.setText("Your Password");
+        }
+    }//GEN-LAST:event_txtPasswordFocusLost
 
     /**
      * @param args the command line arguments
@@ -398,7 +393,7 @@ public class Register extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextArea txtAlamat;
     private javax.swing.JTextField txtNamaPasien;
-    private javax.swing.JTextField txtPassword;
+    private javax.swing.JPasswordField txtPassword;
     private javax.swing.JTextField txtUsername;
     // End of variables declaration//GEN-END:variables
 }

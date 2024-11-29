@@ -5,6 +5,8 @@
 package src.Component;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
@@ -25,11 +27,12 @@ public class Form_DataPasient extends javax.swing.JPanel {
         model.addColumn("Jenis Kelamin");
         model.addColumn("Alamat");
          model.addColumn("ID Pasien"); 
+         model.addColumn("Username");
 
         //menampilkan data database kedalam tabel
         try {
             int no = 1;
-            String sql = "SELECT idPasien, namaPasien, jenisKelamin, alamat FROM t_pasien";
+            String sql = "SELECT idPasien, namaPasien, jenisKelamin, alamat, username FROM t_pasien";
             java.sql.Connection conn = (Connection) Config.configDB();
             java.sql.Statement stm = conn.createStatement();
             java.sql.ResultSet res = stm.executeQuery(sql);
@@ -39,7 +42,8 @@ public class Form_DataPasient extends javax.swing.JPanel {
                     res.getString("namaPasien"),
                     res.getString("jenisKelamin"),
                     res.getString("alamat"),
-                    res.getString("idPasien") // ID Pasien tetap ada tapi akan disembunyikan
+                    res.getString("idPasien"), // ID Pasien tetap ada tapi akan disembunyikan
+                    res.getString("username") 
 
                 });
             }
@@ -51,6 +55,24 @@ public class Form_DataPasient extends javax.swing.JPanel {
             writeLog("Tampilkan data ke Frame " + getClass().getSimpleName());
         } catch (Exception e) {
             writeLog("Data tidak dapat ditampilkan : " + e.getMessage());
+        }
+    }
+    private void relasiUsername() {
+        try {
+            Connection conn = Config.configDB();
+            String sql = "SELECT username FROM t_user";
+            PreparedStatement pst = conn.prepareStatement(sql);
+            ResultSet rs = pst.executeQuery();
+//            cbT.removeAllItems();
+            
+            while (rs.next()) {
+                String username = rs.getString("username");
+                cbTambahUsername.addItem(username);
+                cbEditUsername.addItem(username);
+                
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Terjadi kesalahan saat memuat data dokter: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
         }
     }
 
@@ -66,6 +88,7 @@ public class Form_DataPasient extends javax.swing.JPanel {
     public Form_DataPasient() {
         initComponents();
         load_table();
+        relasiUsername();
         // Mengatur lebar kolom tabel
         txtHiddenIdPasien.setVisible(false); // Menyembunyikan JTextField
 
@@ -92,7 +115,6 @@ public class Form_DataPasient extends javax.swing.JPanel {
         btHapus = new javax.swing.JButton();
         tambahPasient = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
-        jLabel3 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         cbTambahJenisKelamin = new javax.swing.JComboBox<>();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -101,6 +123,9 @@ public class Form_DataPasient extends javax.swing.JPanel {
         btBatal = new javax.swing.JButton();
         btSimpan = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
+        cbTambahUsername = new javax.swing.JComboBox<>();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
         jLabel63 = new javax.swing.JLabel();
         editPasient = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
@@ -114,6 +139,8 @@ public class Form_DataPasient extends javax.swing.JPanel {
         txtEditNamaPasien = new javax.swing.JTextField();
         btEditPasien = new javax.swing.JButton();
         btBatal2 = new javax.swing.JButton();
+        cbEditUsername = new javax.swing.JComboBox<>();
+        jLabel16 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
 
@@ -200,9 +227,6 @@ public class Form_DataPasient extends javax.swing.JPanel {
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        jLabel3.setText("jenis kelamin");
-
         jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel7.setText("Alamat");
 
@@ -245,6 +269,12 @@ public class Form_DataPasient extends javax.swing.JPanel {
         jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel5.setText("Nama");
 
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel4.setText("jenis kelamin");
+
+        jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel9.setText("Username");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -254,18 +284,20 @@ public class Form_DataPasient extends javax.swing.JPanel {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(15, 15, 15)
-                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(20, 20, 20)
                         .addComponent(btSimpan, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(32, 32, 32)
                         .addComponent(btBatal, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(txtTambahNama, javax.swing.GroupLayout.PREFERRED_SIZE, 427, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(cbTambahJenisKelamin, javax.swing.GroupLayout.PREFERRED_SIZE, 390, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 451, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 451, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cbTambahUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 390, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(303, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -274,21 +306,25 @@ public class Form_DataPasient extends javax.swing.JPanel {
                 .addGap(18, 18, 18)
                 .addComponent(txtTambahNama, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
-                .addComponent(cbTambahJenisKelamin, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(cbTambahJenisKelamin, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel7)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel9)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(cbTambahUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(32, 32, 32)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btBatal, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btSimpan, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
 
-        tambahPasient.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, -1, 410));
+        tambahPasient.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, -1, 500));
 
         jLabel63.setBackground(new java.awt.Color(102, 102, 255));
         jLabel63.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
@@ -308,7 +344,7 @@ public class Form_DataPasient extends javax.swing.JPanel {
 
         jLabel14.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
 
-        cbJenisKelamin.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "laki-laki", "Perempuan" }));
+        cbJenisKelamin.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Laki-laki", "Perempuan" }));
 
         jLabel15.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel15.setText("Alamat");
@@ -341,6 +377,9 @@ public class Form_DataPasient extends javax.swing.JPanel {
             }
         });
 
+        jLabel16.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel16.setText("Username");
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -352,23 +391,27 @@ public class Form_DataPasient extends javax.swing.JPanel {
                             .addGroup(jPanel3Layout.createSequentialGroup()
                                 .addContainerGap()
                                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(jPanel3Layout.createSequentialGroup()
-                                        .addGap(6, 6, 6)
-                                        .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addComponent(btEditPasien)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(btBatal2, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE))))
                             .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 395, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(133, 133, 133)
+                        .addGap(190, 190, 190)
                         .addComponent(txtHiddenIdPasien, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addComponent(cbJenisKelamin, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(txtEditNamaPasien, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 316, Short.MAX_VALUE)))
+                        .addComponent(txtEditNamaPasien, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 316, Short.MAX_VALUE))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(btEditPasien)
-                .addGap(40, 40, 40)
-                .addComponent(btBatal2, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(cbEditUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 321, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
@@ -389,16 +432,24 @@ public class Form_DataPasient extends javax.swing.JPanel {
                         .addComponent(jLabel15)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btEditPasien, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btBatal2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(71, 71, 71)
-                .addComponent(jLabel14)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel16)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(cbEditUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel14)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btEditPasien, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btBatal2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(39, 39, 39))))
         );
 
-        editPasient.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, -1, 420));
+        editPasient.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, -1, 530));
 
         jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(51, 51, 255));
@@ -425,7 +476,9 @@ public class Form_DataPasient extends javax.swing.JPanel {
         try {
             String sql = "INSERT INTO t_pasien VALUES (NULL, '" + txtTambahNama.getText()
                     + "','" + cbTambahJenisKelamin.getSelectedItem()
-                    + "','" + txtTambahAlamat.getText() + "', NULL)";
+                    + "','" + txtTambahAlamat.getText() 
+                    + "','" + cbTambahUsername.getSelectedItem() + "')";
+            
             java.sql.Connection conn = (Connection) Config.configDB();
             java.sql.PreparedStatement pst = conn.prepareStatement(sql);
             pst.execute();
@@ -468,13 +521,15 @@ public class Form_DataPasient extends javax.swing.JPanel {
     int baris = tblPasien.rowAtPoint(evt.getPoint());
 
     // Ambil idPasien dari kolom kedua yang sesuai (indeks 1)
-    String idPasien = tblPasien.getValueAt(baris, 4).toString();  
     String namaPasien = tblPasien.getValueAt(baris, 1).toString();
     String jenisKelamin = tblPasien.getValueAt(baris, 2).toString();
     String alamat = tblPasien.getValueAt(baris, 3).toString();
+    String idPasien = tblPasien.getValueAt(baris, 4).toString();  
+    String username = tblPasien.getValueAt(baris, 5).toString();  
 
     // Set data ke form edit
     txtEditNamaPasien.setText(namaPasien);
+    cbEditUsername.setSelectedItem(username);
     txtEditAlamat.setText(alamat);
     txtHiddenIdPasien.setText(idPasien);  // ID Pasien diset di sini
     cbJenisKelamin.setSelectedItem(jenisKelamin);
@@ -544,8 +599,8 @@ public class Form_DataPasient extends javax.swing.JPanel {
                 String sql = "UPDATE t_pasien SET namaPasien = '" + txtEditNamaPasien.getText()
                 + "', jenisKelamin = '" + cbJenisKelamin.getSelectedItem()
                 + "', alamat = '" + txtEditAlamat.getText() 
-                + "', username = NULL " 
-                + "WHERE idPasien = '" + txtHiddenIdPasien.getText() + "'";
+                + "', username =  '" + cbEditUsername.getSelectedItem() 
+                + "' WHERE idPasien = '" + txtHiddenIdPasien.getText() + "'";
 
                 java.sql.Connection conn = (Connection) Config.configDB();
                 java.sql.PreparedStatement pst = conn.prepareStatement(sql);
@@ -574,8 +629,10 @@ public class Form_DataPasient extends javax.swing.JPanel {
     private javax.swing.JButton btSimpan;
     private javax.swing.JButton btTambah;
     private javax.swing.JButton bt_edit;
+    private javax.swing.JComboBox<String> cbEditUsername;
     private javax.swing.JComboBox<String> cbJenisKelamin;
     private javax.swing.JComboBox<String> cbTambahJenisKelamin;
+    private javax.swing.JComboBox<String> cbTambahUsername;
     private javax.swing.JPanel dataDokter;
     private javax.swing.JPanel editPasient;
     private javax.swing.JLabel jLabel1;
@@ -583,11 +640,13 @@ public class Form_DataPasient extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel63;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;

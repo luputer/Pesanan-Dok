@@ -5,18 +5,71 @@
 package src.Component;
 
 import javax.swing.JOptionPane;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import model.Config;
 
 /**
  *
  * @author Saidi
  */
 public class Content_bg extends javax.swing.JPanel {
+    
+    private void hitungDataDokter() {
+    try {
+        // SQL untuk menghitung jumlah data
+        String sql = "SELECT COUNT(*) AS total FROM t_dokter";
+        
+        // Koneksi ke database
+        Connection conn = (Connection) Config.configDB();
+        Statement stm = conn.createStatement();
+        ResultSet res = stm.executeQuery(sql);
+        
+        // Cek hasil query
+        if (res.next()) {
+            // Ambil jumlah data dari kolom 'total'
+            int jumlahData = res.getInt("total");
+            
+            // Set jumlah data ke JLabel
+            lblDokter.setText("" + jumlahData);
+        }
+    } catch (Exception e) {
+        // Tampilkan pesan error jika terjadi kesalahan
+        JOptionPane.showMessageDialog(this, "Gagal menghitung jumlah data: " + e.getMessage());
+    }
+}
+    private void hitungDataKonsultasi() {
+    try {
+        // SQL untuk menghitung jumlah data
+        String sql = "SELECT COUNT(*) AS total FROM t_konsultasi";
+        
+        // Koneksi ke database
+        Connection conn = (Connection) Config.configDB();
+        Statement stm = conn.createStatement();
+        ResultSet res = stm.executeQuery(sql);
+        
+        // Cek hasil query
+        if (res.next()) {
+            // Ambil jumlah data dari kolom 'total'
+            int jumlahData = res.getInt("total");
+            
+            // Set jumlah data ke JLabel
+            lblKonsultasi.setText("" + jumlahData);
+        }
+    } catch (Exception e) {
+        // Tampilkan pesan error jika terjadi kesalahan
+        JOptionPane.showMessageDialog(this, "Gagal menghitung jumlah data: " + e.getMessage());
+    }
+}
 
     /**
      * Creates new form Content_bg
      */
     public Content_bg() {
         initComponents();
+        hitungDataDokter();
+        hitungDataKonsultasi();
     }
 
     /**
@@ -31,17 +84,15 @@ public class Content_bg extends javax.swing.JPanel {
         mainPanel = new javax.swing.JPanel();
         dashbord = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
+        lblKonsultasi = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
+        lblAbout = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
-        jLabel13 = new javax.swing.JLabel();
+        lblDokter = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
         jLabel20 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
@@ -88,48 +139,30 @@ public class Content_bg extends javax.swing.JPanel {
         });
         dashbord.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 270, 80, 30));
 
-        jLabel12.setFont(new java.awt.Font("Segoe UI Semibold", 1, 24)); // NOI18N
-        jLabel12.setText("0");
-        dashbord.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 450, 40, -1));
-
-        jLabel4.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
-        jLabel4.setText("Lihat Selengkapnya                  ->");
-        jLabel4.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel4MouseClicked(evt);
-            }
-        });
-        dashbord.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 530, 220, -1));
+        lblKonsultasi.setFont(new java.awt.Font("Segoe UI Semibold", 1, 24)); // NOI18N
+        lblKonsultasi.setText("0");
+        dashbord.add(lblKonsultasi, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 450, 20, -1));
 
         jLabel5.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
         jLabel5.setText("Menjaga kesehatan anda, itu tugas kami");
         dashbord.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 190, 270, -1));
         dashbord.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, -1, -1));
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
-        jLabel2.setText("Lihat Selengkapnya              ->");
-        jLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
+        lblAbout.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
+        lblAbout.setText("Lihat Selengkapnya              ->");
+        lblAbout.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel2MouseClicked(evt);
+                lblAboutMouseClicked(evt);
             }
         });
-        dashbord.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 520, -1, -1));
-
-        jLabel1.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
-        jLabel1.setText("Lihat Selengkapnya                -> ");
-        jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel1MouseClicked(evt);
-            }
-        });
-        dashbord.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 520, 220, 30));
+        dashbord.add(lblAbout, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 520, -1, -1));
 
         jLabel15.setFont(new java.awt.Font("Segoe UI Semibold", 1, 24)); // NOI18N
         jLabel15.setText("Jauh Heatlink");
         dashbord.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 410, -1, -1));
 
         jLabel16.setFont(new java.awt.Font("Segoe UI Semibold", 1, 24)); // NOI18N
-        jLabel16.setText("mengenal lebih ");
+        jLabel16.setText("Mengenal lebih ");
         dashbord.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 370, -1, -1));
 
         jLabel17.setFont(new java.awt.Font("Segoe UI Semibold", 1, 24)); // NOI18N
@@ -140,16 +173,16 @@ public class Content_bg extends javax.swing.JPanel {
         jLabel14.setText("Data Dokter yang ");
         dashbord.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 370, -1, -1));
 
-        jLabel13.setFont(new java.awt.Font("Segoe UI Semibold", 1, 24)); // NOI18N
-        jLabel13.setText("0");
-        dashbord.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 450, 40, -1));
+        lblDokter.setFont(new java.awt.Font("Segoe UI Semibold", 1, 24)); // NOI18N
+        lblDokter.setText("0");
+        dashbord.add(lblDokter, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 450, 40, -1));
 
         jLabel19.setFont(new java.awt.Font("Segoe UI Semibold", 1, 24)); // NOI18N
-        jLabel19.setText("Data Pasien Yang");
+        jLabel19.setText("Jumlah Konsultasi");
         dashbord.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 370, -1, -1));
 
         jLabel20.setFont(new java.awt.Font("Segoe UI Semibold", 1, 24)); // NOI18N
-        jLabel20.setText("Sedang Dirawat");
+        jLabel20.setText("yang Terdata");
         dashbord.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 400, -1, -1));
         dashbord.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, -1, -1));
 
@@ -371,17 +404,6 @@ public class Content_bg extends javax.swing.JPanel {
 
     }//GEN-LAST:event_btTambahActionPerformed
 
-    private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
-        // TODO add your handling code here:
-         mainPanel.removeAll();
-        mainPanel.repaint();
-        mainPanel.revalidate();
-
-        mainPanel.add(dataPasien);
-        mainPanel.repaint();
-        mainPanel.revalidate();
-    }//GEN-LAST:event_jLabel4MouseClicked
-
     private void tblDokterMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblDokterMouseClicked
         // TODO add your handling code here:
         int baris = tblDokter.rowAtPoint(evt.getPoint());
@@ -404,17 +426,6 @@ public class Content_bg extends javax.swing.JPanel {
     private void btTambah1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btTambah1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btTambah1ActionPerformed
-
-    private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
-        // TODO add your handling code here
-        mainPanel.removeAll();
-        mainPanel.repaint();
-        mainPanel.revalidate();
-
-        mainPanel.add(dataDokter);
-        mainPanel.repaint();
-        mainPanel.revalidate();
-    }//GEN-LAST:event_jLabel1MouseClicked
 
     private void tblKonsulMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblKonsulMouseClicked
         // TODO add your handling code here:
@@ -443,13 +454,13 @@ public class Content_bg extends javax.swing.JPanel {
 
     }//GEN-LAST:event_tblKonsulMouseClicked
 
-    private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
+    private void lblAboutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblAboutMouseClicked
         // TODO add your handling code here:
-        mainPanel.removeAll();
-        mainPanel.add(dataKonsul);
+         mainPanel.removeAll();
+        mainPanel.add(about);
         mainPanel.repaint();
         mainPanel.revalidate();
-    }//GEN-LAST:event_jLabel2MouseClicked
+    }//GEN-LAST:event_lblAboutMouseClicked
 
     private void btTambah2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btTambah2ActionPerformed
         // TODO add your handling code here:
@@ -473,22 +484,17 @@ public class Content_bg extends javax.swing.JPanel {
     private javax.swing.JPanel dataDokter;
     private javax.swing.JPanel dataKonsul;
     private javax.swing.JPanel dataPasien;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel64;
@@ -498,6 +504,9 @@ public class Content_bg extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JLabel lblAbout;
+    private javax.swing.JLabel lblDokter;
+    private javax.swing.JLabel lblKonsultasi;
     private javax.swing.JPanel mainPanel;
     private javax.swing.JTable tblDokter;
     private javax.swing.JTable tblKonsul;

@@ -395,7 +395,7 @@ public class MenuUtama extends javax.swing.JFrame {
         MenuItem MenuExit = new MenuItem(iconExit, false, null, "Exit", new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                dispose();
+                System.exit(0);
             }
         });
 

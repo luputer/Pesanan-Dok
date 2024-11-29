@@ -4278,3 +4278,182 @@ The last packet sent successfully to the server was 0 milliseconds ago. The driv
 2024-11-29 12:12:43 - Koneksi berhasil ke database.
 2024-11-29 12:12:43 - Tampilkan data ke Frame Form_Dokter
 2024-11-29 12:12:43 - Koneksi berhasil ke database.
+2024-11-29 12:58:37 - Koneksi berhasil ke database.
+2024-11-29 12:59:16 - Koneksi berhasil ke database.
+2024-11-29 12:59:16 - Tampilkan data ke Frame Form_Dokter
+2024-11-29 12:59:16 - Koneksi berhasil ke database.
+2024-11-29 12:59:19 - Koneksi berhasil ke database.
+2024-11-29 12:59:19 - Tampilkan data ke Frame Form_User
+2024-11-29 12:59:44 - Koneksi berhasil ke database.
+2024-11-29 12:59:46 - Penyimpanan Data Berhasil dengan Username 123
+2024-11-29 12:59:46 - Koneksi berhasil ke database.
+2024-11-29 12:59:46 - Tampilkan data ke Frame Form_User
+2024-11-29 12:59:49 - Koneksi berhasil ke database.
+2024-11-29 12:59:50 - Tampilkan data ke Frame Form_DataPasient
+2024-11-29 12:59:50 - Koneksi berhasil ke database.
+2024-11-29 13:00:09 - Koneksi berhasil ke database.
+2024-11-29 13:00:11 - Penyimpanan Data Berhasil dengan Nama Pasien inia
+2024-11-29 13:00:11 - Koneksi berhasil ke database.
+2024-11-29 13:00:11 - Tampilkan data ke Frame Form_DataPasient
+2024-11-29 13:00:18 - Koneksi berhasil ke database.
+2024-11-29 13:00:18 - Tampilkan data ke Frame Form_User
+2024-11-29 13:00:25 - Koneksi berhasil ke database.
+2024-11-29 13:00:26 - Penyimpanan Data Berhasil dengan Username e
+2024-11-29 13:00:26 - Koneksi berhasil ke database.
+2024-11-29 13:00:26 - Tampilkan data ke Frame Form_User
+2024-11-29 13:00:28 - Koneksi berhasil ke database.
+2024-11-29 13:00:28 - Tampilkan data ke Frame Form_DataPasient
+2024-11-29 13:00:28 - Koneksi berhasil ke database.
+2024-11-29 13:00:34 - Koneksi berhasil ke database.
+2024-11-29 13:00:34 - Tampilkan data ke Frame Form_DataPasient
+2024-11-29 13:00:34 - Koneksi berhasil ke database.
+2024-11-29 13:00:45 - Koneksi berhasil ke database.
+2024-11-29 13:00:50 - Perubahan Data Gagal : You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '7'' at line 1
+2024-11-29 13:00:50 - Koneksi berhasil ke database.
+2024-11-29 13:00:50 - Tampilkan data ke Frame Form_DataPasient
+2024-11-29 13:01:00 - Koneksi berhasil ke database.
+2024-11-29 13:01:05 - Perubahan Data Gagal : You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '7'' at line 1
+2024-11-29 13:01:05 - Koneksi berhasil ke database.
+2024-11-29 13:01:06 - Tampilkan data ke Frame Form_DataPasient
+2024-11-29 13:02:08 - Koneksi berhasil ke database.
+2024-11-29 13:02:08 - Tampilkan data ke Frame Form_User
+2024-11-29 13:02:20 - Koneksi berhasil ke database.
+2024-11-29 13:02:22 - Penyimpanan Data Berhasil dengan Username 1
+2024-11-29 13:02:22 - Koneksi berhasil ke database.
+2024-11-29 13:02:22 - Tampilkan data ke Frame Form_User
+2024-11-29 13:02:24 - Koneksi berhasil ke database.
+2024-11-29 13:02:24 - Tampilkan data ke Frame Form_DataPasient
+2024-11-29 13:02:24 - Koneksi berhasil ke database.
+2024-11-29 13:02:31 - Koneksi berhasil ke database.
+2024-11-29 13:04:50 - Perubahan Data Gagal : You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '7'' at line 1
+2024-11-29 13:04:51 - Koneksi berhasil ke database.
+2024-11-29 13:04:51 - Tampilkan data ke Frame Form_DataPasient
+2024-11-29 13:05:01 - Koneksi berhasil ke database.
+2024-11-29 13:05:01 - Tampilkan data ke Frame Form_DataPasient
+2024-11-29 13:05:01 - Koneksi berhasil ke database.
+2024-11-29 13:05:03 - Koneksi berhasil ke database.
+2024-11-29 13:05:03 - Koneksi berhasil ke database.
+2024-11-29 13:05:03 - Koneksi berhasil ke database.
+2024-11-29 13:05:05 - Koneksi berhasil ke database.
+2024-11-29 13:05:05 - Tampilkan data ke Frame Form_DataPasient
+2024-11-29 13:05:05 - Koneksi berhasil ke database.
+2024-11-29 13:05:06 - Koneksi berhasil ke database.
+2024-11-29 13:05:06 - Tampilkan data ke Frame Form_DataPasient
+2024-11-29 13:05:06 - Koneksi berhasil ke database.
+2024-11-29 13:05:17 - Koneksi berhasil ke database.
+2024-11-29 13:05:19 - Perubahan Data Gagal : You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '7'' at line 1
+2024-11-29 13:05:19 - Koneksi berhasil ke database.
+2024-11-29 13:05:19 - Tampilkan data ke Frame Form_DataPasient
+2024-11-29 13:05:25 - Koneksi berhasil ke database.
+2024-11-29 13:05:26 - Data Berhasil Dihapus dengan Nama Pasien inia
+2024-11-29 13:05:26 - Koneksi berhasil ke database.
+2024-11-29 13:05:26 - Tampilkan data ke Frame Form_DataPasient
+2024-11-29 13:05:38 - Koneksi berhasil ke database.
+2024-11-29 13:05:40 - Penyimpanan Data Berhasil dengan Nama Pasien w
+2024-11-29 13:05:40 - Koneksi berhasil ke database.
+2024-11-29 13:05:40 - Tampilkan data ke Frame Form_DataPasient
+2024-11-29 13:05:46 - Koneksi berhasil ke database.
+2024-11-29 13:05:46 - Tampilkan data ke Frame Form_DataPasient
+2024-11-29 13:05:46 - Koneksi berhasil ke database.
+2024-11-29 13:06:02 - Koneksi berhasil ke database.
+2024-11-29 13:06:10 - Perubahan Data Gagal : You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '8'' at line 1
+2024-11-29 13:06:10 - Koneksi berhasil ke database.
+2024-11-29 13:06:10 - Tampilkan data ke Frame Form_DataPasient
+2024-11-29 13:08:10 - Koneksi berhasil ke database.
+2024-11-29 13:08:23 - Koneksi berhasil ke database.
+2024-11-29 13:08:23 - Tampilkan data ke Frame Form_User
+2024-11-29 13:08:24 - Koneksi berhasil ke database.
+2024-11-29 13:08:24 - Tampilkan data ke Frame Form_Dokter
+2024-11-29 13:08:24 - Koneksi berhasil ke database.
+2024-11-29 13:08:29 - Koneksi berhasil ke database.
+2024-11-29 13:08:29 - Koneksi berhasil ke database.
+2024-11-29 13:08:30 - Koneksi berhasil ke database.
+2024-11-29 13:08:31 - Koneksi berhasil ke database.
+2024-11-29 13:08:31 - Tampilkan data ke Frame Form_DataPasient
+2024-11-29 13:08:31 - Koneksi berhasil ke database.
+2024-11-29 13:08:46 - Koneksi berhasil ke database.
+2024-11-29 13:08:51 - Perubahan Data Gagal : You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'rrrr'' at line 1
+2024-11-29 13:08:51 - Koneksi berhasil ke database.
+2024-11-29 13:08:51 - Tampilkan data ke Frame Form_DataPasient
+2024-11-29 13:11:07 - Koneksi berhasil ke database.
+2024-11-29 13:11:12 - Koneksi berhasil ke database.
+2024-11-29 13:11:12 - Tampilkan data ke Frame Form_DataPasient
+2024-11-29 13:11:12 - Koneksi berhasil ke database.
+2024-11-29 13:11:30 - Koneksi berhasil ke database.
+2024-11-29 13:11:36 - Perubahan Data Gagal : You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '8'' at line 1
+2024-11-29 13:11:36 - Koneksi berhasil ke database.
+2024-11-29 13:11:36 - Tampilkan data ke Frame Form_DataPasient
+2024-11-29 13:15:23 - Koneksi berhasil ke database.
+2024-11-29 13:15:29 - Koneksi berhasil ke database.
+2024-11-29 13:15:29 - Tampilkan data ke Frame Form_Dokter
+2024-11-29 13:15:29 - Koneksi berhasil ke database.
+2024-11-29 13:15:32 - Koneksi berhasil ke database.
+2024-11-29 13:15:32 - Tampilkan data ke Frame Form_DataPasient
+2024-11-29 13:15:32 - Koneksi berhasil ke database.
+2024-11-29 13:15:44 - Koneksi berhasil ke database.
+2024-11-29 13:19:28 - Perubahan Data Gagal : You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '8'' at line 1
+2024-11-29 13:19:28 - Koneksi berhasil ke database.
+2024-11-29 13:19:28 - Tampilkan data ke Frame Form_DataPasient
+2024-11-29 13:20:30 - Koneksi berhasil ke database.
+2024-11-29 13:20:37 - Koneksi berhasil ke database.
+2024-11-29 13:20:37 - Tampilkan data ke Frame Form_Dokter
+2024-11-29 13:20:37 - Koneksi berhasil ke database.
+2024-11-29 13:20:41 - Koneksi berhasil ke database.
+2024-11-29 13:20:41 - Tampilkan data ke Frame Form_DataPasient
+2024-11-29 13:20:41 - Koneksi berhasil ke database.
+2024-11-29 13:20:59 - Koneksi berhasil ke database.
+2024-11-29 13:21:01 - Data Berhasil Diperbaharui dengan Nama Pasien MalasNgoding
+2024-11-29 13:21:01 - Koneksi berhasil ke database.
+2024-11-29 13:21:01 - Tampilkan data ke Frame Form_DataPasient
+2024-11-29 13:21:08 - Koneksi berhasil ke database.
+2024-11-29 13:21:08 - Tampilkan data ke Frame Form_User
+2024-11-29 13:21:35 - Koneksi berhasil ke database.
+2024-11-29 13:29:01 - Koneksi berhasil ke database.
+2024-11-29 13:29:04 - Koneksi berhasil ke database.
+2024-11-29 13:29:09 - Koneksi berhasil ke database.
+2024-11-29 13:29:09 - Tampilkan data ke Frame Form_Dokter
+2024-11-29 13:29:10 - Koneksi berhasil ke database.
+2024-11-29 13:29:14 - Koneksi berhasil ke database.
+2024-11-29 13:29:15 - Koneksi berhasil ke database.
+2024-11-29 13:29:15 - Tampilkan data ke Frame Form_User
+2024-11-29 13:29:20 - Koneksi berhasil ke database.
+2024-11-29 13:29:20 - Koneksi berhasil ke database.
+2024-11-29 13:29:20 - Koneksi berhasil ke database.
+2024-11-29 13:29:21 - Koneksi berhasil ke database.
+2024-11-29 13:29:21 - Tampilkan data ke Frame Form_DataPasient
+2024-11-29 13:29:21 - Koneksi berhasil ke database.
+2024-11-29 13:29:23 - Koneksi berhasil ke database.
+2024-11-29 13:29:23 - Tampilkan data ke Frame Form_Dokter
+2024-11-29 13:29:23 - Koneksi berhasil ke database.
+2024-11-29 13:29:25 - Koneksi berhasil ke database.
+2024-11-29 13:29:25 - Tampilkan data ke Frame Form_User
+2024-11-29 13:38:13 - Koneksi berhasil ke database.
+2024-11-29 13:38:16 - Koneksi berhasil ke database.
+2024-11-29 13:38:16 - Koneksi berhasil ke database.
+2024-11-29 13:38:21 - Koneksi berhasil ke database.
+2024-11-29 13:38:21 - Koneksi berhasil ke database.
+2024-11-29 13:38:22 - Koneksi berhasil ke database.
+2024-11-29 13:38:22 - Tampilkan data konsultasi ke Frame Form_PasienKonsul
+2024-11-29 13:38:27 - Koneksi berhasil ke database.
+2024-11-29 13:38:27 - Koneksi berhasil ke database.
+2024-11-29 13:38:41 - Koneksi berhasil ke database.
+2024-11-29 13:38:41 - Koneksi berhasil ke database.
+2024-11-29 13:38:41 - Koneksi berhasil ke database.
+2024-11-29 13:38:41 - Tampilkan data konsultasi ke Frame Form_PasienKonsul
+2024-11-29 13:38:46 - Koneksi berhasil ke database.
+2024-11-29 13:38:46 - Koneksi berhasil ke database.
+2024-11-29 13:49:21 - Koneksi berhasil ke database.
+2024-11-29 13:49:24 - Koneksi berhasil ke database.
+2024-11-29 13:49:24 - Koneksi berhasil ke database.
+2024-11-29 13:51:11 - Koneksi berhasil ke database.
+2024-11-29 13:51:13 - Penyimpanan Data User Berhasil dengan Username tesregisterpasien
+2024-11-29 13:51:14 - Penyimpanan Data Pasien Berhasil untuk Nama tesyangke2
+2024-11-29 13:51:22 - Koneksi berhasil ke database.
+2024-11-29 13:51:24 - Koneksi berhasil ke database.
+2024-11-29 13:51:24 - Koneksi berhasil ke database.
+2024-11-29 14:01:03 - Koneksi berhasil ke database.
+2024-11-29 14:01:05 - Penyimpanan Data User Berhasil dengan Username mantapcoding
+2024-11-29 14:01:05 - Penyimpanan Data Pasien Berhasil untuk Nama mantap
+2024-11-29 14:01:13 - Koneksi berhasil ke database.
+2024-11-29 14:01:15 - Koneksi berhasil ke database.
+2024-11-29 14:01:15 - Koneksi berhasil ke database.

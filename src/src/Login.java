@@ -35,10 +35,10 @@ public class Login extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
+        txtPassword = new javax.swing.JPasswordField();
         jLabel9 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        txtPassword = new javax.swing.JTextField();
         txtUsername = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
@@ -61,19 +61,9 @@ public class Login extends javax.swing.JFrame {
         jLabel10.setText("Menjaga kesahatan anda, itu tugas kami");
         jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 130, -1, -1));
 
-        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/asset/Back.png"))); // NOI18N
-        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 370, -1, 30));
-
-        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/asset/dokter_login-removebg-preview 1 (2).png"))); // NOI18N
-        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(-20, 160, 500, 330));
-
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/asset/padlock 1.png"))); // NOI18N
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 270, 50, 40));
-
         txtPassword.setBackground(new java.awt.Color(195, 224, 253));
-        txtPassword.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         txtPassword.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txtPassword.setText("Password");
+        txtPassword.setText("*****");
         txtPassword.setBorder(null);
         txtPassword.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
@@ -88,7 +78,16 @@ public class Login extends javax.swing.JFrame {
                 txtPasswordActionPerformed(evt);
             }
         });
-        jPanel1.add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 270, 260, 40));
+        jPanel1.add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 280, 250, 40));
+
+        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/asset/Back.png"))); // NOI18N
+        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 370, -1, 30));
+
+        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/asset/dokter_login-removebg-preview 1 (2).png"))); // NOI18N
+        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(-20, 160, 500, 330));
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/asset/padlock 1.png"))); // NOI18N
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 275, 40, 40));
 
         txtUsername.setBackground(new java.awt.Color(195, 224, 253));
         txtUsername.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
@@ -114,7 +113,7 @@ public class Login extends javax.swing.JFrame {
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 70, 252, -1));
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/asset/user 1 (1).png"))); // NOI18N
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 190, -1, -1));
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 185, -1, -1));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/asset/Rectangle 5 (2).png"))); // NOI18N
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 510, 540));
@@ -151,16 +150,16 @@ public class Login extends javax.swing.JFrame {
 
         lblDaftar.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         lblDaftar.setForeground(new java.awt.Color(0, 0, 0));
-        lblDaftar.setText("Sign Up");
+        lblDaftar.setText("Daftar Sekarang");
         lblDaftar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 lblDaftarMouseClicked(evt);
             }
         });
-        jPanel1.add(lblDaftar, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 440, 50, -1));
+        jPanel1.add(lblDaftar, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 440, 100, -1));
 
         lblDaftar1.setForeground(new java.awt.Color(0, 0, 0));
-        lblDaftar1.setText("Don’t have an account? ");
+        lblDaftar1.setText("Belum Punya Akun? ");
         lblDaftar1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 lblDaftar1MouseClicked(evt);
@@ -171,7 +170,7 @@ public class Login extends javax.swing.JFrame {
         jLabel63.setBackground(new java.awt.Color(102, 102, 255));
         jLabel63.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel63.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel63.setText("Log in ");
+        jLabel63.setText("Login ");
         jPanel1.add(jLabel63, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 120, 120, -1));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1010, 540));
@@ -183,10 +182,6 @@ public class Login extends javax.swing.JFrame {
     private void txtUsernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUsernameActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtUsernameActionPerformed
-
-    private void txtPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPasswordActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtPasswordActionPerformed
 
     private void btn_loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_loginActionPerformed
         // TODO add your handling code here:
@@ -293,14 +288,6 @@ public class Login extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_txtUsernameFocusGained
 
-    private void txtPasswordFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtPasswordFocusGained
-        // TODO add your handling code here:
-        String pass = txtPassword.getText();    
-        if (pass.equals("Password")) {  
-            txtPassword.setText("");
-        }
-    }//GEN-LAST:event_txtPasswordFocusGained
-
     private void txtUsernameFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtUsernameFocusLost
         // TODO add your handling code here:
         String user = txtUsername.getText();
@@ -309,19 +296,12 @@ public class Login extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_txtUsernameFocusLost
 
-    private void txtPasswordFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtPasswordFocusLost
-        // TODO add your handling code here:
-        String pass = txtPassword.getText();
-        if (pass.equals("") || pass.equals("Password")) {
-            txtPassword.setText("Password");
-        }
-    }//GEN-LAST:event_txtPasswordFocusLost
-
     private void lblDaftarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblDaftarMouseClicked
         // TODO add your handling code here:
 
         Register register = new Register();
         register.setVisible(true);
+        dispose();
     }//GEN-LAST:event_lblDaftarMouseClicked
 
     private void lblDaftar1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblDaftar1MouseClicked
@@ -331,6 +311,26 @@ public class Login extends javax.swing.JFrame {
     private void btn_loginComponentMoved(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_btn_loginComponentMoved
         // TODO add your handling code here:
     }//GEN-LAST:event_btn_loginComponentMoved
+
+    private void txtPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPasswordActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPasswordActionPerformed
+
+    private void txtPasswordFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtPasswordFocusGained
+        // TODO add your handling code here:
+         String pass = txtPassword.getText();
+        if (pass.equals("*****")) {
+            txtPassword.setText("");
+        }
+    }//GEN-LAST:event_txtPasswordFocusGained
+
+    private void txtPasswordFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtPasswordFocusLost
+        // TODO add your handling code here:
+        String pass = txtPassword.getText();
+        if (pass.equals("") || pass.equals("*****")) {
+            txtPassword.setText("*****");
+        }
+    }//GEN-LAST:event_txtPasswordFocusLost
 
     /**
      * @param args the command line arguments
@@ -383,7 +383,7 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblDaftar;
     private javax.swing.JLabel lblDaftar1;
-    private javax.swing.JTextField txtPassword;
+    private javax.swing.JPasswordField txtPassword;
     private javax.swing.JTextField txtUsername;
     // End of variables declaration//GEN-END:variables
 }
