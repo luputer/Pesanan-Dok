@@ -184,7 +184,7 @@ public class Form_DataPasient extends javax.swing.JPanel {
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(51, 51, 255));
         jLabel1.setText("Data Pasient");
-        dataDokter.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, 140, -1));
+        dataDokter.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 30, 140, -1));
 
         btTambah.setBackground(new java.awt.Color(195, 224, 253));
         btTambah.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
@@ -196,7 +196,7 @@ public class Form_DataPasient extends javax.swing.JPanel {
                 btTambahActionPerformed(evt);
             }
         });
-        dataDokter.add(btTambah, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 490, 130, 50));
+        dataDokter.add(btTambah, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 490, 130, 50));
 
         bt_edit.setBackground(new java.awt.Color(129, 179, 251));
         bt_edit.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -207,7 +207,7 @@ public class Form_DataPasient extends javax.swing.JPanel {
                 bt_editActionPerformed(evt);
             }
         });
-        dataDokter.add(bt_edit, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 490, 130, 50));
+        dataDokter.add(bt_edit, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 490, 130, 50));
 
         btHapus.setBackground(new java.awt.Color(195, 224, 253));
         btHapus.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -218,7 +218,7 @@ public class Form_DataPasient extends javax.swing.JPanel {
                 btHapusActionPerformed(evt);
             }
         });
-        dataDokter.add(btHapus, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 490, 130, 50));
+        dataDokter.add(btHapus, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 490, 130, 50));
 
         mainPanel.add(dataDokter, "card2");
 

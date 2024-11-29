@@ -232,7 +232,7 @@ public class Form_DokterKonsul extends javax.swing.JPanel {
                 bt_editActionPerformed(evt);
             }
         });
-        dataKonsul.add(bt_edit, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 460, 120, 50));
+        dataKonsul.add(bt_edit, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 460, 120, 50));
 
         mainPanel.add(dataKonsul, "card2");
 

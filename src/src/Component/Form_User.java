@@ -139,7 +139,7 @@ public class Form_User extends javax.swing.JPanel {
                 btTambahActionPerformed(evt);
             }
         });
-        dataUser.add(btTambah, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 460, 120, 50));
+        dataUser.add(btTambah, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 450, 120, 50));
 
         bt_edit.setBackground(new java.awt.Color(129, 179, 251));
         bt_edit.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -150,7 +150,7 @@ public class Form_User extends javax.swing.JPanel {
                 bt_editActionPerformed(evt);
             }
         });
-        dataUser.add(bt_edit, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 460, 110, 50));
+        dataUser.add(bt_edit, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 450, 110, 50));
 
         btHapus.setBackground(new java.awt.Color(195, 224, 253));
         btHapus.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -161,7 +161,7 @@ public class Form_User extends javax.swing.JPanel {
                 btHapusActionPerformed(evt);
             }
         });
-        dataUser.add(btHapus, new org.netbeans.lib.awtextra.AbsoluteConstraints(1070, 460, 100, 50));
+        dataUser.add(btHapus, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 450, 120, 50));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(51, 51, 255));

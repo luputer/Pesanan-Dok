@@ -226,7 +226,7 @@ public class Form_PasienKonsul extends javax.swing.JPanel {
                 btTambahActionPerformed(evt);
             }
         });
-        dataKonsul.add(btTambah, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 440, 160, 50));
+        dataKonsul.add(btTambah, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 440, 160, 50));
 
         jLabel64.setBackground(new java.awt.Color(102, 102, 255));
         jLabel64.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N

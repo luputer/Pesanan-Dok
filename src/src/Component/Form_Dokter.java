@@ -184,7 +184,7 @@ public class Form_Dokter extends javax.swing.JPanel {
                 btTambahActionPerformed(evt);
             }
         });
-        dataDokter.add(btTambah, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 480, 130, 50));
+        dataDokter.add(btTambah, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 480, 130, 50));
 
         bt_edit.setBackground(new java.awt.Color(129, 179, 251));
         bt_edit.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -195,7 +195,7 @@ public class Form_Dokter extends javax.swing.JPanel {
                 bt_editActionPerformed(evt);
             }
         });
-        dataDokter.add(bt_edit, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 480, 130, 50));
+        dataDokter.add(bt_edit, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 480, 130, 50));
 
         jButton3.setBackground(new java.awt.Color(195, 224, 253));
         jButton3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -206,7 +206,7 @@ public class Form_Dokter extends javax.swing.JPanel {
                 jButton3ActionPerformed(evt);
             }
         });
-        dataDokter.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(1040, 480, 130, 50));
+        dataDokter.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 480, 130, 50));
 
         jLabel22.setBackground(new java.awt.Color(102, 102, 255));
         jLabel22.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N

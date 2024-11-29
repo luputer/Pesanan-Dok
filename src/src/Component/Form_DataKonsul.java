@@ -202,7 +202,7 @@ public class Form_DataKonsul extends javax.swing.JPanel {
                 btTambahActionPerformed(evt);
             }
         });
-        dataKonsul.add(btTambah, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 490, 130, 50));
+        dataKonsul.add(btTambah, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 490, 130, 50));
 
         bt_edit.setBackground(new java.awt.Color(129, 179, 251));
         bt_edit.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -213,7 +213,7 @@ public class Form_DataKonsul extends javax.swing.JPanel {
                 bt_editActionPerformed(evt);
             }
         });
-        dataKonsul.add(bt_edit, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 490, 120, 50));
+        dataKonsul.add(bt_edit, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 490, 120, 50));
 
         jButton3.setBackground(new java.awt.Color(195, 224, 253));
         jButton3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -224,7 +224,7 @@ public class Form_DataKonsul extends javax.swing.JPanel {
                 jButton3ActionPerformed(evt);
             }
         });
-        dataKonsul.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(990, 490, 130, 50));
+        dataKonsul.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 490, 130, 50));
 
         mainPanel.add(dataKonsul, "card2");
 
