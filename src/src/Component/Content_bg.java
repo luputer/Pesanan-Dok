@@ -31,13 +31,22 @@ public class Content_bg extends javax.swing.JPanel {
         mainPanel = new javax.swing.JPanel();
         dashbord = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel19 = new javax.swing.JLabel();
+        jLabel20 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        jLabel18 = new javax.swing.JLabel();
         dataKonsul = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
         tblKonsul = new javax.swing.JTable();
@@ -55,6 +64,7 @@ public class Content_bg extends javax.swing.JPanel {
         tblPasien = new javax.swing.JTable();
         jLabel10 = new javax.swing.JLabel();
         btTambah = new javax.swing.JButton();
+        jLabel11 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
 
@@ -78,6 +88,10 @@ public class Content_bg extends javax.swing.JPanel {
         });
         dashbord.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 270, 80, 30));
 
+        jLabel12.setFont(new java.awt.Font("Segoe UI Semibold", 1, 24)); // NOI18N
+        jLabel12.setText("0");
+        dashbord.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 450, 40, -1));
+
         jLabel4.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
         jLabel4.setText("Lihat Selengkapnya                  ->");
         jLabel4.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -85,11 +99,11 @@ public class Content_bg extends javax.swing.JPanel {
                 jLabel4MouseClicked(evt);
             }
         });
-        dashbord.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 520, 220, -1));
+        dashbord.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 530, 220, -1));
 
         jLabel5.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
         jLabel5.setText("Menjaga kesehatan anda, itu tugas kami");
-        dashbord.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 200, 270, -1));
+        dashbord.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 190, 270, -1));
         dashbord.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, -1, -1));
 
         jLabel2.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
@@ -109,10 +123,42 @@ public class Content_bg extends javax.swing.JPanel {
             }
         });
         dashbord.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 520, 220, 30));
+
+        jLabel15.setFont(new java.awt.Font("Segoe UI Semibold", 1, 24)); // NOI18N
+        jLabel15.setText("Jauh Heatlink");
+        dashbord.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 410, -1, -1));
+
+        jLabel16.setFont(new java.awt.Font("Segoe UI Semibold", 1, 24)); // NOI18N
+        jLabel16.setText("mengenal lebih ");
+        dashbord.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 370, -1, -1));
+
+        jLabel17.setFont(new java.awt.Font("Segoe UI Semibold", 1, 24)); // NOI18N
+        jLabel17.setText("Betugas");
+        dashbord.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 400, -1, -1));
+
+        jLabel14.setFont(new java.awt.Font("Segoe UI Semibold", 1, 24)); // NOI18N
+        jLabel14.setText("Data Dokter yang ");
+        dashbord.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 370, -1, -1));
+
+        jLabel13.setFont(new java.awt.Font("Segoe UI Semibold", 1, 24)); // NOI18N
+        jLabel13.setText("0");
+        dashbord.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 450, 40, -1));
+
+        jLabel19.setFont(new java.awt.Font("Segoe UI Semibold", 1, 24)); // NOI18N
+        jLabel19.setText("Data Pasien Yang");
+        dashbord.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 370, -1, -1));
+
+        jLabel20.setFont(new java.awt.Font("Segoe UI Semibold", 1, 24)); // NOI18N
+        jLabel20.setText("Sedang Dirawat");
+        dashbord.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 400, -1, -1));
         dashbord.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, -1, -1));
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/asset/Dashboard (5).png"))); // NOI18N
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/asset/Dashboard (7).png"))); // NOI18N
         dashbord.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(-220, -260, 1950, 1060));
+
+        jLabel18.setFont(new java.awt.Font("Segoe UI Semibold", 1, 24)); // NOI18N
+        jLabel18.setText("0");
+        dashbord.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 450, 40, -1));
 
         mainPanel.add(dashbord, "card2");
 
@@ -256,6 +302,9 @@ public class Content_bg extends javax.swing.JPanel {
         dataPasien.add(btTambah, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 480, 130, 50));
 
         mainPanel.add(dataPasien, "card2");
+
+        jLabel11.setText("jLabel11");
+        mainPanel.add(jLabel11, "card7");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -426,7 +475,17 @@ public class Content_bg extends javax.swing.JPanel {
     private javax.swing.JPanel dataPasien;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
