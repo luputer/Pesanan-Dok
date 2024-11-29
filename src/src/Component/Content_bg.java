@@ -290,7 +290,7 @@ public class Content_bg extends javax.swing.JPanel {
         about.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/asset/ABOUT (1).png"))); // NOI18N
-        about.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1100, 570));
+        about.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(-120, -40, 1100, 570));
 
         mainPanel.add(about, "card3");
 

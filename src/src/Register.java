@@ -83,7 +83,7 @@ public class Register extends javax.swing.JFrame {
 
         jLabel17.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel17.setText("Alamat");
-        jPanel1.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 270, 90, -1));
+        jPanel1.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 260, 90, -1));
 
         txtNamaPasien.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         txtNamaPasien.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -202,7 +202,7 @@ public class Register extends javax.swing.JFrame {
                 jLabel6MouseClicked(evt);
             }
         });
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 540, -1, -1));
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 540, -1, -1));
 
         jLabel20.setText("Punya akun?");
         jLabel20.addMouseListener(new java.awt.event.MouseAdapter() {

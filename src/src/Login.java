@@ -36,7 +36,6 @@ public class Login extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
         txtPassword = new javax.swing.JPasswordField();
-        jLabel9 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         txtUsername = new javax.swing.JTextField();
@@ -45,8 +44,8 @@ public class Login extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
         btn_login = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
         lblDaftar = new javax.swing.JLabel();
         lblDaftar1 = new javax.swing.JLabel();
         jLabel63 = new javax.swing.JLabel();
@@ -58,8 +57,9 @@ public class Login extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jLabel10.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel10.setText("Menjaga kesahatan anda, itu tugas kami");
-        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 130, -1, -1));
+        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 120, -1, -1));
 
         txtPassword.setBackground(new java.awt.Color(195, 224, 253));
         txtPassword.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -78,10 +78,7 @@ public class Login extends javax.swing.JFrame {
                 txtPasswordActionPerformed(evt);
             }
         });
-        jPanel1.add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 280, 250, 40));
-
-        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/asset/Back.png"))); // NOI18N
-        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 370, -1, 30));
+        jPanel1.add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 280, 250, 40));
 
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/asset/dokter_login-removebg-preview 1 (2).png"))); // NOI18N
         jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(-20, 160, 500, 330));
@@ -124,14 +121,6 @@ public class Login extends javax.swing.JFrame {
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/asset/Rectangle 1 (1).png"))); // NOI18N
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 170, -1, -1));
 
-        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/asset/Rectangle 4 (1).png"))); // NOI18N
-        jLabel7.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel7MouseClicked(evt);
-            }
-        });
-        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 360, -1, -1));
-
         btn_login.setBackground(new java.awt.Color(129, 179, 251));
         btn_login.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btn_login.setForeground(new java.awt.Color(0, 0, 0));
@@ -148,6 +137,16 @@ public class Login extends javax.swing.JFrame {
         });
         jPanel1.add(btn_login, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 360, 130, 50));
 
+        jButton1.setBackground(new java.awt.Color(204, 204, 204));
+        jButton1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jButton1.setText("Exit");
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton1MouseClicked(evt);
+            }
+        });
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 360, 130, 50));
+
         lblDaftar.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         lblDaftar.setForeground(new java.awt.Color(0, 0, 0));
         lblDaftar.setText("Daftar Sekarang");
@@ -156,7 +155,7 @@ public class Login extends javax.swing.JFrame {
                 lblDaftarMouseClicked(evt);
             }
         });
-        jPanel1.add(lblDaftar, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 440, 100, -1));
+        jPanel1.add(lblDaftar, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 440, 100, -1));
 
         lblDaftar1.setForeground(new java.awt.Color(0, 0, 0));
         lblDaftar1.setText("Belum Punya Akun? ");
@@ -165,7 +164,7 @@ public class Login extends javax.swing.JFrame {
                 lblDaftar1MouseClicked(evt);
             }
         });
-        jPanel1.add(lblDaftar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 440, -1, -1));
+        jPanel1.add(lblDaftar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 440, -1, -1));
 
         jLabel63.setBackground(new java.awt.Color(102, 102, 255));
         jLabel63.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
@@ -275,11 +274,6 @@ public class Login extends javax.swing.JFrame {
 
     }//GEN-LAST:event_btn_loginActionPerformed
 
-    private void jLabel7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel7MouseClicked
-        // TODO add your handling code here:
-        dispose();
-    }//GEN-LAST:event_jLabel7MouseClicked
-
     private void txtUsernameFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtUsernameFocusGained
         // TODO add your handling code here:
         String user = txtUsername.getText();
@@ -332,6 +326,11 @@ public class Login extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_txtPasswordFocusLost
 
+    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+        // TODO add your handling code here:
+        dispose();
+    }//GEN-LAST:event_jButton1MouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -369,6 +368,7 @@ public class Login extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_login;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
@@ -377,9 +377,7 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel63;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblDaftar;
     private javax.swing.JLabel lblDaftar1;
